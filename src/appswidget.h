@@ -41,17 +41,29 @@ private slots:
     void onLoginClicked();
     void onAppCardClicked(const QString &appName, const QString &description);
     void onDownloadIpaClicked(const QString &name, const QString &bundleId);
+    void onSearchTextChanged();
+    void performSearch();
+    void onSearchFinished(int exitCode, QProcess::ExitStatus exitStatus);
 
 private:
     void setupUI();
     void createAppCard(const QString &name, const QString &bundleId,
                        const QString &description, const QString &iconPath,
                        QGridLayout *gridLayout, int row, int col);
+    void populateDefaultApps();
+    void clearAppGrid();
+    void showStatusMessage(const QString &message);
+
     QScrollArea *m_scrollArea;
     QWidget *m_contentWidget;
     QPushButton *m_loginButton;
     QLabel *m_statusLabel;
     bool m_isLoggedIn;
+
+    // Search
+    QLineEdit *m_searchEdit;
+    QTimer *m_debounceTimer;
+    QProcess *m_searchProcess;
 };
 
 #endif // APPSWIDGET_H

@@ -3,7 +3,6 @@
 #include "appdownloadbasedialog.h"
 #include "appdownloaddialog.h"
 #include "appinstalldialog.h"
-#include "libipatool.h"
 #include <QApplication>
 #include <QComboBox>
 #include <QDialog>
@@ -30,6 +29,75 @@
 #include <QTimer>
 #include <QVBoxLayout>
 #include <QWidget>
+
+#include <QAction>
+#include <QBuffer>
+#include <QDebug>
+#include <QImage>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QPainter>
+#include <QPainterPath>
+#include <QPixmap>
+#include <QUrl>
+
+// Callback: void(QPixmap)
+void fetchAppIconFromApple(const QString &bundleId,
+                           std::function<void(const QPixmap &)> callback,
+                           QObject *context)
+{
+    QNetworkAccessManager *manager = new QNetworkAccessManager(context);
+    QString url =
+        QString("https://itunes.apple.com/lookup?bundleId=%1").arg(bundleId);
+
+    QNetworkReply *reply = manager->get(QNetworkRequest(QUrl(url)));
+    QObject::connect(
+        reply, &QNetworkReply::finished, context,
+        [reply, callback, manager, context]() {
+            QByteArray data = reply->readAll();
+            reply->deleteLater();
+
+            QJsonParseError parseError;
+            QJsonDocument doc = QJsonDocument::fromJson(data, &parseError);
+            if (parseError.error != QJsonParseError::NoError) {
+                callback(QPixmap());
+                manager->deleteLater();
+                return;
+            }
+
+            QJsonObject obj = doc.object();
+            QJsonArray results = obj.value("results").toArray();
+            if (results.isEmpty()) {
+                callback(QPixmap());
+                manager->deleteLater();
+                return;
+            }
+
+            QJsonObject appInfo = results.at(0).toObject();
+            QString iconUrl = appInfo.value("artworkUrl100").toString();
+            if (iconUrl.isEmpty()) {
+                callback(QPixmap());
+                manager->deleteLater();
+                return;
+            }
+
+            // Fetch the icon image
+            QNetworkReply *iconReply =
+                manager->get(QNetworkRequest(QUrl(iconUrl)));
+            QObject::connect(iconReply, &QNetworkReply::finished, context,
+                             [iconReply, callback, manager]() {
+                                 QByteArray iconData = iconReply->readAll();
+                                 iconReply->deleteLater();
+                                 QPixmap pixmap;
+                                 pixmap.loadFromData(iconData);
+                                 callback(pixmap);
+                                 manager->deleteLater();
+                             });
+        });
+}
 
 // LoginDialog Implementation
 LoginDialog::LoginDialog(QWidget *parent) : QDialog(parent)
@@ -97,6 +165,8 @@ QString LoginDialog::getPassword() const { return m_passwordEdit->text(); }
 
 AppsWidget::AppsWidget(QWidget *parent) : QWidget(parent), m_isLoggedIn(false)
 {
+    m_searchProcess = new QProcess(this);
+    m_debounceTimer = new QTimer(this);
     setupUI();
 }
 
@@ -109,8 +179,7 @@ void AppsWidget::setupUI()
     // Header with login
     QFrame *headerFrame = new QFrame();
     headerFrame->setFixedHeight(60);
-    headerFrame->setStyleSheet(
-        "background-color: #f8f9fa; border-bottom: 1px solid #dee2e6;");
+    headerFrame->setStyleSheet("border-bottom: 1px solid #dee2e6;");
 
     QHBoxLayout *headerLayout = new QHBoxLayout(headerFrame);
     headerLayout->setContentsMargins(20, 10, 20, 10);
@@ -124,6 +193,7 @@ void AppsWidget::setupUI()
 
     // Create status label first
     m_statusLabel = new QLabel("Not signed in");
+    m_statusLabel->setStyleSheet("margin-right: 20px;");
 
     // --- Status and Login Button ---
     // int init_result = IpaToolInitialize();
@@ -199,11 +269,37 @@ void AppsWidget::setupUI()
     m_loginButton->setStyleSheet(
         "background-color: #007AFF; color: white; border: none; border-radius: "
         "4px; padding: 8px 16px; font-size: 14px;");
-    connect(m_loginButton, &QPushButton::clicked, this,
-            &AppsWidget::onLoginClicked);
     headerLayout->addWidget(m_loginButton);
 
     mainLayout->addWidget(headerFrame);
+
+    // --- Search Bar ---
+    QHBoxLayout *searchContainerLayout = new QHBoxLayout();
+    searchContainerLayout->setContentsMargins(20, 15, 20, 15);
+
+    m_searchEdit = new QLineEdit();
+    m_searchEdit->setPlaceholderText("Search for apps...");
+    m_searchEdit->setMaximumWidth(400);
+    m_searchEdit->setStyleSheet("QLineEdit { "
+                                "  padding: 8px; "
+                                "  border: 1px solid #ccc; "
+                                "  border-radius: 4px; "
+                                "  font-size: 14px; "
+                                "}");
+
+    QAction *searchAction = m_searchEdit->addAction(
+        this->style()->standardIcon(QStyle::SP_FileDialogContentsView),
+        QLineEdit::TrailingPosition);
+    searchAction->setToolTip("Search");
+    connect(searchAction, &QAction::triggered, this,
+            &AppsWidget::performSearch);
+
+    searchContainerLayout->addStretch();
+    searchContainerLayout->addWidget(m_searchEdit);
+    searchContainerLayout->addStretch();
+
+    mainLayout->addLayout(searchContainerLayout);
+
     // --- Status and Login Button ---
 
     // Scroll area for apps
@@ -216,6 +312,32 @@ void AppsWidget::setupUI()
     QGridLayout *gridLayout = new QGridLayout(m_contentWidget);
     gridLayout->setContentsMargins(20, 20, 20, 20);
     gridLayout->setSpacing(20);
+
+    populateDefaultApps();
+
+    m_scrollArea->setWidget(m_contentWidget);
+    mainLayout->addWidget(m_scrollArea);
+
+    // Connections
+    connect(m_loginButton, &QPushButton::clicked, this,
+            &AppsWidget::onLoginClicked);
+    connect(m_searchEdit, &QLineEdit::textChanged, this,
+            &AppsWidget::onSearchTextChanged);
+    m_debounceTimer->setSingleShot(true);
+    connect(m_debounceTimer, &QTimer::timeout, this,
+            &AppsWidget::performSearch);
+    connect(m_searchProcess,
+            QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this,
+            &AppsWidget::onSearchFinished);
+}
+
+void AppsWidget::populateDefaultApps()
+{
+    clearAppGrid();
+    QGridLayout *gridLayout =
+        qobject_cast<QGridLayout *>(m_contentWidget->layout());
+    if (!gridLayout)
+        return;
 
     // Create sample app cards
     createAppCard("Instagram", "com.burbn.instagram",
@@ -238,9 +360,37 @@ void AppsWidget::setupUI()
                   "Social news aggregation platform", "", gridLayout, 2, 2);
 
     gridLayout->setRowStretch(gridLayout->rowCount(), 1);
+}
 
-    m_scrollArea->setWidget(m_contentWidget);
-    mainLayout->addWidget(m_scrollArea);
+void AppsWidget::clearAppGrid()
+{
+    QGridLayout *gridLayout =
+        qobject_cast<QGridLayout *>(m_contentWidget->layout());
+    if (!gridLayout)
+        return;
+
+    QLayoutItem *item;
+    while ((item = gridLayout->takeAt(0)) != nullptr) {
+        if (item->widget()) {
+            item->widget()->deleteLater();
+        }
+        delete item;
+    }
+}
+
+void AppsWidget::showStatusMessage(const QString &message)
+{
+    clearAppGrid();
+    QGridLayout *gridLayout =
+        qobject_cast<QGridLayout *>(m_contentWidget->layout());
+    if (!gridLayout)
+        return;
+
+    QLabel *statusLabel = new QLabel(message);
+    statusLabel->setAlignment(Qt::AlignCenter);
+    statusLabel->setWordWrap(true);
+    statusLabel->setStyleSheet("font-size: 16px; color: #666;");
+    gridLayout->addWidget(statusLabel, 0, 0, 1, -1, Qt::AlignCenter);
 }
 
 void AppsWidget::createAppCard(const QString &name, const QString &bundleId,
@@ -249,10 +399,16 @@ void AppsWidget::createAppCard(const QString &name, const QString &bundleId,
                                int row, int col)
 {
     QFrame *cardFrame = new QFrame();
+    cardFrame->setObjectName("cardFrame");
     cardFrame->setFixedSize(200, 250);
-    cardFrame->setStyleSheet("QFrame { background-color: white; border: 1px "
-                             "solid #e0e0e0; border-radius: 8px; }"
-                             "QFrame:hover { border-color: #007AFF; }");
+    cardFrame->setStyleSheet("#cardFrame {"
+                             "  border: 1px solid #ddd;"
+                             "  border-radius: 8px;"
+                             "  background-color: #fff;"
+                             "}"
+                             "#cardFrame:hover {"
+                             "  border: 1.5px solid #007AFF;"
+                             "}");
     cardFrame->setCursor(Qt::PointingHandCursor);
 
     QVBoxLayout *cardLayout = new QVBoxLayout(cardFrame);
@@ -261,12 +417,35 @@ void AppsWidget::createAppCard(const QString &name, const QString &bundleId,
 
     // App icon
     QLabel *iconLabel = new QLabel();
-    QPixmap icon = QApplication::style()
-                       ->standardIcon(QStyle::SP_ComputerIcon)
-                       .pixmap(64, 64);
-    iconLabel->setPixmap(icon);
+    QPixmap placeholderIcon = QApplication::style()
+                                  ->standardIcon(QStyle::SP_ComputerIcon)
+                                  .pixmap(64, 64);
+    iconLabel->setPixmap(placeholderIcon);
     iconLabel->setAlignment(Qt::AlignCenter);
     cardLayout->addWidget(iconLabel);
+
+    fetchAppIconFromApple(
+        bundleId,
+        [iconLabel](const QPixmap &pixmap) {
+            if (!pixmap.isNull()) {
+                QPixmap scaled =
+                    pixmap.scaled(64, 64, Qt::KeepAspectRatioByExpanding,
+                                  Qt::SmoothTransformation);
+                QPixmap rounded(64, 64);
+                rounded.fill(Qt::transparent);
+
+                QPainter painter(&rounded);
+                painter.setRenderHint(QPainter::Antialiasing);
+                QPainterPath path;
+                path.addRoundedRect(QRectF(0, 0, 64, 64), 16, 16);
+                painter.setClipPath(path);
+                painter.drawPixmap(0, 0, scaled);
+                painter.end();
+
+                iconLabel->setPixmap(rounded);
+            }
+        },
+        cardFrame);
 
     // App name
     QLabel *nameLabel = new QLabel(name);
@@ -351,4 +530,95 @@ void AppsWidget::onAppCardClicked(const QString &appName,
 
     AppInstallDialog dialog(appName, description, this);
     dialog.exec();
+}
+
+void AppsWidget::onSearchTextChanged() { m_debounceTimer->start(300); }
+
+void AppsWidget::performSearch()
+{
+    if (m_searchProcess->state() == QProcess::Running) {
+        m_searchProcess->kill();
+        m_searchProcess->waitForFinished();
+    }
+
+    QString searchTerm = m_searchEdit->text().trimmed();
+    if (searchTerm.isEmpty()) {
+        populateDefaultApps();
+        return;
+    }
+
+    showStatusMessage(QString("Searching for \"%1\"...").arg(searchTerm));
+
+    QStringList args;
+    args << "search" << searchTerm << "--non-interactive"
+         << "--keychain-passphrase"
+         << "iDescriptor"
+         << "--format"
+         << "json";
+
+    m_searchProcess->start("ipatool", args);
+}
+
+void AppsWidget::onSearchFinished(int exitCode, QProcess::ExitStatus exitStatus)
+{
+    QString jsonOutput = m_searchProcess->readAllStandardOutput();
+    if (jsonOutput.isEmpty() && exitCode != 0) {
+        QString errorOutput = m_searchProcess->readAllStandardError();
+        qDebug() << "Search process failed:" << errorOutput;
+        showStatusMessage(
+            QString("Search failed: %1")
+                .arg(errorOutput.isEmpty() ? "Unknown error" : errorOutput));
+        return;
+    }
+
+    QJsonParseError parseError;
+    QJsonDocument doc =
+        QJsonDocument::fromJson(jsonOutput.toUtf8(), &parseError);
+
+    if (parseError.error != QJsonParseError::NoError) {
+        qDebug() << "JSON parse error:" << parseError.errorString()
+                 << " on output: " << jsonOutput;
+        showStatusMessage("Failed to parse search results.");
+        return;
+    }
+
+    QJsonObject rootObj = doc.object();
+    if (rootObj.value("level").toString() == "error") {
+        QString errorMessage =
+            rootObj.value("error").toString("Unknown search error.");
+        showStatusMessage(QString("Search error: %1").arg(errorMessage));
+        return;
+    }
+
+    QJsonArray appsArray = rootObj.value("apps").toArray();
+    if (appsArray.isEmpty()) {
+        showStatusMessage("No apps found.");
+        return;
+    }
+
+    clearAppGrid();
+    QGridLayout *gridLayout =
+        qobject_cast<QGridLayout *>(m_contentWidget->layout());
+    if (!gridLayout)
+        return;
+
+    int row = 0;
+    int col = 0;
+    const int maxCols = 3;
+
+    for (const QJsonValue &appValue : appsArray) {
+        QJsonObject appObj = appValue.toObject();
+        QString name = appObj.value("name").toString();
+        QString bundleId = appObj.value("bundleID").toString();
+        QString description = "Version: " + appObj.value("version").toString();
+
+        createAppCard(name, bundleId, description, "", gridLayout, row, col);
+
+        col++;
+        if (col >= maxCols) {
+            col = 0;
+            row++;
+        }
+    }
+    gridLayout->setRowStretch(gridLayout->rowCount(), 1);
 }
