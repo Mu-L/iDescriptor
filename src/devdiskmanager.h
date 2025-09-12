@@ -19,12 +19,10 @@ public:
     // TODO:public or private?
     // Image list management
     QNetworkReply *fetchImageList();
-    GetImagesSortedFinalResult parseImageList(const QByteArray &jsonData,
-                                              const QString &downloadPath,
-                                              int deviceMajorVersion = 0,
-                                              int deviceMinorVersion = 0,
-                                              const char *mounted_sig = nullptr,
-                                              uint64_t mounted_sig_len = 0);
+    GetImagesSortedFinalResult parseImageList(int deviceMajorVersion,
+                                              int deviceMinorVersion,
+                                              const char *mounted_sig,
+                                              uint64_t mounted_sig_len);
     QList<ImageInfo> getAllImages() const;
 
     // Download management
@@ -35,8 +33,7 @@ public:
 
     // Mount operations
 
-    bool mountImage(const QString &version, const QString &udid,
-                    const QString &downloadPath);
+    bool mountImage(const QString &version, const QString &udid);
     bool unmountImage();
 
     // Signature comparison
@@ -45,8 +42,8 @@ public:
 
     QByteArray getImageListData() const { return m_imageListJsonData; }
     GetMountedImageResult getMountedImage(const char *udid);
-    bool mountCompatibleImage(iDescriptorDevice *device,
-                              const QString &downloadPath);
+    bool mountCompatibleImage(iDescriptorDevice *device);
+    bool downloadCompatibleImage(iDescriptorDevice *device);
 
 signals:
     void imageListFetched(bool success,
@@ -83,10 +80,9 @@ private:
     GetImagesSortedResult
     getImagesSorted(QMap<QString, QMap<QString, QString>> imageFiles,
                     int deviceMajorVersion, int deviceMinorVersion,
-                    const QString &downloadPath, const char *mounted_sig,
-                    uint64_t mounted_sig_len);
-    bool mountCompatibleImageInternal(iDescriptorDevice *device,
-                                      const QString &downloadPath);
+                    const char *mounted_sig, uint64_t mounted_sig_len);
+    bool mountCompatibleImageInternal(iDescriptorDevice *device);
+    bool downloadCompatibleImageInternal(iDescriptorDevice *device);
 };
 
 #endif // DEVDISKMANAGER_H

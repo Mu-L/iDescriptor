@@ -2,6 +2,7 @@
 #include "appcontext.h"
 #include "devdiskmanager.h"
 #include "iDescriptor.h"
+#include "settingsmanager.h"
 #include <QCloseEvent>
 #include <QComboBox>
 #include <QCoreApplication>
@@ -88,9 +89,10 @@ void DevDiskImagesWidget::setupUi()
     m_imageListWidget = new QListWidget(this);
     m_stackedWidget->addWidget(m_imageListWidget);
 
-    m_downloadPath =
-        QDir(QCoreApplication::applicationDirPath()).filePath("devdiskimages");
-    m_downloadPathEdit->setText(m_downloadPath);
+    // m_downloadPath =
+    //     QDir(QCoreApplication::applicationDirPath()).filePath("devdiskimages");
+    m_downloadPathEdit->setText(
+        SettingsManager::sharedInstance()->devdiskimgpath());
 
     displayImages();
 }
@@ -145,8 +147,8 @@ void DevDiskImagesWidget::displayImages()
     // Parse images using manager
     GetImagesSortedFinalResult sortedResult =
         DevDiskManager::sharedInstance()->parseImageList(
-            QByteArray(), m_downloadPath, deviceMajorVersion,
-            deviceMinorVersion, m_mounted_sig, m_mounted_sig_len);
+            deviceMajorVersion, deviceMinorVersion, m_mounted_sig,
+            m_mounted_sig_len);
 
     auto compatibleImages = sortedResult.compatibleImages;
     auto otherImages = sortedResult.otherImages;
@@ -242,7 +244,9 @@ void DevDiskImagesWidget::onDownloadButtonClicked()
 
     QString version = button->property("version").toString();
 
-    QString versionPath = QDir(m_downloadPath).filePath(version);
+    QString versionPath =
+        QDir(SettingsManager::sharedInstance()->devdiskimgpath())
+            .filePath(version);
     if (QDir(versionPath).exists()) {
         auto reply = QMessageBox::question(
             this, "Confirm Overwrite",
@@ -281,7 +285,9 @@ void DevDiskImagesWidget::startDownload(const QString &version)
     progressBar->setVisible(true);
     progressBar->setValue(0);
 
-    QString targetDir = QDir(m_downloadPath).filePath(version);
+    QString targetDir =
+        QDir(SettingsManager::sharedInstance()->devdiskimgpath())
+            .filePath(version);
     if (!QDir().mkpath(targetDir)) {
         QMessageBox::critical(
             this, "Error",
@@ -384,7 +390,9 @@ void DevDiskImagesWidget::onFileDownloadFinished()
     QFileInfo fileInfo(path);
     QString filename = fileInfo.fileName();
     QString targetPath =
-        QDir(QDir(m_downloadPath).filePath(item->version)).filePath(filename);
+        QDir(QDir(SettingsManager::sharedInstance()->devdiskimgpath())
+                 .filePath(item->version))
+            .filePath(filename);
 
     QFile file(targetPath);
     if (!file.open(QIODevice::WriteOnly)) {
@@ -470,8 +478,8 @@ void DevDiskImagesWidget::mountImage(const QString &version)
         return;
     }
 
-    if (!DevDiskManager::sharedInstance()->isImageDownloaded(version,
-                                                             m_downloadPath)) {
+    if (!DevDiskManager::sharedInstance()->isImageDownloaded(
+            version, SettingsManager::sharedInstance()->devdiskimgpath())) {
         QMessageBox::warning(
             this, "Image Not Found",
             QString("The selected disk image for version %1 is not downloaded. "
@@ -483,8 +491,8 @@ void DevDiskImagesWidget::mountImage(const QString &version)
     m_mountButton->setEnabled(false);
     m_mountButton->setText("Mounting...");
 
-    bool success = DevDiskManager::sharedInstance()->mountImage(version, udid,
-                                                                m_downloadPath);
+    bool success = DevDiskManager::sharedInstance()->mountImage(
+        version, udid);
 
     m_mountButton->setEnabled(true);
     m_mountButton->setText("Mount");
@@ -503,14 +511,15 @@ void DevDiskImagesWidget::mountImage(const QString &version)
 
 void DevDiskImagesWidget::changeDownloadDirectory()
 {
-    QString dir = QFileDialog::getExistingDirectory(
-        this, "Select Download Directory", m_downloadPath,
-        QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
-    if (!dir.isEmpty() && dir != m_downloadPath) {
-        m_downloadPath = dir;
-        m_downloadPathEdit->setText(m_downloadPath);
-        displayImages();
-    }
+    // TODO: logic moved to settings manager
+    // QString dir = QFileDialog::getExistingDirectory(
+    //     this, "Select Download Directory", m_downloadPath,
+    //     QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+    // if (!dir.isEmpty() && dir != m_downloadPath) {
+    //     m_downloadPath = dir;
+    //     m_downloadPathEdit->setText(m_downloadPath);
+    //     displayImages();
+    // }
 }
 
 void DevDiskImagesWidget::closeEvent(QCloseEvent *event)

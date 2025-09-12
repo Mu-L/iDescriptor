@@ -67,7 +67,6 @@ private:
     QPushButton *m_mountButton;
     QPushButton *m_check_mountedButton;
 
-    QString m_downloadPath;
     iDescriptorDevice *m_currentDevice;
     QStringList m_compatibleVersions;
     QStringList m_otherVersions;

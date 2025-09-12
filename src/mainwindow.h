@@ -1,5 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include "devicemanagerwidget.h"
 #include "devicemenuwidget.h"
 #include "iDescriptor.h"
 #include "libirecovery.h"
@@ -24,17 +25,17 @@ public:
 signals:
     void deviceAdded(QString udid); // Signal for device connections
 
-private slots:
+public slots:
     void onRecoveryDeviceAdded(
         QObject *device_info); // Slot for recovery device connections
     void onRecoveryDeviceRemoved(
         QObject *device_info); // Slot for recovery device disconnections
     void onDeviceInitFailed(QString udid, lockdownd_error_t err);
-    void updateNoDevicesConnected();
 
 private:
-    std::map<std::string, QWidget *>
-        m_device_menu_widgets; // Map to store devices by UDID
+    void updateNoDevicesConnected();
+
     Ui::MainWindow *ui;
+    DeviceManagerWidget *m_deviceManager; // Add this member
 };
 #endif // MAINWINDOW_H

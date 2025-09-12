@@ -124,9 +124,9 @@ void AppContext::removeDevice(QString _udid)
 {
     const std::string uuid = _udid.toStdString();
     if (!m_devices.contains(uuid)) {
-        warn("Device with UUID " + _udid +
-                 " not found. Please report this issue.",
-             "Error");
+        qDebug() << "Device with UUID " + _udid +
+                        " not found. Please report this issue.",
+            "Error";
         return;
     }
 

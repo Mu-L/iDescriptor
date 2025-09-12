@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "detailwindow.h"
+#include "settingswidget.h"
 #include <QDialog>
 #include <QGraphicsScene>
 #include <QGraphicsSvgItem>
@@ -13,7 +14,7 @@
 #include <unistd.h>
 
 #include "appswidget.h"
-#include "devicetabwidget.h"
+#include "devicemanagerwidget.h"
 #include "iDescriptor.h"
 #include "libirecovery.h"
 #include "toolboxwidget.h"
@@ -116,35 +117,36 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // Replace the default tab widget with custom one
-    DeviceTabWidget *customTabWidget = new DeviceTabWidget(this);
+    m_deviceManager = new DeviceManagerWidget(this);
+    ui->stackedWidget->insertWidget(1, m_deviceManager);
+    connect(m_deviceManager, &DeviceManagerWidget::updateNoDevicesConnected,
+            this, &MainWindow::updateNoDevicesConnected);
 
-    // Replace the existing tabWidget in the UI
-    QWidget *tabWidgetParent = ui->tabWidget->parentWidget();
-    QLayout *parentLayout = tabWidgetParent->layout();
-
-    if (parentLayout) {
-        parentLayout->replaceWidget(ui->tabWidget, customTabWidget);
-    }
-
-    delete ui->tabWidget;
-    ui->tabWidget = customTabWidget;
+    // settings button
+    QPushButton *settingsButton = new QPushButton();
+    settingsButton->setIcon(QIcon::fromTheme("settings"));
+    settingsButton->setToolTip("Settings");
+    settingsButton->setFlat(true);
+    settingsButton->setCursor(Qt::PointingHandCursor);
+    settingsButton->setFixedSize(24, 24);
+    connect(settingsButton, &QPushButton::clicked, this, [this]() {
+        QDialog settingsDialog(this);
+        settingsDialog.setWindowTitle("Settings");
+        settingsDialog.setModal(true);
+        settingsDialog.resize(400, 300);
+        QVBoxLayout *layout = new QVBoxLayout(&settingsDialog);
+        SettingsWidget *settingsWidget = new SettingsWidget(&settingsDialog);
+        layout->addWidget(settingsWidget);
+        settingsDialog.setLayout(layout);
+        settingsDialog.exec();
+    });
+    ui->centralwidget->layout()->addWidget(settingsButton);
 
     ui->mainTabWidget->widget(1)->layout()->addWidget(new AppsWidget(this));
     ui->mainTabWidget->widget(2)->layout()->addWidget(new ToolboxWidget(this));
     ui->mainTabWidget->widget(3)->layout()->addWidget(
         new JailbrokenWidget(this));
 
-    customTabWidget->tabBar()->setMinimumWidth(75);
-    customTabWidget->setSizePolicy(QSizePolicy::Expanding,
-                                   QSizePolicy::Preferred);
-    customTabWidget->setStyleSheet("QTabWidget::pane {"
-                                   //    "  border: 1px solid #ccc;"
-                                   "}"
-                                   "QTabBar::tab {"
-                                   "  padding: 5px;"
-                                   "}");
-    // customTabWidget->tabBar()->setMinimumHeight(100);
     irecv_error_t res_recovery =
         irecv_device_event_subscribe(&context, handleCallbackRecovery, nullptr);
 
@@ -156,155 +158,6 @@ MainWindow::MainWindow(QWidget *parent)
     if (res != IDEVICE_E_SUCCESS) {
         printf("ERROR: Unable to subscribe to device events.\n");
     }
-
-    connect(
-        AppContext::sharedInstance(), &AppContext::deviceAdded, this,
-        [this](iDescriptorDevice *device) {
-            qDebug() << "Connect ::deviceAdded Adding:"
-                     << QString::fromStdString(device->udid);
-            // Create device info widget
-            DeviceMenuWidget *deviceWidget = new DeviceMenuWidget(device, this);
-            m_device_menu_widgets[device->udid] = deviceWidget;
-            // Get device icon and product type for tab
-            QString tabTitle =
-                QString::fromStdString(device->deviceInfo.productType);
-
-            // Add tab with custom icon
-            DeviceTabWidget *customTabWidget =
-                qobject_cast<DeviceTabWidget *>(ui->tabWidget);
-            int mostRecentDevice =
-                customTabWidget->addTabCustom(deviceWidget, tabTitle);
-            customTabWidget->setSizePolicy(QSizePolicy::Expanding,
-                                           QSizePolicy::Preferred);
-
-            updateNoDevicesConnected();
-
-            connect(customTabWidget, &DeviceTabWidget::navigationButtonClicked,
-                    this, [this](int tabIndex, const QString &buttonName) {
-                        // Get the widget at the specified tab index
-                        QWidget *tabWidget = ui->tabWidget->widget(tabIndex);
-                        DeviceMenuWidget *deviceMenuWidget =
-                            qobject_cast<DeviceMenuWidget *>(tabWidget);
-
-                        if (deviceMenuWidget) {
-                            // Call a method to change the internal tab
-                            deviceMenuWidget->switchToTab(buttonName);
-                        }
-                    });
-        });
-
-    connect(
-        AppContext::sharedInstance(), &AppContext::deviceRemoved, this,
-        [this](const std::string &uuid) {
-            qDebug() << "Removing:" << QString::fromStdString(uuid);
-            DeviceMenuWidget *deviceWidget =
-                qobject_cast<DeviceMenuWidget *>(m_device_menu_widgets[uuid]);
-
-            if (deviceWidget) {
-                ui->tabWidget->removeTab(ui->tabWidget->indexOf(deviceWidget));
-                m_device_menu_widgets.erase(uuid);
-                // deviceWidget->deleteLater();
-                delete deviceWidget;
-            }
-
-            updateNoDevicesConnected();
-        });
-
-    connect(
-        AppContext::sharedInstance(), &AppContext::devicePairPending, this,
-        [this](const QString &udid) {
-            QWidget *placeholderWidget = new QWidget();
-            QVBoxLayout *layout = new QVBoxLayout(placeholderWidget);
-            QLabel *label = new QLabel(
-                "Device is not paired. Please pair the device to continue.");
-            label->setAlignment(Qt::AlignCenter);
-            layout->addWidget(label);
-            placeholderWidget->setLayout(layout);
-            m_device_menu_widgets[udid.toStdString()] = placeholderWidget;
-
-            // DeviceTabWidget *customTabWidget =
-            //     qobject_cast<DeviceTabWidget *>(ui->tabWidget);
-
-            // QString tabTitle = QString::fromStdString(udid.toStdString());
-            // QPixmap placeholderIcon(16, 16);
-            // placeholderIcon.fill(Qt::red);
-
-            // int mostRecentDevice = customTabWidget->addTabWithIcon(
-            //     placeholderWidget, placeholderIcon, tabTitle);
-            int mostRecentDevice = ui->tabWidget->addTab(
-                placeholderWidget, QIcon(),
-                QString::fromStdString(udid.toStdString()));
-            // customTabWidget->setSizePolicy(QSizePolicy::Expanding,
-            //                                QSizePolicy::Preferred);
-            // customTabWidget->setCurrentIndex(mostRecentDevice);
-            ui->tabWidget->setCurrentIndex(mostRecentDevice);
-            ui->stackedWidget->setCurrentIndex(1); // Show device list page
-        });
-
-    connect(AppContext::sharedInstance(), &AppContext::devicePaired, this,
-            [this](iDescriptorDevice *device) {
-                qDebug() << "Device paired:"
-                         << QString::fromStdString(device->udid);
-
-                DeviceMenuWidget *deviceWidget = new DeviceMenuWidget(device);
-
-                // Find the tab index for this device
-                int tabIndex = -1;
-                for (int i = 0; i < ui->tabWidget->count(); ++i) {
-                    if (ui->tabWidget->tabText(i) ==
-                        QString::fromStdString(device->udid)) {
-                        tabIndex = i;
-                        break;
-                    }
-                }
-
-                // If tab exists, remove the old widget and tab
-                if (tabIndex != -1) {
-                    QWidget *oldWidget = ui->tabWidget->widget(tabIndex);
-                    ui->tabWidget->removeTab(tabIndex);
-                    if (oldWidget)
-                        oldWidget->deleteLater();
-                }
-
-                DeviceTabWidget *customTabWidget =
-                    qobject_cast<DeviceTabWidget *>(ui->tabWidget);
-
-                QString tabTitle =
-                    QString::fromStdString(device->deviceInfo.productType);
-
-                int mostRecentDevice =
-                    customTabWidget->addTabCustom(deviceWidget, tabTitle);
-                // int mostRecentDevice = ui->tabWidget->addTab(
-                // placeholderWidget, getDeviceIcon(udid.toStdString()),
-                // QString::fromStdString(udid.toStdString()));
-                customTabWidget->setSizePolicy(QSizePolicy::Expanding,
-                                               QSizePolicy::Preferred);
-                customTabWidget->setCurrentIndex(mostRecentDevice);
-                // ui->tabWidget->setCurrentIndex(mostRecentDevice);
-                ui->stackedWidget->setCurrentIndex(1); // Show device list page
-
-                // Clean up old mapping and update
-                if (m_device_menu_widgets.count(device->udid)) {
-                    m_device_menu_widgets[device->udid]->deleteLater();
-                }
-                m_device_menu_widgets[device->udid] = deviceWidget;
-            });
-
-    connect(
-        AppContext::sharedInstance(), &AppContext::recoveryDeviceRemoved, this,
-        [this](const QString &ecid) {
-            qDebug() << "Removing:" << ecid;
-            std::string ecidStr = ecid.toStdString();
-            DeviceMenuWidget *deviceWidget = qobject_cast<DeviceMenuWidget *>(
-                m_device_menu_widgets[ecidStr]);
-
-            if (deviceWidget) {
-                ui->tabWidget->removeTab(ui->tabWidget->indexOf(deviceWidget));
-                m_device_menu_widgets.erase(ecidStr);
-                delete deviceWidget;
-            }
-            updateNoDevicesConnected();
-        });
 }
 
 void MainWindow::updateNoDevicesConnected()
@@ -355,34 +208,16 @@ void MainWindow::onRecoveryDeviceAdded(QObject *recoveryDeviceInfoObj)
         // customTabWidget->addTabWithIcon(recoveryDeviceInfoWidget,
         // recoveryIcon, "Recovery Mode");
 
-        m_device_menu_widgets[added_ecid] = recoveryDeviceInfoWidget;
+        // m_device_menu_widgets[added_ecid] = recoveryDeviceInfoWidget;
         // Get device icon and product type for tab
         // QString tabTitle =
         // QString::fromStdString(device->product.toStdString());
         QString tabTitle = QString::fromStdString("recovery mode device");
 
         // Add tab with custom icon
-        DeviceTabWidget *customTabWidget =
-            qobject_cast<DeviceTabWidget *>(ui->tabWidget);
-        int mostRecentDevice =
-            customTabWidget->addTabCustom(recoveryDeviceInfoWidget, tabTitle);
-        customTabWidget->setSizePolicy(QSizePolicy::Expanding,
-                                       QSizePolicy::Preferred);
-
-        connect(customTabWidget, &DeviceTabWidget::navigationButtonClicked,
-                this, [this](int tabIndex, const QString &buttonName) {
-                    // Get the widget at the specified tab index
-                    QWidget *tabWidget = ui->tabWidget->widget(tabIndex);
-                    DeviceMenuWidget *deviceMenuWidget =
-                        qobject_cast<DeviceMenuWidget *>(tabWidget);
-
-                    if (deviceMenuWidget) {
-                        // Call a method to change the internal tab
-                        deviceMenuWidget->switchToTab(buttonName);
-                    }
-                });
-
-        ui->tabWidget->setCurrentIndex(mostRecentDevice);
+        // int mostRecentDevice =
+        //     m_deviceManager->addDevice(recoveryDeviceInfoWidget, tabTitle);
+        // m_deviceManager->setCurrentDevice(mostRecentDevice);
     } catch (const std::exception &e) {
         qDebug() << "Exception in onDeviceAdded: " << e.what();
         QMessageBox::critical(
@@ -398,19 +233,10 @@ void MainWindow::onRecoveryDeviceRemoved(QObject *deviceInfoObj)
         return;
 
     qDebug() << "Recovery device removed: " << info->ecid;
-    // Find the tab index for the recovery device
-    int tabIndex = -1;
-    for (int i = 0; i < ui->tabWidget->count(); ++i) {
-        if (ui->tabWidget->tabText(i) ==
-            QString::fromStdString("Recovery Mode Device")) {
-            tabIndex = i;
-            break;
-        }
-    }
-    if (tabIndex != -1) {
-        ui->tabWidget->removeTab(tabIndex);
-        qDebug() << "Removed tab for recovery device: " << info->ecid;
-    }
+
+    // TODO: Implement proper device removal in DeviceManagerWidget
+    // For now, we'll just log the removal
+    qDebug() << "Recovery device cleanup not yet implemented";
 }
 
 MainWindow::~MainWindow()
