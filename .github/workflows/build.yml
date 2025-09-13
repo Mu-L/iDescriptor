@@ -37,7 +37,7 @@ jobs:
             pkg-config \
             libpugixml-dev \
             libusb-1.0-0-dev \
-            libplist-2.0-dev \
+            libplist-dev \
             libqrencode-dev \
             libirecovery-1.0-dev
 
