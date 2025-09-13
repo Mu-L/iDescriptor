@@ -134,7 +134,7 @@ jobs:
           cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=${{ env.VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake
 
       - name: Build with CMake
-        run: cmake --build build --config Release --parallel
+        run: cmake --build build --config Release
 
       - name: Prepare for AppImage
         if: runner.os == 'Linux'
