@@ -58,7 +58,7 @@ jobs:
       - name: Download and Install Bonjour SDK (Windows)
         if: runner.os == 'Windows'
         run: |
-          wget https://gsf-fl.softonic.com/b18/d44/cbdcd43ad683cf6760d45ce891c3035044/bonjoursdksetup.exe?Expires=1757906571&Signature=af8dfce8a002130f34c0e93e17b8dd96d547ff69&url=https://bonjour.en.softonic.com/&Filename=bonjoursdksetup.exe -O bonjour-sdk.exe
+          wget "https://gsf-fl.softonic.com/b18/d44/cbdcd43ad683cf6760d45ce891c3035044/bonjoursdksetup.exe?Expires=1757906571&Signature=af8dfce8a002130f34c0e93e17b8dd96d547ff69&url=https://bonjour.en.softonic.com/&Filename=bonjoursdksetup.exe" -O bonjour-sdk.exe
           ./bonjour-sdk.exe /S
 
           # Compare checksum to verify download
