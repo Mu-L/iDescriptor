@@ -144,8 +144,18 @@ MainWindow::MainWindow(QWidget *parent)
     // ui->centralwidget->layout()->addWidget(settingsButton);
     ui->mainTabWidget->widget(1)->layout()->addWidget(new AppsWidget(this));
     ui->mainTabWidget->widget(2)->layout()->addWidget(new ToolboxWidget(this));
-    ui->mainTabWidget->widget(3)->layout()->addWidget(
-        new JailbrokenWidget(this));
+    auto *jailbrokenWidget = new JailbrokenWidget(this);
+    ui->mainTabWidget->widget(3)->layout()->addWidget(jailbrokenWidget);
+
+    // TODO: is this a good idea?
+    auto connection = std::make_shared<QMetaObject::Connection>();
+    *connection = connect(ui->mainTabWidget, &QTabWidget::currentChanged, this,
+                          [this, jailbrokenWidget, connection](int index) {
+                              if (index == 3) { // Jailbroken tab
+                                  jailbrokenWidget->initWidget();
+                                  QObject::disconnect(*connection);
+                              }
+                          });
 
     ui->statusbar->addPermanentWidget(settingsButton);
     irecv_error_t res_recovery =

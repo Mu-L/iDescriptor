@@ -26,8 +26,11 @@ endif()
 include_directories(${CUSTOM_INCLUDE_PATH})
 
 find_package(PkgConfig REQUIRED)
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Svg SvgWidgets Multimedia Network)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Svg SvgWidgets Multimedia Network)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Svg SvgWidgets Multimedia Network QuickControls2)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Svg SvgWidgets Multimedia Network QuickControls2)
+
+# Add QTermWidget
+pkg_check_modules(QTERMWIDGET REQUIRED IMPORTED_TARGET qtermwidget6)
 
 # Link directly to libraries in /usr/local/lib instead of using pkg-config
 # Force NO_DEFAULT_PATH to only search in /usr/local/lib
@@ -177,6 +180,7 @@ target_link_libraries(iDescriptor PRIVATE
     Qt${QT_VERSION_MAJOR}::Location
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt${QT_VERSION_MAJOR}::QuickWidgets
+    Qt${QT_VERSION_MAJOR}::QuickControls2
     ${IMOBILEDEVICE_LIBRARY}
     ${IMOBILEDEVICE_GLUE_LIBRARY}
     # ${PLIST_LIBRARY}
@@ -191,6 +195,7 @@ target_link_libraries(iDescriptor PRIVATE
     PkgConfig::USB
     PkgConfig::PLIST
     PkgConfig::QRENCODE
+    PkgConfig::QTERMWIDGET
     airplay
     ipatool-go
 )

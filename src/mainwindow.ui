@@ -138,9 +138,6 @@
        <layout class="QVBoxLayout" name="jailbrokenTabLayout">
         <item>
          <widget class="QLabel" name="jailbrokenLabel">
-          <property name="text">
-           <string>This is jailbroken tab</string>
-          </property>
          </widget>
         </item>
        </layout>
