@@ -1,6 +1,12 @@
 #include "jailbrokenwidget.h"
 #include "appcontext.h"
-#include "core/services/avahi_service.h"
+
+#ifdef __linux__
+#include "core/services/avahi/avahi_service.h"
+#else
+#include "core/services/dnssd/dnssd_service.h"
+#endif
+
 #include "iDescriptor-ui.h"
 #include "iDescriptor.h"
 #include <QButtonGroup>
@@ -48,12 +54,19 @@ JailbrokenWidget::JailbrokenWidget(QWidget *parent) : QWidget{parent}
     connect(AppContext::sharedInstance(), &AppContext::deviceRemoved, this,
             &JailbrokenWidget::onWiredDeviceRemoved);
 
-    // Initialize Avahi service
-    m_avahiService = new AvahiService(this);
-    connect(m_avahiService, &AvahiService::deviceAdded, this,
+#ifdef __linux__
+    m_wirelessProvider = new AvahiService(this);
+    connect(m_wirelessProvider, &AvahiService::deviceAdded, this,
             &JailbrokenWidget::onWirelessDeviceAdded);
-    connect(m_avahiService, &AvahiService::deviceRemoved, this,
+    connect(m_wirelessProvider, &AvahiService::deviceRemoved, this,
             &JailbrokenWidget::onWirelessDeviceRemoved);
+#else
+    m_wirelessProvider = new DnssdService(this);
+    connect(m_wirelessProvider, &DnssdService::deviceAdded, this,
+            &JailbrokenWidget::onWirelessDeviceAdded);
+    connect(m_wirelessProvider, &DnssdService::deviceRemoved, this,
+            &JailbrokenWidget::onWirelessDeviceRemoved);
+#endif
 
     // Right side: Device selection and Terminal
     QWidget *rightContainer = new QWidget();
@@ -81,7 +94,7 @@ JailbrokenWidget::JailbrokenWidget(QWidget *parent) : QWidget{parent}
             &JailbrokenWidget::checkSshData);
 
     // Start scanning for wireless devices
-    m_avahiService->startBrowsing();
+    m_wirelessProvider->startBrowsing();
 
     // Populate initial devices
     updateDeviceList();
@@ -164,7 +177,8 @@ void JailbrokenWidget::updateDeviceList()
     }
 
     // Add wireless devices
-    QList<NetworkDevice> wirelessDevices = m_avahiService->getNetworkDevices();
+    QList<NetworkDevice> wirelessDevices =
+        m_wirelessProvider->getNetworkDevices();
     for (const NetworkDevice &device : wirelessDevices) {
         addWirelessDevice(device);
     }

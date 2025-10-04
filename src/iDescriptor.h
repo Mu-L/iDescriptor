@@ -451,3 +451,16 @@ void fetchAppIconFromApple(const QString &bundleId,
 afc_error_t afc2_client_new(idevice_t device, afc_client_t *afc);
 
 void get_cable_info(idevice_t device, plist_t &response);
+
+struct NetworkDevice {
+    QString name;                           // service name
+    QString hostname;                       // e.g., iPhone-2.local
+    QString address;                        // IPv4 or IPv6 address
+    uint16_t port = 22;                     // SSH port
+    std::map<std::string, std::string> txt; // TXT records
+
+    bool operator==(const NetworkDevice &other) const
+    {
+        return name == other.name && address == other.address;
+    }
+};

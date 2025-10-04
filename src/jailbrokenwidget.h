@@ -1,7 +1,12 @@
 #ifndef JAILBROKENWIDGET_H
 #define JAILBROKENWIDGET_H
 
-#include "core/services/avahi_service.h"
+#ifdef __linux__
+#include "core/services/avahi/avahi_service.h"
+#else
+#include "core/services/dnssd/dnssd_service.h"
+#endif
+
 #include "iDescriptor.h"
 #include <QAbstractButton>
 #include <QButtonGroup>
@@ -63,10 +68,14 @@ private:
     QVBoxLayout *m_wirelessDevicesLayout;
     QButtonGroup *m_deviceButtonGroup;
 
-    // Avahi service for network discovery
-    AvahiService *m_avahiService;
+#ifdef Q_OS_LINUX
+    AvahiService *m_wirelessProvider = nullptr;
+#endif
 
-    // Selected device tracking
+#ifdef __APPLE__
+    DnssdService *m_wirelessProvider = nullptr;
+#endif
+
     DeviceType m_selectedDeviceType = DeviceType::None;
     iDescriptorDevice *m_selectedWiredDevice = nullptr;
     NetworkDevice m_selectedNetworkDevice;

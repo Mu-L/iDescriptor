@@ -1,6 +1,7 @@
 #ifndef AVAHI_SERVICE_H
 #define AVAHI_SERVICE_H
 
+#include "../../../iDescriptor.h"
 #include <QList>
 #include <QMutex>
 #include <QObject>
@@ -13,19 +14,6 @@
 #include <avahi-client/client.h>
 #include <avahi-client/lookup.h>
 #include <avahi-common/simple-watch.h>
-
-struct NetworkDevice {
-    QString name;                           // service name
-    QString hostname;                       // e.g., iPhone-2.local
-    QString address;                        // IPv4 or IPv6 address
-    uint16_t port = 22;                     // SSH port
-    std::map<std::string, std::string> txt; // TXT records
-
-    bool operator==(const NetworkDevice &other) const
-    {
-        return name == other.name && address == other.address;
-    }
-};
 
 class AvahiService : public QObject
 {
