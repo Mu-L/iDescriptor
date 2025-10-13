@@ -12,5 +12,28 @@
         <file>qml/MapView.qml</file>
         <file>resources/dump.js</file>
         <file>resources/iphone.png</file>
+        <file>resources/ios-wallpapers/iphone-ios4.png</file>
+        <file>resources/ios-wallpapers/iphone-ios5.png</file>
+        <file>resources/ios-wallpapers/iphone-ios6.png</file>
+        <file>resources/ios-wallpapers/iphone-ios7.png</file>
+        <file>resources/ios-wallpapers/iphone-ios8.png</file>
+        <file>resources/ios-wallpapers/iphone-ios9.png</file>
+        <file>resources/ios-wallpapers/iphone-ios10.png</file>
+        <file>resources/ios-wallpapers/iphone-ios11.png</file>
+        <file>resources/ios-wallpapers/iphone-ios12.png</file>
+        <file>resources/ios-wallpapers/iphone-ios13.png</file>
+        <file>resources/ios-wallpapers/iphone-ios14.png</file>
+        <file>resources/ios-wallpapers/iphone-ios15.png</file>
+        <file>resources/ios-wallpapers/iphone-ios16.png</file>
+        <file>resources/ios-wallpapers/iphone-ios17.png</file>
+        <file>resources/ios-wallpapers/iphone-ios18.png</file>
+        <file>resources/ios-wallpapers/iphone-ios26.png</file>
+        <file>resources/iphone-mockups/iphone-3.png</file>
+        <file>resources/iphone-mockups/iphone-4.png</file>
+        <file>resources/iphone-mockups/iphone-5.png</file>
+        <file>resources/iphone-mockups/iphone-6.png</file>
+        <file>resources/iphone-mockups/iphone-x.png</file>
+        <file>resources/iphone-mockups/iphone-15.png</file>
+        <file>resources/iphone-mockups/iphone-16.png</file>
     </qresource>
 </RCC>

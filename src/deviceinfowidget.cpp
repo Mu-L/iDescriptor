@@ -35,16 +35,13 @@ DeviceInfoWidget::DeviceInfoWidget(iDescriptorDevice *device, QWidget *parent)
 
     // Left side container for image and actions
     QWidget *leftContainer = new QWidget();
+    // leftContainer->setStyleSheet("margin-left: 100px");
     QVBoxLayout *leftLayout = new QVBoxLayout(leftContainer);
     leftLayout->setContentsMargins(0, 0, 0, 0);
     leftLayout->setSpacing(1);
 
-    // Create responsive image label
-    m_deviceImageLabel = new ResponsiveQLabel(this);
-    m_deviceImageLabel->setPixmap(QPixmap(":/resources/iphone.png"));
-    m_deviceImageLabel->setMinimumWidth(200);
-    m_deviceImageLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    m_deviceImageLabel->setStyleSheet("background: transparent; border: none;");
+    // Create responsive device image widget
+    m_deviceImageWidget = new DeviceImageWidget(device, this);
 
     // Actions group box
     QWidget *actionsWidget = new QWidget();
@@ -80,7 +77,7 @@ DeviceInfoWidget::DeviceInfoWidget(iDescriptorDevice *device, QWidget *parent)
     actionsLayout->addWidget(recoveryBtn);
 
     leftLayout->addStretch();
-    leftLayout->addWidget(m_deviceImageLabel);
+    leftLayout->addWidget(m_deviceImageWidget);
     leftLayout->addWidget(actionsWidget, 0, Qt::AlignCenter);
     leftLayout->addStretch();
 
@@ -327,29 +324,6 @@ void DeviceInfoWidget::onBatteryMoreClicked()
         QString::fromStdString(m_device->deviceInfo.batteryInfo.serialNumber);
     msgBox.setText(details);
     msgBox.exec();
-}
-
-QPixmap DeviceInfoWidget::getDeviceIcon(const std::string &productType)
-{
-    // Create a simple colored icon based on device type
-    QPixmap icon(16, 16);
-    icon.fill(Qt::transparent);
-
-    QPainter painter(&icon);
-    painter.setRenderHint(QPainter::Antialiasing);
-
-    if (productType.find("iPhone") != std::string::npos) {
-        painter.setBrush(QColor(0, 122, 255)); // iOS blue
-        painter.drawEllipse(2, 2, 12, 12);
-    } else if (productType.find("iPad") != std::string::npos) {
-        painter.setBrush(QColor(255, 149, 0)); // Orange
-        painter.drawRect(2, 2, 12, 12);
-    } else {
-        painter.setBrush(QColor(128, 128, 128)); // Gray for unknown
-        painter.drawEllipse(2, 2, 12, 12);
-    }
-
-    return icon;
 }
 
 void DeviceInfoWidget::updateBatteryInfo()

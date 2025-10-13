@@ -22,8 +22,6 @@ public:
     static void shutdownDevice(iDescriptorDevice *device);
     static void _enterRecoveryMode(iDescriptorDevice *device);
 private slots:
-    void onDeviceAdded();
-    void onDeviceRemoved();
     void onDeviceSelectionChanged();
     void onToolboxClicked(iDescriptorTool tool);
 

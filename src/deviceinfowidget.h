@@ -1,8 +1,8 @@
 #ifndef DEVICEINFOWIDGET_H
 #define DEVICEINFOWIDGET_H
 #include "batterywidget.h"
+#include "deviceimagewidget.h"
 #include "iDescriptor.h"
-#include "responsiveqlabel.h"
 #include <QLabel>
 #include <QTimer>
 #include <QWidget>
@@ -18,7 +18,6 @@ private slots:
     void onBatteryMoreClicked();
 
 private:
-    QPixmap getDeviceIcon(const std::string &productType);
     iDescriptorDevice *m_device;
     QTimer *m_updateTimer;
     void updateBatteryInfo();
@@ -28,7 +27,7 @@ private:
     BatteryWidget *m_batteryWidget;
     QLabel *m_lightningIconLabel;
 
-    ResponsiveQLabel *m_deviceImageLabel = nullptr;
+    DeviceImageWidget *m_deviceImageWidget;
 };
 
 #endif // DEVICEINFOWIDGET_H
