@@ -55,19 +55,20 @@ DeviceInfoWidget::DeviceInfoWidget(iDescriptorDevice *device, QWidget *parent)
     actionsLayout->setSpacing(10);
 
     ClickableIconWidget *shutdownBtn = new ClickableIconWidget(
-        QIcon(":/icons/IcOutlinePowerSettingsNew.png"), "Shutdown", this);
+        QIcon(":/resources/icons/IcOutlinePowerSettingsNew.png"), "Shutdown",
+        this);
     shutdownBtn->setIconSize(QSize(20, 20));
     connect(shutdownBtn, &ClickableIconWidget::clicked, this,
             [device]() { ToolboxWidget::shutdownDevice(device); });
 
     ClickableIconWidget *restartBtn = new ClickableIconWidget(
-        QIcon(":/icons/IcTwotoneRestartAlt.png"), "Restart", this);
+        QIcon(":/resources/icons/IcTwotoneRestartAlt.png"), "Restart", this);
     restartBtn->setIconSize(QSize(20, 20));
     connect(restartBtn, &ClickableIconWidget::clicked, this,
             [device]() { ToolboxWidget::restartDevice(device); });
 
     ClickableIconWidget *recoveryBtn = new ClickableIconWidget(
-        QIcon(":/icons/HugeiconsWrench01.png"), "Recovery", this);
+        QIcon(":/resources/icons/HugeiconsWrench01.png"), "Recovery", this);
     recoveryBtn->setIconSize(QSize(20, 20));
     connect(recoveryBtn, &ClickableIconWidget::clicked, this,
             [device]() { ToolboxWidget::_enterRecoveryMode(device); });
@@ -130,7 +131,7 @@ DeviceInfoWidget::DeviceInfoWidget(iDescriptorDevice *device, QWidget *parent)
 
     // Create icon label
     m_lightningIconLabel = new QLabel();
-    QPixmap lightningIcon(":/icons/MdiLightningBolt.png");
+    QPixmap lightningIcon(":/resources/icons/MdiLightningBolt.png");
     QPixmap scaledIcon = lightningIcon.scaled(26, 26, Qt::KeepAspectRatio,
                                               Qt::SmoothTransformation);
     m_lightningIconLabel->setPixmap(scaledIcon);

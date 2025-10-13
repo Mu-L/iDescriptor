@@ -110,8 +110,8 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    setWindowIcon(QIcon(":/icons/icon.png"));
+    // TODO
+    // setWindowIcon(QIcon(":/resources/icons/icon.png"));
 
     // Create custom tab widget
     m_customTabWidget = new CustomTabWidget(this);
@@ -150,7 +150,7 @@ MainWindow::MainWindow(QWidget *parent)
             this, &MainWindow::updateNoDevicesConnected);
 
     // Add tabs with icons
-    QIcon deviceIcon(":/icons/MdiLightningBolt.png");
+    QIcon deviceIcon(":/resources/icons/MdiLightningBolt.png");
     m_customTabWidget->addTab(m_mainStackedWidget, deviceIcon, "iDevice");
     m_customTabWidget->addTab(new AppsWidget(this), "Apps");
     m_customTabWidget->addTab(new ToolboxWidget(this), "Toolbox");
@@ -170,7 +170,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     // settings button
     QPushButton *settingsButton = new QPushButton();
-    settingsButton->setIcon(QIcon(":/icons/MingcuteSettings7Line.png"));
+    settingsButton->setIcon(
+        QIcon(":/resources/icons/MingcuteSettings7Line.png"));
     settingsButton->setToolTip("Settings");
     settingsButton->setFlat(true);
     settingsButton->setCursor(Qt::PointingHandCursor);

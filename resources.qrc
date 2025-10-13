@@ -1,16 +1,16 @@
 <RCC>
     <qresource prefix="/">
-        <file>icons/ArrowMoveDownRight.svg</file>
-        <file>icons/video-x-generic.png</file>
-        <file>icons/MdiLightningBolt.png</file>
-        <file>icons/MingcuteSettings7Line.png</file>
-        <file>icons/ClarityHardDiskSolidAlerted.png</file>
-        <file>icons/IcOutlinePowerSettingsNew.png</file>
-        <file>icons/HugeiconsWrench01.png</file>
-        <file>icons/IcTwotoneRestartAlt.png</file>
-        <file>icons/icon.png</file>
+        <file>resources/icons/video-x-generic.png</file>
+        <file>resources/icons/MdiLightningBolt.png</file>
+        <file>resources/icons/MingcuteSettings7Line.png</file>
+        <file>resources/icons/ClarityHardDiskSolidAlerted.png</file>
+        <file>resources/icons/IcOutlinePowerSettingsNew.png</file>
+        <file>resources/icons/HugeiconsWrench01.png</file>
+        <file>resources/icons/IcTwotoneRestartAlt.png</file>
+        <!-- <file>resources/icons/icon.png</file> -->
         <file>qml/MapView.qml</file>
-        <file>resources/dump.js</file>
+        <!-- TODO: -->
+        <!-- <file>resources/dump.js</file> -->
         <file>resources/iphone.png</file>
         <file>resources/ios-wallpapers/iphone-ios4.png</file>
         <file>resources/ios-wallpapers/iphone-ios5.png</file>

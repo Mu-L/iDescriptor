@@ -142,7 +142,7 @@ QVariant PhotoModel::data(const QModelIndex &index, int role) const
                 info.fileName.endsWith(".MP4", Qt::CaseInsensitive) ||
                 info.fileName.endsWith(".M4V", Qt::CaseInsensitive)) {
                 // return QIcon::fromTheme("video-x-generic");
-                return QIcon(":/icons/video-x-generic.png");
+                return QIcon(":/resources/icons/video-x-generic.png");
             } else {
                 return QIcon::fromTheme("image-x-generic");
             }
@@ -160,7 +160,7 @@ QVariant PhotoModel::data(const QModelIndex &index, int role) const
             info.fileName.endsWith(".MP4", Qt::CaseInsensitive) ||
             info.fileName.endsWith(".M4V", Qt::CaseInsensitive)) {
             // return QIcon::fromTheme("video-x-generic");
-            return QIcon(":/icons/video-x-generic.png");
+            return QIcon(":/resources/icons/video-x-generic.png");
         } else {
             return QIcon::fromTheme("image-x-generic");
         }
