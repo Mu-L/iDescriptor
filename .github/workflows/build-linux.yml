@@ -5,7 +5,7 @@ on:
 
 jobs:
   build-linux:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -49,7 +49,12 @@ jobs:
             libxcb-cursor0 \
             libxkbcommon-x11-0 \
             libheif-dev \
-            libqtermwidget6-2-dev
+            libqtermwidget6-2-dev \
+            libplist-dev \
+            libtatsu-dev \
+            libimobiledevice-dev \
+            libimobiledevice-glue-dev \
+            libirecovery-1.0-dev
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
@@ -57,21 +62,21 @@ jobs:
           version: "6.7.2"
           modules: "qtmultimedia qtlocation qtpositioning qtserialport"
 
-      - name: Build libimobiledevice suite
-        run: |
-          repos=("libplist" "libtatsu" "libimobiledevice-glue" "libimobiledevice" "libirecovery")
+      # - name: Build libimobiledevice suite
+      #   run: |
+      #     repos=("libplist" "libtatsu" "libimobiledevice-glue" "libimobiledevice" "libirecovery")
 
-          for repo in "${repos[@]}"; do
-            echo "Building $repo..."
+      #     for repo in "${repos[@]}"; do
+      #       echo "Building $repo..."
 
-            git clone --depth=1 --recursive "https://github.com/libimobiledevice/$repo"
-            pushd "$repo"
-            ./autogen.sh
-            sudo make install
-            popd
+      #       git clone --depth=1 --recursive "https://github.com/libimobiledevice/$repo"
+      #       pushd "$repo"
+      #       ./autogen.sh
+      #       sudo make install
+      #       popd
 
-            echo "Built $repo successfully."
-          done
+      #       echo "Built $repo successfully."
+      #     done
 
       - name: Update linker cache
         run: sudo ldconfig
@@ -83,11 +88,14 @@ jobs:
       - name: Build with CMake
         run: cmake --build build --config Release
 
-      - name: Prepare for AppImage
+      - name: Prepare AppDir
         run: |
-          cp resources/icons/app-icon/icon.png build/iDescriptor.png
-
-          cat <<EOF > build/iDescriptor.desktop
+          mkdir -p build/AppDir/usr/bin
+          mkdir -p build/AppDir/usr/share/applications
+          mkdir -p build/AppDir/usr/share/icons/hicolor/256x256/apps
+          mv build/iDescriptor build/AppDir/usr/bin/
+          cp resources/icons/app-icon/icon.png build/AppDir/usr/share/icons/hicolor/256x256/apps/iDescriptor.png
+          cat <<EOF > build/AppDir/usr/share/applications/iDescriptor.desktop
           [Desktop Entry]
           Name=iDescriptor
           Exec=iDescriptor
@@ -96,16 +104,16 @@ jobs:
           Categories=Utility;
           EOF
 
-      - name: Install linuxdeployqt
+      - name: Install appimagetool
         run: |
-          wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
-          chmod a+x linuxdeployqt-continuous-x86_64.AppImage
+          wget -c "https://github.com$(wget -q https://github.com/probonopd/go-appimage/releases/expanded_assets/continuous -O - | grep "appimagetool-.*-x86_64.AppImage" | head -n 1 | cut -d '"' -f 2)"
+          chmod a+x appimagetool-*.AppImage
 
       - name: Build AppImage
         working-directory: ./build
         run: |
-          export VERSION=1.0.0
-          ../linuxdeployqt-continuous-x86_64.AppImage iDescriptor -appimage
+          ../appimagetool-*.AppImage deploy AppDir/usr/share/applications/*.desktop
+          VERSION=1.0.0 ../appimagetool-*.AppImage AppDir
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
