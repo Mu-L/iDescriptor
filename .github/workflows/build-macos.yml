@@ -31,11 +31,11 @@ jobs:
 
       - name: Update pkgconfig path
         run: |
-          ls "${Qt6_DIR}/lib/pkgconfig"
+          ls "${QT_ROOT_DIR}/lib/pkgconfig"
 
           # write KEY=VALUE lines to GITHUB_ENV (required format)
-          echo "PKG_CONFIG_PATH=${Qt6_DIR}/lib/pkgconfig:${PKG_CONFIG_PATH:-}" >> "$GITHUB_ENV"
-          echo "CMAKE_PREFIX_PATH=${Qt6_DIR}/lib/cmake:${CMAKE_PREFIX_PATH:-}" >> "$GITHUB_ENV"
+          echo "PKG_CONFIG_PATH=${QT_ROOT_DIR}/lib/pkgconfig:${PKG_CONFIG_PATH:-}" >> "$GITHUB_ENV"
+          echo "CMAKE_PREFIX_PATH=${QT_ROOT_DIR}/lib/cmake:${CMAKE_PREFIX_PATH:-}" >> "$GITHUB_ENV"
 
       - name: Set up Go
         uses: actions/setup-go@v6
@@ -121,8 +121,8 @@ jobs:
 
       - name: Configure CMake
         run: |
-          PKG_CONFIG_PATH="${Qt6_DIR}/lib/pkgconfig:${PKG_CONFIG_PATH:-}" \
-          CMAKE_PREFIX_PATH="${Qt6_DIR}/lib/cmake:${CMAKE_PREFIX_PATH:-}" \
+          PKG_CONFIG_PATH="${QT_ROOT_DIR}/lib/pkgconfig:${PKG_CONFIG_PATH:-}" \
+          CMAKE_PREFIX_PATH="${QT_ROOT_DIR}/lib/cmake:${CMAKE_PREFIX_PATH:-}" \
           cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DRUN_CLANG_TIDY=OFF
 
       - name: Build with CMake
