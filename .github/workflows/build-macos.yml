@@ -59,10 +59,11 @@ jobs:
 
           base_url="https://github.com/libimobiledevice"
 
-          libs=( "libplist" "libtatsu" "libimobiledevice-glue" "libusbmuxd" "libimobiledevice" "libirecovery")
+          libs=( "libplist" "libtatsu" "libimobiledevice-glue" "libusbmuxd" "libimobiledevice" "libirecovery" "ifuse" )
 
           for name in "${libs[@]}"; do
-            ver_var=$(echo "${name^^}_VER" | sed 's/-/_/g')   # e.g. LIBPLIST_VER
+            # Use tr for POSIX-compliant uppercase conversion instead of bash 4+ ^^ syntax
+            ver_var=$(echo "$name" | tr '[:lower:]' '[:upper:]' | sed 's/-/_/g')_VER
             ver="${!ver_var:-}"
             if [ -z "$ver" ]; then
               echo "Version for $name not set (env var $ver_var)"
