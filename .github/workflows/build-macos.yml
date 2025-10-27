@@ -28,6 +28,8 @@ jobs:
         with:
           version: ${{ env.QT_VERSION }}
           modules: "qtmultimedia qtlocation qtpositioning qtserialport"
+          target: "desktop"
+          arch: "clang_64"
           use-official: true
           email: ${{ secrets.QT_EMAIL }}
           pw: ${{ secrets.QT_PW }}
