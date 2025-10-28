@@ -33,7 +33,7 @@ jobs:
         run: |
           # ls "${QT_ROOT_DIR}/lib/pkgconfig"
 
-          # echo "PKG_CONFIG_PATH=/opt/homebrew/lib/pkgconfig:${PKG_CONFIG_PATH:-}" >> "$GITHUB_ENV"
+          echo "PKG_CONFIG_PATH=/opt/homebrew/lib/pkgconfig:${PKG_CONFIG_PATH:-}" >> "$GITHUB_ENV"
           echo "CMAKE_PREFIX_PATH=${QT_ROOT_DIR}/lib/cmake:${CMAKE_PREFIX_PATH:-}" >> "$GITHUB_ENV"
 
       - name: Set up Go
