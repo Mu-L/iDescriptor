@@ -17,8 +17,8 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef WIRELESSPHOTOIMPORTWIDGET_H
-#define WIRELESSPHOTOIMPORTWIDGET_H
+#ifndef WIRELESSGALLERYIMPORTWIDGET_H
+#define WIRELESSGALLERYIMPORTWIDGET_H
 
 #include "qprocessindicator.h"
 #include <QHBoxLayout>
@@ -32,13 +32,13 @@
 #include <QVideoWidget>
 #include <QWidget>
 
-class WirelessPhotoImportWidget : public QWidget
+class WirelessGalleryImportWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit WirelessPhotoImportWidget(QWidget *parent = nullptr);
-    ~WirelessPhotoImportWidget();
+    explicit WirelessGalleryImportWidget(QWidget *parent = nullptr);
+    ~WirelessGalleryImportWidget();
 
     QStringList getSelectedFiles() const;
 
@@ -75,4 +75,4 @@ private:
     QStringList getGalleryCompatibleExtensions() const;
 };
 
-#endif // WIRELESSPHOTOIMPORTWIDGET_H
+#endif // WIRELESSGALLERYIMPORTWIDGET_H

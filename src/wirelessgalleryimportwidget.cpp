@@ -17,7 +17,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "wirelessphotoimportwidget.h"
+#include "wirelessgalleryimportwidget.h"
 #include "photoimportdialog.h"
 #include <QFileDialog>
 #include <QFileInfo>
@@ -28,7 +28,7 @@
 #include <QStandardPaths>
 #include <QTimer>
 
-WirelessPhotoImportWidget::WirelessPhotoImportWidget(QWidget *parent)
+WirelessGalleryImportWidget::WirelessGalleryImportWidget(QWidget *parent)
     : QWidget(parent), m_leftPanel(nullptr), m_scrollArea(nullptr),
       m_scrollContent(nullptr), m_fileListLayout(nullptr),
       m_browseButton(nullptr), m_importButton(nullptr), m_statusLabel(nullptr),
@@ -38,17 +38,17 @@ WirelessPhotoImportWidget::WirelessPhotoImportWidget(QWidget *parent)
 {
     setupUI();
     QTimer::singleShot(100, this,
-                       &WirelessPhotoImportWidget::setupTutorialVideo);
+                       &WirelessGalleryImportWidget::setupTutorialVideo);
 }
 
-WirelessPhotoImportWidget::~WirelessPhotoImportWidget()
+WirelessGalleryImportWidget::~WirelessGalleryImportWidget()
 {
     if (m_tutorialPlayer) {
         m_tutorialPlayer->stop();
     }
 }
 
-void WirelessPhotoImportWidget::setupUI()
+void WirelessGalleryImportWidget::setupUI()
 {
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins(10, 10, 10, 10);
@@ -63,7 +63,7 @@ void WirelessPhotoImportWidget::setupUI()
     // Browse button
     m_browseButton = new QPushButton("Select Files");
     connect(m_browseButton, &QPushButton::clicked, this,
-            &WirelessPhotoImportWidget::onBrowseFiles);
+            &WirelessGalleryImportWidget::onBrowseFiles);
     leftLayout->addWidget(m_browseButton);
 
     // Status label
@@ -90,7 +90,7 @@ void WirelessPhotoImportWidget::setupUI()
     m_importButton = new QPushButton("Import Photos to iOS");
     m_importButton->setEnabled(false);
     connect(m_importButton, &QPushButton::clicked, this,
-            &WirelessPhotoImportWidget::onImportPhotos);
+            &WirelessGalleryImportWidget::onImportPhotos);
     leftLayout->addWidget(m_importButton);
 
     mainLayout->addWidget(m_leftPanel, 1);
@@ -122,7 +122,7 @@ void WirelessPhotoImportWidget::setupUI()
     mainLayout->addWidget(m_rightPanel, 1);
 }
 
-void WirelessPhotoImportWidget::setupTutorialVideo()
+void WirelessGalleryImportWidget::setupTutorialVideo()
 {
     m_tutorialPlayer = new QMediaPlayer(this);
     m_tutorialVideoWidget = new QVideoWidget();
@@ -166,7 +166,7 @@ void WirelessPhotoImportWidget::setupTutorialVideo()
     m_tutorialLayout->addWidget(m_tutorialVideoWidget);
 }
 
-void WirelessPhotoImportWidget::onBrowseFiles()
+void WirelessGalleryImportWidget::onBrowseFiles()
 {
     QStringList files = QFileDialog::getOpenFileNames(
         this, "Select Photos/Videos to Import",
@@ -192,7 +192,7 @@ void WirelessPhotoImportWidget::onBrowseFiles()
     updateStatusLabel();
 }
 
-void WirelessPhotoImportWidget::updateFileList()
+void WirelessGalleryImportWidget::updateFileList()
 {
     // Clear existing file list
     QLayoutItem *child;
@@ -231,7 +231,7 @@ void WirelessPhotoImportWidget::updateFileList()
     m_importButton->setEnabled(!m_selectedFiles.isEmpty());
 }
 
-void WirelessPhotoImportWidget::updateStatusLabel()
+void WirelessGalleryImportWidget::updateStatusLabel()
 {
     if (m_selectedFiles.isEmpty()) {
         m_statusLabel->setText("No files selected");
@@ -241,7 +241,7 @@ void WirelessPhotoImportWidget::updateStatusLabel()
     }
 }
 
-void WirelessPhotoImportWidget::onRemoveFile(int index)
+void WirelessGalleryImportWidget::onRemoveFile(int index)
 {
     if (index >= 0 && index < m_selectedFiles.size()) {
         m_selectedFiles.removeAt(index);
@@ -250,13 +250,13 @@ void WirelessPhotoImportWidget::onRemoveFile(int index)
     }
 }
 
-QStringList WirelessPhotoImportWidget::getGalleryCompatibleExtensions() const
+QStringList WirelessGalleryImportWidget::getGalleryCompatibleExtensions() const
 {
     return {"jpg",  "jpeg", "png", "gif", "bmp", "tiff", "tif", "webp", "heic",
             "heif", "mp4",  "mov", "avi", "mkv", "m4v",  "3gp", "webm"};
 }
 
-bool WirelessPhotoImportWidget::isGalleryCompatible(
+bool WirelessGalleryImportWidget::isGalleryCompatible(
     const QString &filePath) const
 {
     QFileInfo info(filePath);
@@ -264,7 +264,7 @@ bool WirelessPhotoImportWidget::isGalleryCompatible(
     return getGalleryCompatibleExtensions().contains(ext);
 }
 
-void WirelessPhotoImportWidget::onImportPhotos()
+void WirelessGalleryImportWidget::onImportPhotos()
 {
     if (m_selectedFiles.isEmpty()) {
         QMessageBox::warning(this, "No Files",
@@ -276,7 +276,7 @@ void WirelessPhotoImportWidget::onImportPhotos()
     dialog.exec();
 }
 
-QStringList WirelessPhotoImportWidget::getSelectedFiles() const
+QStringList WirelessGalleryImportWidget::getSelectedFiles() const
 {
     return m_selectedFiles;
 }
