@@ -42,7 +42,7 @@
 #define AFC2_SERVICE_NAME "com.apple.afc2"
 #define RECOVERY_CLIENT_CONNECTION_TRIES 3
 #define APPLE_VENDOR_ID 0x05ac
-
+#define REPO_URL "https://github.com/uncor3/iDescriptor"
 // This is because afc_read_directory accepts  "/var/mobile/Media" as "/"
 #define POSSIBLE_ROOT "../../../../"
 

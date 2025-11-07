@@ -18,8 +18,10 @@
  */
 
 #include "sponsorwidget.h"
+#include "iDescriptor.h" // Include for REPO_URL
 #include "sponsorappcard.h"
 #include <QLabel>
+#include <QUrl>
 #include <QVBoxLayout>
 
 SponsorWidget::SponsorWidget(QWidget *parent) : QWidget(parent)
@@ -34,10 +36,21 @@ SponsorWidget::SponsorWidget(QWidget *parent) : QWidget(parent)
                    "And in order to keep it that way, we rely on donations. "
                    "Consider becoming a sponsor to support "
                    "and promote your app/brand here");
+
+    QLabel *contactDesc = new QLabel();
+    contactDesc->setTextFormat(Qt::RichText);
+    contactDesc->setOpenExternalLinks(true);
+    contactDesc->setText(
+        QString(
+            "You can read more about sponsorships on our "
+            "<a href=\"%1\" style=\"color: #2980b9;\">github repository</a>.")
+            .arg(REPO_URL));
+
     sponsorDesc->setStyleSheet("font-size: 10pt;");
     sponsorDesc->setWordWrap(true);
     layout()->addWidget(sponsorTitle);
     layout()->addWidget(sponsorDesc);
+    layout()->addWidget(contactDesc);
     QLabel *sponsorIconLabel = new QLabel("Example:");
     layout()->addWidget(sponsorIconLabel);
     SponsorAppCard *card = new SponsorAppCard(this);

@@ -179,10 +179,8 @@ MainWindow::MainWindow(QWidget *parent)
         QIcon(":/resources/icons/MdiGithub.png"), "iDescriptor on GitHub");
     githubButton->setCursor(Qt::PointingHandCursor);
     githubButton->setFixedSize(24, 24);
-    connect(githubButton, &ZIconWidget::clicked, this, []() {
-        QDesktopServices::openUrl(
-            QUrl("https://github.com/uncor3/iDescriptor"));
-    });
+    connect(githubButton, &ZIconWidget::clicked, this,
+            []() { QDesktopServices::openUrl(QUrl(REPO_URL)); });
 
     m_connectedDeviceCountLabel = new QLabel("iDescriptor: no devices");
     m_connectedDeviceCountLabel->setContentsMargins(5, 0, 5, 0);

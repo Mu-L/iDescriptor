@@ -20,6 +20,7 @@
 #include "welcomewidget.h"
 #include "diagnosewidget.h"
 #include "iDescriptor-ui.h"
+#include "iDescriptor.h"
 #include "responsiveqlabel.h"
 #include <QApplication>
 #include <QDesktopServices>
@@ -75,10 +76,8 @@ void WelcomeWidget::setupUI()
     m_githubLabel->setWordWrap(false);
     m_githubLabel->setMaximumWidth(m_imageLabel->sizeHint().width());
     m_githubLabel->setCursor(Qt::PointingHandCursor);
-    connect(m_githubLabel, &ZLabel::clicked, this, []() {
-        QDesktopServices::openUrl(
-            QUrl("https://github.com/uncor3/iDescriptor"));
-    });
+    connect(m_githubLabel, &ZLabel::clicked, this,
+            []() { QDesktopServices::openUrl(QUrl(REPO_URL)); });
 
     // Make it look like a link
     QPalette githubPalette = m_githubLabel->palette();
