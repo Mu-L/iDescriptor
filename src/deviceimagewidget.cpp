@@ -131,13 +131,13 @@ QString DeviceImageWidget::getMockupNameFromDisplayName(
     // Map device names to mockup files
     if (displayName.contains("iPhone 16", Qt::CaseInsensitive)) {
         return "16";
-    } else if (displayName.contains("iPhone 15", Qt::CaseInsensitive)) {
+    } else if (displayName.contains("iPhone 15", Qt::CaseInsensitive) ||
+               displayName.contains("iPhone 14", Qt::CaseInsensitive)) {
         return "15";
     } else if (displayName.contains("iPhone X", Qt::CaseInsensitive) ||
                displayName.contains("iPhone 11", Qt::CaseInsensitive) ||
                displayName.contains("iPhone 12", Qt::CaseInsensitive) ||
-               displayName.contains("iPhone 13", Qt::CaseInsensitive) ||
-               displayName.contains("iPhone 14", Qt::CaseInsensitive)) {
+               displayName.contains("iPhone 13", Qt::CaseInsensitive)) {
         return "x";
     } else if (displayName.contains("iPhone 6", Qt::CaseInsensitive) ||
                displayName.contains("iPhone 7", Qt::CaseInsensitive) ||
@@ -261,10 +261,8 @@ QPixmap DeviceImageWidget::createCompositeImage() const
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
 
     QRect screenRect;
-    // QString mockupName = "16";
-
     bool useRoundedCorners = false;
-    int cornerRadius = 45;
+    int cornerRadius = 35;
     bool isUnknown = (m_mockupName == "unknown");
 
     if (m_mockupName == "3") {
@@ -279,13 +277,13 @@ QPixmap DeviceImageWidget::createCompositeImage() const
         screenRect = QRect(245, 200, 2389, 5303);
         useRoundedCorners = true;
     } else if (m_mockupName == "15") {
-        screenRect = QRect(15, 18, 337, 715);
+        screenRect = QRect(15, 10, 337, 730);
         useRoundedCorners = true;
     } else if (m_mockupName == "16") {
-        screenRect = QRect(17, 18, 333, 715);
+        screenRect = QRect(17, 16, 333, 730);
         useRoundedCorners = true;
     } else if (m_mockupName == "iPad") {
-        screenRect = QRect(33, 36, 471, 680);
+        screenRect = QRect(30, 30, 480, 690);
     } else if (m_mockupName == "unknown") {
         screenRect = QRect(33, 36, 471, 680);
     } else {
