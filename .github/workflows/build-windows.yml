@@ -49,14 +49,13 @@ jobs:
             mingw-w64-x86_64-openssl
             mingw-w64-x86_64-libzip
             mingw-w64-x86_64-go
-            mingw-w64-x86_64-nsis
             p7zip
-            mingw-w64-x86_64-gstreamer
-            mingw-w64-x86_64-gst-plugins-base
-            mingw-w64-x86_64-gst-plugins-good
-            mingw-w64-x86_64-gst-plugins-bad
-            mingw-w64-x86_64-gst-plugins-ugly
-            mingw-w64-x86_64-gst-libav
+            mingw-w64-x86_64-gstreamer=1.26.5-1
+            mingw-w64-x86_64-gst-plugins-base=1.26.5-1
+            mingw-w64-x86_64-gst-plugins-good=1.26.5-1
+            mingw-w64-x86_64-gst-plugins-bad=1.26.5-1
+            mingw-w64-x86_64-gst-plugins-ugly=1.26.5-2
+            mingw-w64-x86_64-gst-libav=1.26.5-1
 
       - uses: actions/setup-dotnet@v5
         with:
