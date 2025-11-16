@@ -95,30 +95,32 @@ void DiskUsageWidget::setupUI()
     m_diskBarLayout->setContentsMargins(0, 0, 0, 0);
     m_diskBarLayout->setSpacing(0);
 
-// Create colored segments
-#ifdef Q_OS_MAC
-    m_systemBar = new DiskUsageBar();
-    m_appsBar = new DiskUsageBar();
-    m_mediaBar = new DiskUsageBar();
-    m_othersBar = new DiskUsageBar();
-    m_freeBar = new DiskUsageBar();
+/*
+    FIXME: There is bug with qt, related to NSPopover on macOS  
+    need to revisit this when we find a fix
+*/
+// #ifdef Q_OS_MAC
+//     m_systemBar = new DiskUsageBar();
+//     m_appsBar = new DiskUsageBar();
+//     m_mediaBar = new DiskUsageBar();
+//     m_othersBar = new DiskUsageBar();
+//     m_freeBar = new DiskUsageBar();
 
-    m_systemBar->setStyleSheet(
-        " background-color: #a1384d; border: 1px solid"
-        "#e64a5b; padding: 0; margin: 0; border-top-left-radius: 3px; "
-        "border-bottom-left-radius: 3px; ");
-    m_appsBar->setStyleSheet("background-color: #4f869f; border: 1px solid "
-                             "#63b4da; padding: 0; margin: 0; ");
-    m_mediaBar->setStyleSheet("background-color: #2ECC71; "
-                              "border: none; padding: 0; margin: 0; ");
-    m_othersBar->setStyleSheet("background-color: #a28729; border: 1px solid "
-                               "#c4a32d; padding: 0; margin: 0; ");
-    m_freeBar->setStyleSheet(
-        "background-color: #6e6d6d; border: 1px solid "
-        "#4f4f4f; padding: 0; margin: 0; border-top-right-radius: 3px; "
-        "border-bottom-right-radius: 3px; ");
+//     m_systemBar->setStyleSheet(
+//         " background-color: #a1384d; border: 1px solid"
+//         "#e64a5b; padding: 0; margin: 0; border-top-left-radius: 3px; "
+//         "border-bottom-left-radius: 3px; ");
+//     m_appsBar->setStyleSheet("background-color: #4f869f; border: 1px solid "
+//                              "#63b4da; padding: 0; margin: 0; ");
+//     m_mediaBar->setStyleSheet("background-color: #2ECC71; "
+//                               "border: none; padding: 0; margin: 0; ");
+//     m_othersBar->setStyleSheet("background-color: #a28729; border: 1px solid "
+//                                "#c4a32d; padding: 0; margin: 0; ");
+//     m_freeBar->setStyleSheet(
+//         "background-color: #6e6d6d; border: 1px solid "
+//         "#4f4f4f; padding: 0; margin: 0; border-top-right-radius: 3px; "
+//         "border-bottom-right-radius: 3px; ");
 
-#else
     m_systemBar = new QWidget();
     m_appsBar = new QWidget();
     m_mediaBar = new QWidget();
@@ -154,7 +156,6 @@ void DiskUsageWidget::setupUI()
     m_mediaBar->setContentsMargins(0, 0, 0, 0);
     m_othersBar->setContentsMargins(0, 0, 0, 0);
     m_freeBar->setContentsMargins(0, 0, 0, 0);
-#endif
 
     m_diskBarLayout->addWidget(m_systemBar);
     m_diskBarLayout->addWidget(m_appsBar);
@@ -317,19 +318,19 @@ void DiskUsageWidget::updateUI()
     m_diskBarLayout->setStretchFactor(m_othersBar, othersStretch);
     m_diskBarLayout->setStretchFactor(m_freeBar, freeStretch);
 
-    // Set usage info for popovers
-#ifdef Q_OS_MAC
-    m_systemBar->setUsageInfo("System", formatSize(m_systemUsage), "#a1384d",
-                              (double)m_systemUsage / m_totalCapacity);
-    m_appsBar->setUsageInfo("Apps", formatSize(m_appsUsage), "#3498DB",
-                            (double)m_appsUsage / m_totalCapacity);
-    m_mediaBar->setUsageInfo("Media", formatSize(m_mediaUsage), "#2ECC71",
-                             (double)m_mediaUsage / m_totalCapacity);
-    m_othersBar->setUsageInfo("Others", formatSize(m_othersUsage), "#F39C12",
-                              (double)m_othersUsage / m_totalCapacity);
-    m_freeBar->setUsageInfo("Free", formatSize(m_freeSpace), "#BDC3C7",
-                            (double)m_freeSpace / m_totalCapacity);
-#else
+/* FIXME: NSPopover bug */
+    // #ifdef Q_OS_MAC
+//     m_systemBar->setUsageInfo("System", formatSize(m_systemUsage), "#a1384d",
+//                               (double)m_systemUsage / m_totalCapacity);
+//     m_appsBar->setUsageInfo("Apps", formatSize(m_appsUsage), "#3498DB",
+//                             (double)m_appsUsage / m_totalCapacity);
+//     m_mediaBar->setUsageInfo("Media", formatSize(m_mediaUsage), "#2ECC71",
+//                              (double)m_mediaUsage / m_totalCapacity);
+//     m_othersBar->setUsageInfo("Others", formatSize(m_othersUsage), "#F39C12",
+//                               (double)m_othersUsage / m_totalCapacity);
+//     m_freeBar->setUsageInfo("Free", formatSize(m_freeSpace), "#BDC3C7",
+//                             (double)m_freeSpace / m_totalCapacity);
+// #else
     m_systemBar->setToolTip(
         QString("System: %1 (%2%)")
             .arg(formatSize(m_systemUsage))
@@ -356,7 +357,6 @@ void DiskUsageWidget::updateUI()
             .arg(QString::number((double)m_freeSpace / m_totalCapacity * 100,
                                  'f', 1)));
 
-#endif
 
     // Hide segments with zero usage
     // m_systemBar->setVisible(m_systemUsage > 0);

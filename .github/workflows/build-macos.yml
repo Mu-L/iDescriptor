@@ -159,7 +159,6 @@ jobs:
             "libgstosxaudio"
             "libgstplayback"
             "libgstvolume"
-            "libgstfaad"
           )
 
           for plugin in "${PLUGINS[@]}"; do
@@ -168,31 +167,46 @@ jobs:
 
           cp "$(brew --prefix gstreamer)/libexec/gstreamer-1.0/gst-plugin-scanner" "build/iDescriptor.app/Contents/Frameworks/"
 
-          # Bundle FFmpeg libraries
-          FFMPEG_LIBS=(
-            "libavcodec.61.dylib"
-            "libavformat.61.dylib"
-            "libavutil.59.dylib"
-            "libswresample.5.dylib"
-            "libswscale.8.dylib"
-            "libavfilter.11.dylib"
-          )
-
-          for lib in "${FFMPEG_LIBS[@]}"; do
-            if [ -f "$(brew --prefix ffmpeg)/lib/${lib}" ]; then
-              cp "$(brew --prefix ffmpeg)/lib/${lib}" build/iDescriptor.app/Contents/Frameworks/
-              install_name_tool -id "@rpath/${lib}" "build/iDescriptor.app/Contents/Frameworks/${lib}"
-            else
-              echo "Warning: ${lib} not found"
-            fi
-          done
-
           # Bundle libjxl_cms
           cp "$(brew --prefix)/lib/libjxl_cms.0.11.dylib" build/iDescriptor.app/Contents/Frameworks/
           install_name_tool -id "@rpath/libjxl_cms.0.11.dylib" build/iDescriptor.app/Contents/Frameworks/libjxl_cms.0.11.dylib
           install_name_tool -change "$(brew --prefix)/lib/libjxl_cms.0.11.dylib" "@rpath/libjxl_cms.0.11.dylib" build/iDescriptor.app/Contents/Frameworks/libjxl.0.11.dylib
 
+          # Add rpath to main executable
           install_name_tool -add_rpath "@executable_path/../Frameworks" build/iDescriptor.app/Contents/MacOS/iDescriptor
+
+          # Fix GStreamer library paths
+          FRAMEWORKS_DIR="build/iDescriptor.app/Contents/Frameworks"
+          BREW_PREFIX="$(brew --prefix)"
+
+          # For some reason libavfilter sometimes doesnt get copied by macdeployqt 
+          FFMPEG_LIB_DIR="$(brew --prefix ffmpeg)/lib"
+          cp ${FFMPEG_LIB_DIR}/libavfilter.11.dylib "${FRAMEWORKS_DIR}/"
+
+          # Fix dependencies in all GStreamer plugins
+          for plugin in "${GST_PLUGIN_DIR}"/*.dylib; do
+            echo "Fixing plugin: $(basename ${plugin})"
+            
+            # Get all dependencies and fix them
+            otool -L "${plugin}" | grep -E "${BREW_PREFIX}" | awk '{print $1}' | while read dep; do
+              depname=$(basename "${dep}")
+              echo "  Changing ${depname}"
+              install_name_tool -change "${dep}" "@rpath/${depname}" "${plugin}" 2>/dev/null || true
+            done
+          done
+
+          # Fix dependencies in GStreamer core libraries themselves
+          for lib in "${FRAMEWORKS_DIR}"/libgst*.dylib "${FRAMEWORKS_DIR}"/libglib*.dylib "${FRAMEWORKS_DIR}"/libgobject*.dylib "${FRAMEWORKS_DIR}"/libgmodule*.dylib "${FRAMEWORKS_DIR}"/libgio*.dylib "${FRAMEWORKS_DIR}"/libgthread*.dylib; do
+            if [ -f "${lib}" ]; then
+              echo "Fixing library: $(basename ${lib})"
+              
+              otool -L "${lib}" | grep -E "${BREW_PREFIX}" | awk '{print $1}' | while read dep; do
+                depname=$(basename "${dep}")
+                echo "  Changing ${depname}"
+                install_name_tool -change "${dep}" "@rpath/${depname}" "${lib}" 2>/dev/null || true
+              done
+            fi
+          done
 
       - name: Create DMG
         run: |

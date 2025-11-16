@@ -3,7 +3,18 @@
 #include <QDebug>
 #include <QMainWindow>
 
-void setupMacOSWindow(QMainWindow *window)
+void setupMacOSWindow(QMainWindow *window) {
+    window->setUnifiedTitleAndToolBarOnMac(true);
+
+    NSView* nativeView = reinterpret_cast<NSView*>(window->winId());
+    NSWindow* nativeWindow = [nativeView window];
+
+    [nativeWindow setStyleMask:[nativeWindow styleMask] | NSWindowStyleMaskFullSizeContentView | NSWindowTitleHidden];
+    [nativeWindow setTitlebarAppearsTransparent:YES];
+    [nativeWindow center];
+}
+// TODO:remove
+void setupMacOSWindowOLD(QMainWindow *window)
 {
 
     if (!window) {
@@ -18,7 +29,7 @@ void setupMacOSWindow(QMainWindow *window)
         qWarning() << "setupMacOSWindow: native window is null";
         return;
     }
-
+    // TODO: implement theme switching from app settings
     // // Force dark mode
     // nsWindow.overrideUserInterfaceStyle = NSUserInterfaceStyleDark;
 
