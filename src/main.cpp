@@ -62,9 +62,9 @@ int main(int argc, char *argv[])
     QString gstPluginScannerPath =
         QDir::toNativeSeparators(frameworksPath + "/gst-plugin-scanner");
 
-    qputenv("DYLD_LIBRARY_PATH", frameworksPath.toUtf8());
+    qputenv("GST_PLUGIN_PATH", gstPluginPath.toUtf8());
+    qputenv("GST_PLUGIN_SYSTEM_PATH", gstPluginPath.toUtf8());
     qputenv("GST_PLUGIN_SCANNER_1_0", gstPluginScannerPath.toUtf8());
-    qputenv("GST_PLUGIN_SYSTEM_PATH_1_0", gstPluginPath.toUtf8());
 #endif
     QCoreApplication::setOrganizationName("iDescriptor");
     QCoreApplication::setApplicationName("iDescriptor");
