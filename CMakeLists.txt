@@ -206,8 +206,10 @@ if (NOT ENABLE_RECOVERY_DEVICE_SUPPORT)
     list(REMOVE_ITEM PROJECT_SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/src/recoverydeviceinfowidget.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/recoverydeviceinfowidget.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/core/helpers/parse_recovery_mode.cpp
         src/recoverydeviceinfowidget.cpp
         src/recoverydeviceinfowidget.h
+        src/core/helpers/parse_recovery_mode.cpp
     )
 endif()
 
