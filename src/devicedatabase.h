@@ -20,7 +20,6 @@
 #ifndef DEVICEDATABASE_H
 #define DEVICEDATABASE_H
 
-#include "libirecovery.h"
 #include <string>
 
 struct DeviceDatabaseInfo {
