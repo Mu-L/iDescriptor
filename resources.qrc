@@ -65,5 +65,6 @@
         <file>DeveloperDiskImages.json</file>
         <file>resources/keychain.mp4</file>
         <file>resources/wireless-gallery-import.mp4</file>
+        <file>resources/trust.png</file>
     </qresource>
 </RCC>

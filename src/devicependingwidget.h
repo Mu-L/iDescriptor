@@ -23,6 +23,8 @@
 #include <QLabel>
 #include <QWidget>
 
+class ResponsiveQLabel;
+
 class DevicePendingWidget : public QWidget
 {
     Q_OBJECT
@@ -32,6 +34,7 @@ public:
 signals:
 private:
     QLabel *m_label;
+    ResponsiveQLabel *m_imageLabel;
     bool m_locked;
 };
 

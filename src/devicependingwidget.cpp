@@ -18,22 +18,32 @@
  */
 
 #include "devicependingwidget.h"
+#include "responsiveqlabel.h"
 #include <QLabel>
 #include <QVBoxLayout>
 
 DevicePendingWidget::DevicePendingWidget(bool locked, QWidget *parent)
-    : QWidget{parent}, m_label{nullptr}, m_locked{locked}
+    : QWidget{parent}, m_label{nullptr}, m_imageLabel{nullptr}, m_locked{locked}
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(5);
-
+    layout->addStretch();
     m_label = new QLabel(
         m_locked ? "Please unlock the screen and click on trust on the popup"
                  : "Please click on trust on the popup",
         this);
     m_label->setWordWrap(true);
-    layout->addWidget(m_label, 0, Qt::AlignCenter);
+    m_label->setAlignment(Qt::AlignCenter);
+    layout->addWidget(m_label);
+
+    m_imageLabel = new ResponsiveQLabel(this);
+    m_imageLabel->setPixmap(QPixmap(":/resources/trust.png"));
+    m_imageLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_imageLabel->setMinimumSize(400, 200);
+    m_imageLabel->setScaledContents(true);
+    layout->addWidget(m_imageLabel, 1, Qt::AlignHCenter);
+    layout->addStretch();
     setLayout(layout);
 }
 
