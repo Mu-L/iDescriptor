@@ -85,10 +85,6 @@ void ZTabWidget::setupGlider()
                             "  border-radius: 1px;"
                             "}");
     m_glider->hide(); // Hide initially until tabs are added
-
-    m_gliderAnimation = new QPropertyAnimation(m_glider, "pos");
-    m_gliderAnimation->setDuration(250);
-    m_gliderAnimation->setEasingCurve(QEasingCurve::OutCubic);
 }
 
 ZTab *ZTabWidget::addTab(QWidget *widget, const QString &label)
@@ -132,6 +128,9 @@ void ZTabWidget::finalizeStyles()
                 int targetX = tab->pos().x();
                 int targetY = tab->pos().y() + tab->size().height() - 2;
                 m_glider->move(targetX, targetY);
+                m_gliderAnimation = new QPropertyAnimation(m_glider, "pos");
+                m_gliderAnimation->setDuration(250);
+                m_gliderAnimation->setEasingCurve(QEasingCurve::OutCubic);
                 m_glider->show();
             }
         });
@@ -182,6 +181,9 @@ void ZTabWidget::animateGlider(int index)
     int targetY =
         // targetTabPos.y() + targetTabSize.height() + 6; // Position at bottom
         targetTabPos.y() + targetTabSize.height() - 2; // Position at bottom
+
+    if (m_gliderAnimation == nullptr)
+        return;
 
     m_gliderAnimation->stop();
     m_gliderAnimation->setStartValue(m_glider->pos());

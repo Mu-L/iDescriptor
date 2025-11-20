@@ -67,7 +67,7 @@ private:
     QStackedWidget *m_stackedWidget;
     QButtonGroup *m_buttonGroup;
     QWidget *m_glider;
-    QPropertyAnimation *m_gliderAnimation;
+    QPropertyAnimation *m_gliderAnimation = nullptr;
     QList<ZTab *> m_tabs;
     QList<QWidget *> m_widgets;
     int m_currentIndex;
