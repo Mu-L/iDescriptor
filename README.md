@@ -57,6 +57,10 @@
 
 - **Installer (.msi)**: Download and run the installer. Recommended for most users.
 - **Portable (.zip)**: Extract and run `iDescriptor.exe`. No installation required.
+- Choco :
+```bash
+ choco install idescriptor --version=0.1.0
+ ```
 
 #### macOS
 
