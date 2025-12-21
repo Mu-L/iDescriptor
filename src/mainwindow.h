@@ -23,12 +23,13 @@
 #include "ZUpdater.h"
 #include "devicemanagerwidget.h"
 #include "iDescriptor.h"
-#ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
-#include "libirecovery.h"
-#endif
+#include <QMainWindow>
+// #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
+// #include "libirecovery.h"
+// #endif
+#include "devicemonitor.h"
 #include "ztabwidget.h"
 #include <QLabel>
-#include <QMainWindow>
 #include <QStackedWidget>
 
 QT_BEGIN_NAMESPACE
@@ -58,5 +59,6 @@ private:
     DeviceManagerWidget *m_deviceManager;
     QStackedWidget *m_mainStackedWidget;
     QLabel *m_connectedDeviceCountLabel;
+    DeviceMonitorThread *m_deviceMonitor;
 };
 #endif // MAINWINDOW_H

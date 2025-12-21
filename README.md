@@ -1,3 +1,9 @@
+# THIS BRANCH IS UNDER DEVELOPMENT
+
+## Migrating to new backend -> https://github.com/jkcoxson/idevice
+
+## Only builds on Linux for now
+
 <p align="center" style="text-align: center">
   <img src="./resources/icons/app-icon/icon.png" width="25%"><br/>
 </p>
@@ -58,9 +64,10 @@
 - **Installer (.msi)**: Download and run the installer. Recommended for most users.
 - **Portable (.zip)**: Extract and run `iDescriptor.exe`. No installation required.
 - **Choco** :
+
 ```bash
  choco install idescriptor --version=0.1.0
- ```
+```
 
 #### macOS
 
@@ -72,11 +79,13 @@ Open the `.dmg` and drag iDescriptor to Applications.
 #### Linux
 
 - **AppImage**: Download, unzip, and run.
-- **Arch Linux**: Install from AUR:   
+- **Arch Linux**: Install from AUR:
+
 ```bash
   sudo pacman -Syu
   yay -S idescriptor-git
 ```
+
 make sure to do "sudo pacman -Syu" otherwise it's not going to find libimobiledevice>=1.4.0
 
 <hr/>
@@ -93,7 +102,7 @@ make sure to do "sudo pacman -Syu" otherwise it's not going to find libimobilede
 | Feature                     | Status               | Notes                                         |
 | --------------------------- | -------------------- | --------------------------------------------- |
 | USB Connection              | ✅ Implemented       | Fully supported on Windows, macOS, and Linux. |
-| Wireless Connection (Wi‑Fi) | ⚠️ To be implemented | -                                             |
+| Wireless Connection (Wi‑Fi) | ⚠️ Under development | -                                             |
 
 ### Tools
 
@@ -224,9 +233,9 @@ You might get this pop-up on any platform this is because this app uses secure b
 
 ## Become a Sponsor
 
-Please support us at   <a href="https://opencollective.com/idescriptor">
-    <img src="https://img.shields.io/badge/OpenCollective-1F87FF?style=for-the-badge&logo=OpenCollective&logoColor=white" alt="AppImage"/>
-  </a>
+Please support us at <a href="https://opencollective.com/idescriptor">
+<img src="https://img.shields.io/badge/OpenCollective-1F87FF?style=for-the-badge&logo=OpenCollective&logoColor=white" alt="AppImage"/>
+</a>
 
 ## Thanks
 

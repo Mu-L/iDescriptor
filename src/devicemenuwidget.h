@@ -20,10 +20,10 @@
 #ifndef DEVICEMENUWIDGET_H
 #define DEVICEMENUWIDGET_H
 #include "deviceinfowidget.h"
-#include "fileexplorerwidget.h"
+// #include "fileexplorerwidget.h"
 #include "gallerywidget.h"
 #include "iDescriptor.h"
-#include "installedappswidget.h"
+// #include "installedappswidget.h"
 #include <QStackedWidget>
 #include <QWidget>
 
@@ -41,9 +41,9 @@ private:
     QStackedWidget *stackedWidget; // Pointer to the stacked widget
     iDescriptorDevice *device;     // Pointer to the iDescriptor device
     DeviceInfoWidget *m_deviceInfoWidget;
-    InstalledAppsWidget *m_installedAppsWidget;
-    GalleryWidget *m_galleryWidget;
-    FileExplorerWidget *m_fileExplorerWidget;
+    // InstalledAppsWidget *m_installedAppsWidget;
+    // GalleryWidget *m_galleryWidget;
+    // FileExplorerWidget *m_fileExplorerWidget;
 signals:
 };
 

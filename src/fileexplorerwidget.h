@@ -34,7 +34,6 @@
 #include <QTreeWidget>
 #include <QVBoxLayout>
 #include <QWidget>
-#include <libimobiledevice/afc.h>
 
 class FileExplorerWidget : public QWidget
 {
@@ -49,7 +48,7 @@ private slots:
 private:
     QSplitter *m_mainSplitter;
     QStackedWidget *m_stackedWidget;
-    afc_client_t currentAfcClient;
+    AfcClientHandle *currentAfcClient;
     QTreeWidget *m_sidebarTree;
     iDescriptorDevice *m_device;
 

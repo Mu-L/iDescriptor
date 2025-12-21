@@ -52,8 +52,8 @@
 #include <signal.h>
 #endif
 
-#include <libimobiledevice/libimobiledevice.h>
-#include <libimobiledevice/lockdown.h>
+#include "../../iDescriptor.h"
+#include <QDebug>
 #include <plist/plist.h>
 #include <pugixml.hpp>
 
@@ -82,35 +82,41 @@ static const char *domains[] = {
     "com.apple.mobile.iTunes", "com.apple.fmip", "com.apple.Accessibility",
     NULL};
 
-plist_t get_device_info(const char *udid, lockdownd_client_t client,
-                        idevice_t device)
+plist_t get_device_info(const char *udid, LockdowndClientHandle *client)
 {
-    lockdownd_error_t ldret = LOCKDOWN_E_UNKNOWN_ERROR;
-    idevice_error_t ret = IDEVICE_E_UNKNOWN_ERROR;
+    IdeviceFfiError *err;
     plist_t node = NULL;
 
     /* run query and output information */
-    if (lockdownd_get_value(client, NULL, NULL, &node) != LOCKDOWN_E_SUCCESS) {
-        fprintf(stderr, "ERROR: Could not get value\n");
+    err = lockdownd_get_value(client, NULL, NULL, &node);
+
+    if (err) {
+        qDebug() << "ERROR: Could not get value";
     }
 
     plist_t disk_info = nullptr;
     uint64_t total_space = 0;
     uint64_t free_space = 0;
-    if (lockdownd_get_value(client, "com.apple.disk_usage", nullptr,
-                            &disk_info) == LOCKDOWN_E_SUCCESS) {
+    err = lockdownd_get_value(client, nullptr, "com.apple.disk_usage",
+                              &disk_info);
+    qDebug() << "Disk usage fetch error:" << (err ? err->message : "none");
+
+    if (!err) {
+        qDebug() << "Disk Usage Info:";
+        plist_print(disk_info);
+
         // merge dict
         plist_dict_merge(&node, disk_info);
-        plist_free(disk_info);
+        // plist_free(disk_info);
     }
 
     return node;
 }
 
-void get_device_info_xml(const char *udid, lockdownd_client_t client,
-                         idevice_t device, pugi::xml_document &infoXml)
+void get_device_info_xml(const char *udid, LockdowndClientHandle *client,
+                         pugi::xml_document &infoXml)
 {
-    plist_t node = get_device_info(udid, client, device);
+    plist_t node = get_device_info(udid, client);
     if (!node)
         return;
     char *xml_string = nullptr;

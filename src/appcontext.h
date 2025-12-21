@@ -20,6 +20,7 @@
 #ifndef APPCONTEXT_H
 #define APPCONTEXT_H
 
+#include "devicemonitor.h"
 #include "devicesidebarwidget.h"
 #include "iDescriptor.h"
 #include <QObject>
@@ -33,32 +34,38 @@ public:
     QList<iDescriptorDevice *> getAllDevices();
     explicit AppContext(QObject *parent = nullptr);
     bool noDevicesConnected() const;
+    void cachePairingFile(const QString &udid, IdevicePairingFile *pairingFile);
+    const IdevicePairingFile *getCachedPairingFile(const QString &udid) const;
 
-#ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
-    QList<iDescriptorRecoveryDevice *> getAllRecoveryDevices();
-#endif
+    // #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
+    //     QList<iDescriptorRecoveryDevice *> getAllRecoveryDevices();
+    // #endif
     ~AppContext();
     int getConnectedDeviceCount() const;
 
     void setCurrentDeviceSelection(const DeviceSelection &selection);
     const DeviceSelection &getCurrentDeviceSelection() const;
+    const iDescriptorDevice *
+    getDeviceByMacAddress(const QString &macAddress) const;
 
 private:
     QMap<std::string, iDescriptorDevice *> m_devices;
-#ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
-    QMap<uint64_t, iDescriptorRecoveryDevice *> m_recoveryDevices;
-#endif
+    // #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
+    //     QMap<uint64_t, iDescriptorRecoveryDevice *> m_recoveryDevices;
+    // #endif
     QStringList m_pendingDevices;
     DeviceSelection m_currentSelection = DeviceSelection("");
+    // FIXME: QString can be macAddress or udid - both works fine for now
+    QMap<QString, IdevicePairingFile *> m_pairingFileCache;
 signals:
     void deviceAdded(iDescriptorDevice *device);
-    void deviceRemoved(const std::string &udid);
+    void deviceRemoved(const std::string &udid, const std::string &macAddress);
     void devicePaired(iDescriptorDevice *device);
     void devicePasswordProtected(const QString &udid);
-#ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
-    void recoveryDeviceAdded(const iDescriptorRecoveryDevice *deviceInfo);
-    void recoveryDeviceRemoved(uint64_t ecid);
-#endif
+    // #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
+    //     void recoveryDeviceAdded(const iDescriptorRecoveryDevice
+    //     *deviceInfo); void recoveryDeviceRemoved(uint64_t ecid);
+    // #endif
     void devicePairPending(const QString &udid);
     void devicePairingExpired(const QString &udid);
     void systemSleepStarting();
@@ -74,8 +81,9 @@ signals:
     void currentDeviceSelectionChanged(const DeviceSelection &selection);
 public slots:
     void removeDevice(QString udid);
-    void addDevice(QString udid, idevice_connection_type connType,
-                   AddType addType);
+    void addDevice(QString udid,
+                   DeviceMonitorThread::IdeviceConnectionType connType,
+                   AddType addType, QString wifiMacAddress = QString());
 #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
     void addRecoveryDevice(uint64_t ecid);
     void removeRecoveryDevice(uint64_t ecid);

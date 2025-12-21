@@ -18,13 +18,13 @@
  */
 
 #include "deviceimagewidget.h"
+#include "iDescriptor.h"
 #include <QDateTime>
 #include <QDebug>
 #include <QMap>
 #include <QPainter>
 #include <QPainterPath>
 #include <QVBoxLayout>
-#include <libimobiledevice/libimobiledevice.h>
 
 DeviceImageWidget::DeviceImageWidget(iDescriptorDevice *device, QWidget *parent)
     : QWidget(parent), m_device(device)
@@ -161,7 +161,7 @@ QString DeviceImageWidget::getMockupNameFromDisplayName(
 
 int DeviceImageWidget::getIosVersionFromDevice() const
 {
-    unsigned int version = idevice_get_device_version(m_device->device);
+    unsigned int version = m_device->deviceInfo.parsedDeviceVersion;
 
     if (version > 0) {
         int majorVersion = (version >> 16) & 0xFF;
@@ -180,7 +180,7 @@ int DeviceImageWidget::getIosVersionFromDevice() const
         }
     }
 
-    // If all else fails, return unknown version (will use ios26 wallpaper)
+    // return unknown version (will use ios26 wallpaper)
     return 0;
 }
 

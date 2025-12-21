@@ -43,8 +43,6 @@
 #include <QTemporaryDir>
 #include <QTreeWidget>
 #include <QVariant>
-#include <libimobiledevice/afc.h>
-#include <libimobiledevice/libimobiledevice.h>
 
 AfcExplorerWidget::AfcExplorerWidget(iDescriptorDevice *device, bool favEnabled,
                                      afc_client_t afcClient, QString root,

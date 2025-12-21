@@ -20,12 +20,12 @@
 #include "deviceinfowidget.h"
 #include "batterywidget.h"
 #include "diskusagewidget.h"
-#include "fileexplorerwidget.h"
+// #include "fileexplorerwidget.h"
 #include "iDescriptor-ui.h"
 #include "iDescriptor.h"
 #include "infolabel.h"
 #include "privateinfolabel.h"
-#include "toolboxwidget.h"
+// #include "toolboxwidget.h"
 #include <QApplication>
 #include <QDebug>
 #include <QGraphicsDropShadowEffect>
@@ -78,20 +78,20 @@ DeviceInfoWidget::DeviceInfoWidget(iDescriptorDevice *device, QWidget *parent)
         QIcon(":/resources/icons/IcOutlinePowerSettingsNew.png"), "Shutdown",
         this);
     shutdownBtn->setIconSize(QSize(20, 20));
-    connect(shutdownBtn, &ZIconWidget::clicked, this,
-            [device]() { ToolboxWidget::shutdownDevice(device); });
+    // connect(shutdownBtn, &ZIconWidget::clicked, this,
+    //         [device]() { ToolboxWidget::shutdownDevice(device); });
 
     ZIconWidget *restartBtn = new ZIconWidget(
         QIcon(":/resources/icons/IcTwotoneRestartAlt.png"), "Restart", this);
     restartBtn->setIconSize(QSize(20, 20));
-    connect(restartBtn, &ZIconWidget::clicked, this,
-            [device]() { ToolboxWidget::restartDevice(device); });
+    // connect(restartBtn, &ZIconWidget::clicked, this,
+    //         [device]() { ToolboxWidget::restartDevice(device); });
 
     ZIconWidget *recoveryBtn = new ZIconWidget(
         QIcon(":/resources/icons/HugeiconsWrench01.png"), "Recovery", this);
     recoveryBtn->setIconSize(QSize(20, 20));
-    connect(recoveryBtn, &ZIconWidget::clicked, this,
-            [device]() { ToolboxWidget::_enterRecoveryMode(device); });
+    // connect(recoveryBtn, &ZIconWidget::clicked, this,
+    //         [device]() { ToolboxWidget::_enterRecoveryMode(device); });
 
     actionsLayout->addWidget(shutdownBtn);
     actionsLayout->addWidget(restartBtn);
@@ -259,25 +259,27 @@ DeviceInfoWidget::DeviceInfoWidget(iDescriptorDevice *device, QWidget *parent)
     infoItems.append(
         {"Hardware Platform:", createValueLabel(QString::fromStdString(
                                    device->deviceInfo.hardwarePlatform))});
-    infoItems.append(
-        {"Battery Cycle:", createValueLabel(QString::number(
-                               m_device->deviceInfo.batteryInfo.cycleCount))});
+    // infoItems.append(
+    //     {"Battery Cycle:", createValueLabel(QString::number(
+    //                            m_device->deviceInfo.batteryInfo.cycleCount))});
     infoItems.append(
         {"Firmware Version:", createValueLabel(QString::fromStdString(
                                   device->deviceInfo.firmwareVersion))});
 
-    // Battery Info
-    QWidget *batteryWidget = new QWidget();
-    QHBoxLayout *batteryLayout = new QHBoxLayout(batteryWidget);
-    batteryLayout->setContentsMargins(0, 0, 0, 0);
-    batteryLayout->setSpacing(5);
-    batteryLayout->addWidget(new QLabel(device->deviceInfo.batteryInfo.health));
-    QPushButton *moreButton = new QPushButton("More");
-    connect(moreButton, &QPushButton::clicked, this,
-            &DeviceInfoWidget::onBatteryMoreClicked);
-    batteryLayout->addWidget(moreButton);
-    batteryLayout->addStretch();
-    infoItems.append({"Battery Health:", batteryWidget});
+    // // FIXME: Battery Info
+    // // QWidget *batteryWidget = new QWidget();
+    // // QHBoxLayout *batteryLayout = new QHBoxLayout(batteryWidget);
+    // // batteryLayout->setContentsMargins(0, 0, 0, 0);
+    // // batteryLayout->setSpacing(5);
+    // // batteryLayout->addWidget(new
+    // // QLabel(device->deviceInfo.batteryInfo.health)); QPushButton
+    // *moreButton =
+    // // new QPushButton("More"); connect(moreButton, &QPushButton::clicked,
+    // this,
+    // //         &DeviceInfoWidget::onBatteryMoreClicked);
+    // // batteryLayout->addWidget(moreButton);
+    // // batteryLayout->addStretch();
+    // // infoItems.append({"Battery Health:", batteryWidget});
 
     infoItems.append(
         {"Production Device:",
@@ -322,7 +324,7 @@ DeviceInfoWidget::DeviceInfoWidget(iDescriptorDevice *device, QWidget *parent)
     }
 
     infoLayout->addWidget(gridContainer);
-    // infoLayout->addStretch(); // Pushes footer to the bottom
+    infoLayout->addStretch(); // Pushes footer to the bottom
 
     // Footer
     QLabel *footerLabel =
@@ -341,16 +343,16 @@ DeviceInfoWidget::DeviceInfoWidget(iDescriptorDevice *device, QWidget *parent)
     rightSideLayout->addWidget(new DiskUsageWidget(device, this));
 
     rightSideLayout->addStretch();
-    // TODO: layout shift cause ?
-    // rightSideLayout->setAlignment(Qt::AlignCenter);
+    // // TODO: layout shift cause ?
+    // // rightSideLayout->setAlignment(Qt::AlignCenter);
 
     mainLayout->addLayout(rightSideLayout);
     mainLayout->addStretch();
 
-    m_updateTimer = new QTimer(this);
-    connect(m_updateTimer, &QTimer::timeout, this,
-            &DeviceInfoWidget::updateBatteryInfo);
-    m_updateTimer->start(30000); // Update every 30 seconds
+    // m_updateTimer = new QTimer(this);
+    // connect(m_updateTimer, &QTimer::timeout, this,
+    //         &DeviceInfoWidget::updateBatteryInfo);
+    // m_updateTimer->start(30000); // Update every 30 seconds
 }
 
 DeviceInfoWidget::~DeviceInfoWidget() {}
@@ -370,47 +372,47 @@ void DeviceInfoWidget::onBatteryMoreClicked()
 
 void DeviceInfoWidget::updateBatteryInfo()
 {
-    qDebug() << "Updating battery info...";
-    plist_t diagnostics = nullptr;
-    get_battery_info(m_device->deviceInfo.rawProductType, m_device->device,
-                     m_device->deviceInfo.is_iPhone, diagnostics);
+    // qDebug() << "Updating battery info...";
+    // plist_t diagnostics = nullptr;
+    // get_battery_info(m_device->deviceInfo.rawProductType, m_device->device,
+    //                  m_device->deviceInfo.is_iPhone, diagnostics);
 
-    if (!diagnostics) {
-        qDebug() << "Failed to get diagnostics plist.";
-        return;
-    }
-    /*DATA*/
-    DeviceInfo &d = m_device->deviceInfo;
-    qDebug() << "old device" << d.oldDevice;
-    PlistNavigator ioreg = PlistNavigator(diagnostics)["IORegistry"];
-    if (d.oldDevice)
-        parseOldDeviceBattery(ioreg, d);
-    else
-        parseDeviceBattery(ioreg, d);
-    /*UI*/
-    updateChargingStatusIcon();
-    m_chargingWattsWithCableTypeLabel->setText(
-        QString::number(d.batteryInfo.watts) + "W" + "/" +
-        (d.batteryInfo.usbConnectionType == BatteryInfo::ConnectionType::USB
-             ? "USB"
-             : "USB-C"));
+    // if (!diagnostics) {
+    //     qDebug() << "Failed to get diagnostics plist.";
+    //     return;
+    // }
+    // /*DATA*/
+    // DeviceInfo &d = m_device->deviceInfo;
+    // qDebug() << "old device" << d.oldDevice;
+    // PlistNavigator ioreg = PlistNavigator(diagnostics)["IORegistry"];
+    // // if (d.oldDevice)
+    // //     parseOldDeviceBattery(ioreg, d);
+    // // else
+    // //     parseDeviceBattery(ioreg, d);
+    // /*UI*/
+    // updateChargingStatusIcon();
+    // m_chargingWattsWithCableTypeLabel->setText(
+    //     QString::number(d.batteryInfo.watts) + "W" + "/" +
+    //     (d.batteryInfo.usbConnectionType == BatteryInfo::ConnectionType::USB
+    //          ? "USB"
+    //          : "USB-C"));
 
-    m_batteryWidget->updateContext(
-        d.batteryInfo.isCharging,
-        qBound<int>(1, d.batteryInfo.currentBatteryLevel, 100));
+    // m_batteryWidget->updateContext(
+    //     d.batteryInfo.isCharging,
+    //     qBound<int>(1, d.batteryInfo.currentBatteryLevel, 100));
 }
 
 void DeviceInfoWidget::updateChargingStatusIcon()
 {
-    if (m_device->deviceInfo.batteryInfo.isCharging) {
-        m_chargingStatusLabel->setText("Charging");
-        m_chargingStatusLabel->setStyleSheet(
-            QString("color: %1;").arg(COLOR_GREEN.name()));
-        m_lightningIconLabel->show();
+    // if (m_device->deviceInfo.batteryInfo.isCharging) {
+    //     m_chargingStatusLabel->setText("Charging");
+    //     m_chargingStatusLabel->setStyleSheet(
+    //         QString("color: %1;").arg(COLOR_GREEN.name()));
+    //     m_lightningIconLabel->show();
 
-    } else {
-        m_chargingStatusLabel->setText("Not Charging");
-        m_chargingStatusLabel->setStyleSheet("");
-        m_lightningIconLabel->hide();
-    }
+    // } else {
+    //     m_chargingStatusLabel->setText("Not Charging");
+    //     m_chargingStatusLabel->setStyleSheet("");
+    //     m_lightningIconLabel->hide();
+    // }
 }

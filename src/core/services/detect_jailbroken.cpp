@@ -18,7 +18,7 @@
  */
 
 #include "../../iDescriptor.h"
-#include <libimobiledevice/afc.h>
+
 // char *possible_jailbreak_paths[] = {
 //     "/Applications/Cydia.app",
 //     "/Library/MobileSubstrate/MobileSubstrate.dylib",
@@ -29,18 +29,15 @@
 // };
 #include <string>
 
-bool detect_jailbroken(afc_client_t afc)
+bool detect_jailbroken(AfcClientHandle *afc)
 {
     char **dirs = NULL;
-    if (afc_read_directory(afc, (std::string(POSSIBLE_ROOT) + "bin").c_str(),
-                           &dirs) == AFC_E_SUCCESS) {
-        // if we can loop through the directory, it means we have access to the
-        // file system
-        for (char **dir = dirs; *dir != nullptr; ++dir) {
-            afc_dictionary_free(dirs);
-            return true;
-        }
+    size_t count = 0;
+    bool res = false;
+    if (!afc_list_directory(afc, (std::string(POSSIBLE_ROOT) + "bin").c_str(),
+                            &dirs, &count)) {
+        free(dirs);
     }
-    afc_dictionary_free(dirs);
-    return false;
+
+    return res > 0;
 }

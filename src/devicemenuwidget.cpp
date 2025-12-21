@@ -55,30 +55,30 @@ void DeviceMenuWidget::init()
 
     // Create and add widgets to the stacked widget
     m_deviceInfoWidget = new DeviceInfoWidget(device, this);
-    m_installedAppsWidget = new InstalledAppsWidget(device, this);
-    m_galleryWidget = new GalleryWidget(device, this);
-    m_fileExplorerWidget = new FileExplorerWidget(device, this);
+    // m_installedAppsWidget = new InstalledAppsWidget(device, this);
+    // m_galleryWidget = new GalleryWidget(device, this);
+    // m_fileExplorerWidget = new FileExplorerWidget(device, this);
 
     // Set minimum heights
-    m_galleryWidget->setMinimumHeight(300);
-    m_fileExplorerWidget->setMinimumHeight(300);
+    // m_galleryWidget->setMinimumHeight(300);
+    // m_fileExplorerWidget->setMinimumHeight(300);
 
-    stackedWidget->addWidget(m_deviceInfoWidget);    // Index 0 - Info
-    stackedWidget->addWidget(m_installedAppsWidget); // Index 1 - Apps
-    stackedWidget->addWidget(m_galleryWidget);       // Index 2 - Gallery
-    stackedWidget->addWidget(m_fileExplorerWidget);  // Index 3 - Files
+    stackedWidget->addWidget(m_deviceInfoWidget); // Index 0 - Info
+    // stackedWidget->addWidget(m_installedAppsWidget); // Index 1 - Apps
+    // stackedWidget->addWidget(m_galleryWidget);       // Index 2 - Gallery
+    // stackedWidget->addWidget(m_fileExplorerWidget); // Index 3 - Files
 
     // Set default to Info tab
     stackedWidget->setCurrentWidget(m_deviceInfoWidget);
 
     // Connect to current changed signal for lazy loading
-    connect(stackedWidget, &QStackedWidget::currentChanged, this,
-            [this](int index) {
-                if (index == 2) { // Gallery tab
-                    qDebug() << "Switched to Gallery tab";
-                    m_galleryWidget->load();
-                }
-            });
+    // connect(stackedWidget, &QStackedWidget::currentChanged, this,
+    //         [this](int index) {
+    //             if (index == 2) { // Gallery tab
+    //                 qDebug() << "Switched to Gallery tab";
+    //                 m_galleryWidget->load();
+    //             }
+    //         });
 
     QWidget *loadingWidget = stackedWidget->widget(0);
     stackedWidget->removeWidget(loadingWidget);
@@ -89,12 +89,12 @@ void DeviceMenuWidget::switchToTab(const QString &tabName)
 {
     if (tabName == "Info") {
         stackedWidget->setCurrentWidget(m_deviceInfoWidget);
-    } else if (tabName == "Apps") {
-        stackedWidget->setCurrentWidget(m_installedAppsWidget);
-    } else if (tabName == "Gallery") {
-        stackedWidget->setCurrentWidget(m_galleryWidget);
+        // } else if (tabName == "Apps") {
+        //     stackedWidget->setCurrentWidget(m_installedAppsWidget);
+        // } else if (tabName == "Gallery") {
+        //     stackedWidget->setCurrentWidget(m_galleryWidget);
     } else if (tabName == "Files") {
-        stackedWidget->setCurrentWidget(m_fileExplorerWidget);
+        // stackedWidget->setCurrentWidget(m_fileExplorerWidget);
     } else {
         qDebug() << "Tab not found:" << tabName;
     }

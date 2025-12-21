@@ -41,8 +41,6 @@
 #include <QSplitterHandle>
 #include <QTreeWidget>
 #include <QVariant>
-#include <libimobiledevice/afc.h>
-#include <libimobiledevice/libimobiledevice.h>
 
 FileExplorerWidget::FileExplorerWidget(iDescriptorDevice *device,
                                        QWidget *parent)

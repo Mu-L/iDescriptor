@@ -19,43 +19,42 @@ if (APPLE)
 endif()
 
 # Platform-specific paths for libraries built from source
-if(WIN32)
-    include_directories("C:/msys64/mingw64/include")
-    link_directories("C:/msys64/mingw64/lib")
-    set(PKG_CONFIG_EXECUTABLE "C:/msys64/mingw64/bin/pkg-config.exe")
-    list(APPEND CMAKE_PREFIX_PATH "C:/lxqt")
-    set(CUSTOM_LIB_PATH "C:/msys64/mingw64/lib")
-    set(CUSTOM_INCLUDE_PATH "C:/msys64/mingw64/include")
-    set(CUSTOM_PKGCONFIG_PATH "C:/msys64/mingw64/lib/pkgconfig")
-    set(ENV{PKG_CONFIG_PATH} "${CUSTOM_PKGCONFIG_PATH};$ENV{PKG_CONFIG_PATH}")
-elseif(APPLE)
-    set(CUSTOM_LIB_PATH "/usr/local/lib")
-    set(CUSTOM_INCLUDE_PATH "/usr/local/include")
-    set(CUSTOM_PKGCONFIG_PATH "/usr/local/lib/pkgconfig")
-    set(ENV{PKG_CONFIG_PATH} "${CUSTOM_PKGCONFIG_PATH}:$ENV{PKG_CONFIG_PATH}")
-else ()
-    set(CUSTOM_LIB_PATH "/usr/local/lib")
-    set(CUSTOM_PKGCONFIG_PATH "/usr/local/lib/pkgconfig")
-    set(ENV{PKG_CONFIG_PATH} "$ENV{PKG_CONFIG_PATH}:${CUSTOM_PKGCONFIG_PATH}")
-endif()
+# if(WIN32)
+#     include_directories("C:/msys64/mingw64/include")
+#     link_directories("C:/msys64/mingw64/lib")
+#     set(PKG_CONFIG_EXECUTABLE "C:/msys64/mingw64/bin/pkg-config.exe")
+#     list(APPEND CMAKE_PREFIX_PATH "C:/lxqt")
+#     set(CUSTOM_LIB_PATH "C:/msys64/mingw64/lib")
+#     set(CUSTOM_INCLUDE_PATH "C:/msys64/mingw64/include")
+#     set(CUSTOM_PKGCONFIG_PATH "C:/msys64/mingw64/lib/pkgconfig")
+#     set(ENV{PKG_CONFIG_PATH} "${CUSTOM_PKGCONFIG_PATH};$ENV{PKG_CONFIG_PATH}")
+# elseif(APPLE)
+#     set(CUSTOM_LIB_PATH "/usr/local/lib")
+#     # Remove the problematic include path that's causing conflicts
+#     # set(CUSTOM_INCLUDE_PATH "/usr/local/include")
+#     set(CUSTOM_PKGCONFIG_PATH "/usr/local/lib/pkgconfig")
+#     set(ENV{PKG_CONFIG_PATH} "${CUSTOM_PKGCONFIG_PATH}:$ENV{PKG_CONFIG_PATH}")
+# else ()
+#     set(CUSTOM_LIB_PATH "/usr/local/lib")
+#     set(CUSTOM_PKGCONFIG_PATH "/usr/local/lib/pkgconfig")
+#     set(ENV{PKG_CONFIG_PATH} "$ENV{PKG_CONFIG_PATH}:${CUSTOM_PKGCONFIG_PATH}")
+# endif()
 
-include_directories(${CUSTOM_INCLUDE_PATH})
-
-
-foreach(_ IN LISTS CMAKE_PREFIX_PATH)
-    list(APPEND _qt_pkg_dirs
-        "${_}/lib/pkgconfig"
-        "${_}/lib64/pkgconfig"
-        "${_}/lib64/qt/pkgconfig"
-        "${_}/lib/qt/pkgconfig"
-    )
-endforeach()
+# foreach(_ IN LISTS CMAKE_PREFIX_PATH)
+#     list(APPEND _qt_pkg_dirs
+#         "${_}/lib/pkgconfig"
+#         "${_}/lib64/pkgconfig"
+#         "${_}/lib64/qt/pkgconfig"
+#         "${_}/lib/qt/pkgconfig"
+#     )
+# endforeach()
 
 
-list(APPEND _qt_pkg_dirs ${CUSTOM_PKGCONFIG_PATH})
+# list(APPEND _qt_pkg_dirs ${CUSTOM_PKGCONFIG_PATH})
  
 find_package(PkgConfig REQUIRED)
 find_package(Qt6 REQUIRED COMPONENTS Widgets Multimedia MultimediaWidgets Network QuickControls2 SerialPort Positioning Location QuickWidgets) 
+find_package(Qt6 REQUIRED COMPONENTS Core)
 
 # Add QTermWidget
 # Prefer CMake-native qtermwidget6, fallback to pkg-config if needed
@@ -84,36 +83,86 @@ if(WIN32)
     message(STATUS "Found Qt bin directory: ${QT_BIN_PATH}")
 endif()
 
-# Define library search behavior based on platform
-if(LINUX)
-    # On Linux (AUR builds), let CMake search default system paths first.
-    # The custom path /usr/local/lib will be checked if it's in the default search paths.
-    set(CUSTOM_FIND_LIB_ARGS "")
-else()
-    # On other platforms, only search the custom path for our specific libraries.
-    set(CUSTOM_FIND_LIB_ARGS
-        PATHS ${CUSTOM_LIB_PATH}
-        NO_DEFAULT_PATH
+#------------- IDEVICE-RS INTEGRATION -------------
+
+find_program(CARGO_EXECUTABLE cargo REQUIRED)
+message(STATUS "Using idevice-rs Rust implementation")
+
+set(IDEVICE_RS_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib/idevice-rs)
+set(IDEVICE_RS_LIB_PATH ${IDEVICE_RS_SOURCE_DIR}/target/release/libidevice_ffi.a)
+
+# This command builds the Rust library and declares its output file.
+# Any target that uses this output file will automatically depend on this command.
+add_custom_command(
+    OUTPUT ${IDEVICE_RS_LIB_PATH}
+    COMMAND ${CARGO_EXECUTABLE} build --release --manifest-path ${IDEVICE_RS_SOURCE_DIR}/Cargo.toml
+    WORKING_DIRECTORY ${IDEVICE_RS_SOURCE_DIR}
+    COMMENT "Building idevice-rs FFI library"
+    VERBATIM
+)
+
+# This custom target provides a name to build the Rust library explicitly.
+# It depends on the output file, ensuring the custom command is run.
+add_custom_target(idevice_rs_build DEPENDS ${IDEVICE_RS_LIB_PATH})
+
+# Create an imported target for the Rust static library
+add_library(idevice_ffi STATIC IMPORTED GLOBAL)
+set_target_properties(idevice_ffi PROPERTIES
+    IMPORTED_LOCATION "${IDEVICE_RS_LIB_PATH}"
+)
+
+# ---- Build the idevice-rs C++ wrapper library ------------------------------
+set(IDEVICE_CPP_SRC_DIR     ${IDEVICE_RS_SOURCE_DIR}/cpp/src)
+set(IDEVICE_CPP_INCLUDE_DIR ${IDEVICE_RS_SOURCE_DIR}/cpp/include)
+set(IDEVICE_FFI_INCLUDE_DIR ${IDEVICE_RS_SOURCE_DIR}/ffi)
+set(PLIST_CPP_INCLUDE_DIR   ${IDEVICE_RS_SOURCE_DIR}/plist_ffi/cpp/include)
+set(PLIST_CPP_SRC_DIR       ${IDEVICE_RS_SOURCE_DIR}/plist_ffi/cpp/src)
+
+# Collect C++ sources for the wrapper library
+file(GLOB_RECURSE IDEVICE_CPP_SOURCES
+  "${IDEVICE_CPP_SRC_DIR}/*.cpp"
+)
+file(GLOB PLIST_CPP_SOURCES
+  "${PLIST_CPP_SRC_DIR}/*.cpp"
+)
+
+add_library(idevice_cpp STATIC ${IDEVICE_CPP_SOURCES} ${PLIST_CPP_SOURCES})
+
+target_include_directories(idevice_cpp PUBLIC
+    ${IDEVICE_CPP_INCLUDE_DIR}
+    ${PLIST_CPP_INCLUDE_DIR}
+  PRIVATE
+    ${IDEVICE_FFI_INCLUDE_DIR}
+)
+
+# Link idevice_cpp to idevice_ffi and add platform-specific dependencies
+find_package(Threads REQUIRED)
+target_link_libraries(idevice_cpp PUBLIC idevice_ffi Threads::Threads)
+
+if (UNIX AND NOT APPLE)
+    pkg_check_modules(UDEV REQUIRED IMPORTED_TARGET udev)
+    target_link_libraries(idevice_cpp PUBLIC PkgConfig::UDEV dl m)
+elseif(APPLE)
+    find_library(COREFOUNDATION_FRAMEWORK CoreFoundation REQUIRED)
+    find_library(IOKIT_FRAMEWORK IOKit REQUIRED)
+    target_link_libraries(idevice_cpp PUBLIC
+        ${COREFOUNDATION_FRAMEWORK}
+        ${IOKIT_FRAMEWORK}
+        "-framework Security"
+        "-framework SystemConfiguration"
+        "-framework CoreServices"
+        "-framework CFNetwork"
     )
+elseif(WIN32)
+    target_link_libraries(idevice_cpp PUBLIC ws2_32 userenv.lib ntdll bcrypt)
 endif()
 
-find_library(IMOBILEDEVICE_LIBRARY 
-    NAMES imobiledevice-1.0
-    ${CUSTOM_FIND_LIB_ARGS}
-    REQUIRED
-)
+# Set up variables for linking and includes for the main iDescriptor target
+set(IDEVICE_IMPLEMENTATION_LIBS idevice_cpp)
+# The C header file generated by cbindgen lives here
+set(IDEVICE_IMPLEMENTATION_INCLUDES ${IDEVICE_RS_SOURCE_DIR}/ffi/include)
 
-find_library(IMOBILEDEVICE_GLUE_LIBRARY 
-    NAMES imobiledevice-glue-1.0
-    ${CUSTOM_FIND_LIB_ARGS}
-    REQUIRED
-)
-
-find_library(TATSU_LIBRARY 
-    NAMES tatsu
-    ${CUSTOM_FIND_LIB_ARGS}
-    REQUIRED
-)
+#--------------------------------------------------------------------------------
 
 # Add QR code generation library
 pkg_check_modules(QRENCODE REQUIRED IMPORTED_TARGET libqrencode)
@@ -126,36 +175,21 @@ pkg_check_modules(AVCODEC REQUIRED IMPORTED_TARGET libavcodec)
 pkg_check_modules(AVUTIL REQUIRED IMPORTED_TARGET libavutil)
 pkg_check_modules(SWSCALE REQUIRED IMPORTED_TARGET libswscale)
 
-if(ENABLE_RECOVERY_DEVICE_SUPPORT)
-    find_library(IRECOVERY_LIBRARY 
-        NAMES irecovery-1.0
-        PATHS ${CUSTOM_LIB_PATH}
-        NO_DEFAULT_PATH
-    )
-    if(IRECOVERY_LIBRARY)
-        message(STATUS "Building with recovery device support enabled")
-    else()
-        message(WARNING "libirecovery not found. Recovery device support will be disabled. This is to be expected if you are installing from Arch AUR.")
-        set(ENABLE_RECOVERY_DEVICE_SUPPORT OFF)
-    endif()
-else()
-    message(STATUS "Recovery device support disabled")
-endif()
-
-find_library(USBMUXD_LIBRARY 
-    NAMES usbmuxd-2.0
-    ${CUSTOM_FIND_LIB_ARGS}
-    REQUIRED
-)
-
-if(WIN32)
-    # On MSYS2, these are found in the standard mingw64 prefix
-    find_library(SSL_LIBRARY NAMES ssl PATHS C:/msys64/mingw64/lib REQUIRED)
-    find_library(CRYPTO_LIBRARY NAMES crypto PATHS C:/msys64/mingw64/lib REQUIRED)
-else()
-    find_library(SSL_LIBRARY NAMES ssl REQUIRED)
-    find_library(CRYPTO_LIBRARY NAMES crypto REQUIRED)
-endif()
+# if(ENABLE_RECOVERY_DEVICE_SUPPORT)
+#     find_library(IRECOVERY_LIBRARY 
+#         NAMES irecovery-1.0
+#         PATHS ${CUSTOM_LIB_PATH}
+#         NO_DEFAULT_PATH
+#     )
+#     if(IRECOVERY_LIBRARY)
+#         message(STATUS "Building with recovery device support enabled")
+#     else()
+#         message(WARNING "libirecovery not found. Recovery device support will be disabled. This is to be expected if you are installing from Arch AUR.")
+#         set(ENABLE_RECOVERY_DEVICE_SUPPORT OFF)
+#     endif()
+# else()
+#     message(STATUS "Recovery device support disabled")
+# endif()
 
 # Add libssh for SSH connections
 pkg_check_modules(SSH REQUIRED IMPORTED_TARGET libssh)
@@ -168,15 +202,73 @@ endif()
 
 
 pkg_check_modules(PUGIXML REQUIRED IMPORTED_TARGET pugixml)
-pkg_check_modules(USB REQUIRED IMPORTED_TARGET libusb-1.0)
-pkg_check_modules(PLIST REQUIRED IMPORTED_TARGET libplist-2.0)
 
 
 file(GLOB PROJECT_SOURCES
-src/*.cpp
-src/core/helpers/*.cpp
-src/core/services/*.cpp
-src/*.h
+# src/*.cpp
+# src/core/helpers/*.cpp
+# src/core/services/*.cpp
+# src/*.h
+src/mainwindow.cpp
+src/mainwindow.h
+src/devicemonitor.h
+src/main.cpp
+src/core/services/init_device.cpp
+src/core/services/get_battery_info.cpp
+src/core/services/detect_jailbroken.cpp
+src/appcontext.cpp
+src/appcontext.h
+src/devicedatabase.cpp
+src/devicedatabase.h
+src/core/helpers/compare_product_type.cpp
+src/welcomewidget.cpp
+src/welcomewidget.h
+src/ztabwidget.cpp
+src/ztabwidget.h
+src/devicemanagerwidget.cpp
+src/devicemanagerwidget.h
+src/responsiveqlabel.cpp
+src/responsiveqlabel.h
+src/devicesidebarwidget.cpp
+src/devicesidebarwidget.h
+src/devicemenuwidget.cpp
+src/devicemenuwidget.h
+src/deviceinfowidget.cpp
+src/deviceinfowidget.h
+src/batterywidget.cpp
+src/batterywidget.h
+src/diskusagewidget.cpp
+src/diskusagewidget.h
+# src/deviceimagewidget.cpp
+# src/deviceimagewidget.h
+src/iDescriptor-ui.h
+src/infolabel.cpp
+src/infolabel.h
+src/privateinfolabel.cpp
+src/privateinfolabel.h
+src/qprocessindicator.cpp
+src/qprocessindicator.h
+src/diagnosewidget.cpp
+src/diagnosewidget.h
+src/core/services/get-device-info.cpp
+src/deviceimagewidget.cpp
+src/deviceimagewidget.h
+src/settingsmanager.cpp
+src/settingsmanager.h
+# src/fileexplorerwidget.cpp
+# src/fileexplorerwidget.h
+src/settingswidget.cpp
+src/settingswidget.h
+src/ifusemanager.cpp
+src/ifusemanager.h
+src/ifusediskunmountbutton.cpp
+src/ifusediskunmountbutton.h
+src/core/services/get_battery_info.cpp
+src/networkdeviceswidget.cpp
+src/core/services/avahi/avahi_service.h
+src/core/services/avahi/avahi_service.cpp
+src/networkdevicemanager.cpp
+src/networkdevicemanager.h
 src/*.ui
 resources.qrc
 )
@@ -199,12 +291,12 @@ if (WIN32)
     list(APPEND PROJECT_SOURCES ${WINDOWS_PLATFORM_SOURCES})
 endif()
 
-if(LINUX)
-    list(APPEND PROJECT_SOURCES
-        src/core/services/avahi/avahi_service.cpp
-        src/core/services/avahi/avahi_service.h
-    )
-endif()
+# if(LINUX)
+#     list(APPEND PROJECT_SOURCES
+#         src/core/services/avahi/avahi_service.cpp
+#         src/core/services/avahi/avahi_service.h
+#     )
+# endif()
 
 if (NOT ENABLE_RECOVERY_DEVICE_SUPPORT)
     list(REMOVE_ITEM PROJECT_SOURCES
@@ -253,6 +345,9 @@ else()
 )
 endif()
 
+# Make sure idevice_cpp depends on the Rust library being built
+add_dependencies(idevice_cpp idevice_rs_build)
+
 target_link_libraries(iDescriptor PRIVATE 
     Qt6::Widgets 
     Qt6::Multimedia
@@ -264,17 +359,17 @@ target_link_libraries(iDescriptor PRIVATE
     Qt6::Positioning
     Qt6::QuickWidgets
     Qt6::QuickControls2
-    ${IMOBILEDEVICE_LIBRARY}
-    ${IMOBILEDEVICE_GLUE_LIBRARY}
-    ${TATSU_LIBRARY}
-    ${SSL_LIBRARY}
-    ${CRYPTO_LIBRARY}
+    # ${IMOBILEDEVICE_LIBRARY}
+    # ${IMOBILEDEVICE_GLUE_LIBRARY}
+    # ${TATSU_LIBRARY}
+    # ${SSL_LIBRARY}
+    # ${CRYPTO_LIBRARY}
     PkgConfig::SSH
     ${SSH_LIBRARY}
-    ${USBMUXD_LIBRARY}
+    # ${USBMUXD_LIBRARY}
     PkgConfig::PUGIXML
-    PkgConfig::USB
-    PkgConfig::PLIST
+    # PkgConfig::USB
+    # PkgConfig::PLIST
     PkgConfig::QRENCODE
     qtermwidget6
     PkgConfig::HEIF
@@ -286,16 +381,27 @@ target_link_libraries(iDescriptor PRIVATE
     airplay
     ipatool-go
     ZUpdater
+    ${IDEVICE_IMPLEMENTATION_LIBS}
 )
 
-# Conditionally link libirecovery
-if(ENABLE_RECOVERY_DEVICE_SUPPORT)
-    target_link_libraries(iDescriptor PRIVATE ${IRECOVERY_LIBRARY})
-endif()
+# # Conditionally link libirecovery
+# if(ENABLE_RECOVERY_DEVICE_SUPPORT)
+#     target_link_libraries(iDescriptor PRIVATE ${IRECOVERY_LIBRARY})
+# endif()
 
 target_include_directories(iDescriptor PRIVATE
+    # Put idevice-rs includes FIRST
+    ${IDEVICE_CPP_INCLUDE_DIR}
+    ${IDEVICE_FFI_INCLUDE_DIR}
+    ${PLIST_CPP_INCLUDE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/lib/zupdater/src
+    # System includes last
+    ${IDEVICE_IMPLEMENTATION_INCLUDES}
 )
+
+
+
+target_include_directories(iDescriptor PRIVATE ${IDEVICE_IMPLEMENTATION_INCLUDES})
 
 if(APPLE)
     find_library(CORE_SERVICES_FRAMEWORK CoreServices REQUIRED)
@@ -323,6 +429,7 @@ if(APPLE)
         ${SECURITY_FRAMEWORK}
         ${COREFOUNDATION_FRAMEWORK}
     )
+target_link_libraries(iDescriptor PRIVATE Qt6::Core)
 endif()
 
 # Add compile definition for source directory
@@ -368,7 +475,7 @@ if (UNIX AND NOT APPLE)
     )
     endif()
 # Add install rules for the project
-include(GNUInstallDirs)
+# include(GNUInstallDirs)
 
 # Install the main executable
 install(TARGETS iDescriptor

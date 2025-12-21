@@ -37,7 +37,6 @@
 #include <QTreeWidget>
 #include <QVBoxLayout>
 #include <QWidget>
-#include <libimobiledevice/afc.h>
 
 class ExportManager;
 class ExportProgressDialog;
@@ -89,7 +88,7 @@ private:
     ZIconWidget *m_enterButton;
     iDescriptorDevice *m_device;
     bool m_favEnabled;
-    afc_client_t m_afc;
+    AfcClientHandle *m_afc;
     QString m_errorMessage;
     QString m_root;
 

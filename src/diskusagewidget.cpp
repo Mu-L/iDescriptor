@@ -27,9 +27,9 @@
 #include <QVariantMap>
 #include <QtConcurrent/QtConcurrent>
 
-#include <libimobiledevice/installation_proxy.h>
-#include <libimobiledevice/libimobiledevice.h>
-#include <libimobiledevice/lockdown.h>
+// #include <libimobiledevice/installation_proxy.h>
+// #include <libimobiledevice/libimobiledevice.h>
+// #include <libimobiledevice/lockdown.h>
 
 DiskUsageWidget::DiskUsageWidget(iDescriptorDevice *device, QWidget *parent)
     : QWidget(parent), m_device(device), m_state(Loading), m_totalCapacity(0),
@@ -95,31 +95,33 @@ void DiskUsageWidget::setupUI()
     m_diskBarLayout->setContentsMargins(0, 0, 0, 0);
     m_diskBarLayout->setSpacing(0);
 
-/*
-    FIXME: There is bug with qt, related to NSPopover on macOS  
-    need to revisit this when we find a fix
-*/
-// #ifdef Q_OS_MAC
-//     m_systemBar = new DiskUsageBar();
-//     m_appsBar = new DiskUsageBar();
-//     m_mediaBar = new DiskUsageBar();
-//     m_othersBar = new DiskUsageBar();
-//     m_freeBar = new DiskUsageBar();
+    /*
+        FIXME: There is bug with qt, related to NSPopover on macOS
+        need to revisit this when we find a fix
+    */
+    // #ifdef Q_OS_MAC
+    //     m_systemBar = new DiskUsageBar();
+    //     m_appsBar = new DiskUsageBar();
+    //     m_mediaBar = new DiskUsageBar();
+    //     m_othersBar = new DiskUsageBar();
+    //     m_freeBar = new DiskUsageBar();
 
-//     m_systemBar->setStyleSheet(
-//         " background-color: #a1384d; border: 1px solid"
-//         "#e64a5b; padding: 0; margin: 0; border-top-left-radius: 3px; "
-//         "border-bottom-left-radius: 3px; ");
-//     m_appsBar->setStyleSheet("background-color: #4f869f; border: 1px solid "
-//                              "#63b4da; padding: 0; margin: 0; ");
-//     m_mediaBar->setStyleSheet("background-color: #2ECC71; "
-//                               "border: none; padding: 0; margin: 0; ");
-//     m_othersBar->setStyleSheet("background-color: #a28729; border: 1px solid "
-//                                "#c4a32d; padding: 0; margin: 0; ");
-//     m_freeBar->setStyleSheet(
-//         "background-color: #6e6d6d; border: 1px solid "
-//         "#4f4f4f; padding: 0; margin: 0; border-top-right-radius: 3px; "
-//         "border-bottom-right-radius: 3px; ");
+    //     m_systemBar->setStyleSheet(
+    //         " background-color: #a1384d; border: 1px solid"
+    //         "#e64a5b; padding: 0; margin: 0; border-top-left-radius: 3px; "
+    //         "border-bottom-left-radius: 3px; ");
+    //     m_appsBar->setStyleSheet("background-color: #4f869f; border: 1px
+    //     solid "
+    //                              "#63b4da; padding: 0; margin: 0; ");
+    //     m_mediaBar->setStyleSheet("background-color: #2ECC71; "
+    //                               "border: none; padding: 0; margin: 0; ");
+    //     m_othersBar->setStyleSheet("background-color: #a28729; border: 1px
+    //     solid "
+    //                                "#c4a32d; padding: 0; margin: 0; ");
+    //     m_freeBar->setStyleSheet(
+    //         "background-color: #6e6d6d; border: 1px solid "
+    //         "#4f4f4f; padding: 0; margin: 0; border-top-right-radius: 3px; "
+    //         "border-bottom-right-radius: 3px; ");
 
     m_systemBar = new QWidget();
     m_appsBar = new QWidget();
@@ -221,6 +223,7 @@ void DiskUsageWidget::updateUI()
 
     if (m_totalCapacity == 0) {
         m_processIndicator->stop();
+        m_processIndicator->hide();
         m_statusLabel->setText("No disk information available.");
         m_stackedWidget->setCurrentWidget(m_loadingErrorPage);
         return;
@@ -318,19 +321,22 @@ void DiskUsageWidget::updateUI()
     m_diskBarLayout->setStretchFactor(m_othersBar, othersStretch);
     m_diskBarLayout->setStretchFactor(m_freeBar, freeStretch);
 
-/* FIXME: NSPopover bug */
+    /* FIXME: NSPopover bug */
     // #ifdef Q_OS_MAC
-//     m_systemBar->setUsageInfo("System", formatSize(m_systemUsage), "#a1384d",
-//                               (double)m_systemUsage / m_totalCapacity);
-//     m_appsBar->setUsageInfo("Apps", formatSize(m_appsUsage), "#3498DB",
-//                             (double)m_appsUsage / m_totalCapacity);
-//     m_mediaBar->setUsageInfo("Media", formatSize(m_mediaUsage), "#2ECC71",
-//                              (double)m_mediaUsage / m_totalCapacity);
-//     m_othersBar->setUsageInfo("Others", formatSize(m_othersUsage), "#F39C12",
-//                               (double)m_othersUsage / m_totalCapacity);
-//     m_freeBar->setUsageInfo("Free", formatSize(m_freeSpace), "#BDC3C7",
-//                             (double)m_freeSpace / m_totalCapacity);
-// #else
+    //     m_systemBar->setUsageInfo("System", formatSize(m_systemUsage),
+    //     "#a1384d",
+    //                               (double)m_systemUsage / m_totalCapacity);
+    //     m_appsBar->setUsageInfo("Apps", formatSize(m_appsUsage), "#3498DB",
+    //                             (double)m_appsUsage / m_totalCapacity);
+    //     m_mediaBar->setUsageInfo("Media", formatSize(m_mediaUsage),
+    //     "#2ECC71",
+    //                              (double)m_mediaUsage / m_totalCapacity);
+    //     m_othersBar->setUsageInfo("Others", formatSize(m_othersUsage),
+    //     "#F39C12",
+    //                               (double)m_othersUsage / m_totalCapacity);
+    //     m_freeBar->setUsageInfo("Free", formatSize(m_freeSpace), "#BDC3C7",
+    //                             (double)m_freeSpace / m_totalCapacity);
+    // #else
     m_systemBar->setToolTip(
         QString("System: %1 (%2%)")
             .arg(formatSize(m_systemUsage))
@@ -357,7 +363,6 @@ void DiskUsageWidget::updateUI()
             .arg(QString::number((double)m_freeSpace / m_totalCapacity * 100,
                                  'f', 1)));
 
-
     // Hide segments with zero usage
     // m_systemBar->setVisible(m_systemUsage > 0);
     // m_appsBar->setVisible(m_appsUsage > 0);
@@ -365,7 +370,6 @@ void DiskUsageWidget::updateUI()
     // m_othersBar->setVisible(m_othersUsage > 0);
     // m_freeBar->setVisible(m_freeSpace > 0);
 }
-
 void DiskUsageWidget::fetchData()
 {
     auto *watcher = new QFutureWatcher<QVariantMap>(this);
@@ -376,6 +380,7 @@ void DiskUsageWidget::fetchData()
                     m_state = Error;
                     m_errorMessage = result["error"].toString();
                 } else {
+                    qDebug() << "Disk usage data fetched:" << result;
                     m_totalCapacity = result["totalCapacity"].toULongLong();
                     m_systemUsage = result["systemUsage"].toULongLong();
                     m_appsUsage = result["appsUsage"].toULongLong();
@@ -393,17 +398,18 @@ void DiskUsageWidget::fetchData()
 
                     m_state = Ready;
                 }
-                updateUI(); // Update the UI instead of triggering repaint
+                updateUI();
                 watcher->deleteLater();
             });
 
-    QFuture<QVariantMap> future = QtConcurrent::run([this]() {
+    QFuture<QVariantMap> future = QtConcurrent::run([this]() -> QVariantMap {
         QVariantMap result;
         if (!m_device || !m_device->device) {
             result["error"] = "Invalid device.";
             return result;
         }
 
+        // Pre-populate with known info
         result["totalCapacity"] = QVariant::fromValue(
             m_device->deviceInfo.diskInfo.totalDiskCapacity);
         result["freeSpace"] = QVariant::fromValue(
@@ -411,41 +417,21 @@ void DiskUsageWidget::fetchData()
         result["systemUsage"] = QVariant::fromValue(
             m_device->deviceInfo.diskInfo.totalSystemCapacity);
 
+        // Create provider wrapper from existing handle
+        Provider provider = Provider::adopt(m_device->device);
+
         // Apps usage
         uint64_t totalAppsSpace = 0;
-        instproxy_client_t instproxy = nullptr;
-        lockdownd_client_t lockdownClient = nullptr;
-        lockdownd_service_descriptor_t lockdowndService = nullptr;
-
-        if (lockdownd_client_new_with_handshake(m_device->device,
-                                                &lockdownClient, APP_LABEL) !=
-            LOCKDOWN_E_SUCCESS) {
-            result["error"] = "Could not connect to lockdown service.";
+        auto instproxy_res = IdeviceFFI::InstallationProxy::connect(provider);
+        if (instproxy_res.is_err()) {
+            result["error"] =
+                "Could not connect to installation proxy: " +
+                QString::fromStdString(instproxy_res.unwrap_err().message);
             return result;
         }
+        auto instproxy = std::move(instproxy_res.unwrap());
 
-        if (lockdownd_start_service(lockdownClient,
-                                    "com.apple.mobile.installation_proxy",
-                                    &lockdowndService) != LOCKDOWN_E_SUCCESS) {
-            result["error"] = "Could not start installation proxy service.";
-            lockdownd_client_free(lockdownClient);
-            return result;
-        }
-
-        if (instproxy_client_new(m_device->device, lockdowndService,
-                                 &instproxy) != INSTPROXY_E_SUCCESS) {
-            result["error"] = "Could not connect to installation proxy.";
-            lockdownd_service_descriptor_free(lockdowndService);
-            lockdownd_client_free(lockdownClient);
-            return result;
-        }
-
-        // The service descriptor is no longer needed after the client is
-        // created
-        lockdownd_service_descriptor_free(lockdowndService);
-        lockdowndService = nullptr;
-
-        plist_t client_opts = instproxy_client_options_new();
+        plist_t client_opts = plist_new_dict();
         plist_dict_set_item(client_opts, "ApplicationType",
                             plist_new_string("User"));
 
@@ -456,56 +442,51 @@ void DiskUsageWidget::fetchData()
                                 plist_new_string("DynamicDiskUsage"));
         plist_dict_set_item(client_opts, "ReturnAttributes", return_attrs);
 
-        plist_t apps = nullptr;
-        if (instproxy_browse(instproxy, client_opts, &apps) ==
-                INSTPROXY_E_SUCCESS &&
-            apps) {
-            if (plist_get_node_type(apps) == PLIST_ARRAY) {
-                for (uint32_t i = 0; i < plist_array_get_size(apps); i++) {
-                    plist_t app_info = plist_array_get_item(apps, i);
-                    if (!app_info)
-                        continue;
+        auto apps_result = instproxy.browse(client_opts);
+        if (apps_result.is_ok()) {
+            auto apps = std::move(apps_result.unwrap());
+            for (const auto &app_info : apps) {
+                plist_t static_usage =
+                    plist_dict_get_item(app_info, "StaticDiskUsage");
+                if (static_usage &&
+                    plist_get_node_type(static_usage) == PLIST_UINT) {
+                    uint64_t static_size = 0;
+                    plist_get_uint_val(static_usage, &static_size);
+                    totalAppsSpace += static_size;
+                }
 
-                    plist_t static_usage =
-                        plist_dict_get_item(app_info, "StaticDiskUsage");
-                    if (static_usage &&
-                        plist_get_node_type(static_usage) == PLIST_UINT) {
-                        uint64_t static_size = 0;
-                        plist_get_uint_val(static_usage, &static_size);
-                        totalAppsSpace += static_size;
-                    }
-
-                    plist_t dynamic_usage =
-                        plist_dict_get_item(app_info, "DynamicDiskUsage");
-                    if (dynamic_usage &&
-                        plist_get_node_type(dynamic_usage) == PLIST_UINT) {
-                        uint64_t dynamic_size = 0;
-                        plist_get_uint_val(dynamic_usage, &dynamic_size);
-                        totalAppsSpace += dynamic_size;
-                    }
+                plist_t dynamic_usage =
+                    plist_dict_get_item(app_info, "DynamicDiskUsage");
+                if (dynamic_usage &&
+                    plist_get_node_type(dynamic_usage) == PLIST_UINT) {
+                    uint64_t dynamic_size = 0;
+                    plist_get_uint_val(dynamic_usage, &dynamic_size);
+                    totalAppsSpace += dynamic_size;
                 }
             }
-            plist_free(apps);
         }
         result["appsUsage"] = QVariant::fromValue(totalAppsSpace);
-        plist_free(client_opts);
-        instproxy_client_free(instproxy);
+        plist_free(client_opts); // client_opts is consumed by browse, but
 
         // Media usage
         uint64_t mediaSpace = 0;
-        plist_t node = nullptr;
-        if (lockdownd_get_value(lockdownClient, "com.apple.mobile.iTunes",
-                                nullptr, &node) == LOCKDOWN_E_SUCCESS &&
-            node) {
-            plist_t mediaNode = plist_dict_get_item(node, "MediaLibrarySize");
-            if (mediaNode && plist_get_node_type(mediaNode) == PLIST_UINT) {
-                plist_get_uint_val(mediaNode, &mediaSpace);
+        IdeviceFFI::Lockdown lockdown =
+            IdeviceFFI::Lockdown::adopt(m_device->lockdown);
+        auto itunes_info_res =
+            lockdown.get_value("com.apple.mobile.iTunes", nullptr);
+        if (itunes_info_res.is_ok()) {
+            auto itunes_dict = std::move(itunes_info_res.unwrap());
+            if (itunes_dict) {
+                plist_t media_node =
+                    plist_dict_get_item(itunes_dict, "MediaLibrarySize");
+                if (media_node &&
+                    plist_get_node_type(media_node) == PLIST_UINT) {
+                    plist_get_uint_val(media_node, &mediaSpace);
+                }
             }
-            plist_free(node);
         }
         result["mediaUsage"] = QVariant::fromValue(mediaSpace);
 
-        lockdownd_client_free(lockdownClient);
         return result;
     });
     watcher->setFuture(future);

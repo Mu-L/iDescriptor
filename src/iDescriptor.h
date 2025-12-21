@@ -24,15 +24,20 @@
 #include <QNetworkAccessManager>
 #include <QRegularExpression>
 #include <QtCore/QObject>
-#include <libimobiledevice/afc.h>
-#include <libimobiledevice/installation_proxy.h>
-#include <libimobiledevice/libimobiledevice.h>
-#include <libimobiledevice/lockdown.h>
-#include <libimobiledevice/mobile_image_mounter.h>
-#include <libimobiledevice/screenshotr.h>
-#ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
-#include <libirecovery.h>
-#endif
+
+#include <idevice++/bindings.hpp>
+#include <idevice++/core_device_proxy.hpp>
+#include <idevice++/diagnostics_relay.hpp>
+#include <idevice++/dvt/remote_server.hpp>
+#include <idevice++/dvt/screenshot.hpp>
+#include <idevice++/ffi.hpp>
+#include <idevice++/installation_proxy.hpp>
+#include <idevice++/lockdown.hpp>
+#include <idevice++/provider.hpp>
+#include <idevice++/readwrite.hpp>
+#include <idevice++/rsd.hpp>
+#include <idevice++/usbmuxd.hpp>
+
 #include <mutex>
 #include <pugixml.hpp>
 #include <string>
@@ -54,8 +59,11 @@
     "https://raw.githubusercontent.com/iDescriptor/iDescriptor/refs/heads/"    \
     "main/DeveloperDiskImages.json"
 
-// This is because afc_read_directory accepts  "/var/mobile/Media" as "/"
+// This is because afc_list_directory accepts  "/var/mobile/Media" as "/"
 #define POSSIBLE_ROOT "../../../../"
+#define IDEVICE_DEVICE_VERSION(maj, min, patch)                                \
+    ((((maj) & 0xFF) << 16) | (((min) & 0xFF) << 8) | ((patch) & 0xFF))
+#include "devicemonitor.h"
 
 struct BatteryInfo {
     QString health;
@@ -172,59 +180,62 @@ struct DeviceInfo {
     std::string regionRaw;
     std::string region;
     unsigned int parsedDeviceVersion;
+    std::string wifiMacAddress;
 };
 
 struct iDescriptorDevice {
     std::string udid;
-    idevice_connection_type conn_type;
-    idevice_t device;
+    DeviceMonitorThread::IdeviceConnectionType conn_type;
+    IdeviceProviderHandle *device;
     DeviceInfo deviceInfo;
-    afc_client_t afcClient;
-    afc_client_t afc2Client;
+    AfcClientHandle *afcClient;
+    AfcClientHandle *afc2Client;
+    LockdowndClientHandle *lockdown;
     bool is_iPhone;
     std::recursive_mutex *mutex;
 };
 
 struct iDescriptorInitDeviceResult {
     bool success = false;
-    lockdownd_error_t error;
-    idevice_t device;
+    IdeviceFfiError error;
+    IdeviceProviderHandle *device;
     DeviceInfo deviceInfo;
-    afc_client_t afcClient;
-    afc_client_t afc2Client;
+    AfcClientHandle *afcClient;
+    AfcClientHandle *afc2Client;
+    LockdowndClientHandle *lockdown;
 };
-#ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
-struct iDescriptorRecoveryDevice {
-    uint64_t ecid;
-    irecv_mode mode;
-    uint32_t cpid;
-    uint32_t bdid;
-    std::string displayName;
-    std::recursive_mutex *mutex;
-};
-#endif
+// #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
+// struct iDescriptorRecoveryDevice {
+//     uint64_t ecid;
+//     irecv_mode mode;
+//     uint32_t cpid;
+//     uint32_t bdid;
+//     std::string displayName;
+//     std::recursive_mutex *mutex;
+// };
+// #endif
 
 struct TakeScreenshotResult {
     bool success = false;
     QImage img;
 };
 
-#ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
-struct iDescriptorInitDeviceResultRecovery {
-    irecv_client_t client = nullptr;
-    irecv_device_info deviceInfo;
-    irecv_error_t error;
-    bool success = false;
-    irecv_mode mode = IRECV_K_RECOVERY_MODE_1;
-    const char *displayName = nullptr;
-};
+// #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
+// struct iDescriptorInitDeviceResultRecovery {
+//     irecv_client_t client = nullptr;
+//     irecv_device_info deviceInfo;
+//     irecv_error_t error;
+//     bool success = false;
+//     irecv_mode mode = IRECV_K_RECOVERY_MODE_1;
+//     const char *displayName = nullptr;
+// };
 
-#endif
+// #endif
 
 void warn(const QString &message, const QString &title = "Warning",
           QWidget *parent = nullptr);
 
-enum class AddType { Regular, Pairing };
+enum class AddType { Regular, Pairing, Wireless, UpgradeToWireless };
 
 class PlistNavigator
 {
@@ -293,14 +304,14 @@ public:
     plist_t getNode() const { return current_node; }
 };
 
-afc_error_t safe_afc_read_directory(afc_client_t afcClient, idevice_t device,
-                                    const char *path, char ***dirs);
+// afc_error_t safe_afc_read_directory(afc_client_t afcClient, idevice_t device,
+//                                     const char *path, char ***dirs);
 
 std::string parse_product_type(const std::string &productType);
 
-#ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
-std::string parse_recovery_mode(irecv_mode productType);
-#endif
+// #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
+// std::string parse_recovery_mode(irecv_mode productType);
+// #endif
 
 struct MediaEntry {
     std::string name;
@@ -313,114 +324,122 @@ struct AFCFileTree {
     std::string currentPath;
 };
 
-AFCFileTree get_file_tree(afc_client_t afcClient,
-                          const std::string &path = "/");
+// AFCFileTree get_file_tree(afc_client_t afcClient,
+//                           const std::string &path = "/");
 
-bool detect_jailbroken(afc_client_t afc);
+bool detect_jailbroken(AfcClientHandle *afc);
 
-void get_device_info_xml(const char *udid, lockdownd_client_t client,
-                         idevice_t device, pugi::xml_document &infoXml);
+void get_device_info_xml(const char *udid, LockdowndClientHandle *client,
+                         pugi::xml_document &infoXml);
 
-iDescriptorInitDeviceResult init_idescriptor_device(const char *udid);
-
-#ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
-iDescriptorInitDeviceResultRecovery
-init_idescriptor_recovery_device(uint64_t ecid);
-#endif
-bool set_location(idevice_t device, char *lat, char *lon);
-
-bool shutdown(idevice_t device);
-
-TakeScreenshotResult take_screenshot(screenshotr_client_t shotr);
-
-mobile_image_mounter_error_t mount_dev_image(idevice_t device,
-                                             unsigned int device_version,
-                                             const char *image_dir_path);
-struct GetMountedImageResult {
-    bool success;
-    std::string sig;
-    std::string message;
+struct WirelessInitArgs {
+    QString ip;
+    const IdevicePairingFile *pairing_file;
 };
+iDescriptorInitDeviceResult
+init_idescriptor_device(const QString &udid,
+                        WirelessInitArgs wirelessArgs = {nullptr, nullptr});
 
-plist_t _get_mounted_image(const char *udid);
+// #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
+// iDescriptorInitDeviceResultRecovery
+// init_idescriptor_recovery_device(uint64_t ecid);
+// #endif
+// bool set_location(idevice_t device, char *lat, char *lon);
 
-bool restart(std::string udid);
+// bool shutdown(idevice_t device);
 
-enum class ImageCompatibility {
-    Compatible,      // Exact match or known compatible version
-    MaybeCompatible, // Major version matches but minor doesn't
-    NotCompatible    // Not compatible
-};
+// TakeScreenshotResult take_screenshot(screenshotr_client_t shotr);
 
-struct ImageInfo {
-    QString version;
-    QString dmgPath;
-    QString sigPath;
-    ImageCompatibility compatibility = ImageCompatibility::NotCompatible;
-    bool isDownloaded = false;
-    bool isMounted = false;
-};
+// mobile_image_mounter_error_t mount_dev_image(idevice_t device,
+//                                              unsigned int device_version,
+//                                              const char *image_dir_path);
+// struct GetMountedImageResult {
+//     bool success;
+//     std::string sig;
+//     std::string message;
+// };
 
-/**
- * @brief Compare two iPhone product types to determine which is newer
- * @param productType First iPhone product type (e.g., "iPhone8,1")
- * @param otherProductType Second iPhone product type (e.g., "iPhone7,2")
- * @return true if productType is newer than otherProductType, false otherwise
- *
- * Examples:
- * - compare_product_type("iPhone8,1", "iPhone7,2") returns true
- * - compare_product_type("iPhone6,1", "iPhone8,1") returns false
- * - compare_product_type("iPhone8,2", "iPhone8,1") returns true
- */
-bool compare_product_type(std::string productType,
-                          std::string otherProductType);
+// plist_t _get_mounted_image(const char *udid);
 
-/**
- * @brief Check if two iPhone product types are exactly equal
- * @param productType First iPhone product type
- * @param otherProductType Second iPhone product type
- * @return true if both product types are identical
- */
-bool are_product_types_equal(const std::string &productType,
-                             const std::string &otherProductType);
+// bool restart(std::string udid);
 
-/**
- * @brief Check if first product type is newer than second
- * @param productType First iPhone product type
- * @param otherProductType Second iPhone product type
- * @return true if productType is newer than otherProductType
- */
+// enum class ImageCompatibility {
+//     Compatible,      // Exact match or known compatible version
+//     MaybeCompatible, // Major version matches but minor doesn't
+//     NotCompatible    // Not compatible
+// };
+
+// struct ImageInfo {
+//     QString version;
+//     QString dmgPath;
+//     QString sigPath;
+//     ImageCompatibility compatibility = ImageCompatibility::NotCompatible;
+//     bool isDownloaded = false;
+//     bool isMounted = false;
+// };
+
+// /**
+//  * @brief Compare two iPhone product types to determine which is newer
+//  * @param productType First iPhone product type (e.g., "iPhone8,1")
+//  * @param otherProductType Second iPhone product type (e.g., "iPhone7,2")
+//  * @return true if productType is newer than otherProductType, false
+//  otherwise
+//  *
+//  * Examples:
+//  * - compare_product_type("iPhone8,1", "iPhone7,2") returns true
+//  * - compare_product_type("iPhone6,1", "iPhone8,1") returns false
+//  * - compare_product_type("iPhone8,2", "iPhone8,1") returns true
+//  */
+// bool compare_product_type(std::string productType,
+//                           std::string otherProductType);
+
+// /**
+//  * @brief Check if two iPhone product types are exactly equal
+//  * @param productType First iPhone product type
+//  * @param otherProductType Second iPhone product type
+//  * @return true if both product types are identical
+//  */
+// bool are_product_types_equal(const std::string &productType,
+//                              const std::string &otherProductType);
+
+// /**
+//  * @brief Check if first product type is newer than second
+//  * @param productType First iPhone product type
+//  * @param otherProductType Second iPhone product type
+//  * @return true if productType is newer than otherProductType
+//  */
 bool is_product_type_newer(const std::string &productType,
                            const std::string &otherProductType);
 
-/**
- * @brief Check if first product type is older than second
- * @param productType First iPhone product type
- * @param otherProductType Second iPhone product type
- * @return true if productType is older than otherProductType
- */
-bool is_product_type_older(const std::string &productType,
-                           const std::string &otherProductType);
+// /**
+//  * @brief Check if first product type is older than second
+//  * @param productType First iPhone product type
+//  * @param otherProductType Second iPhone product type
+//  * @return true if productType is older than otherProductType
+//  */
+// bool is_product_type_older(const std::string &productType,
+//                            const std::string &otherProductType);
 
-bool query_mobile_gestalt(iDescriptorDevice *id_device, const QStringList &keys,
-                          uint32_t &xml_size, char *&xml_data);
-;
+// bool query_mobile_gestalt(iDescriptorDevice *id_device, const QStringList
+// &keys,
+//                           uint32_t &xml_size, char *&xml_data);
+// ;
 
-std::string safeGetXML(const char *key, pugi::xml_node dict);
+// std::string safeGetXML(const char *key, pugi::xml_node dict);
 
-void get_battery_info(std::string productType, idevice_t idevice,
-                      bool is_iphone, plist_t &diagnostics);
+void get_battery_info(IdeviceProviderHandle *provider, plist_t &diagnostics);
 
-void parseOldDeviceBattery(PlistNavigator &ioreg, DeviceInfo &d);
-void parseDeviceBattery(PlistNavigator &ioreg, DeviceInfo &d);
+// void parseOldDeviceBattery(PlistNavigator &ioreg, DeviceInfo &d);
+// void parseDeviceBattery(PlistNavigator &ioreg, DeviceInfo &d);
 
-void fetchAppIconFromApple(QNetworkAccessManager *manager,
-                           const QString &bundleId,
-                           std::function<void(const QPixmap &)> callback);
+// void fetchAppIconFromApple(QNetworkAccessManager *manager,
+//                            const QString &bundleId,
+//                            std::function<void(const QPixmap &)>
+//                            callback);
 
-afc_error_t afc2_client_new(idevice_t device, afc_client_t *afc);
+// afc_error_t afc2_client_new(idevice_t device, afc_client_t *afc);
 
-void get_cable_info(idevice_t device, plist_t &response);
+// void get_cable_info(idevice_t device, plist_t &response);
 
 struct NetworkDevice {
     QString name;                           // service name
@@ -428,7 +447,7 @@ struct NetworkDevice {
     QString address;                        // IPv4 or IPv6 address
     uint16_t port = 22;                     // SSH port
     std::map<std::string, std::string> txt; // TXT records
-
+    QString macAddress;                     // MAC address if available
     bool operator==(const NetworkDevice &other) const
     {
         return name == other.name && address == other.address;
@@ -437,13 +456,13 @@ struct NetworkDevice {
 
 QPixmap load_heic(const QByteArray &data);
 
-QByteArray read_afc_file_to_byte_array(afc_client_t afcClient,
-                                       const char *path);
+// QByteArray read_afc_file_to_byte_array(afc_client_t afcClient,
+//                                        const char *path);
 
 bool isDarkMode();
 
-instproxy_error_t install_IPA(idevice_t device, afc_client_t afc,
-                              const char *filePath);
+// instproxy_error_t install_IPA(idevice_t device, afc_client_t afc,
+//                               const char *filePath);
 
 // Helper struct for semantic version comparison
 struct AppVersion {

@@ -18,9 +18,11 @@
  */
 
 #include "appcontext.h"
+#include "devicemonitor.h"
 #include "iDescriptor.h"
 #include "mainwindow.h"
-#include "settingsmanager.h"
+// #include "settingsmanager.h"
+#include "networkdevicemanager.h"
 #include <QDebug>
 #include <QMessageBox>
 #include <QTimer>
@@ -37,64 +39,191 @@ AppContext *AppContext::sharedInstance()
  and does not reconnect them until the user plugs them
  back in, even if they are still connected
 */
-AppContext::AppContext(QObject *parent) : QObject{parent} {}
+AppContext::AppContext(QObject *parent) : QObject{parent}
+{
 
-void AppContext::addDevice(QString udid, idevice_connection_type conn_type,
-                           AddType addType)
+    // FIXME: windows and macOS support later
+    QDir lockdowndir("/var/lib/lockdown");
+    if (!lockdowndir.exists()) {
+        return;
+    }
+
+    // Load cached pairing files
+    QStringList pairingFiles =
+        lockdowndir.entryList(QStringList() << "*.plist", QDir::Files);
+
+    qDebug() << "Parsing cached pairing files in /var/lib/lockdown:";
+    for (const QString &fileName : pairingFiles) {
+        plist_t fileData = nullptr;
+        plist_read_from_file(
+            lockdowndir.filePath(fileName).toUtf8().constData(), &fileData,
+            NULL);
+
+        if (!fileData) {
+            continue;
+        }
+        plist_print(fileData);
+        const std::string wifiMacAddress =
+            PlistNavigator(fileData)["WiFiMACAddress"].getString();
+        plist_free(fileData);
+        qDebug() << "Found pairing file for MAC"
+                 << QString::fromStdString(wifiMacAddress);
+        bool isCompatible = !wifiMacAddress.empty();
+        // TODO: !important invalidate old pairing files
+        // libimobiledevice does not append WIFIMACAddress to the pairing file
+        if (!isCompatible) {
+            continue;
+        }
+
+        IdevicePairingFile *pairing_file = nullptr;
+        idevice_pairing_file_read(
+            lockdowndir.filePath(fileName).toUtf8().constData(), &pairing_file);
+        if (pairing_file) {
+            qDebug() << "Caching pairing file for MAC"
+                     << QString::fromStdString(wifiMacAddress);
+            m_pairingFileCache[QString::fromStdString(wifiMacAddress)] =
+                pairing_file;
+        }
+    }
+}
+
+void AppContext::addDevice(QString udid,
+                           DeviceMonitorThread::IdeviceConnectionType conn_type,
+                           AddType addType, QString wifiMacAddress)
 {
     try {
-        iDescriptorInitDeviceResult initResult =
-            init_idescriptor_device(udid.toStdString().c_str());
+        iDescriptorInitDeviceResult initResult;
+
+        if (addType == AddType::UpgradeToWireless) {
+            const IdevicePairingFile *pairingFile = getCachedPairingFile(udid);
+            if (!pairingFile) {
+                qDebug() << "Cannot upgrade to wireless, no pairing file for"
+                         << udid;
+                return;
+            }
+
+            QList<NetworkDevice> networkDevices =
+                NetworkDeviceManager::sharedInstance()
+                    ->m_networkProvider->getNetworkDevices();
+
+            auto it = std::find_if(
+                networkDevices.constBegin(), networkDevices.constEnd(),
+                [wifiMacAddress](const NetworkDevice &device) {
+                    return device.macAddress.compare(wifiMacAddress,
+                                                     Qt::CaseInsensitive) == 0;
+                });
+
+            if (it != networkDevices.constEnd()) {
+
+                IdevicePairingFile *pairing_file = nullptr;
+                idevice_pairing_file_read(QString("/var/lib/lockdown/%1.plist")
+                                              .arg(udid)
+                                              .toUtf8()
+                                              .constData(),
+                                          &pairing_file);
+                initResult =
+                    init_idescriptor_device(udid, {it->address, pairing_file});
+            } else {
+                qDebug() << "No network device found with MAC address:"
+                         << wifiMacAddress;
+                return;
+            }
+        } else if (addType == AddType::Wireless) {
+            // FIXME: its not udid here its macAddress
+            const IdevicePairingFile *pairingFile = getCachedPairingFile(udid);
+            if (!pairingFile) {
+                qDebug()
+                    << "Cannot initialize wireless device, no pairing file for"
+                    << udid;
+                return;
+            }
+
+            QList<NetworkDevice> networkDevices =
+                NetworkDeviceManager::sharedInstance()
+                    ->m_networkProvider->getNetworkDevices();
+
+            auto it = std::find_if(
+                networkDevices.constBegin(), networkDevices.constEnd(),
+                [wifiMacAddress](const NetworkDevice &device) {
+                    return device.macAddress.compare(wifiMacAddress,
+                                                     Qt::CaseInsensitive) == 0;
+                });
+
+            if (it != networkDevices.constEnd()) {
+                initResult =
+                    init_idescriptor_device(udid, {it->address, pairingFile});
+            } else {
+                qDebug() << "No network device found with MAC address:"
+                         << wifiMacAddress;
+                return;
+            }
+        }
+
+        else {
+
+            initResult = init_idescriptor_device(udid, {nullptr, nullptr});
+        }
 
         qDebug() << "init_idescriptor_device success ?: " << initResult.success;
-        qDebug() << "init_idescriptor_device error code: " << initResult.error;
-
+        // qDebug() << "init_idescriptor_device error code: " <<
+        // initResult.error;
         if (!initResult.success) {
             qDebug() << "Failed to initialize device with UDID: " << udid;
-            if (initResult.error == LOCKDOWN_E_PASSWORD_PROTECTED) {
-                if (addType == AddType::Regular) {
-                    m_pendingDevices.append(udid);
-                    emit devicePasswordProtected(udid);
-                    emit deviceChange();
-                    QTimer::singleShot(
-                        SettingsManager::sharedInstance()->connectionTimeout() *
-                            1000,
-                        this, [this, udid]() {
-                            if (m_pendingDevices.contains(udid)) {
-                                qDebug() << "Pairing expired for device UDID: "
-                                         << udid;
-                                m_pendingDevices.removeAll(udid);
-                                emit devicePairingExpired(udid);
-                                emit deviceChange();
-                            }
-                        });
-                }
-            } else if (initResult.error ==
-                           LOCKDOWN_E_PAIRING_DIALOG_RESPONSE_PENDING ||
-                       initResult.error == LOCKDOWN_E_INVALID_HOST_ID) {
-                m_pendingDevices.append(udid);
-                emit devicePairPending(udid);
-                emit deviceChange();
-                QTimer::singleShot(
-                    SettingsManager::sharedInstance()->connectionTimeout() *
-                        1000,
-                    this, [this, udid]() {
-                        qDebug()
-                            << "Pairing timer fired for device UDID: " << udid;
-                        if (m_pendingDevices.contains(udid)) {
-                            qDebug()
-                                << "Pairing expired for device UDID: " << udid;
-                            m_pendingDevices.removeAll(udid);
-                            emit devicePairingExpired(udid);
-                            emit deviceChange();
-                        }
-                    });
-            } else {
-                qDebug() << "Unhandled error for device UDID: " << udid
-                         << " Error code: " << initResult.error;
-            }
             return;
         }
+        // if (!initResult.success) {
+        //     qDebug() << "Failed to initialize device with UDID: " <<
+        //     udid; if (initResult.error == LOCKDOWN_E_PASSWORD_PROTECTED)
+        //     {
+        //         if (addType == AddType::Regular) {
+        //             m_pendingDevices.append(udid);
+        //             emit devicePasswordProtected(udid);
+        //             emit deviceChange();
+        //             QTimer::singleShot(
+        //                 SettingsManager::sharedInstance()->connectionTimeout()
+        //                 *
+        //                     1000,
+        //                 this, [this, udid]() {
+        //                     if (m_pendingDevices.contains(udid)) {
+        //                         qDebug() << "Pairing expired for device
+        //                         UDID:
+        //                         "
+        //                                  << udid;
+        //                         m_pendingDevices.removeAll(udid);
+        //                         emit devicePairingExpired(udid);
+        //                         emit deviceChange();
+        //                     }
+        //                 });
+        //         }
+        //     } else if (initResult.error ==
+        //                    LOCKDOWN_E_PAIRING_DIALOG_RESPONSE_PENDING ||
+        //                initResult.error == LOCKDOWN_E_INVALID_HOST_ID) {
+        //         m_pendingDevices.append(udid);
+        //         emit devicePairPending(udid);
+        //         emit deviceChange();
+        //         QTimer::singleShot(
+        //             SettingsManager::sharedInstance()->connectionTimeout()
+        //             *
+        //                 1000,
+        //             this, [this, udid]() {
+        //                 qDebug()
+        //                     << "Pairing timer fired for device UDID: " <<
+        //                     udid;
+        //                 if (m_pendingDevices.contains(udid)) {
+        //                     qDebug()
+        //                         << "Pairing expired for device UDID: " <<
+        //                         udid;
+        //                     m_pendingDevices.removeAll(udid);
+        //                     emit devicePairingExpired(udid);
+        //                     emit deviceChange();
+        //                 }
+        //             });
+        //     } else {
+        //         qDebug() << "Unhandled error for device UDID: " << udid
+        //                  << " Error code: " << initResult.error;
+        //     }
+        //     return;
+        // }
         qDebug() << "Device initialized: " << udid;
 
         iDescriptorDevice *device = new iDescriptorDevice{
@@ -104,17 +233,20 @@ void AppContext::addDevice(QString udid, idevice_connection_type conn_type,
             .deviceInfo = initResult.deviceInfo,
             .afcClient = initResult.afcClient,
             .afc2Client = initResult.afc2Client,
+            .lockdown = initResult.lockdown,
             .mutex = new std::recursive_mutex(),
         };
         m_devices[device->udid] = device;
         if (addType == AddType::Regular) {
-            SettingsManager::sharedInstance()->doIfEnabled(
-                SettingsManager::Setting::AutoRaiseWindow, []() {
-                    if (MainWindow *mainWindow = MainWindow::sharedInstance()) {
-                        mainWindow->raise();
-                        mainWindow->activateWindow();
-                    }
-                });
+            qDebug() << "Regular device added: " << udid;
+            // SettingsManager::sharedInstance()->doIfEnabled(
+            //     SettingsManager::Setting::AutoRaiseWindow, []() {
+            //         if (MainWindow *mainWindow =
+            //         MainWindow::sharedInstance()) {
+            //             mainWindow->raise();
+            //             mainWindow->activateWindow();
+            //         }
+            //     });
 
             emit deviceAdded(device);
             emit deviceChange();
@@ -123,7 +255,6 @@ void AppContext::addDevice(QString udid, idevice_connection_type conn_type,
         emit devicePaired(device);
         emit deviceChange();
         m_pendingDevices.removeAll(udid);
-
     } catch (const std::exception &e) {
         qDebug() << "Exception in onDeviceAdded: " << e.what();
     }
@@ -131,19 +262,19 @@ void AppContext::addDevice(QString udid, idevice_connection_type conn_type,
 
 int AppContext::getConnectedDeviceCount() const
 {
-#ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
-    return m_devices.size() + m_recoveryDevices.size();
-#else
+    // #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
+    //     return m_devices.size() + m_recoveryDevices.size();
+    // #else
     return m_devices.size();
-#endif
+    // #endif
 }
 
 /*
     FIXME:
     on macOS, sometimes you get wireless disconnects even though we are not
-    listening for wireless devices it does not have any to do with us, but it
-    still happens so be aware of that
-*/
+    listening for wireless devices it does not have any to do with us, but
+   it still happens so be aware of that
+    */
 void AppContext::removeDevice(QString _udid)
 {
     const std::string udid = _udid.toStdString();
@@ -169,41 +300,41 @@ void AppContext::removeDevice(QString _udid)
     iDescriptorDevice *device = m_devices[udid];
     m_devices.remove(udid);
 
-    emit deviceRemoved(udid);
+    emit deviceRemoved(udid, device->deviceInfo.wifiMacAddress);
     emit deviceChange();
 
-    std::lock_guard<std::recursive_mutex> lock(*device->mutex);
+    // std::lock_guard<std::recursive_mutex> lock(*device->mutex);
 
-    if (device->afcClient)
-        afc_client_free(device->afcClient);
-    if (device->afc2Client)
-        afc_client_free(device->afc2Client);
-    idevice_free(device->device);
-    delete device->mutex;
-    delete device;
+    // if (device->afcClient)
+    //     afc_client_free(device->afcClient);
+    // if (device->afc2Client)
+    //     afc_client_free(device->afc2Client);
+    // idevice_free(device->device);
+    // delete device->mutex;
+    // delete device;
 }
 
 #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
 void AppContext::removeRecoveryDevice(uint64_t ecid)
 {
-    if (!m_recoveryDevices.contains(ecid)) {
-        qDebug() << "Device with ECID " + QString::number(ecid) +
-                        " not found. Please report this issue.";
-        return;
-    }
+    // if (!m_recoveryDevices.contains(ecid)) {
+    //     qDebug() << "Device with ECID " + QString::number(ecid) +
+    //                     " not found. Please report this issue.";
+    //     return;
+    // }
 
-    qDebug() << "Removing recovery device with ECID:" << ecid;
+    // qDebug() << "Removing recovery device with ECID:" << ecid;
 
-    // Fix use-after-free: get pointer before removing from map
-    iDescriptorRecoveryDevice *deviceInfo = m_recoveryDevices.value(ecid);
-    m_recoveryDevices.remove(ecid);
+    // // Fix use-after-free: get pointer before removing from map
+    // iDescriptorRecoveryDevice *deviceInfo =
+    // m_recoveryDevices.value(ecid); m_recoveryDevices.remove(ecid);
 
-    emit recoveryDeviceRemoved(ecid);
-    emit deviceChange();
+    // emit recoveryDeviceRemoved(ecid);
+    // emit deviceChange();
 
-    std::lock_guard<std::recursive_mutex> lock(*deviceInfo->mutex);
-    delete deviceInfo->mutex;
-    delete deviceInfo;
+    // std::lock_guard<std::recursive_mutex> lock(*deviceInfo->mutex);
+    // delete deviceInfo->mutex;
+    // delete deviceInfo;
 }
 #endif
 
@@ -217,91 +348,121 @@ QList<iDescriptorDevice *> AppContext::getAllDevices()
     return m_devices.values();
 }
 
-#ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
-QList<iDescriptorRecoveryDevice *> AppContext::getAllRecoveryDevices()
-{
-    return m_recoveryDevices.values();
-}
-#endif
+// #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
+// QList<iDescriptorRecoveryDevice *> AppContext::getAllRecoveryDevices()
+// {
+//     // return m_recoveryDevices.values();
+// }
+// #endif
 
 // Returns whether there are any devices connected (regular or recovery)
 bool AppContext::noDevicesConnected() const
 {
-#ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
-    return (m_devices.isEmpty() && m_recoveryDevices.isEmpty() &&
-            m_pendingDevices.isEmpty());
-#else
+    // #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
+    //     return (m_devices.isEmpty() && m_recoveryDevices.isEmpty() &&
+    //             m_pendingDevices.isEmpty());
+    // #else
     return (m_devices.isEmpty() && m_pendingDevices.isEmpty());
-#endif
+    // #endif
 }
 
 #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
 void AppContext::addRecoveryDevice(uint64_t ecid)
 {
-    iDescriptorInitDeviceResultRecovery res =
-        init_idescriptor_recovery_device(ecid);
+    // iDescriptorInitDeviceResultRecovery res =
+    //     init_idescriptor_recovery_device(ecid);
 
-    if (!res.success) {
-        qDebug() << "Failed to initialize recovery device with ECID: "
-                 << QString::number(ecid);
-        qDebug() << "Error code: " << res.error;
-        return;
-    }
+    // if (!res.success) {
+    //     qDebug() << "Failed to initialize recovery device with ECID: "
+    //              << QString::number(ecid);
+    //     qDebug() << "Error code: " << res.error;
+    //     return;
+    // }
 
-    iDescriptorRecoveryDevice *recoveryDevice = new iDescriptorRecoveryDevice();
-    recoveryDevice->ecid = res.deviceInfo.ecid;
-    recoveryDevice->mode = res.mode;
-    recoveryDevice->cpid = res.deviceInfo.cpid;
-    recoveryDevice->bdid = res.deviceInfo.bdid;
-    recoveryDevice->displayName = res.displayName;
-    recoveryDevice->mutex = new std::recursive_mutex();
+    // iDescriptorRecoveryDevice *recoveryDevice = new
+    // iDescriptorRecoveryDevice(); recoveryDevice->ecid =
+    // res.deviceInfo.ecid; recoveryDevice->mode = res.mode;
+    // recoveryDevice->cpid = res.deviceInfo.cpid;
+    // recoveryDevice->bdid = res.deviceInfo.bdid;
+    // recoveryDevice->displayName = res.displayName;
+    // recoveryDevice->mutex = new std::recursive_mutex();
 
-    m_recoveryDevices[res.deviceInfo.ecid] = recoveryDevice;
-    emit recoveryDeviceAdded(recoveryDevice);
-    emit deviceChange();
+    // m_recoveryDevices[res.deviceInfo.ecid] = recoveryDevice;
+    // emit recoveryDeviceAdded(recoveryDevice);
+    // emit deviceChange();
 }
 #endif
 
 AppContext::~AppContext()
 {
-    for (auto device : m_devices) {
-        emit deviceRemoved(device->udid);
-        if (device->afcClient)
-            afc_client_free(device->afcClient);
-        if (device->afc2Client)
-            afc_client_free(device->afc2Client);
-        idevice_free(device->device);
-        delete device->mutex;
-        delete device;
-    }
+    //     for (auto device : m_devices) {
+    //         emit deviceRemoved(device->udid);
+    //         if (device->afcClient)
+    //             afc_client_free(device->afcClient);
+    //         if (device->afc2Client)
+    //             afc_client_free(device->afc2Client);
+    //         idevice_free(device->device);
+    //         delete device->mutex;
+    //         delete device;
+    //     }
 
-#ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
-    for (auto recoveryDevice : m_recoveryDevices) {
-        emit recoveryDeviceRemoved(recoveryDevice->ecid);
-        delete recoveryDevice->mutex;
-        delete recoveryDevice;
-    }
-#endif
+    // #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
+    //     for (auto recoveryDevice : m_recoveryDevices) {
+    //         emit recoveryDeviceRemoved(recoveryDevice->ecid);
+    //         delete recoveryDevice->mutex;
+    //         delete recoveryDevice;
+    //     }
+    // #endif
 }
 
 void AppContext::setCurrentDeviceSelection(const DeviceSelection &selection)
 {
-    qDebug() << "New selection -"
-             << " Type:" << selection.type
-             << " UDID:" << QString::fromStdString(selection.udid)
-             << " ECID:" << selection.ecid << " Section:" << selection.section;
-    if (m_currentSelection.type == selection.type &&
-        m_currentSelection.udid == selection.udid &&
-        m_currentSelection.ecid == selection.ecid &&
-        m_currentSelection.section == selection.section) {
-        qDebug() << "setCurrentDeviceSelection: No change in selection";
-        return; // No change
-    }
-    m_currentSelection = selection;
-    emit currentDeviceSelectionChanged(m_currentSelection);
+    // qDebug() << "New selection -"
+    //          << " Type:" << selection.type
+    //          << " UDID:" << QString::fromStdString(selection.udid)
+    //          << " ECID:" << selection.ecid << " Section:" <<
+    //          selection.section;
+    // if (m_currentSelection.type == selection.type &&
+    //     m_currentSelection.udid == selection.udid &&
+    //     m_currentSelection.ecid == selection.ecid &&
+    //     m_currentSelection.section == selection.section) {
+    //     qDebug() << "setCurrentDeviceSelection: No change in selection";
+    //     return; // No change
+    // }
+    // m_currentSelection = selection;
+    // emit currentDeviceSelectionChanged(m_currentSelection);
 }
 
 const DeviceSelection &AppContext::getCurrentDeviceSelection() const
 {
     return m_currentSelection;
+}
+
+const iDescriptorDevice *
+AppContext::getDeviceByMacAddress(const QString &macAddress) const
+{
+    for (const iDescriptorDevice *device : m_devices) {
+        if (device->deviceInfo.wifiMacAddress == macAddress.toStdString()) {
+            return device;
+        }
+    }
+    return nullptr;
+}
+
+void AppContext::cachePairingFile(const QString &udid,
+                                  IdevicePairingFile *pairingFile)
+{
+    m_pairingFileCache.insert(udid, pairingFile);
+}
+const IdevicePairingFile *
+AppContext::getCachedPairingFile(const QString &udid) const
+{
+    const IdevicePairingFile *pairingFile = nullptr;
+
+    // Retrieve the pairing file from the cache
+    if (m_pairingFileCache.contains(udid)) {
+        pairingFile = m_pairingFileCache.value(udid);
+    }
+
+    return pairingFile;
 }

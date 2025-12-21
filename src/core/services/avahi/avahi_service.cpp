@@ -217,9 +217,10 @@ void AvahiService::resolveCallback(
                 avahi_free(value);
             }
         }
-
+        device.macAddress = device.name.split('@').first();
         qDebug() << "Resolved Apple device:" << device.name << "at"
-                 << device.address << ":" << device.port;
+                 << device.address << ":" << device.port
+                 << "MAC:" << device.macAddress;
 
         // Add to our list if not already present
         {

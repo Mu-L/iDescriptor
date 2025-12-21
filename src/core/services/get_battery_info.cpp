@@ -20,35 +20,45 @@
 #include "../../iDescriptor.h"
 #include "plist/plist.h"
 #include <QDebug>
-#include <libimobiledevice/diagnostics_relay.h>
 #include <string>
 
-void get_battery_info(std::string productType, idevice_t idevice,
-                      bool is_iphone, plist_t &diagnostics)
+// FIXME: return bool
+void get_battery_info(IdeviceProviderHandle *provider, plist_t &diagnostics)
 {
-    diagnostics_relay_client_t diagnostics_client = nullptr;
-    try {
+    // 1. Connect to the diagnostics_relay service using the raw C function.
+    DiagnosticsRelayClientHandle *client_handle = nullptr;
+    IdeviceFfiError *err =
+        ::diagnostics_relay_client_connect(provider, &client_handle);
 
-        if (diagnostics_relay_client_start_service(idevice, &diagnostics_client,
-                                                   nullptr) !=
-            DIAGNOSTICS_RELAY_E_SUCCESS) {
-            qDebug() << "Failed to start diagnostics relay service.";
-            return;
-        }
+    if (err) {
+        qDebug() << "Failed to create diagnostics relay client:"
+                 << err->message;
+        idevice_error_free(err);
+        return;
+    }
 
-        if (diagnostics_relay_query_ioregistry_entry(
-                diagnostics_client, nullptr, "IOPMPowerSource", &diagnostics) !=
-                DIAGNOSTICS_RELAY_E_SUCCESS &&
-            !diagnostics) {
+    // 2. Adopt the raw handle into the C++ RAII wrapper.
+    // The client will now be automatically freed when it goes out of scope.
+    auto diagnostics_client =
+        IdeviceFFI::DiagnosticsRelay::adopt(client_handle);
 
-            qDebug()
-                << "Failed to query diagnostics relay for AppleARMPMUCharger.";
-            if (diagnostics_client)
-                diagnostics_relay_client_free(diagnostics_client);
-        }
-    } catch (const std::exception &e) {
-        if (diagnostics_client)
-            diagnostics_relay_client_free(diagnostics_client);
-        qDebug() << "Exception in get_battery_info: " << e.what();
+    // 3. Query IORegistry for battery info.
+    auto ioreg_result = diagnostics_client.ioregistry(
+        IdeviceFFI::None,                                // current_plane
+        IdeviceFFI::None,                                // entry_name
+        IdeviceFFI::Some(std::string("IOPMPowerSource")) // entry_class
+    );
+
+    if (!ioreg_result.is_ok()) {
+        qDebug() << "Failed to query IORegistry:"
+                 << ioreg_result.unwrap_err().message.c_str();
+        return;
+    }
+
+    // 4. Unwrap the result and handle the optional plist.
+    auto plist_opt = std::move(ioreg_result).unwrap();
+    if (plist_opt.is_some()) {
+        // The caller of get_battery_info is responsible for freeing this plist.
+        diagnostics = std::move(plist_opt).unwrap();
     }
 }

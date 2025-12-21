@@ -18,7 +18,7 @@
  */
 
 #include "mainwindow.h"
-#include "settingsmanager.h"
+// #include "settingsmanager.h"
 #include <QApplication>
 #include <QDebug>
 #include <QDir>
@@ -37,12 +37,12 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("iDescriptor");
     QCoreApplication::setApplicationVersion(APP_VERSION);
 
-    if (a.arguments().contains("--reset-settings")) {
-        SettingsManager::sharedInstance()->clear();
-        QMessageBox::information(nullptr, "Settings Reset",
-                                 "All application settings have been reset to "
-                                 "their default values.");
-    }
+    // if (a.arguments().contains("--reset-settings")) {
+    //     SettingsManager::sharedInstance()->clear();
+    //     QMessageBox::information(nullptr, "Settings Reset",
+    //                              "All application settings have been reset to
+    //                              " "their default values.");
+    // }
 #ifdef WIN32
     QString appPath = QCoreApplication::applicationDirPath();
     QString gstPluginPath =
