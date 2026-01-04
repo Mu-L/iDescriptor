@@ -153,6 +153,30 @@ void SettingsWidget::setupUI()
 
     scrollLayout->addWidget(jailbrokenGroup);
 
+    // === AirPlay SETTINGS ===
+    auto *airplayGroup = new QGroupBox("AirPlay");
+    auto *airplayLayout = new QVBoxLayout(airplayGroup);
+
+    auto *fpsLayout = new QHBoxLayout();
+
+    auto *fpsLabel = new QLabel("Fps:");
+    m_airplayFpsSpinBox = new QSpinBox();
+    m_airplayFpsSpinBox->setRange(1, 255);
+    m_airplayFpsSpinBox->setToolTip(
+        "Set the fps for AirPlay. Go with 30 fps if have an older device.");
+
+    fpsLayout->addWidget(fpsLabel);
+    fpsLayout->addWidget(m_airplayFpsSpinBox);
+    fpsLayout->addStretch();
+    airplayLayout->addLayout(fpsLayout);
+
+#ifdef __linux__
+    m_showV4L2CheckBox = new QCheckBox("Show V4L2 Button on AirPlay Widget");
+    airplayLayout->addWidget(m_showV4L2CheckBox);
+#endif
+
+    scrollLayout->addWidget(airplayGroup);
+
     // === MISCELLANEOUS SETTINGS ===
     auto *miscGroup = new QGroupBox("Miscellaneous");
     auto *miscLayout = new QVBoxLayout(miscGroup);
@@ -250,6 +274,10 @@ void SettingsWidget::loadSettings()
     m_applyButton->setEnabled(false);
 
     m_iconSizeBaseMultiplier->setValue(sm->iconSizeBaseMultiplier());
+    m_airplayFpsSpinBox->setValue(sm->airplayFps());
+#ifdef __linux__
+    m_showV4L2CheckBox->setChecked(sm->showV4L2());
+#endif
 }
 
 void SettingsWidget::connectSignals()
@@ -380,6 +408,10 @@ void SettingsWidget::saveSettings()
 
     sm->setIconSizeBaseMultiplier(m_iconSizeBaseMultiplier->value());
 
+    sm->setAirplayFps(m_airplayFpsSpinBox->value());
+#ifdef __linux__
+    sm->setShowV4L2(m_showV4L2CheckBox->isChecked());
+#endif
     m_applyButton->setEnabled(false);
 }
 

@@ -391,3 +391,27 @@ void SettingsManager::setIconSizeBaseMultiplier(double multiplier)
     m_settings->setValue("iconSizeBaseMultiplier", multiplier);
     m_settings->sync();
 }
+
+int SettingsManager::airplayFps() const
+{
+    return m_settings->value("airplayFps", 60).toInt();
+}
+
+void SettingsManager::setAirplayFps(int fps)
+{
+    m_settings->setValue("airplayFps", fps);
+    m_settings->sync();
+}
+
+#ifdef __linux__
+bool SettingsManager::showV4L2() const
+{
+    return m_settings->value("showV4L2", false).toBool();
+}
+
+void SettingsManager::setShowV4L2(bool show)
+{
+    m_settings->setValue("showV4L2", show);
+    m_settings->sync();
+}
+#endif

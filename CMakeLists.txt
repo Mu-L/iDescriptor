@@ -217,7 +217,7 @@ if (NOT ENABLE_RECOVERY_DEVICE_SUPPORT)
     )
 endif()
 
-add_subdirectory(lib/airplay)
+add_subdirectory(lib/uxplay)
 add_subdirectory(lib/ipatool-go)
 add_subdirectory(lib/zupdater)
 
@@ -283,7 +283,7 @@ target_link_libraries(iDescriptor PRIVATE
     PkgConfig::AVCODEC
     PkgConfig::AVUTIL
     PkgConfig::SWSCALE
-    airplay
+    uxplay
     ipatool-go
     ZUpdater
 )
@@ -294,7 +294,9 @@ if(ENABLE_RECOVERY_DEVICE_SUPPORT)
 endif()
 
 target_include_directories(iDescriptor PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib/zupdater/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib/zupdater/src 
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib 
 )
 
 if(APPLE)

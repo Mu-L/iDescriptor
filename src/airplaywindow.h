@@ -23,10 +23,18 @@
 #include "qprocessindicator.h"
 #include <QCheckBox>
 #include <QCloseEvent>
+#include <QComboBox>
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QDoubleSpinBox>
+#include <QFormLayout>
+#include <QGroupBox>
 #include <QLabel>
 #include <QMainWindow>
 #include <QMediaPlayer>
 #include <QMutex>
+#include <QPushButton>
+#include <QSpinBox>
 #include <QStackedWidget>
 #include <QThread>
 #include <QTimer>
@@ -40,22 +48,49 @@ class AirPlayServerThread : public QThread
 
 public:
     explicit AirPlayServerThread(QObject *parent = nullptr);
-    ~AirPlayServerThread() override;
+    ~AirPlayServerThread();
 
-    void stopServer();
+    // void stopServer();
+    void setArguments(const QStringList &args);
 
 signals:
     void statusChanged(bool running);
     void videoFrameReady(QByteArray frameData, int width, int height);
     void clientConnectionChanged(bool connected);
+    void errorOccurred(const QString &message);
 
 protected:
     void run() override;
 
 private:
-    bool m_shouldStop;
     QMutex m_mutex;
     QWaitCondition m_waitCondition;
+    bool m_shouldStop;
+    QVector<QByteArray> m_argData;
+    QVector<char *> m_argv;
+};
+
+class AirPlaySettings
+{
+public:
+    explicit AirPlaySettings();
+    int fps;
+
+    QStringList toArgs() const;
+};
+
+class AirPlaySettingsDialog : public QDialog
+{
+    Q_OBJECT
+public:
+    explicit AirPlaySettingsDialog(QWidget *parent = nullptr);
+    AirPlaySettings getSettings() const;
+
+private:
+    void setupUI();
+
+    QSpinBox *m_fpsSpinBox;
+    AirPlaySettings m_settings;
 };
 
 class AirPlayWindow : public QMainWindow
@@ -66,22 +101,34 @@ public:
     explicit AirPlayWindow(QWidget *parent = nullptr);
     ~AirPlayWindow();
 
-public slots:
-    void updateVideoFrame(QByteArray frameData, int width, int height);
-    void onClientConnectionChanged(bool connected);
-
 private slots:
+    void updateVideoFrame(QByteArray frameData, int width, int height);
     void onServerStatusChanged(bool running);
+    void onClientConnectionChanged(bool connected);
+    void showSettingsDialog();
 #ifdef __linux__
     void onV4L2CheckboxToggled(bool enabled);
 #endif
+
+signals:
+    void restartRequested();
+
 private:
     void setupUI();
-    void startAirPlayServer();
-    void stopAirPlayServer();
     void setupTutorialVideo();
     void showTutorialView();
     void showStreamingView();
+    void startAirPlayServer();
+    void stopAirPlayServer();
+
+#ifdef __linux__
+    void initV4L2(int width, int height, const char *device = "/dev/video0");
+    void closeV4L2();
+    void writeFrameToV4L2(uint8_t *data, int width, int height);
+    bool checkV4L2LoopbackExists();
+    bool createV4L2Loopback();
+    void setupV4L2Checkbox();
+#endif
 
     // UI Components
     QStackedWidget *m_stackedWidget;
@@ -94,30 +141,20 @@ private:
     QVideoWidget *m_tutorialVideoWidget;
     QLabel *m_videoLabel;
     QVBoxLayout *m_tutorialLayout;
-    QCheckBox *m_v4l2Checkbox;
-
-    AirPlayServerThread *m_serverThread;
-    bool m_serverRunning;
-    bool m_clientConnected = false;
+    QPushButton *m_settingsButton;
 
 #ifdef __linux__
-public:
-    // V4L2 members - public for C callback access
+    QCheckBox *m_v4l2Checkbox;
     int m_v4l2_fd;
     int m_v4l2_width;
     int m_v4l2_height;
     bool m_v4l2_enabled = false;
-
-    // V4L2 methods
-    void writeFrameToV4L2(uint8_t *data, int width, int height);
-
-private:
-    void initV4L2(int width, int height, const char *device);
-    void closeV4L2();
-    bool checkV4L2LoopbackExists();
-    bool createV4L2Loopback();
-    void setupV4L2Checkbox();
 #endif
+
+    AirPlayServerThread *m_serverThread;
+    bool m_serverRunning;
+    bool m_clientConnected;
+    AirPlaySettings m_settings;
 };
 
 #endif // AIRPLAYWINDOW_H

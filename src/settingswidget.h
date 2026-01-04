@@ -68,6 +68,13 @@ private:
 
     QDoubleSpinBox *m_iconSizeBaseMultiplier;
 
+    // Airplay
+    QSpinBox *m_airplayFpsSpinBox;
+
+#ifdef __linux__
+    QCheckBox *m_showV4L2CheckBox;
+#endif
+
     // Buttons
     QPushButton *m_checkUpdatesButton;
     QPushButton *m_resetButton;

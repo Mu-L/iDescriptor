@@ -409,6 +409,17 @@ void ToolboxWidget::onToolboxClicked(iDescriptorTool tool)
             m_airplayWindow = new AirPlayWindow();
             connect(m_airplayWindow, &QObject::destroyed, this,
                     [this]() { m_airplayWindow = nullptr; });
+            connect(m_airplayWindow, &AirPlayWindow::restartRequested, this,
+                    [this]() {
+                        if (m_airplayWindow) {
+                            m_airplayWindow->close();
+                        }
+                        m_airplayWindow = new AirPlayWindow();
+                        m_airplayWindow->setAttribute(Qt::WA_DeleteOnClose);
+                        m_airplayWindow->setWindowFlag(Qt::Window);
+                        m_airplayWindow->resize(400, 300);
+                        m_airplayWindow->show();
+                    });
             m_airplayWindow->setAttribute(Qt::WA_DeleteOnClose);
             m_airplayWindow->setWindowFlag(Qt::Window);
             m_airplayWindow->resize(400, 300);

@@ -105,6 +105,13 @@ public:
 
     double iconSizeBaseMultiplier() const;
     void setIconSizeBaseMultiplier(double multiplier);
+
+    int airplayFps() const;
+    void setAirplayFps(int fps);
+#ifdef __linux__
+    bool showV4L2() const;
+    void setShowV4L2(bool show);
+#endif
 signals:
     void favoritePlacesChanged();
     void recentLocationsChanged();
