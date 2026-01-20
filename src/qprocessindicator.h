@@ -22,6 +22,7 @@
 #define QPROCESSINDICATOR_H
 
 #include <QColor>
+#include <QEvent>
 #include <QPaintEvent>
 #include <QPainter>
 #include <QTimer>

@@ -20,6 +20,7 @@
 #ifndef BATTERYWIDGET_H
 #define BATTERYWIDGET_H
 
+#include <QEvent>
 #include <QWidget>
 
 class BatteryWidget : public QWidget

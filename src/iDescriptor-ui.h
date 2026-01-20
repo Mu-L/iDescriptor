@@ -21,6 +21,7 @@
 #include "settingsmanager.h"
 #include <QAbstractButton>
 #include <QApplication>
+#include <QEvent>
 #include <QGraphicsView>
 #include <QGuiApplication>
 #include <QLabel>

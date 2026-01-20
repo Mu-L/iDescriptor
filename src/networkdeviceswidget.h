@@ -26,6 +26,7 @@
 #include "core/services/dnssd/dnssd_service.h"
 #endif
 
+#include <QEvent>
 #include <QGroupBox>
 #include <QLabel>
 #include <QScrollArea>

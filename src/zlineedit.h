@@ -20,6 +20,7 @@
 #pragma once
 
 #include <QApplication>
+#include <QEvent>
 #include <QLineEdit>
 
 class ZLineEdit : public QLineEdit

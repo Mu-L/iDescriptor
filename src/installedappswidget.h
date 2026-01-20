@@ -24,6 +24,7 @@
 #include "zlineedit.h"
 #include <QCheckBox>
 #include <QEnterEvent>
+#include <QEvent>
 #include <QFrame>
 #include <QFutureWatcher>
 #include <QGroupBox>

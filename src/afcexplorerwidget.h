@@ -23,6 +23,7 @@
 #include "iDescriptor-ui.h"
 #include "iDescriptor.h"
 #include <QAction>
+#include <QEvent>
 #include <QHBoxLayout>
 #include <QInputDialog>
 #include <QLabel>

@@ -26,6 +26,7 @@
 #include <QAction>
 #include <QComboBox>
 #include <QDialog>
+#include <QEvent>
 #include <QFile>
 #include <QGridLayout>
 #include <QHBoxLayout>
