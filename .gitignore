@@ -11,3 +11,6 @@ build-dir
 *.exe
 *.dll
 devdiskimgs
+.qt
+.qtcreator
+CMakeFiles
