@@ -62,7 +62,7 @@ QUuid ExportManager::startExport(iDescriptorDevice *device,
                                  const QString &destinationPath,
                                  std::optional<afc_client_t> altAfc)
 {
-    if (!device || !device->mutex) {
+    if (!device) {
         qWarning() << "Invalid device provided to ExportManager";
         return QUuid();
     }

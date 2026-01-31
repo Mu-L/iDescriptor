@@ -43,11 +43,11 @@ public:
                               std::function<T(afc_client_t)> operation,
                               std::optional<afc_client_t> altAfc = std::nullopt)
     {
-        if (!device || !device->mutex) {
+        if (!device) {
             return T{}; // Return default-constructed value for the type
         }
 
-        std::lock_guard<std::recursive_mutex> lock(*device->mutex);
+        std::lock_guard<std::recursive_mutex> lock(device->mutex);
 
         // Double-check device is still valid after acquiring lock
         if (!device->afcClient) {
@@ -70,11 +70,11 @@ public:
                               std::function<T()> operation,
                               std::optional<afc_client_t> altAfc = std::nullopt)
     {
-        if (!device || !device->mutex) {
+        if (!device) {
             return T{}; // Return default-constructed value for the type
         }
 
-        std::lock_guard<std::recursive_mutex> lock(*device->mutex);
+        std::lock_guard<std::recursive_mutex> lock(device->mutex);
 
         // Double-check device is still valid after acquiring lock
         if (!device->afcClient) {
@@ -94,11 +94,11 @@ public:
                               std::function<T()> operation, T failureValue,
                               std::optional<afc_client_t> altAfc = std::nullopt)
     {
-        if (!device || !device->mutex) {
+        if (!device) {
             return failureValue;
         }
 
-        std::lock_guard<std::recursive_mutex> lock(*device->mutex);
+        std::lock_guard<std::recursive_mutex> lock(device->mutex);
 
         // Double-check device is still valid after acquiring lock
         if (!device->afcClient) {
@@ -118,11 +118,11 @@ public:
     executeOperation(iDescriptorDevice *device, std::function<void()> operation,
                      std::optional<afc_client_t> altAfc = std::nullopt)
     {
-        if (!device || !device->mutex) {
+        if (!device) {
             return;
         }
 
-        std::lock_guard<std::recursive_mutex> lock(*device->mutex);
+        std::lock_guard<std::recursive_mutex> lock(device->mutex);
 
         // Double-check device is still valid after acquiring lock
         if (!device->afcClient) {
@@ -144,11 +144,11 @@ public:
                         std::optional<afc_client_t> altAfc = std::nullopt)
     {
         try {
-            if (!device || !device->mutex) {
+            if (!device) {
                 return AFC_E_UNKNOWN_ERROR;
             }
 
-            std::lock_guard<std::recursive_mutex> lock(*device->mutex);
+            std::lock_guard<std::recursive_mutex> lock(device->mutex);
 
             // Double-check device is still valid after acquiring lock
             if (!device->afcClient) {

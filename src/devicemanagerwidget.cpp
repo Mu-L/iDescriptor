@@ -280,11 +280,6 @@ void DeviceManagerWidget::removeDevice(const std::string &uuid)
         m_stackedWidget->removeWidget(deviceWidget);
         m_sidebar->removeDevice(uuid);
         deviceWidget->deleteLater();
-
-        // // TODO:
-        // if (m_deviceWidgets.count() > 0) {
-        //     setCurrentDevice(m_deviceWidgets.firstKey());
-        // }
     }
 }
 

@@ -104,7 +104,6 @@ void AppContext::addDevice(QString udid, idevice_connection_type conn_type,
             .deviceInfo = initResult.deviceInfo,
             .afcClient = initResult.afcClient,
             .afc2Client = initResult.afc2Client,
-            .mutex = new std::recursive_mutex(),
         };
         m_devices[device->udid] = device;
         if (addType == AddType::Regular) {
@@ -172,14 +171,15 @@ void AppContext::removeDevice(QString _udid)
     emit deviceRemoved(udid);
     emit deviceChange();
 
-    std::lock_guard<std::recursive_mutex> lock(*device->mutex);
+    std::lock_guard<std::recursive_mutex> lock(device->mutex);
 
     if (device->afcClient)
         afc_client_free(device->afcClient);
     if (device->afc2Client)
         afc_client_free(device->afc2Client);
+
     idevice_free(device->device);
-    delete device->mutex;
+    
     delete device;
 }
 
@@ -201,8 +201,7 @@ void AppContext::removeRecoveryDevice(uint64_t ecid)
     emit recoveryDeviceRemoved(ecid);
     emit deviceChange();
 
-    std::lock_guard<std::recursive_mutex> lock(*deviceInfo->mutex);
-    delete deviceInfo->mutex;
+    std::lock_guard<std::recursive_mutex> lock(deviceInfo->mutex);
     delete deviceInfo;
 }
 #endif
@@ -254,7 +253,6 @@ void AppContext::addRecoveryDevice(uint64_t ecid)
     recoveryDevice->cpid = res.deviceInfo.cpid;
     recoveryDevice->bdid = res.deviceInfo.bdid;
     recoveryDevice->displayName = res.displayName;
-    recoveryDevice->mutex = new std::recursive_mutex();
 
     m_recoveryDevices[res.deviceInfo.ecid] = recoveryDevice;
     emit recoveryDeviceAdded(recoveryDevice);
@@ -271,14 +269,12 @@ AppContext::~AppContext()
         if (device->afc2Client)
             afc_client_free(device->afc2Client);
         idevice_free(device->device);
-        delete device->mutex;
         delete device;
     }
 
 #ifdef ENABLE_RECOVERY_DEVICE_SUPPORT
     for (auto recoveryDevice : m_recoveryDevices) {
         emit recoveryDeviceRemoved(recoveryDevice->ecid);
-        delete recoveryDevice->mutex;
         delete recoveryDevice;
     }
 #endif

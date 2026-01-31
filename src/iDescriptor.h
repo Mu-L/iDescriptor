@@ -184,7 +184,7 @@ struct iDescriptorDevice {
     afc_client_t afcClient;
     afc_client_t afc2Client;
     bool is_iPhone;
-    std::recursive_mutex *mutex;
+    std::recursive_mutex mutex;
 };
 
 struct iDescriptorInitDeviceResult {
@@ -202,7 +202,7 @@ struct iDescriptorRecoveryDevice {
     uint32_t cpid;
     uint32_t bdid;
     std::string displayName;
-    std::recursive_mutex *mutex;
+    std::recursive_mutex mutex;
 };
 #endif
 
