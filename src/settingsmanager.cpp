@@ -235,6 +235,12 @@ void SettingsManager::resetToDefaults()
     setConnectionTimeout(30);
     setShowKeychainDialog(true);
     setDefaultJailbrokenRootPassword("alpine");
+    setIconSizeBaseMultiplier(1.0);
+    setAirplayFps(60);
+    setAirplayNoHold(true);
+#ifdef __linux__
+    setShowV4L2(false);
+#endif
 }
 
 void SettingsManager::saveFavoritePlace(const QString &path,
@@ -400,6 +406,16 @@ int SettingsManager::airplayFps() const
 void SettingsManager::setAirplayFps(int fps)
 {
     m_settings->setValue("airplayFps", fps);
+    m_settings->sync();
+}
+
+bool SettingsManager::airplayNoHold() const
+{
+    return m_settings->value("airplayNoHold", true).toBool();
+}
+void SettingsManager::setAirplayNoHold(bool noHold)
+{
+    m_settings->setValue("airplayNoHold", noHold);
     m_settings->sync();
 }
 

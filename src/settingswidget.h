@@ -69,7 +69,8 @@ private:
     QDoubleSpinBox *m_iconSizeBaseMultiplier;
 
     // Airplay
-    QSpinBox *m_airplayFpsSpinBox;
+    QComboBox *m_fpsComboBox;
+    QCheckBox *m_noHoldCheckbox;
 
 #ifdef __linux__
     QCheckBox *m_showV4L2CheckBox;

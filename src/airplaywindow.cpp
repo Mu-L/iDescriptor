@@ -56,11 +56,14 @@
 #include <uxplay/uxplay.h>
 
 #include "diagnosedialog.h"
+#ifdef WIN32
 #include "platform/windows/check_deps.h"
+#endif
 #include "toolboxwidget.h"
 
 AirPlaySettings::AirPlaySettings()
-    : fps(SettingsManager::sharedInstance()->airplayFps())
+    : fps(SettingsManager::sharedInstance()->airplayFps()),
+      noHold(SettingsManager::sharedInstance()->airplayNoHold())
 {
 }
 
@@ -72,7 +75,8 @@ QStringList AirPlaySettings::toArgs() const
     args << "-fps" << QString::number(fps);
 
     // Allow new connections to take over
-    args << "-nohold";
+    if (noHold)
+        args << "-nohold";
 
     return args;
 }
@@ -110,8 +114,13 @@ void AirPlaySettingsDialog::setupUI()
     fpsLayout->addWidget(fpsFootnote);
 
     videoLayout->addRow("Max FPS:", fpsLayout);
-    mainLayout->addWidget(videoGroup);
 
+    m_noHoldCheckbox = new QCheckBox("Allow New Connections to Take Over");
+    m_noHoldCheckbox->setChecked(
+        SettingsManager::sharedInstance()->airplayNoHold());
+    videoLayout->addRow(m_noHoldCheckbox);
+
+    mainLayout->addWidget(videoGroup);
     // Buttons
     QDialogButtonBox *buttonBox =
         new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -124,6 +133,7 @@ AirPlaySettings AirPlaySettingsDialog::getSettings() const
 {
     AirPlaySettings settings;
     settings.fps = m_fpsComboBox->currentText().toInt();
+    settings.noHold = m_noHoldCheckbox->isChecked();
     return settings;
 }
 
@@ -305,7 +315,8 @@ void AirPlayWindow::showSettingsDialog()
 
         // Save settings
         SettingsManager::sharedInstance()->setAirplayFps(newSettings.fps);
-
+        SettingsManager::sharedInstance()->setAirplayNoHold(newSettings.noHold);
+       
         QMessageBox::information(this, "Settings Saved",
                                  "AirPlay will be restarted to apply the new "
                                  "settings.");

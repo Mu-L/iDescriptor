@@ -73,6 +73,7 @@ class AirPlaySettings
 public:
     explicit AirPlaySettings();
     int fps;
+    bool noHold;
 
     QStringList toArgs() const;
 };
@@ -88,6 +89,7 @@ private:
     void setupUI();
 
     QComboBox *m_fpsComboBox;
+    QCheckBox *m_noHoldCheckbox;
     AirPlaySettings m_settings;
 };
 

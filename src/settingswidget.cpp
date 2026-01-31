@@ -165,15 +165,19 @@ void SettingsWidget::setupUI()
     auto *fpsLayout = new QHBoxLayout();
 
     auto *fpsLabel = new QLabel("Fps:");
-    m_airplayFpsSpinBox = new QSpinBox();
-    m_airplayFpsSpinBox->setRange(1, 255);
-    m_airplayFpsSpinBox->setToolTip(
+    m_fpsComboBox = new QComboBox();
+    m_fpsComboBox->addItems({"24", "30", "60", "120"});
+    m_fpsComboBox->setToolTip(
         "Set the fps for AirPlay. Go with 30 fps if have an older device.");
 
     fpsLayout->addWidget(fpsLabel);
-    fpsLayout->addWidget(m_airplayFpsSpinBox);
+    fpsLayout->addWidget(m_fpsComboBox);
     fpsLayout->addStretch();
     airplayLayout->addLayout(fpsLayout);
+
+    m_noHoldCheckbox = new QCheckBox("Allow New Connections to Take Over");
+    airplayLayout->addWidget(m_noHoldCheckbox);
+
 
 #ifdef __linux__
     m_showV4L2CheckBox = new QCheckBox("Show V4L2 Button on AirPlay Widget");
@@ -279,7 +283,8 @@ void SettingsWidget::loadSettings()
     m_applyButton->setEnabled(false);
 
     m_iconSizeBaseMultiplier->setValue(sm->iconSizeBaseMultiplier());
-    m_airplayFpsSpinBox->setValue(sm->airplayFps());
+    m_fpsComboBox->setCurrentText(QString::number(sm->airplayFps()));
+    m_noHoldCheckbox->setChecked(sm->airplayNoHold());
 #ifdef __linux__
     m_showV4L2CheckBox->setChecked(sm->showV4L2());
 #endif
@@ -334,6 +339,14 @@ void SettingsWidget::connectSignals()
 
     connect(m_defaultJailbrokenRootPassword, &QLineEdit::textChanged, this,
             &SettingsWidget::onSettingChanged);
+    connect(m_fpsComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
+            &SettingsWidget::onSettingChanged);
+    connect(m_noHoldCheckbox, &QCheckBox::toggled, this,
+            &SettingsWidget::onSettingChanged);
+#ifdef __linux__
+    connect(m_showV4L2CheckBox, &QCheckBox::toggled, this,
+            &SettingsWidget::onSettingChanged);
+#endif
 }
 
 void SettingsWidget::onBrowseButtonClicked()
@@ -420,7 +433,8 @@ void SettingsWidget::saveSettings()
 
     sm->setIconSizeBaseMultiplier(m_iconSizeBaseMultiplier->value());
 
-    sm->setAirplayFps(m_airplayFpsSpinBox->value());
+    sm->setAirplayFps(m_fpsComboBox->currentText().toInt());
+    sm->setAirplayNoHold(m_noHoldCheckbox->isChecked());
 #ifdef __linux__
     sm->setShowV4L2(m_showV4L2CheckBox->isChecked());
 #endif

@@ -108,6 +108,10 @@ public:
 
     int airplayFps() const;
     void setAirplayFps(int fps);
+
+    bool airplayNoHold() const;
+    void setAirplayNoHold(bool noHold);
+
 #ifdef __linux__
     bool showV4L2() const;
     void setShowV4L2(bool show);
