@@ -302,7 +302,7 @@ You can also send a pr to main branch but it should be something related to buil
 
 **Planned Features for v0.3.0:**
 
-- Migrato idevice-rs `99% done`
+- Migrate to idevice-rs `99% done`
 - Wireless Connection Support `DONE`
 - Install IPA files directly from the app
 - Virtual Location Support for iOS 17 and above
