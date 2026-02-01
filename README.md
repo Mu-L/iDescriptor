@@ -257,9 +257,11 @@ You might get this pop-up on any platform this is because this app uses secure b
 
 ## Become a Sponsor
 
-Please support us at <a href="https://opencollective.com/idescriptor">
+<div style="flex-direction: row; align-items: center; display: flex; gap: 10px;">
+<span>You can become a sponsor from GitHub Sponsors or</span> <a href="https://opencollective.com/idescriptor">
 <img src="https://img.shields.io/badge/OpenCollective-1F87FF?style=for-the-badge&logo=OpenCollective&logoColor=white" alt="AppImage"/>
 </a>
+</div>
 
 ## Thanks
 
