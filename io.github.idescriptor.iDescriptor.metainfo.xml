@@ -33,16 +33,32 @@
   <url type="donation">https://opencollective.com/idescriptor</url>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/iDescriptor/iDescriptor/v0.6.0/resources/repo/crossplatform.png</image>
-      <caption>Manage an Apple mobile device from the desktop</caption>
+      <image>https://raw.githubusercontent.com/iDescriptor/iDescriptor/refs/heads/main/packaging/linux/flatpak/assets/1.png</image>
+      <caption>View detailed information about a connected device</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/iDescriptor/iDescriptor/v0.6.0/resources/repo/file-explorer.png</image>
+      <image>https://raw.githubusercontent.com/iDescriptor/iDescriptor/refs/heads/main/packaging/linux/flatpak/assets/2.png</image>
+      <caption>Browse, export photos and albums</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/iDescriptor/iDescriptor/refs/heads/main/packaging/linux/flatpak/assets/3.png</image>
+      <caption>Toolbox for all kinds of device management</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/iDescriptor/iDescriptor/refs/heads/main/packaging/linux/flatpak/assets/4.png</image>
+      <caption>Monitor battery health, capacity, and charging details</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/iDescriptor/iDescriptor/refs/heads/main/packaging/linux/flatpak/assets/5.png</image>
+      <caption>Search for and install apps</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/iDescriptor/iDescriptor/refs/heads/main/packaging/linux/flatpak/assets/6.png</image>
+      <caption>View a device screen with AirPlay</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/iDescriptor/iDescriptor/refs/heads/main/packaging/linux/flatpak/assets/7.png</image>
       <caption>Explore files stored on a connected device</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/iDescriptor/iDescriptor/v0.6.0/resources/repo/network-devices.png</image>
-      <caption>Discover devices available over the local network</caption>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1" />
