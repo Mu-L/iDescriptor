@@ -109,32 +109,50 @@ xattr -c ~/Applications/iDescriptor.app
 - **Arch Linux**: Install from AUR:
 
 ```bash
-  sudo pacman -Syu
   yay -S idescriptor-git
 ```
-
-make sure to do "sudo pacman -Syu" otherwise it's not going to find libimobiledevice>=1.4.0
 
 <hr/>
 <br/>
 
-# Windows 11 Dark (Acrylic) - v0.4.0
+# Windows 11 (Acrylic) - v0.6.0
 
 <p align="center">
-    <img src="./resources/repo/win-11-mica-dark.png"><br/>
+    <img src="./resources/repo/win.dark.acrylic.png"><br/>
 </p>
 
-# Windows 11 Light (Acrylic) - v0.4.0
+# Windows 11 - v0.6.0
 
 <p align="center">
-    <img src="./resources/repo/win-11-mica-light.png"><br/>
+    <img src="./resources/repo/win.dark.png"><br/>
 </p>
 
-# Other platforms
+
+# macOS - v0.6.0
 
 <p align="center">
-    <img src="./resources/repo/crossplatform.png"><br/>
+    <img src="./resources/repo/macos.png"><br/>
 </p>
+
+
+# Linux (Gnome, Custom Window Enabled) - v0.6.0
+
+<p align="center">
+    <img src="./resources/repo/linux.gnome.custom.png"><br/>
+</p>
+
+# Linux (Gnome) - v0.6.0
+
+<p align="center">
+    <img src="./resources/repo/linux.gnome.png"><br/>
+</p>
+
+# Linux (Ubuntu) - v0.6.0
+
+<p align="center">
+    <img src="./resources/repo/linux.ubuntu.custom.png"><br/>
+</p>
+
 
 </br>
 </br>
@@ -155,7 +173,9 @@ make sure to do "sudo pacman -Syu" otherwise it's not going to find libimobilede
 | ------------------------------------------------------ | -------------- | --------------------------------------------------------------------- |
 | [AirPlay](#airplay)                                    | ✅ Implemented | Cast your device screen to your computer.                             |
 | [Download & Install Apps From Apple Store](#app-store) | ✅ Implemented | Download and install apps directly from the Apple Store.              |
+| [Battery Information](#battery-information) | ✅ Implemented | Read detailed battery info from device.              |
 | [Virtual Location](#virtual-location)                  | ✅ Implemented | Simulate GPS location.                                                |
+| [Device Backups](#device-backups)                  | ✅ Implemented (Experimental) | Backup your data from device (iOS 13-26)                                                |
 | [iFuse Filesystem Mount](#ifuse-filesystem-mount)      | ✅ Implemented | Mount the device's filesystem. (Windows & Linux only)                 |
 | Gallery                                                | ✅ Implemented | -                                                                     |
 | File Explorer                                          | ✅ Implemented | Explore the device's filesystem.                                      |
@@ -191,7 +211,15 @@ make sure to do "sudo pacman -Syu" otherwise it's not going to find libimobilede
 You need to sign in with your Apple ID to use this feature.
 
 <p align="center">
-    <img src="./resources/repo/ipatool.png"><br/>
+    <img src="./resources/repo/app-store.png"><br/>
+</p>
+
+## Battery Information
+
+Read detailed battery info from device
+
+<p align="center">
+    <img src="./resources/repo/battery.png"><br/>
 </p>
 
 ## Virtual Location
@@ -201,6 +229,18 @@ You need to sign in with your Apple ID to use this feature.
 <p align="center">
     <img src="./resources/repo/virtual-location.png"><br/>
 </p>
+
+## Device Backups
+
+**EXPERIMENTAL**
+
+Backup your device (gallery, settings etc..) (iOS 13-26)
+
+
+<p align="center">
+    <img src="./resources/repo/backup.png"><br/>
+</p>
+
 
 ## iFuse Filesystem Mount
 
@@ -221,6 +261,8 @@ Literally mount your iDevice filesystem and use it as a regular drive , read and
 </p>
 
 ### Gallery
+
+See your Albums/Photos just like the Photos app
 
 <p align="center">
     <img src="./resources/repo/gallery.png"><br/>
@@ -259,6 +301,13 @@ Useful if your device does not support AirPlay
 <p align="center">
     <img src="./resources/repo/live-screen.png"><br/>
 </p>
+
+## More
+
+<p align="center">
+    <img src="./resources/repo/tools.png"><br/>
+</p>
+
 
 ## **Authentication Required** ?
 
