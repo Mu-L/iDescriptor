@@ -24,10 +24,12 @@
       <li>Check for battery health</li>
       <li>Restart, erase, shut down your device</li>
     </ul>
+    <p>If you have issues with the Flatpak version of iDescriptor, please read the Flatpak documentation before creating an issue.</p>
     <p>iDescriptor is an independent project and is not affiliated with Apple Inc.</p>
   </description>
   <launchable type="desktop-id">io.github.idescriptor.iDescriptor.desktop</launchable>
   <url type="homepage">https://idescriptor.github.io</url>
+  <url type="help">https://github.com/iDescriptor/iDescriptor/blob/main/docs/FLATPAK.md</url>
   <url type="bugtracker">https://github.com/iDescriptor/iDescriptor/issues</url>
   <url type="vcs-browser">https://github.com/iDescriptor/iDescriptor</url>
   <url type="donation">https://opencollective.com/idescriptor</url>
