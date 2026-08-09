@@ -18,6 +18,8 @@ ToolWindow {
 
     property string mountPath: ""
     property string mountRootPath: ""
+    // TODO: Flathub rejected the use of flatpak-spawn --host for mounting devices
+    // however we should keep conditional code in place
     readonly property bool flatpakBuild: iFuse.is_flatpak_build()
     property bool openedCurrentMount: false
     property var mountState: ({

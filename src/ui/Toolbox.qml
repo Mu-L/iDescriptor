@@ -531,7 +531,7 @@ Item {
             description: qsTr("Mount your iDevice's filesystem on your PC"),
             requiresDevice: true,
             iconSource: "qrc:/resources/icons/fuse.svg",
-            visible: (Qt.platform.os !== "osx" && Qt.platform.os !== "darwin"),
+            visible: (Qt.platform.os !== "osx" && Qt.platform.os !== "darwin" && !iFuse.is_flatpak_build()),
             wirelessNotAllowed: true
         },
         {
