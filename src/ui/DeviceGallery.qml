@@ -5,9 +5,11 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Dialogs
 import QtQuick.Layouts
+import QtQuick.Controls.impl
 import iDescriptor
 import "." as App
 import "./base"
+
 
 Item {
     id: root
@@ -18,6 +20,8 @@ Item {
     property var udid: device.udid
     property var info: device.info
     readonly property bool isMainPage: nav.depth <= 1
+    // FIXME: should be synced with the backend
+    readonly property int hiddenAlbumId: -4
     property int selectedAlbumCount: 0
     property var albumExportSelection: []
     property var is_init: false
@@ -359,6 +363,20 @@ Item {
                                     fillMode: Image.PreserveAspectCrop
                                     sourceSize.width: 240 * Screen.devicePixelRatio
                                     sourceSize.height: 240 * Screen.devicePixelRatio
+                                }
+
+                                Rectangle {
+                                    anchors.fill: parent
+                                    visible: albumId === root.hiddenAlbumId
+                                    color: Theme.controlFill
+
+                                    IconImage {
+                                        anchors.centerIn: parent
+                                        width: 100
+                                        height: 100
+                                        source: "qrc:/resources/icons/clarity_eye-hide-line.svg"
+                                        color: Theme.icon
+                                    }
                                 }
 
                                 Rectangle {

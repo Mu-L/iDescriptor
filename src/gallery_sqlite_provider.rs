@@ -3,11 +3,11 @@
 
 use crate::constants::{
     ALBUM_CONTENTS_QUERY_TEMPLATE, FAVS_ALBUM_ID, FAVS_ALBUM_QUERY, FAVS_QUERY,
-    GALLERY_TOTAL_SIZE_QUERY, IOS_15_ALBUM_QUERY_STATEMENT, IOS_26_ALBUM_QUERY_STATEMENT,
-    PHOTOS_SQLITE_REMOTE_PATH, PHOTOS_SQLITE_SHM_REMOTE_PATH, PHOTOS_SQLITE_WAL_REMOTE_PATH,
-    RECENTLY_DELETED_ALBUM_ID, RECENTLY_DELETED_ALBUM_QUERY, RECENTLY_DELETED_QUERY,
-    RECENTS_ALBUM_ID, RECENTS_ALBUM_QUERY, RECENTS_QUERY, SQLITE_GALLERY_PROVIDER_NAME,
-    SQLITE_VFS_GALLERY_PROVIDER_NAME,
+    GALLERY_TOTAL_SIZE_QUERY, HIDDEN_ALBUM_ID, HIDDEN_ALBUM_QUERY, HIDDEN_QUERY,
+    IOS_15_ALBUM_QUERY_STATEMENT, IOS_26_ALBUM_QUERY_STATEMENT, PHOTOS_SQLITE_REMOTE_PATH,
+    PHOTOS_SQLITE_SHM_REMOTE_PATH, PHOTOS_SQLITE_WAL_REMOTE_PATH, RECENTLY_DELETED_ALBUM_ID,
+    RECENTLY_DELETED_ALBUM_QUERY, RECENTLY_DELETED_QUERY, RECENTS_ALBUM_ID, RECENTS_ALBUM_QUERY,
+    RECENTS_QUERY, SQLITE_GALLERY_PROVIDER_NAME, SQLITE_VFS_GALLERY_PROVIDER_NAME,
 };
 use crate::gallery::{
     GalleryAlbum, GalleryFuture, GalleryMediaFilter, GalleryProvider, export_afc_file,
@@ -248,6 +248,7 @@ impl GalleryProvider for SqliteGalleryProvider {
                 RECENTLY_DELETED_ALBUM_ID => {
                     query_recently_deleted_album(state, media_filter, most_recent_first).await
                 }
+                HIDDEN_ALBUM_ID => query_hidden_album(state, media_filter, most_recent_first).await,
                 _ => query_sqlite_album(state, id, media_filter, most_recent_first).await,
             }
         })
@@ -522,6 +523,14 @@ fn read_albums_from_connection(
         preview_path: join_device_path(&fdir, &fname),
     });
 
+    let (fname, fdir, count) = explore_hidden_album(connection)?;
+    albums.push(GalleryAlbum {
+        id: HIDDEN_ALBUM_ID,
+        name: String::from("Hidden"),
+        item_count: count,
+        preview_path: join_device_path(&fdir, &fname),
+    });
+
     let (fname, fdir, count) = explore_recently_deleted(connection)?;
     albums.push(GalleryAlbum {
         id: RECENTLY_DELETED_ALBUM_ID,
@@ -660,6 +669,40 @@ async fn query_recents_album(
     })
 }
 
+async fn query_hidden_album(
+    state: Arc<Mutex<SqliteProviderState>>,
+    media_filter: GalleryMediaFilter,
+    most_recent_first: bool,
+) -> anyhow::Result<Vec<String>> {
+    let state = state.lock().await;
+    tokio::task::block_in_place(|| {
+        let connection = state
+            .connection
+            .as_ref()
+            .context("SQLite gallery connection is closed")?;
+        let mut paths = Vec::new();
+
+        let query = sqlite_ordered_query(HIDDEN_QUERY, most_recent_first);
+        let mut hidden_stmt = connection.prepare(&query)?;
+
+        let hidden_iter = hidden_stmt.query_map([], |r| {
+            let fname: String = r.get(0)?;
+            let fdir: String = r.get(1)?;
+            Ok((fname, fdir))
+        })?;
+
+        for hidden_item in hidden_iter {
+            let (fname, fdir) = hidden_item?;
+            let path = join_device_path(&fdir, &fname);
+            if matches_media_filter(&path, media_filter) {
+                paths.push(path);
+            }
+        }
+
+        Ok(paths)
+    })
+}
+
 async fn query_recently_deleted_album(
     state: Arc<Mutex<SqliteProviderState>>,
     media_filter: GalleryMediaFilter,
@@ -730,6 +773,22 @@ fn explore_favs_album(conn: &Connection) -> anyhow::Result<(String, String, i32)
         .unwrap_or_default();
 
     Ok(favs_row)
+}
+
+fn explore_hidden_album(conn: &Connection) -> anyhow::Result<(String, String, i32)> {
+    let mut hidden_stmt = conn.prepare(HIDDEN_ALBUM_QUERY)?;
+
+    let hidden_row = hidden_stmt
+        .query_row([], |r| {
+            let fname: String = r.get(0)?;
+            let fdir: String = r.get(1)?;
+            let count: i32 = r.get(2)?;
+            Ok((fname, fdir, count))
+        })
+        .optional()?
+        .unwrap_or_default();
+
+    Ok(hidden_row)
 }
 
 fn explore_recently_deleted(conn: &Connection) -> anyhow::Result<(String, String, i32)> {
@@ -919,13 +978,20 @@ mod tests {
                     ZFILENAME TEXT,
                     ZDIRECTORY TEXT,
                     ZFAVORITE INTEGER,
-                    ZTRASHEDSTATE INTEGER
+                    ZTRASHEDSTATE INTEGER,
+                    ZVISIBILITYSTATE INTEGER,
+                    ZHIDDEN INTEGER
                 )",
                 [],
             )
             .unwrap();
 
-        for query in [RECENTS_QUERY, FAVS_QUERY, RECENTLY_DELETED_QUERY] {
+        for query in [
+            RECENTS_QUERY,
+            FAVS_QUERY,
+            RECENTLY_DELETED_QUERY,
+            HIDDEN_QUERY,
+        ] {
             connection
                 .prepare(&sqlite_ordered_query(query, true))
                 .unwrap();
@@ -933,5 +999,7 @@ mod tests {
                 .prepare(&sqlite_ordered_query(query, false))
                 .unwrap();
         }
+
+        connection.prepare(HIDDEN_ALBUM_QUERY).unwrap();
     }
 }
