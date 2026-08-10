@@ -227,7 +227,7 @@ Item {
     // 0 Airplayer, 1 SimulateLocation, 2 LiveScreen, 3 QueryMobileGestalt, 4 DeveloperDiskImages,
     // 5 WirelessGalleryImport, 6 iFuse, 7 CableInfo, 8 NetworkDevices, 9 EnableDevMode,
     // 10 Restart, 11 Shutdown, 12 RecoveryMode, 13 EnableWifiConnections, 14 BackupManager,
-    // 15 TransferSpeedTest, 16 Unpair, 17 UnpairAndRemove
+    // 15 TransferSpeedTest, 16 Unpair, 17 UnpairAndRemove, 18 DetailedBatteryInfo
     // signal toolClicked(int toolId, bool requiresDevice)
     function toolClicked(toolId, requiresDevice, wirelessNotAllowed) {
         const device = App.DeviceContext.getDevice(currentDeviceUdid)
@@ -422,6 +422,9 @@ Item {
             case 17:
                 requestDeviceAction("unpairAndRemove", currentDeviceUdid)
                 break;
+            case 18:
+                createCompWrapped("./tools/BatteryInfo.qml", { info: device.info })
+                break;
             default:
             console.log(`No tool for id ${toolId}`)
         }
@@ -540,6 +543,14 @@ Item {
             description: qsTr("View detailed cable and connection info"),
             requiresDevice: true,
             iconSource: "qrc:/resources/icons/material-symbols_cable-rounded.svg",
+            visible: true
+        },
+        {
+            toolId: 18,
+            title: qsTr("Detailed Battery Info"),
+            description: qsTr("View detailed battery health and capacity information"),
+            requiresDevice: true,
+            iconSource: "qrc:/resources/icons/idescriptor-battery-details.svg",
             visible: true
         },
         {

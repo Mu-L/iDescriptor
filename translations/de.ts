@@ -1265,137 +1265,137 @@
 <context>
     <name>BatteryInfo</name>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="33"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="33"/>
         <source>%1 mAh</source>
         <translation>%1 mAh</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="33"/>
-        <location filename="../src/ui/BatteryInfo.qml" line="38"/>
-        <location filename="../src/ui/BatteryInfo.qml" line="44"/>
-        <location filename="../src/ui/BatteryInfo.qml" line="287"/>
-        <location filename="../src/ui/BatteryInfo.qml" line="366"/>
-        <location filename="../src/ui/BatteryInfo.qml" line="439"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="33"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="38"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="44"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="287"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="366"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="439"/>
         <source>Unavailable</source>
         <translation>Nicht verfügbar</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="38"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="38"/>
         <source>%1 V</source>
         <translation>%1 V</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="47"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="47"/>
         <source>USB-C</source>
         <translation>USB-C</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="54"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="54"/>
         <source>Fully Charged</source>
         <translation>Vollständig aufgeladen</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="56"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="56"/>
         <source>Charging</source>
         <translation>Lädt</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="56"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="56"/>
         <source>Not Charging</source>
         <translation>Lädt nicht</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="62"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="62"/>
         <source>The device model is unavailable, so battery information cannot be refreshed.</source>
         <translation>Das Gerätemodell ist nicht verfügbar, daher können die Akkuinformationen nicht aktualisiert werden.</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="71"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="71"/>
         <source>Battery - iDescriptor</source>
         <translation>Batterie – iDescriptor</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="86"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="86"/>
         <source>The device returned incomplete battery information.</source>
         <translation>Das Gerät hat unvollständige Akkuinformationen zurückgegeben.</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="98"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="98"/>
         <source>Battery information could not be refreshed. Make sure the device is connected and unlocked.</source>
         <translation>Die Akkuinformationen konnten nicht aktualisiert werden. Stellen Sie sicher, dass das Gerät angeschlossen und entsperrt ist.</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="118"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="118"/>
         <source>Battery</source>
         <translation>Batterie</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="125"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="125"/>
         <source>Live power and capacity information</source>
         <translation>Live-Informationen zu Leistung und Kapazität</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="142"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="142"/>
         <source>Refresh battery information</source>
         <translation>Batterieinformationen aktualisieren</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="161"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="161"/>
         <source>Battery information could not be loaded.</source>
         <translation>Batterieinformationen konnten nicht geladen werden.</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="239"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="239"/>
         <source>%1%</source>
         <translation>%1%</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="269"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="269"/>
         <source>Battery health is maximum charge capacity divided by design capacity, multiplied by 100 and capped at 100%.</source>
         <translation>Der Batteriezustand ist die maximale Ladekapazität geteilt durch die Designkapazität, multipliziert mit 100 und begrenzt auf 100 %.</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="275"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="275"/>
         <source>Battery Health</source>
         <translation>Batteriezustand</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="356"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="356"/>
         <source>Cycle Count</source>
         <translation>Zyklusanzahl</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="359"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="359"/>
         <source>Maximum Capacity</source>
         <translation>Maximale Kapazität</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="362"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="362"/>
         <source>Design Capacity</source>
         <translation>Designkapazität</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="365"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="365"/>
         <source>Adapter Power</source>
         <translation>Adapterleistung</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="366"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="366"/>
         <source>%1 W</source>
         <translation>%1 W</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="368"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="368"/>
         <source>Adapter Voltage</source>
         <translation>Adapterspannung</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="371"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="371"/>
         <source>Connection</source>
         <translation>Verbindung</translation>
     </message>
     <message>
-        <location filename="../src/ui/BatteryInfo.qml" line="428"/>
+        <location filename="../src/ui/tools/BatteryInfo.qml" line="428"/>
         <source>Battery Serial Number</source>
         <translation>Seriennummer der Batterie</translation>
     </message>
@@ -5420,6 +5420,16 @@ Ein kostenloses, plattformübergreifendes Open-Source-iDevice-Verwaltungstool.
         <location filename="../src/ui/Toolbox.qml" line="537"/>
         <source>View detailed cable and connection info</source>
         <translation>Detaillierte Kabel- und Verbindungsinformationen anzeigen</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Toolbox.qml" line="550"/>
+        <source>Detailed Battery Info</source>
+        <translation>Detaillierte Batterieinformationen</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Toolbox.qml" line="551"/>
+        <source>View detailed battery health and capacity information</source>
+        <translation>Detaillierte Informationen zu Batteriezustand und Kapazität anzeigen</translation>
     </message>
     <message>
         <location filename="../src/ui/Toolbox.qml" line="544"/>

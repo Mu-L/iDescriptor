@@ -4,7 +4,8 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import "./base"
+import "../base"
+import ".."
 
 ToolWindow {
     id: root

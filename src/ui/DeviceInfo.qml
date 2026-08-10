@@ -69,7 +69,7 @@ Item {
             return
         }
 
-        const comp = Qt.createComponent("./BatteryInfo.qml")
+        const comp = Qt.createComponent("./tools/BatteryInfo.qml")
         if (comp.status !== Component.Ready) {
             console.error("Failed to load BatteryInfo:", comp.errorString())
             return
