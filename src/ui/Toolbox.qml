@@ -33,6 +33,7 @@ Item {
     property var ifuseInstance: null
     property var networkDevicesInstance: null
     property var backupManagerInstance: null
+    property var batteryInfoInstance: null
     property var pendingUnpairs: ({})
     readonly property bool hasDevice: App.DeviceContext.devices && App.DeviceContext.devices.count > 0
 
@@ -423,7 +424,7 @@ Item {
                 requestDeviceAction("unpairAndRemove", currentDeviceUdid)
                 break;
             case 18:
-                createCompWrapped("./tools/BatteryInfo.qml", { info: device.info })
+                createSingletonComp("./tools/BatteryInfo.qml", "batteryInfoInstance", true, { info: device.info })
                 break;
             default:
             console.log(`No tool for id ${toolId}`)
