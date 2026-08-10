@@ -4,6 +4,7 @@
 pub const RECENTS_ALBUM_ID: i32 = -1;
 pub const FAVS_ALBUM_ID: i32 = -2;
 pub const RECENTLY_DELETED_ALBUM_ID: i32 = -3;
+pub const HIDDEN_ALBUM_ID: i32 = -4;
 
 pub static IOS_15_ALBUM_QUERY_STATEMENT: &str = "SELECT
                 ZGENERICALBUM.Z_PK,
@@ -145,8 +146,6 @@ pub static RECENTLY_DELETED_QUERY: &str = "
     WHERE ZASSET.ZTRASHEDSTATE = 1
     ORDER BY ZASSET.Z_PK DESC
 ";
-
-pub const HIDDEN_ALBUM_ID: i32 = -4;
 
 pub static HIDDEN_ALBUM_QUERY: &str = "
     SELECT
