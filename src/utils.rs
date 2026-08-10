@@ -246,13 +246,22 @@ pub fn parse_diag_info_old(dict: Dictionary) -> ParsedBatteryInfo {
     }
 }
 
-pub fn parse_diag_info(dict: Dictionary, raw_product_type: String) -> ParsedBatteryInfo {
+pub fn parse_diag_info(
+    dict: Dictionary,
+    raw_product_type: String,
+    ios_major: u32,
+) -> ParsedBatteryInfo {
     let cycle_count = dict
         .get("BatteryData")
         .and_then(|v| v.as_dictionary())
         .and_then(|v| v.get("CycleCount"))
         .and_then(|v| v.as_unsigned_integer())
-        .unwrap_or(1);
+        .unwrap_or(
+            //iOS 27 Dev Beta 4
+            dict.get("CycleCount")
+                .and_then(|v| v.as_unsigned_integer())
+                .unwrap_or(1),
+        );
 
     let parsed_device = parse_device_ver(&raw_product_type);
 
@@ -275,16 +284,27 @@ pub fn parse_diag_info(dict: Dictionary, raw_product_type: String) -> ParsedBatt
         .unwrap_or(0);
 
     let is_iphone = raw_product_type.starts_with("iPhone");
-    let max_capacity = if newer_than_iphone8_1 && is_iphone {
-        dict.get("AppleRawMaxCapacity")
-            .and_then(|v| v.as_unsigned_integer())
+    let battery_data = dict.get("BatteryData").and_then(|v| v.as_dictionary());
+    let apple_raw_max_capacity = dict
+        .get("AppleRawMaxCapacity")
+        .and_then(|v| v.as_unsigned_integer());
+    let full_charge_capacity = battery_data
+        .and_then(|v| v.get("FullChargeCapacity"))
+        .and_then(|v| v.as_unsigned_integer());
+    let battery_data_max_capacity = battery_data
+        .and_then(|v| v.get("MaxCapacity"))
+        .and_then(|v| v.as_unsigned_integer());
+
+    // iOS 27 Dev Beta 4
+    let max_capacity = if ios_major > 26 {
+        full_charge_capacity
+            .or(apple_raw_max_capacity)
+            .or(battery_data_max_capacity)
             .unwrap_or(0)
+    } else if newer_than_iphone8_1 && is_iphone {
+        apple_raw_max_capacity.unwrap_or(0)
     } else {
-        dict.get("BatteryData")
-            .and_then(|v| v.as_dictionary())
-            .and_then(|v| v.get("MaxCapacity"))
-            .and_then(|v| v.as_unsigned_integer())
-            .unwrap_or(0)
+        battery_data_max_capacity.unwrap_or(0)
     };
 
     // seems to be to the most accurate way
@@ -313,22 +333,33 @@ pub fn parse_diag_info(dict: Dictionary, raw_product_type: String) -> ParsedBatt
     // d.batteryInfo.currentBatteryLevel =
     //     ioreg["BatteryData"]["StateOfCharge"].getUInt();
 
-    let apple_raw_current_capacity = dict
-        .get("AppleRawCurrentCapacity")
-        .and_then(|v| v.as_unsigned_integer())
-        .unwrap_or(0);
-    let apple_raw_max_capacity = dict
-        .get("AppleRawMaxCapacity")
-        .and_then(|v| v.as_unsigned_integer())
-        .unwrap_or(0);
+    let current_battery_level = (
+        // patch for iOS 27 Dev Beta 4
+        // assuming that Apple will keep it the same
+        if !(ios_major > 26) {
+            let apple_raw_current_capacity = dict
+                .get("AppleRawCurrentCapacity")
+                .and_then(|v| v.as_unsigned_integer())
+                .unwrap_or(0);
+            let apple_raw_max_capacity = dict
+                .get("AppleRawMaxCapacity")
+                .and_then(|v| v.as_unsigned_integer())
+                .unwrap_or(0);
 
-    let mut current_battery_level = if apple_raw_current_capacity > 0 && apple_raw_max_capacity > 0
-    {
-        (apple_raw_current_capacity * 100) / apple_raw_max_capacity
-    } else {
-        0
-    };
-    current_battery_level = current_battery_level.clamp(0, 100);
+            if apple_raw_current_capacity > 0 && apple_raw_max_capacity > 0 {
+                (apple_raw_current_capacity * 100) / apple_raw_max_capacity
+            } else {
+                0
+            }
+        } else {
+            dict.get("BatteryData")
+                .and_then(|v| v.as_dictionary())
+                .and_then(|v| v.get("CurrentCapacity"))
+                .and_then(|v| v.as_unsigned_integer())
+                .unwrap_or(0)
+        }
+    )
+    .clamp(0, 100);
 
     // check if is equal to usb type-c
     // in frontend

@@ -47,7 +47,7 @@ pub struct ServiceManager {
     unpair: qt_method!(fn(&self)),
     install_ipa: qt_method!(fn(&self, ipa_path: QString)),
     enable_wifi_connections: qt_method!(fn(&self)),
-    get_battery_info: qt_method!(fn(&self, raw_product_type: QString)),
+    get_battery_info: qt_method!(fn(&self, raw_product_type: QString, ios_major: u32)),
 
     // Signals
     cableInfoRetrieved: qt_signal!(info: QString),
@@ -895,7 +895,7 @@ impl ServiceManager {
         });
     }
 
-    fn get_battery_info(&self, raw_product_type: QString) {
+    fn get_battery_info(&self, raw_product_type: QString, ios_major: u32) {
         let udid = self.udid.clone();
         let qt_t = self.qt_thread();
 
@@ -909,6 +909,7 @@ impl ServiceManager {
                 &mut diag,
                 &mut info,
                 raw_product_type.to_string(),
+                ios_major,
             )
             .await
             {

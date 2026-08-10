@@ -1382,7 +1382,7 @@ async fn collect_info(
         QVariant::from(developer_mode_status),
     );
 
-    insert_battery_info(diag_relay, &mut info, product_type.into())
+    insert_battery_info(diag_relay, &mut info, product_type.into(), ios_major)
         .await
         .unwrap_or_else(|e| {
             debug!("Failed to insert battery info: {e:?}");
@@ -1415,6 +1415,7 @@ pub async fn insert_battery_info(
     diag_relay: &mut DiagnosticsRelayClient,
     info: &mut QVariantMap,
     raw_product_type: String,
+    ios_major: u32,
 ) -> anyhow::Result<()> {
     let mut parsed = QVariantMap::default();
 
@@ -1434,7 +1435,7 @@ pub async fn insert_battery_info(
     let battery_info = if is_old_device {
         utils::parse_diag_info_old(battery_info)
     } else {
-        utils::parse_diag_info(battery_info, raw_product_type)
+        utils::parse_diag_info(battery_info, raw_product_type, ios_major)
     };
 
     qvariantmap_insert!(parsed, "cycle_count", battery_info.cycle_count);

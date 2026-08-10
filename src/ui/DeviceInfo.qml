@@ -49,7 +49,7 @@ Item {
     function refreshBatteryInfo() {
         const rawProductType = v("ProductType", "")
         if (rawProductType.length > 0)
-            root.device.service_manager.get_battery_info(rawProductType)
+            root.device.service_manager.get_battery_info(rawProductType, info.ios_version_major)
     }
 
     function updateBatteryInfo(updatedInfo) {

@@ -68,7 +68,7 @@ ToolWindow {
         }
         root.loading = true;
         stateView.viewState = StateView.State.Loading;
-        root.device.service_manager.get_battery_info(root.rawProductType);
+        root.device.service_manager.get_battery_info(root.rawProductType, info.ios_version_major);
     }
 
     title: qsTr("Battery - iDescriptor")
