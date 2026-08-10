@@ -319,10 +319,18 @@ pub fn parse_diag_info(
         .clamp(0, 100)
     );
 
+    // iOS 27 Dev Beta 4
+    let charger_data = dict.get("ChargerData").and_then(|v| v.as_dictionary());
+
     let is_charging = dict
         .get("IsCharging")
         .and_then(|v| v.as_boolean())
-        .unwrap_or(false);
+        .unwrap_or(
+            charger_data
+                .and_then(|d| d.get("IsCharging").and_then(|v| v.as_unsigned_integer()))
+                .map(|v| v == 1)
+                .unwrap_or(false),
+        );
     let fully_charged = dict
         .get("FullyCharged")
         .and_then(|v| v.as_boolean())
