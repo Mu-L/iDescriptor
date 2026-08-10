@@ -41,7 +41,7 @@ sqlite-vfs = "0.2.0"
 filetime = "0.2.27"
 priority-queue = "2.7.0"
 anyhow = "1.0.102"
-ipatool = { version = "0.3.1", default-features = false }
+ipatool = { version = "0.3.2", default-features = false }
 cpp = "0.5.11"
 cstr = "0.2.12"
 qmetaobject = { version = "0.2.10", features = ["log"]}
