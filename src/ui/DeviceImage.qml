@@ -61,6 +61,8 @@ Item {
     }
 
     function wallpaperSourceForIos(version) {
+        if (version >= 27)
+            return "qrc:/resources/ios-wallpapers/iphone-ios27.jpg"
         return `qrc:/resources/ios-wallpapers/iphone-ios${version}.png`
     }
 
