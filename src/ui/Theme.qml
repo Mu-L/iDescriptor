@@ -8,8 +8,19 @@ import QtQuick
 QtObject {
     id: theme
 
-    readonly property bool darkMode: SystemAppearance.darkMode
+    property string colorScheme: normalizeColorScheme(settingsManager.theme())
+    readonly property bool darkMode: colorScheme === "dark"
+                                     || (colorScheme === "system" && SystemAppearance.darkMode)
     property string windowEffect: settingsManager.window_effect()
+
+    function normalizeColorScheme(value) {
+        const normalized = String(value || "system").trim().toLowerCase()
+        if (normalized === "dark")
+            return "dark"
+        if (normalized === "light")
+            return "light"
+        return "system"
+    }
 
 
     readonly property color accent: "#0a84ff"

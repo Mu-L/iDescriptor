@@ -13,9 +13,9 @@ import "./base"
 
 DefaultWindow {
     id: root
-    width: 400
+    width: 500
     height: 500
-    minimumWidth: 400
+    minimumWidth: 500
     minimumHeight: 500
     title: qsTr("Settings - iDescriptor")
     visible: false
@@ -39,7 +39,7 @@ DefaultWindow {
     property bool auto_check_updates: true
     property bool z_linux_window: false
     property bool auto_enable_wifi_connections: true
-    property string theme: "System Default"
+    property string theme: "system"
     property string language: "en"
     property bool auto_raise_window: true
     property bool switch_to_new_device: true
@@ -102,6 +102,10 @@ DefaultWindow {
         return 1
     }
 
+    function normalizeTheme(value) {
+        return App.Theme.normalizeColorScheme(value)
+    }
+
     function applyLanguage() {
         if (typeof QmlUtils !== "undefined" && QmlUtils && typeof QmlUtils.set_language === "function")
             QmlUtils.set_language(language)
@@ -116,7 +120,7 @@ DefaultWindow {
         auto_check_updates = backendValue("auto_check_updates", true)
         z_linux_window = backendValue("z_linux_window", false)
         auto_enable_wifi_connections = backendValue("auto_enable_wifi_connections", true)
-        theme = backendValue("theme", "System Default")
+        theme = normalizeTheme(backendValue("theme", "system"))
         language = normalizeLanguage(backendValue("language", "en"))
         auto_raise_window = backendValue("auto_raise_window", true)
         switch_to_new_device = backendValue("switch_to_new_device", true)
@@ -130,6 +134,7 @@ DefaultWindow {
         airplay_no_hold = backendValue("airplay_no_hold", true)
         airplay_use_legacy_ports = backendValue("airplay_use_legacy_ports", true)
         show_v4l2 = backendValue("show_v4l2", false)
+        App.Theme.colorScheme = theme
         dirty = false
         restartRequired = false
         applyLanguage()
@@ -145,6 +150,7 @@ DefaultWindow {
         callBackend("set_z_linux_window", z_linux_window)
         callBackend("set_auto_enable_wifi_connections", auto_enable_wifi_connections)
         callBackend("set_theme", theme)
+        App.Theme.colorScheme = theme
         callBackend("set_language", language)
         applyLanguage()
         callBackend("set_auto_raise_window", auto_raise_window)
@@ -439,10 +445,16 @@ DefaultWindow {
                         }
 
                         ComboBox {
-                            model: [qsTr("System Default")]
-                            currentIndex: 0
+                            textRole: "label"
+                            valueRole: "value"
+                            model: [
+                                { value: "system", label: qsTr("System Default") },
+                                { value: "light", label: qsTr("Light") },
+                                { value: "dark", label: qsTr("Dark") }
+                            ]
+                            currentIndex: Math.max(0, indexOfValue(root.theme))
                             onActivated: {
-                                root.theme = currentText
+                                root.theme = currentValue
                                 root.markDirty(false)
                             }
                         }

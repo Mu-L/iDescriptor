@@ -29,7 +29,8 @@ T.Switch {
         radius: implicitHeight / 2
 
         readonly property real downTintFactor: 1.05
-        readonly property bool light: Application.styleHints.colorScheme === Qt.Light
+        readonly property bool light: control.palette.windowText.hslLightness
+                                      < control.palette.window.hslLightness
 
         color: indicator.light
                ? Qt.darker(control.checked ? control.palette.accent : "#d9d6d2", control.down ? downTintFactor : 1)

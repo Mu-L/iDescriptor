@@ -526,7 +526,7 @@ impl SettingsManager {
     }
 
     fn theme(&self) -> QString {
-        read_string("theme", "System Default")
+        read_string("theme", "system")
     }
 
     fn set_theme(&self, theme: QString) {
@@ -620,7 +620,7 @@ impl SettingsManager {
         self.set_upgrade_to_wireless_on_disconnect(true);
         self.set_unmount_ifuse_on_exit(false);
         self.set_gallery_backend(1);
-        self.set_theme(QString::from("System Default"));
+        self.set_theme(QString::from("system"));
         self.set_window_effect(QString::from("normal"));
         self.set_language(default_language());
         self.set_connection_timeout(30);
