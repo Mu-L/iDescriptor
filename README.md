@@ -54,18 +54,31 @@
 ### DO NOT DOWNLOAD FROM ANY WEBSITE CLAIMING TO BE US WE ONLY HAVE https://idescriptor.github.io AND RELEASES WILL BE MADE FROM THIS REPO ONLY
 
 <p align="center">
-  <a href="https://github.com/iDescriptor/iDescriptor/releases/latest">
-    <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows"/>
-  </a>
-  <a href="https://github.com/iDescriptor/iDescriptor/releases/latest">
-    <img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="Download for macOS"/>
-  </a>
-  <a href="https://github.com/iDescriptor/iDescriptor/releases/latest">
-    <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Download for Linux"/>
-  </a>
+  <a href="https://flathub.org/apps/io.github.idescriptor.iDescriptor">
+    <img width="150" alt="Get it on Flathub" src="https://flathub.org/api/badge?svg&locale=en"/>
+  </a>&nbsp;&nbsp;
   <a href="https://aur.archlinux.org/packages/idescriptor-git">
-    <img src="https://img.shields.io/badge/Arch_AUR-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white" alt="Install from AUR"/>
+    <img width="180" src="https://img.shields.io/badge/Arch_AUR-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white" alt="Install from AUR"/>
+  </a>&nbsp;&nbsp;
+  <a href="https://search.nixos.org/packages?channel=unstable&query=idescriptor#show=idescriptor">
+    <img width="150" alt="NixOS Package" src="https://img.shields.io/badge/NixOS-5277C3?logo=nixos&logoColor=fff">
+  </a>&nbsp;&nbsp;
+  <a href="https://github.com/Botspot/pi-apps">
+    <img src="https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true" alt="pi-apps-badge" width="140">
   </a>
+</p>
+
+
+<p align="center">
+  <a href="https://github.com/iDescriptor/iDescriptor/releases/latest">
+    <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows" width="130"/>
+  </a>&nbsp;&nbsp;
+  <a href="https://github.com/iDescriptor/iDescriptor/releases/latest">
+    <img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="Download for macOS" width="130"/>
+  </a>&nbsp;&nbsp;
+  <a href="https://github.com/iDescriptor/iDescriptor/releases/latest">
+    <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Download for Linux" width="130"/>
+  </a>&nbsp;&nbsp;
 </p>
 
 ### Installation Instructions
@@ -105,7 +118,12 @@ xattr -c ~/Applications/iDescriptor.app
 
 #### Linux
 
-- **AppImage**: Download, unzip, and run.
+- **AppImage**: Download, and then run 
+```bash
+  chmod +x iDescriptor*.AppImage
+```
+
+
 - **Arch Linux**: Install from AUR:
 
 ```bash
