@@ -13,7 +13,7 @@ use macros::QtThreading;
 use qmetaobject::prelude::*;
 use qttypes::QStringList;
 use std::{
-    collections::HashMap,
+    collections::{HashMap, HashSet},
     path::{Path, PathBuf},
     sync::{
         Arc, Mutex,
@@ -644,10 +644,12 @@ async fn export_single_item(
         "IOManager export item preparing: job_id={job_id} device_path={device_path} output_path={output_path_str}"
     );
 
-    let info = afc
-        .get_file_info(device_path.to_string())
+    let resolved = afc
+        .get_file_info_resolved(device_path.to_string())
         .await
-        .map_err(|e| format!("Failed to get file info for {device_path}: {e}"))?;
+        .map_err(|e| format!("Failed to resolve device path {device_path}: {e}"))?;
+    let resolved_path = resolved.resolved_path;
+    let info = resolved.info;
 
     if info.st_ifmt == "S_IFDIR" {
         if !allow_directories {
@@ -656,8 +658,9 @@ async fn export_single_item(
 
         return export_directory(
             afc,
-            device_path,
+            &resolved_path,
             &output_path,
+            &file_name,
             job_id,
             qt_thread,
             cancel_flag,
@@ -667,7 +670,7 @@ async fn export_single_item(
 
     let transferred = export_remote_file(
         afc,
-        device_path,
+        &resolved_path,
         &output_path,
         &info,
         job_id,
@@ -693,6 +696,7 @@ async fn export_directory(
     afc: &mut AfcClient,
     device_path: &str,
     output_path: &Path,
+    progress_name: &str,
     job_id: &str,
     qt_thread: &QtThread<IOManager>,
     cancel_flag: &Arc<AtomicBool>,
@@ -719,7 +723,6 @@ async fn export_directory(
         })?;
     }
 
-    let progress_name = file_name_for_path(device_path);
     let mut transferred = 0_i64;
     for file in manifest.files {
         if cancel_flag.load(Ordering::Relaxed) {
@@ -743,7 +746,7 @@ async fn export_directory(
             &file.info,
             job_id,
             qt_thread,
-            &progress_name,
+            progress_name,
             transferred,
             manifest.total_bytes,
             cancel_flag,
@@ -771,9 +774,11 @@ async fn build_directory_export_manifest(
         files: Vec::new(),
         total_bytes: 0,
     };
-    let mut pending_directories = vec![(device_path.to_string(), PathBuf::new())];
+    let mut root_ancestors = HashSet::new();
+    root_ancestors.insert(device_path.to_string());
+    let mut pending_directories = vec![(device_path.to_string(), PathBuf::new(), root_ancestors)];
 
-    while let Some((remote_directory, relative_directory)) = pending_directories.pop() {
+    while let Some((remote_directory, relative_directory, ancestors)) = pending_directories.pop() {
         if cancel_flag.load(Ordering::Relaxed) {
             return Err("Export cancelled while enumerating directory".to_string());
         }
@@ -791,18 +796,30 @@ async fn build_directory_export_manifest(
 
             let remote_path = remote_child_path(&remote_directory, &name);
             let relative_path = relative_directory.join(&name);
-            let info = afc
-                .get_file_info(&remote_path)
+            let resolved = afc
+                .get_file_info_resolved(&remote_path)
                 .await
-                .map_err(|err| format!("Failed to inspect {remote_path}: {err}"))?;
+                .map_err(|err| format!("Failed to resolve {remote_path}: {err}"))?;
+            let resolved_path = resolved.resolved_path;
+            let info = resolved.info;
 
             if info.st_ifmt == "S_IFDIR" {
+                if ancestors.contains(&resolved_path) {
+                    return Err(format!(
+                        "Refusing symbolic-link directory cycle at {remote_path} -> {resolved_path}"
+                    ));
+                }
+                // only current ancestors are checked,
+                // so separate aliases may export the same target
+                // this should be ok
+                let mut child_ancestors = ancestors.clone();
+                child_ancestors.insert(resolved_path.clone());
                 manifest.directories.push(relative_path.clone());
-                pending_directories.push((remote_path, relative_path));
+                pending_directories.push((resolved_path, relative_path, child_ancestors));
             } else {
                 manifest.total_bytes = manifest.total_bytes.saturating_add(info.size as i64);
                 manifest.files.push(RemoteExportFile {
-                    remote_path,
+                    remote_path: resolved_path,
                     relative_path,
                     info,
                 });

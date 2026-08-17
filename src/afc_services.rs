@@ -228,7 +228,6 @@ impl AfcServices {
         });
     }
 
-    // FIXME: resolve symlinks
     fn check_is_dir_and_list(&self, path: QString) {
         let Some(afc_arc) = self.afc_client("list a directory") else {
             return;
@@ -247,9 +246,20 @@ impl AfcServices {
                         }
                         let full_path = format!("{}/{}", path_str, name);
                         let is_dir = match afc.get_file_info(&full_path).await {
+                            Ok(info) if info.st_ifmt == "S_IFLNK" => {
+                                match afc.get_file_info_resolved(&full_path).await {
+                                    Ok(resolved) => resolved.info.st_ifmt == "S_IFDIR",
+                                    Err(e) => {
+                                        warn!(
+                                            "Failed to resolve AFC symbolic link {full_path}: {e}"
+                                        );
+                                        false
+                                    }
+                                }
+                            }
                             Ok(info) => info.st_ifmt == "S_IFDIR",
                             Err(e) => {
-                                eprintln!("Failed to get file info for {full_path}: {e}");
+                                warn!("Failed to get AFC file info for {full_path}: {e}");
                                 false
                             }
                         };
