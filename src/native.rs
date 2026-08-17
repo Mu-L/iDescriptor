@@ -4,6 +4,12 @@
 use cpp::cpp;
 use qmetaobject::{QString, QmlEngine};
 
+#[cfg(target_os = "macos")]
+const APP_ICON_PATH: &str = ":/packaging/shared/resources/app-icon/icon.icns";
+
+#[cfg(not(target_os = "macos"))]
+const APP_ICON_PATH: &str = ":/packaging/shared/resources/app-icon/icon.png";
+
 cpp! {{
     #include <QQuickStyle>
     #include <QQuickWindow>
@@ -122,7 +128,12 @@ pub fn initialize_engine(engine: &mut QmlEngine) {
             s_systemAppearance = new SystemAppearance(QCoreApplication::instance());
         }
         engine_ptr->rootContext()->setContextProperty("SystemAppearance", s_systemAppearance);
-        QGuiApplication::setWindowIcon(QIcon(QStringLiteral(":/packaging/shared/resources/app-icon/icon.png")));
+    });
+
+    let app_icon_path = QString::from(APP_ICON_PATH);
+
+    cpp!(unsafe [app_icon_path as "QString"] {
+        QGuiApplication::setWindowIcon(QIcon(app_icon_path));
     });
 }
 
