@@ -4600,6 +4600,16 @@ Möchtest du trotzdem fortfahren?</translation>
         <translation>Systemstandard</translation>
     </message>
     <message>
+        <location filename="../src/ui/Settings.qml" line="457"/>
+        <source>Light</source>
+        <translation>Hell</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="458"/>
+        <source>Dark</source>
+        <translation>Dunkel</translation>
+    </message>
+    <message>
         <location filename="../src/ui/Settings.qml" line="404"/>
         <source>Language</source>
         <translation>Sprache</translation>
@@ -4804,6 +4814,25 @@ Ein kostenloses, plattformübergreifendes Open-Source-iDevice-Verwaltungstool.
         <location filename="../src/ui/Settings.qml" line="684"/>
         <source>Check for Updates</source>
         <translation>Nach Updates suchen</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="688"/>
+        <source>iDescriptor</source>
+        <translation>iDescriptor</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="695"/>
+        <source>Version %1 · %2</source>
+        <translation>Version %1 · %2</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="706"/>
+        <source>A free, open-source, cross-platform iDevice management tool.
+
+© 2026 Uncore &lt;https://github.com/uncor3&gt; and iDescriptor contributors</source>
+        <translation>Ein kostenloses, plattformübergreifendes Open-Source-iDevice-Verwaltungstool.
+
+© 2026 Uncore &lt;https://github.com/uncor3&gt; und Mitwirkende an iDescriptor</translation>
     </message>
     <message>
         <location filename="../src/ui/Settings.qml" line="696"/>
