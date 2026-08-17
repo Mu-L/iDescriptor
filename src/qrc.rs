@@ -120,7 +120,7 @@ qrc!(pub rsrc,
 
         // ------- Translations --------
         "translations/de.qm",
-        "translations/zh_CN.qm",
+        "translations/zh.qm",
 
     }
 );

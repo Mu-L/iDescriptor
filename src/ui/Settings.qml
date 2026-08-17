@@ -93,9 +93,9 @@ DefaultWindow {
         if (normalized === "german" || normalized.indexOf("de") === 0)
             return "de"
         if (normalized === "chinese" || normalized === "simplified chinese"
-                || normalized === "zh-cn" || normalized === "zh_hans"
+                || normalized === "zh" || normalized === "zh-cn" || normalized === "zh_hans"
                 || normalized === "zh-hans" || normalized.indexOf("zh_cn") === 0)
-            return "zh_CN"
+            return "zh"
         return "en"
     }
 
@@ -424,7 +424,7 @@ DefaultWindow {
                             model: [
                                 { value: "en", label: qsTr("English") },
                                 { value: "de", label: qsTr("German") },
-                                { value: "zh_CN", label: qsTr("Chinese (Simplified)") }
+                                { value: "zh", label: qsTr("Chinese (Simplified)") }
                             ]
                             currentIndex: Math.max(0, indexOfValue(root.language))
                             onActivated: {

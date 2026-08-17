@@ -61,10 +61,11 @@ impl QmlUtils {
                 normalized = QStringLiteral("de");
             } else if (normalized == QStringLiteral("chinese")
                        || normalized == QStringLiteral("simplified chinese")
+                       || normalized == QStringLiteral("zh")
                        || normalized == QStringLiteral("zh-cn")
                        || normalized == QStringLiteral("zh_cn")
                        || normalized == QStringLiteral("zh-hans")) {
-                normalized = QStringLiteral("zh_CN");
+                normalized = QStringLiteral("zh");
             }
 
             QCoreApplication::removeTranslator(&translator);
