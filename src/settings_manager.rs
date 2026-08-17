@@ -35,6 +35,12 @@ cpp! {{
         if (QLocale::system().language() == QLocale::German) {
             return QStringLiteral("de");
         }
+        if (QLocale::system().language() == QLocale::Chinese
+            && QLocale::system().territory() != QLocale::HongKong
+            && QLocale::system().territory() != QLocale::Macao
+            && QLocale::system().territory() != QLocale::Taiwan) {
+            return QStringLiteral("zh_CN");
+        }
         return QStringLiteral("en");
     }
 
@@ -47,8 +53,18 @@ cpp! {{
         if (normalized == QStringLiteral("english")) {
             return QStringLiteral("en");
         }
+        if (normalized == QStringLiteral("chinese")
+            || normalized == QStringLiteral("simplified chinese")
+            || normalized == QStringLiteral("zh-cn")
+            || normalized == QStringLiteral("zh_hans")
+            || normalized == QStringLiteral("zh-hans")) {
+            return QStringLiteral("zh_CN");
+        }
         if (normalized.startsWith(QStringLiteral("de"))) {
             return QStringLiteral("de");
+        }
+        if (normalized.startsWith(QStringLiteral("zh_cn"))) {
+            return QStringLiteral("zh_CN");
         }
         return QStringLiteral("en");
     }

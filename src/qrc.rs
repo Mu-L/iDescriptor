@@ -120,6 +120,7 @@ qrc!(pub rsrc,
 
         // ------- Translations --------
         "translations/de.qm",
+        "translations/zh_CN.qm",
 
     }
 );
@@ -128,5 +129,6 @@ qrc!(pub rsrc,
 qrc!(pub macos_rsrc,
     "/" {
         "resources/keychain.mp4",
+        "packaging/shared/resources/app-icon/icon.icns",
     }
 );
