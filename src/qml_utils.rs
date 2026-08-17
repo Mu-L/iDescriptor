@@ -65,7 +65,7 @@ impl QmlUtils {
                        || normalized == QStringLiteral("zh-cn")
                        || normalized == QStringLiteral("zh_cn")
                        || normalized == QStringLiteral("zh-hans")) {
-                normalized = QStringLiteral("zh");
+                normalized = QStringLiteral("zh_CN");
             }
 
             QCoreApplication::removeTranslator(&translator);

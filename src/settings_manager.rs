@@ -39,7 +39,7 @@ cpp! {{
             && QLocale::system().territory() != QLocale::HongKong
             && QLocale::system().territory() != QLocale::Macao
             && QLocale::system().territory() != QLocale::Taiwan) {
-            return QStringLiteral("zh");
+            return QStringLiteral("zh_CN");
         }
         return QStringLiteral("en");
     }
@@ -59,13 +59,13 @@ cpp! {{
             || normalized == QStringLiteral("zh-cn")
             || normalized == QStringLiteral("zh_hans")
             || normalized == QStringLiteral("zh-hans")) {
-            return QStringLiteral("zh");
+            return QStringLiteral("zh_CN");
         }
         if (normalized.startsWith(QStringLiteral("de"))) {
             return QStringLiteral("de");
         }
         if (normalized.startsWith(QStringLiteral("zh_cn"))) {
-            return QStringLiteral("zh");
+            return QStringLiteral("zh_CN");
         }
         return QStringLiteral("en");
     }
