@@ -59,6 +59,16 @@ impl QmlUtils {
                 normalized = QStringLiteral("en");
             } else if (normalized == QStringLiteral("german")) {
                 normalized = QStringLiteral("de");
+            } else if (normalized == QStringLiteral("traditional chinese")
+                       || normalized == QStringLiteral("zh-tw")
+                       || normalized == QStringLiteral("zh_tw")
+                       || normalized == QStringLiteral("zh-hant")
+                       || normalized == QStringLiteral("zh_hant")
+                       || normalized == QStringLiteral("zh-hk")
+                       || normalized == QStringLiteral("zh_hk")
+                       || normalized == QStringLiteral("zh-mo")
+                       || normalized == QStringLiteral("zh_mo")) {
+                normalized = QStringLiteral("zh_TW");
             } else if (normalized == QStringLiteral("chinese")
                        || normalized == QStringLiteral("simplified chinese")
                        || normalized == QStringLiteral("zh")

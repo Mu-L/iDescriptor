@@ -4680,6 +4680,11 @@ Möchtest du trotzdem fortfahren?</translation>
         <translation>Chinesisch (vereinfacht)</translation>
     </message>
     <message>
+        <location filename="../src/ui/Settings.qml" line="435"/>
+        <source>Chinese (Traditional)</source>
+        <translation>Chinesisch (traditionell)</translation>
+    </message>
+    <message>
         <location filename="../src/ui/Settings.qml" line="427"/>
         <source>Appearance</source>
         <translation>Aussehen</translation>

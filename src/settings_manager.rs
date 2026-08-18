@@ -35,10 +35,12 @@ cpp! {{
         if (QLocale::system().language() == QLocale::German) {
             return QStringLiteral("de");
         }
-        if (QLocale::system().language() == QLocale::Chinese
-            && QLocale::system().territory() != QLocale::HongKong
-            && QLocale::system().territory() != QLocale::Macao
-            && QLocale::system().territory() != QLocale::Taiwan) {
+        if (QLocale::system().language() == QLocale::Chinese) {
+            if (QLocale::system().territory() == QLocale::HongKong
+                || QLocale::system().territory() == QLocale::Macao
+                || QLocale::system().territory() == QLocale::Taiwan) {
+                return QStringLiteral("zh_TW");
+            }
             return QStringLiteral("zh_CN");
         }
         return QStringLiteral("en");
@@ -52,6 +54,17 @@ cpp! {{
         }
         if (normalized == QStringLiteral("english")) {
             return QStringLiteral("en");
+        }
+        if (normalized == QStringLiteral("traditional chinese")
+            || normalized == QStringLiteral("zh-tw")
+            || normalized == QStringLiteral("zh_tw")
+            || normalized == QStringLiteral("zh-hant")
+            || normalized == QStringLiteral("zh_hant")
+            || normalized == QStringLiteral("zh-hk")
+            || normalized == QStringLiteral("zh_hk")
+            || normalized == QStringLiteral("zh-mo")
+            || normalized == QStringLiteral("zh_mo")) {
+            return QStringLiteral("zh_TW");
         }
         if (normalized == QStringLiteral("chinese")
             || normalized == QStringLiteral("simplified chinese")

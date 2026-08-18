@@ -4653,6 +4653,11 @@ Do you want to continue anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/Settings.qml" line="435"/>
+        <source>Chinese (Traditional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/ui/Settings.qml" line="441"/>
         <source>Appearance</source>
         <translation type="unfinished"></translation>

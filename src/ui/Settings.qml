@@ -92,6 +92,12 @@ DefaultWindow {
         const normalized = String(value || "en").trim().toLowerCase()
         if (normalized === "german" || normalized.indexOf("de") === 0)
             return "de"
+        if (normalized === "traditional chinese" || normalized === "zh-tw"
+                || normalized === "zh_tw" || normalized === "zh-hant"
+                || normalized === "zh_hant" || normalized === "zh-hk"
+                || normalized === "zh_hk" || normalized === "zh-mo"
+                || normalized === "zh_mo")
+            return "zh_TW"
         if (normalized === "chinese" || normalized === "simplified chinese"
                 || normalized === "zh" || normalized === "zh-cn" || normalized === "zh_hans"
                 || normalized === "zh-hans" || normalized.indexOf("zh_cn") === 0)
@@ -424,7 +430,8 @@ DefaultWindow {
                             model: [
                                 { value: "en", label: qsTr("English") },
                                 { value: "de", label: qsTr("German") },
-                                { value: "zh_CN", label: qsTr("Chinese (Simplified)") }
+                                { value: "zh_CN", label: qsTr("Chinese (Simplified)") },
+                                { value: "zh_TW", label: qsTr("Chinese (Traditional)") }
                             ]
                             currentIndex: Math.max(0, indexOfValue(root.language))
                             onActivated: {
