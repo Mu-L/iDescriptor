@@ -208,21 +208,12 @@ xattr -c ~/Applications/iDescriptor.app
 | [Live Screen](#live-screen)                            | ✅ Implemented | View your device's screen in real-time.                               |
 | Developer Disk Images                                  | ✅ Implemented | Manage and mount developer disk images. **( iOS 6- 16)**              |
 
-## Fully Theme Aware
-
-<p align="center">
-    <img src="./resources/repo/macos-theme.gif"><br/>
-</p>
-<p align="center">
-    <img src="./resources/repo/ubuntu-theme.gif"><br/>
-</p>
-
 ## AirPlay
 
 ### Cast your device screen to your computer!
 
 <p align="center">
-    <img src="./resources/repo/airplay.gif"><br/>
+    <img src="./packaging/linux/flatpak/assets/6.png"><br/>
 </p>
 
 ## App Store
@@ -243,12 +234,12 @@ Read detailed battery info from device
     <img src="./resources/repo/battery.png"><br/>
 </p>
 
-## Virtual Location
+## Simulate Location 
 
 ### Simulate GPS location on your iDevice!
 
 <p align="center">
-    <img src="./resources/repo/virtual-location.png"><br/>
+    <img src="./packaging/linux/flatpak/assets/8.png"><br/>
 </p>
 
 ## Device Backups
@@ -292,7 +283,7 @@ See your Albums/Photos just like the Photos app
 ### File Explorer
 
 <p align="center">
-    <img src="./resources/repo/file-explorer.png"><br/>
+    <img src="./packaging/linux/flatpak/assets/9.png"><br/>
 </p>
 
 ## Cable Info
