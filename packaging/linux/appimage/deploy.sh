@@ -72,7 +72,7 @@ for size in 16 32 256 512; do
 done
 
 # Copy executable and icon
-cp target/release/idescriptor "$APPDIR/usr/bin/iDescriptor"
+cp target/release/idescriptor "$APPDIR/usr/bin/idescriptor"
 cp packaging/shared/resources/app-icon/icon-16.png "$APPDIR/usr/share/icons/hicolor/16x16/apps/io.github.idescriptor.iDescriptor.png"
 cp packaging/shared/resources/app-icon/icon-32.png "$APPDIR/usr/share/icons/hicolor/32x32/apps/io.github.idescriptor.iDescriptor.png"
 cp packaging/shared/resources/app-icon/icon-256.png "$APPDIR/usr/share/icons/hicolor/256x256/apps/io.github.idescriptor.iDescriptor.png"
