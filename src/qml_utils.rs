@@ -16,6 +16,7 @@ cpp! {{
     #include <QGuiApplication>
     #include <QQmlEngine>
     #include <QString>
+    #include <QStringList>
     #include <QTranslator>
 }}
 
@@ -76,6 +77,23 @@ impl QmlUtils {
                        || normalized == QStringLiteral("zh_cn")
                        || normalized == QStringLiteral("zh-hans")) {
                 normalized = QStringLiteral("zh_CN");
+            } else {
+                normalized.replace(QChar('-'), QChar('_'));
+                const QString languageCode = normalized.section(QChar('_'), 0, 0);
+                static const QStringList supportedLanguages = {
+                    QStringLiteral("af"), QStringLiteral("ar"), QStringLiteral("ca"),
+                    QStringLiteral("cs"), QStringLiteral("da"), QStringLiteral("de"),
+                    QStringLiteral("el"), QStringLiteral("en"), QStringLiteral("es"),
+                    QStringLiteral("fi"), QStringLiteral("fr"), QStringLiteral("he"),
+                    QStringLiteral("hu"), QStringLiteral("it"), QStringLiteral("ja"),
+                    QStringLiteral("ko"), QStringLiteral("nl"), QStringLiteral("no"),
+                    QStringLiteral("pl"), QStringLiteral("pt"), QStringLiteral("ro"),
+                    QStringLiteral("ru"), QStringLiteral("sr"), QStringLiteral("sv"),
+                    QStringLiteral("tr"), QStringLiteral("uk"), QStringLiteral("vi")
+                };
+                normalized = supportedLanguages.contains(languageCode)
+                    ? languageCode
+                    : QStringLiteral("en");
             }
 
             QCoreApplication::removeTranslator(&translator);

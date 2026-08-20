@@ -4495,24 +4495,6 @@ Do you want to continue anyway?</source>
     </message>
 </context>
 <context>
-    <name>ScreenMirroring</name>
-    <message>
-        <location filename="../src/ui/tools/ScreenMirroring.qml" line="17"/>
-        <source>Screen Mirroring - iDescriptor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/tools/ScreenMirroring.qml" line="81"/>
-        <source>Mirroring</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/tools/ScreenMirroring.qml" line="86"/>
-        <source>%1 packets</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Settings</name>
     <message>
         <location filename="../src/ui/Settings.qml" line="20"/>
@@ -4520,312 +4502,437 @@ Do you want to continue anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="175"/>
+        <location filename="../src/ui/Settings.qml" line="190"/>
         <source>Settings applied. Please restart the application for changes to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="176"/>
+        <location filename="../src/ui/Settings.qml" line="191"/>
         <source>Settings applied.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="200"/>
+        <location filename="../src/ui/Settings.qml" line="215"/>
         <source>Select Download Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="209"/>
+        <location filename="../src/ui/Settings.qml" line="224"/>
         <source>Select Backup Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="218"/>
+        <location filename="../src/ui/Settings.qml" line="233"/>
         <source>Select IPA Download Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="227"/>
+        <location filename="../src/ui/Settings.qml" line="242"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="232"/>
-        <location filename="../src/ui/Settings.qml" line="732"/>
+        <location filename="../src/ui/Settings.qml" line="247"/>
+        <location filename="../src/ui/Settings.qml" line="773"/>
         <source>Reset Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="233"/>
+        <location filename="../src/ui/Settings.qml" line="248"/>
         <source>Are you sure you want to reset all settings to their default values?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="261"/>
+        <location filename="../src/ui/Settings.qml" line="276"/>
         <source>General</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="268"/>
+        <location filename="../src/ui/Settings.qml" line="283"/>
         <source>Developer Disk Image Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="280"/>
-        <location filename="../src/ui/Settings.qml" line="302"/>
-        <location filename="../src/ui/Settings.qml" line="324"/>
+        <location filename="../src/ui/Settings.qml" line="295"/>
+        <location filename="../src/ui/Settings.qml" line="317"/>
+        <location filename="../src/ui/Settings.qml" line="339"/>
         <source>Browse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="290"/>
+        <location filename="../src/ui/Settings.qml" line="305"/>
         <source>IPA Download Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="312"/>
+        <location filename="../src/ui/Settings.qml" line="327"/>
         <source>Backup Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="334"/>
+        <location filename="../src/ui/Settings.qml" line="349"/>
         <source>Wireless File Server Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="348"/>
+        <location filename="../src/ui/Settings.qml" line="363"/>
         <source>The starting port for the wireless file server. If this port is unavailable, it will try the next 10 ports.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="368"/>
+        <location filename="../src/ui/Settings.qml" line="383"/>
         <source>Unmount iFuse drives on exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="378"/>
+        <location filename="../src/ui/Settings.qml" line="393"/>
         <source>Automatically check for updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="391"/>
+        <location filename="../src/ui/Settings.qml" line="406"/>
         <source>Gallery backend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="398"/>
+        <location filename="../src/ui/Settings.qml" line="413"/>
         <source>Filesystem (AFC)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="399"/>
+        <location filename="../src/ui/Settings.qml" line="414"/>
         <source>SQLite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="400"/>
+        <location filename="../src/ui/Settings.qml" line="415"/>
         <source>SQLite through VFS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="404"/>
+        <location filename="../src/ui/Settings.qml" line="419"/>
         <source>Choose how gallery albums are loaded from the device.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="417"/>
+        <location filename="../src/ui/Settings.qml" line="432"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="425"/>
+        <location filename="../src/ui/Settings.qml" line="440"/>
         <source>English</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="426"/>
+        <location filename="../src/ui/Settings.qml" line="451"/>
         <source>German</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="427"/>
+        <location filename="../src/ui/Settings.qml" line="444"/>
         <source>Chinese (Simplified)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="435"/>
+        <location filename="../src/ui/Settings.qml" line="441"/>
+        <source>Afrikaans</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="442"/>
+        <source>Arabic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="443"/>
+        <source>Catalan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="445"/>
         <source>Chinese (Traditional)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="441"/>
-        <source>Appearance</source>
+        <location filename="../src/ui/Settings.qml" line="446"/>
+        <source>Czech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="447"/>
+        <source>Danish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/Settings.qml" line="448"/>
-        <source>Theme</source>
+        <source>Dutch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="449"/>
+        <source>Finnish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="450"/>
+        <source>French</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="452"/>
+        <source>Greek</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="453"/>
+        <source>Hebrew</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="454"/>
+        <source>Hungarian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="455"/>
+        <source>Italian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/Settings.qml" line="456"/>
-        <source>System Default</source>
+        <source>Japanese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/Settings.qml" line="457"/>
-        <source>Light</source>
+        <source>Korean</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/Settings.qml" line="458"/>
-        <source>Dark</source>
+        <source>Norwegian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="473"/>
-        <source>Use custom window frame</source>
+        <location filename="../src/ui/Settings.qml" line="459"/>
+        <source>Polish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="476"/>
-        <source>Use a custom Linux window frame instead of default.</source>
+        <location filename="../src/ui/Settings.qml" line="460"/>
+        <source>Portuguese (Brazil)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="461"/>
+        <source>Romanian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="462"/>
+        <source>Russian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="463"/>
+        <source>Serbian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="464"/>
+        <source>Spanish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="465"/>
+        <source>Swedish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="466"/>
+        <source>Turkish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="467"/>
+        <source>Ukrainian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="468"/>
+        <source>Vietnamese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="482"/>
+        <source>Appearance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/Settings.qml" line="489"/>
-        <source>Window Effect</source>
+        <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/Settings.qml" line="497"/>
-        <source>Normal</source>
+        <source>System Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/Settings.qml" line="498"/>
-        <source>Acrylic</source>
+        <source>Light</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="513"/>
-        <source>Device Connection</source>
+        <location filename="../src/ui/Settings.qml" line="499"/>
+        <source>Dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="514"/>
+        <source>Use custom window frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/Settings.qml" line="517"/>
+        <source>Use a custom Linux window frame instead of default.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="530"/>
+        <source>Window Effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="538"/>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="539"/>
+        <source>Acrylic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="554"/>
+        <source>Device Connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/Settings.qml" line="558"/>
         <source>Auto-raise main window on device connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="527"/>
+        <location filename="../src/ui/Settings.qml" line="568"/>
         <source>Switch to newly connected device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="537"/>
+        <location filename="../src/ui/Settings.qml" line="578"/>
         <source>Automatically enable Wi-Fi connections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="547"/>
+        <location filename="../src/ui/Settings.qml" line="588"/>
         <source>Automatically connect to wireless devices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="557"/>
+        <location filename="../src/ui/Settings.qml" line="598"/>
         <source>Upgrade to wireless on disconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="560"/>
+        <location filename="../src/ui/Settings.qml" line="601"/>
         <source>When a USB-connected device disconnects, reconnect to it over Wi-Fi when it is available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="572"/>
+        <location filename="../src/ui/Settings.qml" line="613"/>
         <source>Connection Timeout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="580"/>
+        <location filename="../src/ui/Settings.qml" line="621"/>
         <source> seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="593"/>
+        <location filename="../src/ui/Settings.qml" line="634"/>
         <source>Jailbroken</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="600"/>
+        <location filename="../src/ui/Settings.qml" line="641"/>
         <source>Default Root Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="609"/>
+        <location filename="../src/ui/Settings.qml" line="650"/>
         <source>Default password used for SSH root authentication on jailbroken devices. Default is &apos;alpine&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="621"/>
+        <location filename="../src/ui/Settings.qml" line="662"/>
         <source>AirPlay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="628"/>
+        <location filename="../src/ui/Settings.qml" line="669"/>
         <source>Fps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="636"/>
+        <location filename="../src/ui/Settings.qml" line="677"/>
         <source>Set the fps for AirPlay. Go with 30 fps if you have an older device.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="648"/>
+        <location filename="../src/ui/Settings.qml" line="689"/>
         <source>Allow New Connections to Take Over</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="659"/>
+        <location filename="../src/ui/Settings.qml" line="700"/>
         <source>Use legacy ports</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="662"/>
+        <location filename="../src/ui/Settings.qml" line="703"/>
         <source>Use legacy ports, refer to AIRPLAY.md for more information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="672"/>
+        <location filename="../src/ui/Settings.qml" line="713"/>
         <source>Show V4L2 Button on AirPlay Widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="688"/>
+        <location filename="../src/ui/Settings.qml" line="729"/>
         <source>iDescriptor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="695"/>
+        <location filename="../src/ui/Settings.qml" line="736"/>
         <source>Version %1 · %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="706"/>
+        <location filename="../src/ui/Settings.qml" line="747"/>
         <source>A free, open-source, cross-platform iDevice management tool.
 
 © 2026 Uncore &lt;https://github.com/uncor3&gt; and iDescriptor contributors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="727"/>
+        <location filename="../src/ui/Settings.qml" line="768"/>
         <source>Check for Updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/Settings.qml" line="739"/>
+        <location filename="../src/ui/Settings.qml" line="780"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>

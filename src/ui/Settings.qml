@@ -102,6 +102,15 @@ DefaultWindow {
                 || normalized === "zh" || normalized === "zh-cn" || normalized === "zh_hans"
                 || normalized === "zh-hans" || normalized.indexOf("zh_cn") === 0)
             return "zh_CN"
+
+        const languageCode = normalized.replace("-", "_").split("_")[0]
+        const supportedLanguages = [
+            "af", "ar", "ca", "cs", "da", "de", "el", "en", "es",
+            "fi", "fr", "he", "hu", "it", "ja", "ko", "nl", "no",
+            "pl", "pt", "ro", "ru", "sr", "sv", "tr", "uk", "vi"
+        ]
+        if (supportedLanguages.indexOf(languageCode) !== -1)
+            return languageCode
         return "en"
     }
 
@@ -429,9 +438,34 @@ DefaultWindow {
                             valueRole: "value"
                             model: [
                                 { value: "en", label: qsTr("English") },
-                                { value: "de", label: qsTr("German") },
+                                { value: "af", label: qsTr("Afrikaans") },
+                                { value: "ar", label: qsTr("Arabic") },
+                                { value: "ca", label: qsTr("Catalan") },
                                 { value: "zh_CN", label: qsTr("Chinese (Simplified)") },
-                                { value: "zh_TW", label: qsTr("Chinese (Traditional)") }
+                                { value: "zh_TW", label: qsTr("Chinese (Traditional)") },
+                                { value: "cs", label: qsTr("Czech") },
+                                { value: "da", label: qsTr("Danish") },
+                                { value: "nl", label: qsTr("Dutch") },
+                                { value: "fi", label: qsTr("Finnish") },
+                                { value: "fr", label: qsTr("French") },
+                                { value: "de", label: qsTr("German") },
+                                { value: "el", label: qsTr("Greek") },
+                                { value: "he", label: qsTr("Hebrew") },
+                                { value: "hu", label: qsTr("Hungarian") },
+                                { value: "it", label: qsTr("Italian") },
+                                { value: "ja", label: qsTr("Japanese") },
+                                { value: "ko", label: qsTr("Korean") },
+                                { value: "no", label: qsTr("Norwegian") },
+                                { value: "pl", label: qsTr("Polish") },
+                                { value: "pt", label: qsTr("Portuguese (Brazil)") },
+                                { value: "ro", label: qsTr("Romanian") },
+                                { value: "ru", label: qsTr("Russian") },
+                                { value: "sr", label: qsTr("Serbian") },
+                                { value: "es", label: qsTr("Spanish") },
+                                { value: "sv", label: qsTr("Swedish") },
+                                { value: "tr", label: qsTr("Turkish") },
+                                { value: "uk", label: qsTr("Ukrainian") },
+                                { value: "vi", label: qsTr("Vietnamese") }
                             ]
                             currentIndex: Math.max(0, indexOfValue(root.language))
                             onActivated: {

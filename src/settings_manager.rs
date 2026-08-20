@@ -30,11 +30,24 @@ cpp! {{
             + QStringLiteral("/.idescriptor");
     }
 
+    static const QStringList &settings_manager_supported_languages()
+    {
+        static const QStringList languages = {
+            QStringLiteral("af"), QStringLiteral("ar"), QStringLiteral("ca"),
+            QStringLiteral("cs"), QStringLiteral("da"), QStringLiteral("de"),
+            QStringLiteral("el"), QStringLiteral("en"), QStringLiteral("es"),
+            QStringLiteral("fi"), QStringLiteral("fr"), QStringLiteral("he"),
+            QStringLiteral("hu"), QStringLiteral("it"), QStringLiteral("ja"),
+            QStringLiteral("ko"), QStringLiteral("nl"), QStringLiteral("no"),
+            QStringLiteral("pl"), QStringLiteral("pt"), QStringLiteral("ro"),
+            QStringLiteral("ru"), QStringLiteral("sr"), QStringLiteral("sv"),
+            QStringLiteral("tr"), QStringLiteral("uk"), QStringLiteral("vi")
+        };
+        return languages;
+    }
+
     static QString settings_manager_default_language()
     {
-        if (QLocale::system().language() == QLocale::German) {
-            return QStringLiteral("de");
-        }
         if (QLocale::system().language() == QLocale::Chinese) {
             if (QLocale::system().territory() == QLocale::HongKong
                 || QLocale::system().territory() == QLocale::Macao
@@ -42,6 +55,11 @@ cpp! {{
                 return QStringLiteral("zh_TW");
             }
             return QStringLiteral("zh_CN");
+        }
+
+        const QString language = QLocale::system().name().section(QChar('_'), 0, 0).toLower();
+        if (settings_manager_supported_languages().contains(language)) {
+            return language;
         }
         return QStringLiteral("en");
     }
@@ -79,6 +97,12 @@ cpp! {{
         }
         if (normalized.startsWith(QStringLiteral("zh_cn"))) {
             return QStringLiteral("zh_CN");
+        }
+
+        normalized.replace(QChar('-'), QChar('_'));
+        const QString languageCode = normalized.section(QChar('_'), 0, 0);
+        if (settings_manager_supported_languages().contains(languageCode)) {
+            return languageCode;
         }
         return QStringLiteral("en");
     }

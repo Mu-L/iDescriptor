@@ -1,108 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" sourcelanguage="en_US" language="fi">
+<TS version="2.1" language="fi" sourcelanguage="en_US">
   <context>
     <name>Airplay</name>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="23"/>
       <source>AirPlay - iDescriptor</source>
-      <translation type="unfinished">AirPlay - iDescriptor</translation>
+      <translation>AirPlay - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="71"/>
       <location filename="../src/ui/tools/Airplay.qml" line="138"/>
       <source>Failed to start AirPlay.</source>
-      <translation type="unfinished">Failed to start AirPlay.</translation>
+      <translation>AirPlay:n käynnistys epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="163"/>
       <source>Waiting for device connection</source>
-      <translation type="unfinished">Waiting for device connection</translation>
+      <translation>Odotetaan laitteen yhteyttä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="164"/>
       <source>Starting AirPlay Server...</source>
-      <translation type="unfinished">Starting AirPlay Server...</translation>
+      <translation>Käynnistetään AirPlay-palvelinta...</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="177"/>
       <source>Settings</source>
-      <translation type="unfinished">Settings</translation>
+      <translation>Asetukset</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="208"/>
       <source>Loading AirPlay tutorial...</source>
-      <translation type="unfinished">Loading AirPlay tutorial...</translation>
+      <translation>Ladataan AirPlay opetusohjelmaa...</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="238"/>
       <source>Open Control Center on your device, choose Screen Mirroring, then select iDescriptor@UxPlay.</source>
-      <translation type="unfinished">Open Control Center on your device, choose Screen Mirroring, then select iDescriptor@UxPlay.</translation>
+      <translation>Avaa Ohjauskeskus laitteessasi, valitse Näytön peilaus ja sitten iDescriptor@UxPlay.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="342"/>
       <source>Rotate clockwise</source>
-      <translation type="unfinished">Rotate clockwise</translation>
+      <translation>Kierrä myötäpäivään</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="349"/>
       <source>Zoom out</source>
-      <translation type="unfinished">Zoom out</translation>
+      <translation>Loitonna</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="356"/>
       <source>Zoom in</source>
-      <translation type="unfinished">Zoom in</translation>
+      <translation>Lähennä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="364"/>
       <source>Reset display</source>
-      <translation type="unfinished">Reset display</translation>
+      <translation>Nollaa näyttö</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="378"/>
       <source>Unmute</source>
-      <translation type="unfinished">Unmute</translation>
+      <translation>Poista mykistys</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="378"/>
       <source>Mute</source>
-      <translation type="unfinished">Mute</translation>
+      <translation>Mykistä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="427"/>
       <source>Volume: %1%</source>
-      <translation type="unfinished">Volume: %1%</translation>
+      <translation>Äänenvoimakkuus: %1%</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="438"/>
       <source>Connection information</source>
-      <translation type="unfinished">Connection information</translation>
+      <translation>Yhteystiedot</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="455"/>
       <source>AirPlay Connection</source>
-      <translation type="unfinished">AirPlay Connection</translation>
+      <translation>AirPlay Liitäntä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="465"/>
       <source>Launch arguments</source>
-      <translation type="unfinished">Launch arguments</translation>
+      <translation>Käynnistä argumentit</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="469"/>
       <source>Device name</source>
-      <translation type="unfinished">Device name</translation>
+      <translation>Laitteen nimi</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="473"/>
       <source>Model</source>
-      <translation type="unfinished">Model</translation>
+      <translation>Malli</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/Airplay.qml" line="477"/>
       <source>Device ID</source>
-      <translation type="unfinished">Device ID</translation>
+      <translation>Laitteen tunnus</translation>
     </message>
   </context>
   <context>
@@ -111,88 +111,88 @@
       <location filename="../src/ui/AlbumContents.qml" line="98"/>
       <location filename="../src/ui/AlbumContents.qml" line="227"/>
       <source>Exporting Files</source>
-      <translation type="unfinished">Exporting Files</translation>
+      <translation>Tiedostojen vienti</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="115"/>
       <source>Failed to reload the gallery.</source>
-      <translation type="unfinished">Failed to reload the gallery.</translation>
+      <translation>Gallerian uudelleenlataus epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="141"/>
       <source>Failed to load the album contents.</source>
-      <translation type="unfinished">Failed to load the album contents.</translation>
+      <translation>Albumin sisällön lataaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="169"/>
       <location filename="../src/ui/AlbumContents.qml" line="180"/>
       <source>Back</source>
-      <translation type="unfinished">Back</translation>
+      <translation>Takaisin</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="188"/>
       <source>Refreshing album contents</source>
-      <translation type="unfinished">Refreshing album contents</translation>
+      <translation>Päivittää albumin sisältöä</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="189"/>
       <source>Refresh</source>
-      <translation type="unfinished">Refresh</translation>
+      <translation>Päivitä</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="199"/>
       <source>All</source>
-      <translation type="unfinished">All</translation>
+      <translation>Kaikki</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="200"/>
       <source>Images</source>
-      <translation type="unfinished">Images</translation>
+      <translation>Kuvat</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="201"/>
       <source>Videos</source>
-      <translation type="unfinished">Videos</translation>
+      <translation>Videot</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="211"/>
       <source>Most Recent</source>
-      <translation type="unfinished">Most Recent</translation>
+      <translation>Viimeisin</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="212"/>
       <source>Oldest First</source>
-      <translation type="unfinished">Oldest First</translation>
+      <translation>Vanhin ensin</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="219"/>
       <source>Export Selected (%1)</source>
-      <translation type="unfinished">Export Selected (%1)</translation>
+      <translation>Vie valitut (%1)</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="221"/>
       <source>Exporting Selected Items</source>
-      <translation type="unfinished">Exporting Selected Items</translation>
+      <translation>Valittujen kohteiden vienti</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="225"/>
       <source>Export All</source>
-      <translation type="unfinished">Export All</translation>
+      <translation>Vie kaikki</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="346"/>
       <source>No Photos or Videos</source>
-      <translation type="unfinished">No Photos or Videos</translation>
+      <translation>Ei kuvia tai videoita</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="354"/>
       <source>This album is empty.</source>
-      <translation type="unfinished">This album is empty.</translation>
+      <translation>Tämä albumi on tyhjä.</translation>
     </message>
     <message>
       <location filename="../src/ui/AlbumContents.qml" line="376"/>
       <source>Choose Export Folder</source>
-      <translation type="unfinished">Choose Export Folder</translation>
+      <translation>Valitse Vie kansio</translation>
     </message>
   </context>
   <context>
@@ -200,118 +200,118 @@
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="25"/>
       <source>Free</source>
-      <translation type="unfinished">Free</translation>
+      <translation>Ilmainen</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="34"/>
       <source>Failed to fetch app details.</source>
-      <translation type="unfinished">Failed to fetch app details.</translation>
+      <translation>Sovelluksen tietojen nouto epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="80"/>
       <location filename="../src/ui/app-store/AppDetails.qml" line="94"/>
       <source>Back</source>
-      <translation type="unfinished">Back</translation>
+      <translation>Takaisin</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="199"/>
       <source>Install</source>
-      <translation type="unfinished">Install</translation>
+      <translation>Asenna</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="204"/>
       <source>Get IPA</source>
-      <translation type="unfinished">Get IPA</translation>
+      <translation>Hanki IPA</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="219"/>
       <source>Rating</source>
-      <translation type="unfinished">Rating</translation>
+      <translation>Luokitus</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="219"/>
       <source>%1 ratings</source>
-      <translation type="unfinished">%1 ratings</translation>
+      <translation>%1 arvosanat</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="220"/>
       <source>Age</source>
-      <translation type="unfinished">Age</translation>
+      <translation>Ikä</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="220"/>
       <source>Years</source>
-      <translation type="unfinished">Years</translation>
+      <translation>Vuosia</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="221"/>
       <source>Version</source>
-      <translation type="unfinished">Version</translation>
+      <translation>Versio</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="221"/>
       <source>Latest</source>
-      <translation type="unfinished">Latest</translation>
+      <translation>Viimeisin</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="222"/>
       <source>Size</source>
-      <translation type="unfinished">Size</translation>
+      <translation>Koko</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="222"/>
       <source>Download</source>
-      <translation type="unfinished">Download</translation>
+      <translation>Lataa</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="271"/>
       <source>What&apos;s New</source>
-      <translation type="unfinished">What&apos;s New</translation>
+      <translation>Mitä uutta</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="278"/>
       <source>No release notes available.</source>
-      <translation type="unfinished">No release notes available.</translation>
+      <translation>Julkaisutietoja ei ole saatavilla.</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="288"/>
       <source>Screenshots</source>
-      <translation type="unfinished">Screenshots</translation>
+      <translation>Kuvakaappauksia</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="320"/>
       <source>No screenshots available.</source>
-      <translation type="unfinished">No screenshots available.</translation>
+      <translation>Kuvakaappauksia ei ole saatavilla.</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="331"/>
       <source>Description</source>
-      <translation type="unfinished">Description</translation>
+      <translation>Kuvaus</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="348"/>
       <source>Information</source>
-      <translation type="unfinished">Information</translation>
+      <translation>Tietoja</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="359"/>
       <source>Seller</source>
-      <translation type="unfinished">Seller</translation>
+      <translation>Myyjä</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="361"/>
       <source>Bundle ID</source>
-      <translation type="unfinished">Bundle ID</translation>
+      <translation>Paketin tunnus</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="363"/>
       <source>Minimum iOS</source>
-      <translation type="unfinished">Minimum iOS</translation>
+      <translation>Vähintään iOS</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppDetails.qml" line="365"/>
       <source>Languages</source>
-      <translation type="unfinished">Languages</translation>
+      <translation>Kielet</translation>
     </message>
   </context>
   <context>
@@ -319,17 +319,17 @@
     <message>
       <location filename="../src/ui/app-store/AppItem.qml" line="99"/>
       <source>Install</source>
-      <translation type="unfinished">Install</translation>
+      <translation>Asenna</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppItem.qml" line="121"/>
       <source>Website</source>
-      <translation type="unfinished">Website</translation>
+      <translation>Verkkosivusto</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/AppItem.qml" line="121"/>
       <source>Get IPA</source>
-      <translation type="unfinished">Get IPA</translation>
+      <translation>Hanki IPA</translation>
     </message>
   </context>
   <context>
@@ -337,47 +337,47 @@
     <message>
       <location filename="../src/ui/AppSidebar.qml" line="83"/>
       <source>Explore</source>
-      <translation type="unfinished">Explore</translation>
+      <translation>Tutki</translation>
     </message>
     <message>
       <location filename="../src/ui/AppSidebar.qml" line="92"/>
       <source>Welcome</source>
-      <translation type="unfinished">Welcome</translation>
+      <translation>Tervetuloa</translation>
     </message>
     <message>
       <location filename="../src/ui/AppSidebar.qml" line="99"/>
       <source>Apps</source>
-      <translation type="unfinished">Apps</translation>
+      <translation>Sovellukset</translation>
     </message>
     <message>
       <location filename="../src/ui/AppSidebar.qml" line="106"/>
       <source>Toolbox</source>
-      <translation type="unfinished">Toolbox</translation>
+      <translation>Työkalulaatikko</translation>
     </message>
     <message>
       <location filename="../src/ui/AppSidebar.qml" line="113"/>
       <source>Jailbroken</source>
-      <translation type="unfinished">Jailbroken</translation>
+      <translation>Jailbroked</translation>
     </message>
     <message>
       <location filename="../src/ui/AppSidebar.qml" line="120"/>
       <source>Community</source>
-      <translation type="unfinished">Community</translation>
+      <translation>yhteisössä</translation>
     </message>
     <message>
       <location filename="../src/ui/AppSidebar.qml" line="127"/>
       <source>Donate</source>
-      <translation type="unfinished">Donate</translation>
+      <translation>Lahjoita</translation>
     </message>
     <message>
       <location filename="../src/ui/AppSidebar.qml" line="136"/>
       <source>Devices</source>
-      <translation type="unfinished">Devices</translation>
+      <translation>Laitteet</translation>
     </message>
     <message>
       <location filename="../src/ui/AppSidebar.qml" line="150"/>
       <source>No connected devices</source>
-      <translation type="unfinished">No connected devices</translation>
+      <translation>Ei yhdistettyjä laitteita</translation>
     </message>
   </context>
   <context>
@@ -385,127 +385,127 @@
     <message>
       <location filename="../src/ui/AppsTab.qml" line="84"/>
       <source>You must be signed in to install apps.</source>
-      <translation type="unfinished">You must be signed in to install apps.</translation>
+      <translation>Sinun on kirjauduttava sisään, jotta voit asentaa sovelluksia.</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="103"/>
       <source>You must be signed in to download IPA files.</source>
-      <translation type="unfinished">You must be signed in to download IPA files.</translation>
+      <translation>Sinun on oltava kirjautuneena sisään ladataksesi IPA-tiedostoja.</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="143"/>
       <source>Photo &amp; Video sharing social network</source>
-      <translation type="unfinished">Photo &amp; Video sharing social network</translation>
+      <translation>Valokuvien ja videoiden jakamisen sosiaalinen verkosto</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="144"/>
       <source>Music streaming and podcast platform</source>
-      <translation type="unfinished">Music streaming and podcast platform</translation>
+      <translation>Musiikin suoratoisto- ja podcast-alusta</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="145"/>
       <source>Video sharing and streaming platform</source>
-      <translation type="unfinished">Video sharing and streaming platform</translation>
+      <translation>Videonjako- ja suoratoistoalusta</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="146"/>
       <source>Social media and microblogging</source>
-      <translation type="unfinished">Social media and microblogging</translation>
+      <translation>Sosiaalinen media ja mikrobloggaaminen</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="147"/>
       <source>Short-form video hosting service</source>
-      <translation type="unfinished">Short-form video hosting service</translation>
+      <translation>Lyhytmuotoinen videon isännöintipalvelu</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="148"/>
       <source>Live streaming platform</source>
-      <translation type="unfinished">Live streaming platform</translation>
+      <translation>Live-suoratoistoalusta</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="149"/>
       <source>Cloud-based instant messaging</source>
-      <translation type="unfinished">Cloud-based instant messaging</translation>
+      <translation>Pilvipohjainen pikaviestintä</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="150"/>
       <source>Social news aggregation platform</source>
-      <translation type="unfinished">Social news aggregation platform</translation>
+      <translation>Sosiaalisten uutisten kokoamisalusta</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="170"/>
       <source>Platinum</source>
-      <translation type="unfinished">Platinum</translation>
+      <translation>Platina</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="171"/>
       <source>Gold</source>
-      <translation type="unfinished">Gold</translation>
+      <translation>Kulta</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="172"/>
       <source>Silver</source>
-      <translation type="unfinished">Silver</translation>
+      <translation>Hopeaa</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="173"/>
       <source>Bronze</source>
-      <translation type="unfinished">Bronze</translation>
+      <translation>Pronssia</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="176"/>
       <source>Failed to parse sponsors JSON.</source>
-      <translation type="unfinished">Failed to parse sponsors JSON.</translation>
+      <translation>Sponsoreiden JSON:n jäsentäminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="179"/>
       <source>Failed to fetch sponsors.</source>
-      <translation type="unfinished">Failed to fetch sponsors.</translation>
+      <translation>Sponsoreiden hakeminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="225"/>
       <source>Search failed.</source>
-      <translation type="unfinished">Search failed.</translation>
+      <translation>Haku epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="234"/>
       <source>Search returned an invalid response.</source>
-      <translation type="unfinished">Search returned an invalid response.</translation>
+      <translation>Haku palautti virheellisen vastauksen.</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="253"/>
       <source>Failed to parse search results.</source>
-      <translation type="unfinished">Failed to parse search results.</translation>
+      <translation>Hakutulosten jäsentäminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="331"/>
       <source>Search for apps...</source>
-      <translation type="unfinished">Search for apps...</translation>
+      <translation>Hae sovelluksia...</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="341"/>
       <source>Signed in as %1</source>
-      <translation type="unfinished">Signed in as %1</translation>
+      <translation>Kirjautunut sisään nimellä %1</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="341"/>
       <source>Not signed in</source>
-      <translation type="unfinished">Not signed in</translation>
+      <translation>Ei kirjautunut sisään</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="346"/>
       <source>Sign Out</source>
-      <translation type="unfinished">Sign Out</translation>
+      <translation>Kirjaudu ulos</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="346"/>
       <source>Sign In</source>
-      <translation type="unfinished">Sign In</translation>
+      <translation>Kirjaudu sisään</translation>
     </message>
     <message>
       <location filename="../src/ui/AppsTab.qml" line="480"/>
       <source>No results</source>
-      <translation type="unfinished">No results</translation>
+      <translation>Ei tuloksia</translation>
     </message>
   </context>
   <context>
@@ -513,238 +513,238 @@
     <message>
       <location filename="../src/ui/BackupAction.qml" line="37"/>
       <source>This Device</source>
-      <translation type="unfinished">This Device</translation>
+      <translation>Tämä laite</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="57"/>
       <source>Back Up Over Wi-Fi?</source>
-      <translation type="unfinished">Back Up Over Wi-Fi?</translation>
+      <translation>Varmuuskopioi Wi-Fi?</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="58"/>
       <source>Wireless backups can take longer and may stop if the connection changes. Keep the device nearby, connected to power, and on the same Wi-Fi network until the backup finishes.</source>
-      <translation type="unfinished">Wireless backups can take longer and may stop if the connection changes. Keep the device nearby, connected to power, and on the same Wi-Fi network until the backup finishes.</translation>
+      <translation>Langaton varmuuskopiointi voi kestää kauemmin ja saattaa pysähtyä, jos yhteys vaihtuu. Pidä laite lähellä, kytkettynä virtalähteeseen ja samassa Wi-Fi-verkossa, kunnes varmuuskopiointi on valmis.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="90"/>
       <location filename="../src/ui/BackupAction.qml" line="164"/>
       <source>Preparing the backup...</source>
-      <translation type="unfinished">Preparing the backup...</translation>
+      <translation>Varmuuskopiota valmistellaan...</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="99"/>
       <source>Cancelling the backup...</source>
-      <translation type="unfinished">Cancelling the backup...</translation>
+      <translation>Peruutetaan varmuuskopiointia...</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="102"/>
       <source>The backup could not be cancelled.</source>
-      <translation type="unfinished">The backup could not be cancelled.</translation>
+      <translation>Varmuuskopiointia ei voitu peruuttaa.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="108"/>
       <source>The backup was cancelled. Files already written may remain in the selected folder.</source>
-      <translation type="unfinished">The backup was cancelled. Files already written may remain in the selected folder.</translation>
+      <translation>Varmuuskopiointi peruutettiin. Jo kirjoitetut tiedostot voivat jäädä valittuun kansioon.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="121"/>
       <source>Backing Up %1</source>
-      <translation type="unfinished">Backing Up %1</translation>
+      <translation>Varmuuskopiointi %1</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="123"/>
       <source>Backup Complete</source>
-      <translation type="unfinished">Backup Complete</translation>
+      <translation>Varmuuskopiointi valmis</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="125"/>
       <source>Backup Couldn&apos;t Be Completed</source>
-      <translation type="unfinished">Backup Couldn&apos;t Be Completed</translation>
+      <translation>Varmuuskopiointia ei voitu suorittaa loppuun</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="127"/>
       <source>Backup Cancelled</source>
-      <translation type="unfinished">Backup Cancelled</translation>
+      <translation>Varmuuskopiointi peruutettu</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="128"/>
       <source>Back Up %1</source>
-      <translation type="unfinished">Back Up %1</translation>
+      <translation>Varmuuskopioi %1</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="133"/>
       <source>Keep the device connected while iDescriptor securely copies its data.</source>
-      <translation type="unfinished">Keep the device connected while iDescriptor securely copies its data.</translation>
+      <translation>Pidä laite kytkettynä, kun iDescriptor kopioi tiedot turvallisesti.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="135"/>
       <source>Your device was backed up successfully.</source>
-      <translation type="unfinished">Your device was backed up successfully.</translation>
+      <translation>Laitteesi varmuuskopiointi onnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="137"/>
       <source>iDescriptor was unable to finish this backup. Review the activity log and try again.</source>
-      <translation type="unfinished">iDescriptor was unable to finish this backup. Review the activity log and try again.</translation>
+      <translation>iDescriptor ei voinut viimeistellä tätä varmuuskopiointia. Tarkista toimintaloki ja yritä uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="140"/>
       <source>Create a local backup of your device before making changes or transferring data.</source>
-      <translation type="unfinished">Create a local backup of your device before making changes or transferring data.</translation>
+      <translation>Luo paikallinen varmuuskopio laitteestasi ennen muutosten tekemistä tai tietojen siirtämistä.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="163"/>
       <source>Enter the device passcode on the device to continue.</source>
-      <translation type="unfinished">Enter the device passcode on the device to continue.</translation>
+      <translation>Syötä laitteen salasana laitteeseen jatkaaksesi.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="171"/>
       <source>The device requested that this backup be cancelled.</source>
-      <translation type="unfinished">The device requested that this backup be cancelled.</translation>
+      <translation>Laite pyysi tämän varmuuskopioinnin peruuttamista.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="181"/>
       <source>The device&apos;s backup encryption status could not be read.</source>
-      <translation type="unfinished">The device&apos;s backup encryption status could not be read.</translation>
+      <translation>Laitteen varmuuskopion salauksen tilaa ei voitu lukea.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="197"/>
       <source>Saved to %1</source>
-      <translation type="unfinished">Saved to %1</translation>
+      <translation>Tallennettu kohteeseen %1</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="202"/>
       <source>The backup was cancelled from the device.</source>
-      <translation type="unfinished">The backup was cancelled from the device.</translation>
+      <translation>Varmuuskopiointi peruttiin laitteelta.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="206"/>
       <source>The backup operation ended before it could be completed.</source>
-      <translation type="unfinished">The backup operation ended before it could be completed.</translation>
+      <translation>Varmuuskopiointi päättyi ennen kuin se saatiin päätökseen.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="213"/>
       <source>Select Backup Directory</source>
-      <translation type="unfinished">Select Backup Directory</translation>
+      <translation>Valitse Varmuuskopiointihakemisto</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="229"/>
       <source>The encrypted backup password was updated.</source>
-      <translation type="unfinished">The encrypted backup password was updated.</translation>
+      <translation>Salattu varmuuskopion salasana päivitettiin.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="255"/>
       <source>A backup operation is in progress</source>
-      <translation type="unfinished">A backup operation is in progress</translation>
+      <translation>Varmuuskopiointi on käynnissä</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="256"/>
       <source>Back</source>
-      <translation type="unfinished">Back</translation>
+      <translation>Takaisin</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="309"/>
       <source>Backup Location</source>
-      <translation type="unfinished">Backup Location</translation>
+      <translation>Varmuuskopiointipaikka</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="324"/>
       <source>Checking backup encryption…</source>
-      <translation type="unfinished">Checking backup encryption…</translation>
+      <translation>Tarkistetaan varmuuskopion salausta…</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="326"/>
       <source>Encryption enabled</source>
-      <translation type="unfinished">Encryption enabled</translation>
+      <translation>Salaus käytössä</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="327"/>
       <source>Backup encryption status unavailable</source>
-      <translation type="unfinished">Backup encryption status unavailable</translation>
+      <translation>Varmuuskopion salauksen tila ei ole käytettävissä</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="346"/>
       <source>Use the Manage Encryption button to set up encrypted backups.</source>
-      <translation type="unfinished">Use the Manage Encryption button to set up encrypted backups.</translation>
+      <translation>Käytä Salauksen hallinta -painiketta määrittääksesi salatut varmuuskopiot.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="347"/>
       <source>Backups for this device are protected with a password.</source>
-      <translation type="unfinished">Backups for this device are protected with a password.</translation>
+      <translation>Tämän laitteen varmuuskopiot on suojattu salasanalla.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="358"/>
       <source>Force full backup</source>
-      <translation type="unfinished">Force full backup</translation>
+      <translation>Pakota täysi varmuuskopiointi</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="367"/>
       <source>Only change this if you know what you are doing. If not, just leave it as it is.</source>
-      <translation type="unfinished">Only change this if you know what you are doing. If not, just leave it as it is.</translation>
+      <translation>Muuta tätä vain, jos tiedät mitä olet tekemässä. Jos ei, jätä se sellaisenaan.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="393"/>
       <source>Activity</source>
-      <translation type="unfinished">Activity</translation>
+      <translation>Toiminta</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="402"/>
       <source>1 item</source>
-      <translation type="unfinished">1 item</translation>
+      <translation>1 kohde</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="403"/>
       <source>%1 items</source>
-      <translation type="unfinished">%1 items</translation>
+      <translation>%1 tuotteet</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="441"/>
       <source>Enter the device passcode on the device to continue the backup.</source>
-      <translation type="unfinished">Enter the device passcode on the device to continue the backup.</translation>
+      <translation>Syötä laitteen salasana laitteeseen jatkaaksesi varmuuskopiointia.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="452"/>
       <source>Logs will appear here as files are received from the device.</source>
-      <translation type="unfinished">Logs will appear here as files are received from the device.</translation>
+      <translation>Lokit näkyvät täällä, kun tiedostoja vastaanotetaan laitteelta.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="499"/>
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Peruuta</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="505"/>
       <source>Show Details</source>
-      <translation type="unfinished">Show Details</translation>
+      <translation>Näytä tiedot</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="511"/>
       <source>Show in Finder</source>
-      <translation type="unfinished">Show in Finder</translation>
+      <translation>Näytä Finderissa</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="511"/>
       <source>Show in Folder</source>
-      <translation type="unfinished">Show in Folder</translation>
+      <translation>Näytä kansiossa</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="517"/>
       <source>Done</source>
-      <translation type="unfinished">Done</translation>
+      <translation>Valmis</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="526"/>
       <source>Manage Encryption…</source>
-      <translation type="unfinished">Manage Encryption…</translation>
+      <translation>Hallinnoi salausta…</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="535"/>
       <source>Back Up Now</source>
-      <translation type="unfinished">Back Up Now</translation>
+      <translation>Takaisin ylös nyt</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupAction.qml" line="535"/>
       <source>Try Again</source>
-      <translation type="unfinished">Try Again</translation>
+      <translation>Yritä uudelleen</translation>
     </message>
   </context>
   <context>
@@ -756,85 +756,85 @@
       <location filename="../src/ui/BackupDetails.qml" line="303"/>
       <location filename="../src/ui/BackupDetails.qml" line="304"/>
       <source>Unknown</source>
-      <translation type="unfinished">Unknown</translation>
+      <translation>Tuntematon</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="166"/>
       <source>New</source>
-      <translation type="unfinished">New</translation>
+      <translation>Uusi</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="168"/>
       <source>Full</source>
-      <translation type="unfinished">Full</translation>
+      <translation>Täysi</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="169"/>
       <source>Incremental</source>
-      <translation type="unfinished">Incremental</translation>
+      <translation>Inkrementaalinen</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="183"/>
       <source>Failed to load backup details.</source>
-      <translation type="unfinished">Failed to load backup details.</translation>
+      <translation>Varmuuskopion tietojen lataaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="193"/>
       <source>Failed to parse backup details.</source>
-      <translation type="unfinished">Failed to parse backup details.</translation>
+      <translation>Varmuuskopion tietojen jäsentäminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="223"/>
       <source>Back</source>
-      <translation type="unfinished">Back</translation>
+      <translation>Takaisin</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="232"/>
       <source>Backup Summary</source>
-      <translation type="unfinished">Backup Summary</translation>
+      <translation>Varmuuskopion yhteenveto</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="255"/>
       <source>Encrypted</source>
-      <translation type="unfinished">Encrypted</translation>
+      <translation>Salattu</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="255"/>
       <source>Not Encrypted</source>
-      <translation type="unfinished">Not Encrypted</translation>
+      <translation>Ei salattu</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="270"/>
       <source>Passcode Was Set</source>
-      <translation type="unfinished">Passcode Was Set</translation>
+      <translation>Pääsykoodi asetettu</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="270"/>
       <source>No Passcode</source>
-      <translation type="unfinished">No Passcode</translation>
+      <translation>Ei pääsykoodia</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="302"/>
       <source>iOS %1 - Serial %2</source>
-      <translation type="unfinished">iOS %1 - Serial %2</translation>
+      <translation>iOS %1 - Sarja %2</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="312"/>
       <source>Backup Date: %1</source>
-      <translation type="unfinished">Backup Date: %1</translation>
+      <translation>Varmuuskopiointipäivä: %1</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetails.qml" line="352"/>
       <source>%1: %2 (%3%)</source>
-      <translation type="unfinished">%1: %2 (%3%)</translation>
+      <translation>%1: %2 (%3%)</translation>
     </message>
     <message numerus="yes">
       <location filename="../src/ui/BackupDetails.qml" line="403"/>
       <location filename="../src/ui/BackupDetails.qml" line="434"/>
       <source>%n file(s)</source>
-      <translation type="unfinished">
-        <numerusform>%n file(s)</numerusform>
-        <numerusform>%n file(s)</numerusform>
+      <translation>
+        <numerusform>%n tiedosto(t)</numerusform>
+        <numerusform>%n tiedosto(t)</numerusform>
       </translation>
     </message>
   </context>
@@ -845,179 +845,179 @@
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="87"/>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="380"/>
       <source>Unknown</source>
-      <translation type="unfinished">Unknown</translation>
+      <translation>Tuntematon</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="99"/>
       <source>Applications</source>
-      <translation type="unfinished">Applications</translation>
+      <translation>Sovellukset</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="101"/>
       <source>App Extensions</source>
-      <translation type="unfinished">App Extensions</translation>
+      <translation>Sovelluslaajennukset</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="103"/>
       <source>Shared App Groups</source>
-      <translation type="unfinished">Shared App Groups</translation>
+      <translation>Jaetut sovellusryhmät</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="105"/>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="120"/>
       <source>Other</source>
-      <translation type="unfinished">Other</translation>
+      <translation>muu</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="172"/>
       <source>Failed to load backup details.</source>
-      <translation type="unfinished">Failed to load backup details.</translation>
+      <translation>Varmuuskopion tietojen lataaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="182"/>
       <source>Failed to parse backup details.</source>
-      <translation type="unfinished">Failed to parse backup details.</translation>
+      <translation>Varmuuskopion tietojen jäsentäminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="212"/>
       <source>Back</source>
-      <translation type="unfinished">Back</translation>
+      <translation>Takaisin</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="221"/>
       <source>Tip: Connect the device that created this backup to view more details.</source>
-      <translation type="unfinished">Tip: Connect the device that created this backup to view more details.</translation>
+      <translation>Vinkki: Liitä laite, joka loi tämän varmuuskopion, niin näet lisätietoja.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="221"/>
       <source>For now encrypted backup details are limited. Having the device connected will not provide more information.</source>
-      <translation type="unfinished">For now encrypted backup details are limited. Having the device connected will not provide more information.</translation>
+      <translation>Toistaiseksi salattujen varmuuskopioiden tiedot ovat rajalliset. Laitteen liittäminen ei anna lisätietoja.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="227"/>
       <source>Backup Summary</source>
-      <translation type="unfinished">Backup Summary</translation>
+      <translation>Varmuuskopion yhteenveto</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="235"/>
       <source>Offline Device Backup</source>
-      <translation type="unfinished">Offline Device Backup</translation>
+      <translation>Offline-laitteen varmuuskopiointi</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="251"/>
       <source>Encrypted</source>
-      <translation type="unfinished">Encrypted</translation>
+      <translation>Salattu</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="251"/>
       <source>Not Encrypted</source>
-      <translation type="unfinished">Not Encrypted</translation>
+      <translation>Ei salattu</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="266"/>
       <source>Screen Passcode Set</source>
-      <translation type="unfinished">Screen Passcode Set</translation>
+      <translation>Näytön pääsykoodi asetettu</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="266"/>
       <source>No Screen Passcode</source>
-      <translation type="unfinished">No Screen Passcode</translation>
+      <translation>Ei näytön pääsykoodia</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="293"/>
       <source>Total Size</source>
-      <translation type="unfinished">Total Size</translation>
+      <translation>Kokonaiskoko</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="321"/>
       <source>Files</source>
-      <translation type="unfinished">Files</translation>
+      <translation>Tiedostot</translation>
     </message>
     <message numerus="yes">
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="329"/>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="579"/>
       <source>%n file(s)</source>
-      <translation type="unfinished">
-        <numerusform>%n file(s)</numerusform>
-        <numerusform>%n file(s)</numerusform>
+      <translation>
+        <numerusform>%n tiedosto(t)</numerusform>
+        <numerusform>%n tiedosto(t)</numerusform>
       </translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="349"/>
       <source>Apps and Containers</source>
-      <translation type="unfinished">Apps and Containers</translation>
+      <translation>Sovellukset ja säilöt</translation>
     </message>
     <message numerus="yes">
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="357"/>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="543"/>
       <source>%n item(s)</source>
-      <translation type="unfinished">
-        <numerusform>%n item(s)</numerusform>
-        <numerusform>%n item(s)</numerusform>
+      <translation>
+        <numerusform>%n tuote(t)</numerusform>
+        <numerusform>%n tuote(t)</numerusform>
       </translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="373"/>
       <source>Device Model</source>
-      <translation type="unfinished">Device Model</translation>
+      <translation>Laitteen malli</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="386"/>
       <source>iOS Version</source>
-      <translation type="unfinished">iOS Version</translation>
+      <translation>iOS-versio</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="393"/>
       <source>%1 (%2)</source>
-      <translation type="unfinished">%1 (%2)</translation>
+      <translation>%1 (%2)</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="401"/>
       <source>Serial</source>
-      <translation type="unfinished">Serial</translation>
+      <translation>Sarja</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="414"/>
       <source>Backup Date</source>
-      <translation type="unfinished">Backup Date</translation>
+      <translation>Varmuuskopion päivämäärä</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="427"/>
       <source>Manifest</source>
-      <translation type="unfinished">Manifest</translation>
+      <translation>Manifest</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="434"/>
       <source>Version %1, domains %2</source>
-      <translation type="unfinished">Version %1, domains %2</translation>
+      <translation>Versio %1, verkkotunnukset %2</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="442"/>
       <source>UDID</source>
-      <translation type="unfinished">UDID</translation>
+      <translation>UDID</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="458"/>
       <source>Application Containers</source>
-      <translation type="unfinished">Application Containers</translation>
+      <translation>Sovellussäiliöt</translation>
     </message>
     <message numerus="yes">
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="494"/>
       <source>%1: %n item(s)</source>
-      <translation type="unfinished">
-        <numerusform>%1: %n item(s)</numerusform>
-        <numerusform>%1: %n item(s)</numerusform>
+      <translation>
+        <numerusform>%1: %n tuote(t)</numerusform>
+        <numerusform>%1: %n tuote(t)</numerusform>
       </translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="551"/>
       <source>%1%</source>
-      <translation type="unfinished">%1%</translation>
+      <translation>%1%</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupDetailsWithoutDevice.qml" line="573"/>
       <source>Backup folder</source>
-      <translation type="unfinished">Backup folder</translation>
+      <translation>Varmuuskopiokansio</translation>
     </message>
   </context>
   <context>
@@ -1025,102 +1025,102 @@
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="29"/>
       <source>Change Backup Password</source>
-      <translation type="unfinished">Change Backup Password</translation>
+      <translation>Vaihda varmuuskopion salasana</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="30"/>
       <source>Enable Encrypted Backups</source>
-      <translation type="unfinished">Enable Encrypted Backups</translation>
+      <translation>Ota salatut varmuuskopiot käyttöön</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="53"/>
       <source>Enter the current backup password.</source>
-      <translation type="unfinished">Enter the current backup password.</translation>
+      <translation>Anna nykyinen varmuuskopion salasana.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="58"/>
       <source>Enter a new backup password.</source>
-      <translation type="unfinished">Enter a new backup password.</translation>
+      <translation>Anna uusi varmuuskopion salasana.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="63"/>
       <source>The new passwords do not match.</source>
-      <translation type="unfinished">The new passwords do not match.</translation>
+      <translation>Uudet salasanat eivät täsmää.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="68"/>
       <source>Confirm that you have saved the password somewhere safe.</source>
-      <translation type="unfinished">Confirm that you have saved the password somewhere safe.</translation>
+      <translation>Varmista, että olet tallentanut salasanan turvalliseen paikkaan.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="107"/>
       <source>The device&apos;s backup encryption status could not be read.</source>
-      <translation type="unfinished">The device&apos;s backup encryption status could not be read.</translation>
+      <translation>Laitteen varmuuskopion salauksen tilaa ei voitu lukea.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="125"/>
       <source>Encrypted backups could not be enabled.</source>
-      <translation type="unfinished">Encrypted backups could not be enabled.</translation>
+      <translation>Salattuja varmuuskopioita ei voitu ottaa käyttöön.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="149"/>
       <source>Try Again</source>
-      <translation type="unfinished">Try Again</translation>
+      <translation>Yritä uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="164"/>
       <source>Encrypted backups are enabled for %1. Enter the current password to replace it.</source>
-      <translation type="unfinished">Encrypted backups are enabled for %1. Enter the current password to replace it.</translation>
+      <translation>Salatut varmuuskopiot ovat käytössä %1:lle. Anna nykyinen salasana korvataksesi sen.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="165"/>
       <source>Encrypted backups aren&apos;t enabled on this device. Choose a password to enable encryption on %1.</source>
-      <translation type="unfinished">Encrypted backups aren&apos;t enabled on this device. Choose a password to enable encryption on %1.</translation>
+      <translation>Salatut varmuuskopiot eivät ole käytössä tällä laitteella. Valitse salasana ottaaksesi %1:n salauksen käyttöön.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="181"/>
       <source>iDescriptor never stores this password. If you lose it, this and future encrypted backups cannot be restored. Changing or resetting the device&apos;s backup password does not unlock older backups.</source>
-      <translation type="unfinished">iDescriptor never stores this password. If you lose it, this and future encrypted backups cannot be restored. Changing or resetting the device&apos;s backup password does not unlock older backups.</translation>
+      <translation>iDescriptor ei koskaan tallenna tätä salasanaa. Jos kadotat sen, tätä ja tulevia salattuja varmuuskopioita ei voida palauttaa. Laitteen varmuuskopion salasanan muuttaminen tai nollaus ei avaa vanhojen varmuuskopioiden lukitusta.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="190"/>
       <source>Enter the device passcode on the device to continue.</source>
-      <translation type="unfinished">Enter the device passcode on the device to continue.</translation>
+      <translation>Syötä laitteen salasana laitteeseen jatkaaksesi.</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="201"/>
       <source>Current backup password</source>
-      <translation type="unfinished">Current backup password</translation>
+      <translation>Nykyinen varmuuskopion salasana</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="210"/>
       <source>New backup password</source>
-      <translation type="unfinished">New backup password</translation>
+      <translation>Uusi varmuuskopion salasana</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="219"/>
       <source>Confirm new backup password</source>
-      <translation type="unfinished">Confirm new backup password</translation>
+      <translation>Vahvista uusi varmuuskopion salasana</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="227"/>
       <source>I have saved this password somewhere safe</source>
-      <translation type="unfinished">I have saved this password somewhere safe</translation>
+      <translation>Olen tallentanut tämän salasanan jonnekin turvalliseen paikkaan</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="253"/>
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Peruuta</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="260"/>
       <source>Change Password</source>
-      <translation type="unfinished">Change Password</translation>
+      <translation>Vaihda salasana</translation>
     </message>
     <message>
       <location filename="../src/ui/BackupEncryptionDialog.qml" line="261"/>
       <source>Enable Encryption</source>
-      <translation type="unfinished">Enable Encryption</translation>
+      <translation>Ota salaus käyttöön</translation>
     </message>
   </context>
   <context>
@@ -1128,125 +1128,125 @@
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="18"/>
       <source>Backups - iDescriptor</source>
-      <translation type="unfinished">Backups - iDescriptor</translation>
+      <translation>Varmuuskopiot - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="32"/>
       <location filename="../src/ui/tools/BackupManager.qml" line="40"/>
       <source>Unknown</source>
-      <translation type="unfinished">Unknown</translation>
+      <translation>Tuntematon</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="64"/>
       <source>The backup metadata could not be read.</source>
-      <translation type="unfinished">The backup metadata could not be read.</translation>
+      <translation>Varmuuskopion metatietoja ei voitu lukea.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="164"/>
       <source>Select Backup Directory</source>
-      <translation type="unfinished">Select Backup Directory</translation>
+      <translation>Valitse Varmuuskopiointihakemisto</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="173"/>
       <source>Experimental Backup Feature</source>
-      <translation type="unfinished">Experimental Backup Feature</translation>
+      <translation>Kokeellinen varmuuskopiointiominaisuus</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="205"/>
       <source>Backups and restores are experimental</source>
-      <translation type="unfinished">Backups and restores are experimental</translation>
+      <translation>Varmuuskopioinnit ja palautukset ovat kokeellisia</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="215"/>
       <source>Proceed with care. Unexpected device, connection, or storage problems may cause an incomplete backup, a failed restore, or data loss. Keep another trusted backup and do not rely on iDescriptor as the only copy of important data.</source>
-      <translation type="unfinished">Proceed with care. Unexpected device, connection, or storage problems may cause an incomplete backup, a failed restore, or data loss. Keep another trusted backup and do not rely on iDescriptor as the only copy of important data.</translation>
+      <translation>Jatka varovasti. Odottamattomat laite-, yhteys- tai tallennusongelmat voivat aiheuttaa epätäydellisen varmuuskopioinnin, epäonnistuneen palautuksen tai tietojen menetyksen. Pidä toinen luotettava varmuuskopio äläkä luota siihen, että iDescriptor on ainoa kopio tärkeästä tiedosta.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="223"/>
       <source>This notice will only be shown once. Pressing OK confirms that you understand the risks.</source>
-      <translation type="unfinished">This notice will only be shown once. Pressing OK confirms that you understand the risks.</translation>
+      <translation>Tämä ilmoitus näytetään vain kerran. OK-painikkeella vahvistetaan, että ymmärrät riskit.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="237"/>
       <source>OK</source>
-      <translation type="unfinished">OK</translation>
+      <translation>OK</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="337"/>
       <source>Backup exists</source>
-      <translation type="unfinished">Backup exists</translation>
+      <translation>Varmuuskopio on olemassa</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="337"/>
       <source>No backup</source>
-      <translation type="unfinished">No backup</translation>
+      <translation>Ei varmuuskopiota</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="344"/>
       <source>Restore</source>
-      <translation type="unfinished">Restore</translation>
+      <translation>Palauta</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="354"/>
       <source>Back Up Now</source>
-      <translation type="unfinished">Back Up Now</translation>
+      <translation>Takaisin ylös nyt</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="354"/>
       <source>Update Backup</source>
-      <translation type="unfinished">Update Backup</translation>
+      <translation>Päivitä varmuuskopio</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="368"/>
       <source>Erase</source>
-      <translation type="unfinished">Erase</translation>
+      <translation>Poista</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="382"/>
       <source>Details</source>
-      <translation type="unfinished">Details</translation>
+      <translation>Yksityiskohdat</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="399"/>
       <location filename="../src/ui/tools/BackupManager.qml" line="437"/>
       <source>Cancelling…</source>
-      <translation type="unfinished">Cancelling…</translation>
+      <translation>Peruutetaan…</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="401"/>
       <source>Restoring…</source>
-      <translation type="unfinished">Restoring…</translation>
+      <translation>Palautetaan…</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="437"/>
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Peruuta</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="500"/>
       <location filename="../src/ui/tools/BackupManager.qml" line="530"/>
       <source>Backups</source>
-      <translation type="unfinished">Backups</translation>
+      <translation>Varmuuskopiot</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="509"/>
       <source>Manage local backups for devices. You can back up, restore, and erase devices from this interface.</source>
-      <translation type="unfinished">Manage local backups for devices. You can back up, restore, and erase devices from this interface.</translation>
+      <translation>Hallinnoi laitteiden paikallisia varmuuskopioita. Voit varmuuskopioida, palauttaa ja tyhjentää laitteita tästä käyttöliittymästä.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="518"/>
       <source>Backup Location</source>
-      <translation type="unfinished">Backup Location</translation>
+      <translation>Varmuuskopiointipaikka</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="536"/>
       <source>Refresh</source>
-      <translation type="unfinished">Refresh</translation>
+      <translation>Päivitä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BackupManager.qml" line="564"/>
       <source>Backups and connected devices will appear here</source>
-      <translation type="unfinished">Backups and connected devices will appear here</translation>
+      <translation>Varmuuskopiot ja yhdistetyt laitteet näkyvät täällä</translation>
     </message>
   </context>
   <context>
@@ -1254,12 +1254,12 @@
     <message>
       <location filename="../src/ui/BatteryIndicator.qml" line="51"/>
       <source>Charging: %1%</source>
-      <translation type="unfinished">Charging: %1%</translation>
+      <translation>Lataus: %1%</translation>
     </message>
     <message>
       <location filename="../src/ui/BatteryIndicator.qml" line="51"/>
       <source>Battery: %1%</source>
-      <translation type="unfinished">Battery: %1%</translation>
+      <translation>Akku: %1%</translation>
     </message>
   </context>
   <context>
@@ -1267,7 +1267,7 @@
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="37"/>
       <source>%1 mAh</source>
-      <translation type="unfinished">%1 mAh</translation>
+      <translation>%1 mAh</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="37"/>
@@ -1277,127 +1277,127 @@
       <location filename="../src/ui/tools/BatteryInfo.qml" line="370"/>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="443"/>
       <source>Unavailable</source>
-      <translation type="unfinished">Unavailable</translation>
+      <translation>Ei saatavilla</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="42"/>
       <source>%1 V</source>
-      <translation type="unfinished">%1 V</translation>
+      <translation>%1 V</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="51"/>
       <source>USB-C</source>
-      <translation type="unfinished">USB-C</translation>
+      <translation>USB-C</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="58"/>
       <source>Fully Charged</source>
-      <translation type="unfinished">Fully Charged</translation>
+      <translation>Täysin ladattu</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="60"/>
       <source>Charging</source>
-      <translation type="unfinished">Charging</translation>
+      <translation>Lataus</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="60"/>
       <source>Not Charging</source>
-      <translation type="unfinished">Not Charging</translation>
+      <translation>Ei lataa</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="66"/>
       <source>The device model is unavailable, so battery information cannot be refreshed.</source>
-      <translation type="unfinished">The device model is unavailable, so battery information cannot be refreshed.</translation>
+      <translation>Laitemalli ei ole saatavilla, joten akkutietoja ei voi päivittää.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="75"/>
       <source>Battery - iDescriptor</source>
-      <translation type="unfinished">Battery - iDescriptor</translation>
+      <translation>Akku - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="90"/>
       <source>The device returned incomplete battery information.</source>
-      <translation type="unfinished">The device returned incomplete battery information.</translation>
+      <translation>Laite palautti puutteelliset akkutiedot.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="102"/>
       <source>Battery information could not be refreshed. Make sure the device is connected and unlocked.</source>
-      <translation type="unfinished">Battery information could not be refreshed. Make sure the device is connected and unlocked.</translation>
+      <translation>Akkutietoja ei voitu päivittää. Varmista, että laite on yhdistetty ja avattu.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="122"/>
       <source>Battery</source>
-      <translation type="unfinished">Battery</translation>
+      <translation>Akku</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="129"/>
       <source>Live power and capacity information</source>
-      <translation type="unfinished">Live power and capacity information</translation>
+      <translation>Tietoja reaaliaikaisesta tehosta ja kapasiteetista</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="146"/>
       <source>Refresh battery information</source>
-      <translation type="unfinished">Refresh battery information</translation>
+      <translation>Päivitä akun tiedot</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="165"/>
       <source>Battery information could not be loaded.</source>
-      <translation type="unfinished">Battery information could not be loaded.</translation>
+      <translation>Akkutietoja ei voitu ladata.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="243"/>
       <source>%1%</source>
-      <translation type="unfinished">%1%</translation>
+      <translation>%1%</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="273"/>
       <source>Battery health is maximum charge capacity divided by design capacity, multiplied by 100 and capped at 100%.</source>
-      <translation type="unfinished">Battery health is maximum charge capacity divided by design capacity, multiplied by 100 and capped at 100%.</translation>
+      <translation>Akun kunto on maksimilatauskapasiteetti jaettuna suunnittelukapasiteetilla, kerrottuna 100:lla ja rajattu 100 %:iin.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="279"/>
       <source>Battery Health</source>
-      <translation type="unfinished">Battery Health</translation>
+      <translation>Akun kunto</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="360"/>
       <source>Cycle Count</source>
-      <translation type="unfinished">Cycle Count</translation>
+      <translation>Cycle Count</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="363"/>
       <source>Maximum Capacity</source>
-      <translation type="unfinished">Maximum Capacity</translation>
+      <translation>Suurin kapasiteetti</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="366"/>
       <source>Design Capacity</source>
-      <translation type="unfinished">Design Capacity</translation>
+      <translation>Suunnittelukapasiteetti</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="369"/>
       <source>Adapter Power</source>
-      <translation type="unfinished">Adapter Power</translation>
+      <translation>Sovittimen virta</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="370"/>
       <source>%1 W</source>
-      <translation type="unfinished">%1 W</translation>
+      <translation>%1 W</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="372"/>
       <source>Adapter Voltage</source>
-      <translation type="unfinished">Adapter Voltage</translation>
+      <translation>Sovittimen jännite</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="375"/>
       <source>Connection</source>
-      <translation type="unfinished">Connection</translation>
+      <translation>Yhteys</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/BatteryInfo.qml" line="432"/>
       <source>Battery Serial Number</source>
-      <translation type="unfinished">Battery Serial Number</translation>
+      <translation>Akun sarjanumero</translation>
     </message>
   </context>
   <context>
@@ -1405,170 +1405,170 @@
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="15"/>
       <source>Cable Information - iDescriptor</source>
-      <translation type="unfinished">Cable Information - iDescriptor</translation>
+      <translation>Kaapelitiedot - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="19"/>
       <location filename="../src/ui/tools/CableInfo.qml" line="41"/>
       <source>Analyzing cable...</source>
-      <translation type="unfinished">Analyzing cable...</translation>
+      <translation>Analysoidaan kaapelia...</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="21"/>
       <location filename="../src/ui/tools/CableInfo.qml" line="42"/>
       <source>Please wait while we analyze the connected cable.</source>
-      <translation type="unfinished">Please wait while we analyze the connected cable.</translation>
+      <translation>Odota, kun analysoimme kytketyn kaapelin.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="30"/>
       <source>Error</source>
-      <translation type="unfinished">Error</translation>
+      <translation>Virhe</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="35"/>
       <source>Something went wrong (no device ?)</source>
-      <translation type="unfinished">Something went wrong (no device ?)</translation>
+      <translation>Jotain meni pieleen (ei laitetta?)</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="50"/>
       <source>No cable information retrieved.</source>
-      <translation type="unfinished">No cable information retrieved.</translation>
+      <translation>Kaapelitietoja ei haettu.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="57"/>
       <location filename="../src/ui/tools/CableInfo.qml" line="63"/>
       <source>Failed to parse cable information.</source>
-      <translation type="unfinished">Failed to parse cable information.</translation>
+      <translation>Kaapelitietojen jäsentäminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="92"/>
       <source>Please note that this check may not be absolute guarantee of authenticity.</source>
-      <translation type="unfinished">Please note that this check may not be absolute guarantee of authenticity.</translation>
+      <translation>Huomaa, että tämä sekki ei välttämättä takaa aitoutta.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="94"/>
       <source>Genuine %1</source>
-      <translation type="unfinished">Genuine %1</translation>
+      <translation>Alkuperäinen %1</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="95"/>
       <source>USB-C to Lightning Cable</source>
-      <translation type="unfinished">USB-C to Lightning Cable</translation>
+      <translation>USB-C salamakaapeliin</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="96"/>
       <source>Lightning Cable</source>
-      <translation type="unfinished">Lightning Cable</translation>
+      <translation>Salamakaapeli</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="99"/>
       <source>Third-party Cable</source>
-      <translation type="unfinished">Third-party Cable</translation>
+      <translation>Kolmannen osapuolen kaapeli</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="102"/>
       <source>The cable reports false information. It is most likely a fake cable.</source>
-      <translation type="unfinished">The cable reports false information. It is most likely a fake cable.</translation>
+      <translation>Kaapeli ilmoittaa vääriä tietoja. Se on todennäköisesti väärennetty kaapeli.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="113"/>
       <source>Device does not seem to be connected to any cable.</source>
-      <translation type="unfinished">Device does not seem to be connected to any cable.</translation>
+      <translation>Laitetta ei näytä olevan kytkettynä mihinkään kaapeliin.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="118"/>
       <source>Name:</source>
-      <translation type="unfinished">Name:</translation>
+      <translation>Nimi:</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="119"/>
       <source>Manufacturer:</source>
-      <translation type="unfinished">Manufacturer:</translation>
+      <translation>Valmistaja:</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="120"/>
       <source>Model:</source>
-      <translation type="unfinished">Model:</translation>
+      <translation>Malli:</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="121"/>
       <source>Serial Number:</source>
-      <translation type="unfinished">Serial Number:</translation>
+      <translation>Sarjanumero:</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="122"/>
       <source>Interface Module:</source>
-      <translation type="unfinished">Interface Module:</translation>
+      <translation>Käyttöliittymämoduuli:</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="124"/>
       <source>Cable Type:</source>
-      <translation type="unfinished">Cable Type:</translation>
+      <translation>Kaapelin tyyppi:</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="125"/>
       <source>USB-C to Lightning</source>
-      <translation type="unfinished">USB-C to Lightning</translation>
+      <translation>USB-C Lightningille</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="126"/>
       <source>Lightning to USB-A</source>
-      <translation type="unfinished">Lightning to USB-A</translation>
+      <translation>Salama malliin USB-A</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="130"/>
       <source>Current Limit:</source>
-      <translation type="unfinished">Current Limit:</translation>
+      <translation>Nykyinen raja:</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="130"/>
       <source>%1 mA</source>
-      <translation type="unfinished">%1 mA</translation>
+      <translation>%1 mA</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="131"/>
       <source>Charging Voltage:</source>
-      <translation type="unfinished">Charging Voltage:</translation>
+      <translation>Latausjännite:</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="131"/>
       <source>%1 mV</source>
-      <translation type="unfinished">%1 mV</translation>
+      <translation>%1 mV</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="136"/>
       <source>Connection:</source>
-      <translation type="unfinished">Connection:</translation>
+      <translation>Yhteys:</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="136"/>
       <source>%1 (Type %2)</source>
-      <translation type="unfinished">%1 (Type %2)</translation>
+      <translation>%1 (tyyppi %2)</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="139"/>
       <source>Controller:</source>
-      <translation type="unfinished">Controller:</translation>
+      <translation>Ohjain:</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="143"/>
       <source>Active Transports:</source>
-      <translation type="unfinished">Active Transports:</translation>
+      <translation>Aktiiviset kuljetukset:</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="144"/>
       <source>Supported Transports:</source>
-      <translation type="unfinished">Supported Transports:</translation>
+      <translation>Tuetut kuljetukset:</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="186"/>
       <source>Re-analyze</source>
-      <translation type="unfinished">Re-analyze</translation>
+      <translation>Analysoi uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/CableInfo.qml" line="199"/>
       <source>Cable Information</source>
-      <translation type="unfinished">Cable Information</translation>
+      <translation>Kaapelin tiedot</translation>
     </message>
   </context>
   <context>
@@ -1576,47 +1576,47 @@
     <message>
       <location filename="../src/ui/ClosingHandler.qml" line="128"/>
       <source>Backup Operations Are Running</source>
-      <translation type="unfinished">Backup Operations Are Running</translation>
+      <translation>Varmuuskopiointi on käynnissä</translation>
     </message>
     <message>
       <location filename="../src/ui/ClosingHandler.qml" line="129"/>
       <source>File Transfers Are Running</source>
-      <translation type="unfinished">File Transfers Are Running</translation>
+      <translation>Tiedostonsiirrot ovat käynnissä</translation>
     </message>
     <message>
       <location filename="../src/ui/ClosingHandler.qml" line="141"/>
       <source>A backup or restore is still in progress. Quitting now will cancel it. Do you want to cancel the active backup tasks and quit?</source>
-      <translation type="unfinished">A backup or restore is still in progress. Quitting now will cancel it. Do you want to cancel the active backup tasks and quit?</translation>
+      <translation>Varmuuskopiointi tai palautus on edelleen käynnissä. Lopettaminen nyt peruuttaa sen. Haluatko peruuttaa aktiiviset varmuuskopiointitehtävät ja lopettaa?</translation>
     </message>
     <message>
       <location filename="../src/ui/ClosingHandler.qml" line="142"/>
       <source>A backup or restore is still in progress. Closing this window will cancel it. Do you want to cancel the active backup tasks and close?</source>
-      <translation type="unfinished">A backup or restore is still in progress. Closing this window will cancel it. Do you want to cancel the active backup tasks and close?</translation>
+      <translation>Varmuuskopiointi tai palautus on edelleen käynnissä. Tämän ikkunan sulkeminen peruuttaa sen. Haluatko peruuttaa aktiiviset varmuuskopiointitehtävät ja sulkea?</translation>
     </message>
     <message>
       <location filename="../src/ui/ClosingHandler.qml" line="146"/>
       <source>One or more file transfers are still in progress. Quitting now will cancel them. Do you want to cancel the active transfers and quit?</source>
-      <translation type="unfinished">One or more file transfers are still in progress. Quitting now will cancel them. Do you want to cancel the active transfers and quit?</translation>
+      <translation>Yksi tai useampi tiedostonsiirto on vielä kesken. Lopettaminen nyt peruuttaa ne. Haluatko peruuttaa aktiiviset siirrot ja lopettaa?</translation>
     </message>
     <message>
       <location filename="../src/ui/ClosingHandler.qml" line="147"/>
       <source>One or more file transfers are still in progress. Closing this window will cancel them. Do you want to cancel the active transfers and close?</source>
-      <translation type="unfinished">One or more file transfers are still in progress. Closing this window will cancel them. Do you want to cancel the active transfers and close?</translation>
+      <translation>Yksi tai useampi tiedostonsiirto on vielä kesken. Tämän ikkunan sulkeminen peruuttaa ne. Haluatko peruuttaa aktiiviset siirrot ja sulkea?</translation>
     </message>
     <message>
       <location filename="../src/ui/ClosingHandler.qml" line="167"/>
       <source>Keep Working</source>
-      <translation type="unfinished">Keep Working</translation>
+      <translation>Jatka työskentelyä</translation>
     </message>
     <message>
       <location filename="../src/ui/ClosingHandler.qml" line="173"/>
       <source>Cancel Tasks and Quit</source>
-      <translation type="unfinished">Cancel Tasks and Quit</translation>
+      <translation>Peruuta tehtävät ja lopeta</translation>
     </message>
     <message>
       <location filename="../src/ui/ClosingHandler.qml" line="174"/>
       <source>Cancel Tasks and Close</source>
-      <translation type="unfinished">Cancel Tasks and Close</translation>
+      <translation>Peruuta tehtävät ja sulje</translation>
     </message>
   </context>
   <context>
@@ -1624,57 +1624,57 @@
     <message>
       <location filename="../src/ui/Community.qml" line="19"/>
       <source>GitHub</source>
-      <translation type="unfinished">GitHub</translation>
+      <translation>GitHub</translation>
     </message>
     <message>
       <location filename="../src/ui/Community.qml" line="20"/>
       <source>View the source code, report issues, and contribute to iDescriptor.</source>
-      <translation type="unfinished">View the source code, report issues, and contribute to iDescriptor.</translation>
+      <translation>Tarkastele lähdekoodia, ilmoita ongelmista ja osallistu iDescriptor:hen.</translation>
     </message>
     <message>
       <location filename="../src/ui/Community.qml" line="21"/>
       <source>Open GitHub</source>
-      <translation type="unfinished">Open GitHub</translation>
+      <translation>Avaa GitHub</translation>
     </message>
     <message>
       <location filename="../src/ui/Community.qml" line="28"/>
       <source>LinkedIn</source>
-      <translation type="unfinished">LinkedIn</translation>
+      <translation>LinkedIn</translation>
     </message>
     <message>
       <location filename="../src/ui/Community.qml" line="29"/>
       <source>Follow iDescriptor project updates on LinkedIn.</source>
-      <translation type="unfinished">Follow iDescriptor project updates on LinkedIn.</translation>
+      <translation>Seuraa iDescriptor-projektipäivityksiä LinkedInissä.</translation>
     </message>
     <message>
       <location filename="../src/ui/Community.qml" line="30"/>
       <source>Open LinkedIn</source>
-      <translation type="unfinished">Open LinkedIn</translation>
+      <translation>Avaa LinkedIn</translation>
     </message>
     <message>
       <location filename="../src/ui/Community.qml" line="37"/>
       <source>Reddit</source>
-      <translation type="unfinished">Reddit</translation>
+      <translation>Reddit</translation>
     </message>
     <message>
       <location filename="../src/ui/Community.qml" line="38"/>
       <source>Join discussions with the iDescriptor community on Reddit.</source>
-      <translation type="unfinished">Join discussions with the iDescriptor community on Reddit.</translation>
+      <translation>Liity keskusteluihin iDescriptor-yhteisön kanssa Redditissä.</translation>
     </message>
     <message>
       <location filename="../src/ui/Community.qml" line="39"/>
       <source>Open Reddit</source>
-      <translation type="unfinished">Open Reddit</translation>
+      <translation>Avaa Reddit</translation>
     </message>
     <message>
       <location filename="../src/ui/Community.qml" line="63"/>
       <source>Join the iDescriptor Community</source>
-      <translation type="unfinished">Join the iDescriptor Community</translation>
+      <translation>Liity iDescriptor-yhteisöön</translation>
     </message>
     <message>
       <location filename="../src/ui/Community.qml" line="73"/>
       <source>Follow development, connect with other users, and share feedback.</source>
-      <translation type="unfinished">Follow development, connect with other users, and share feedback.</translation>
+      <translation>Seuraa kehitystä, ole yhteydessä muihin käyttäjiin ja jaa palautetta.</translation>
     </message>
   </context>
   <context>
@@ -1682,12 +1682,12 @@
     <message>
       <location filename="../src/ui/base/CopyableText.qml" line="20"/>
       <source>Unknown</source>
-      <translation type="unfinished">Unknown</translation>
+      <translation>Tuntematon</translation>
     </message>
     <message>
       <location filename="../src/ui/base/CopyableText.qml" line="43"/>
       <source>Copied!</source>
-      <translation type="unfinished">Copied!</translation>
+      <translation>Kopioitu!</translation>
     </message>
   </context>
   <context>
@@ -1695,62 +1695,62 @@
     <message>
       <location filename="../src/ui/CustomPairingDialog.qml" line="35"/>
       <source>Choose pairing file</source>
-      <translation type="unfinished">Choose pairing file</translation>
+      <translation>Valitse pariliitostiedosto</translation>
     </message>
     <message>
       <location filename="../src/ui/CustomPairingDialog.qml" line="37"/>
       <source>Property List files (*.plist)</source>
-      <translation type="unfinished">Property List files (*.plist)</translation>
+      <translation>Kiinteistöluettelotiedostot (*.plist)</translation>
     </message>
     <message>
       <location filename="../src/ui/CustomPairingDialog.qml" line="76"/>
       <source>Connect with pairing file</source>
-      <translation type="unfinished">Connect with pairing file</translation>
+      <translation>Yhdistä pariliitostiedostolla</translation>
     </message>
     <message>
       <location filename="../src/ui/CustomPairingDialog.qml" line="84"/>
       <source>Select a .plist pairing file and enter the device IP address.</source>
-      <translation type="unfinished">Select a .plist pairing file and enter the device IP address.</translation>
+      <translation>Valitse .plist-pariliitostiedosto ja anna laitteen IP-osoite.</translation>
     </message>
     <message>
       <location filename="../src/ui/CustomPairingDialog.qml" line="115"/>
       <source>Pairing file</source>
-      <translation type="unfinished">Pairing file</translation>
+      <translation>Pariliitostiedosto</translation>
     </message>
     <message>
       <location filename="../src/ui/CustomPairingDialog.qml" line="136"/>
       <source>Choose a .plist file</source>
-      <translation type="unfinished">Choose a .plist file</translation>
+      <translation>Valitse .plist-tiedosto</translation>
     </message>
     <message>
       <location filename="../src/ui/CustomPairingDialog.qml" line="144"/>
       <source>Choose</source>
-      <translation type="unfinished">Choose</translation>
+      <translation>Valitse</translation>
     </message>
     <message>
       <location filename="../src/ui/CustomPairingDialog.qml" line="164"/>
       <source>IP address</source>
-      <translation type="unfinished">IP address</translation>
+      <translation>IP-osoite</translation>
     </message>
     <message>
       <location filename="../src/ui/CustomPairingDialog.qml" line="174"/>
       <source>192.168.1.42</source>
-      <translation type="unfinished">192.168.1.42</translation>
+      <translation>192.168.1.42</translation>
     </message>
     <message>
       <location filename="../src/ui/CustomPairingDialog.qml" line="202"/>
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Peruuta</translation>
     </message>
     <message>
       <location filename="../src/ui/CustomPairingDialog.qml" line="214"/>
       <source>Connecting...</source>
-      <translation type="unfinished">Connecting...</translation>
+      <translation>Yhdistetään...</translation>
     </message>
     <message>
       <location filename="../src/ui/CustomPairingDialog.qml" line="214"/>
       <source>Connect</source>
-      <translation type="unfinished">Connect</translation>
+      <translation>Yhdistä</translation>
     </message>
   </context>
   <context>
@@ -1758,37 +1758,37 @@
     <message>
       <location filename="../src/ui/DeleteConfirmationDialog.qml" line="23"/>
       <source>Confirm Deletion</source>
-      <translation type="unfinished">Confirm Deletion</translation>
+      <translation>Vahvista poisto</translation>
     </message>
     <message>
       <location filename="../src/ui/DeleteConfirmationDialog.qml" line="35"/>
       <source>Permanently delete %1 file(s) and %2 folder(s)? All contents inside the selected folders will also be deleted.</source>
-      <translation type="unfinished">Permanently delete %1 file(s) and %2 folder(s)? All contents inside the selected folders will also be deleted.</translation>
+      <translation>Poistetaanko %1-tiedosto(t) ja %2-kansio(t) pysyvästi? Myös kaikki valittujen kansioiden sisältö poistetaan.</translation>
     </message>
     <message>
       <location filename="../src/ui/DeleteConfirmationDialog.qml" line="37"/>
       <source>Permanently delete %1 file(s)?</source>
-      <translation type="unfinished">Permanently delete %1 file(s)?</translation>
+      <translation>Poistetaanko %1-tiedosto(t) pysyvästi?</translation>
     </message>
     <message>
       <location filename="../src/ui/DeleteConfirmationDialog.qml" line="48"/>
       <source>I understand.</source>
-      <translation type="unfinished">I understand.</translation>
+      <translation>Ymmärrän.</translation>
     </message>
     <message>
       <location filename="../src/ui/DeleteConfirmationDialog.qml" line="53"/>
       <source>This action cannot be undone.</source>
-      <translation type="unfinished">This action cannot be undone.</translation>
+      <translation>Tätä toimintoa ei voi kumota.</translation>
     </message>
     <message>
       <location filename="../src/ui/DeleteConfirmationDialog.qml" line="66"/>
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Peruuta</translation>
     </message>
     <message>
       <location filename="../src/ui/DeleteConfirmationDialog.qml" line="71"/>
       <source>Delete</source>
-      <translation type="unfinished">Delete</translation>
+      <translation>Poista</translation>
     </message>
   </context>
   <context>
@@ -1796,198 +1796,198 @@
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="14"/>
       <source>Developer Disk Images - iDescriptor</source>
-      <translation type="unfinished">Developer Disk Images - iDescriptor</translation>
+      <translation>Kehittäjälevykuvat - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="90"/>
       <source>Mounted</source>
-      <translation type="unfinished">Mounted</translation>
+      <translation>Asennettu</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="92"/>
       <source>Maybe compatible</source>
-      <translation type="unfinished">Maybe compatible</translation>
+      <translation>Ehkä yhteensopiva</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="94"/>
       <source>Not compatible</source>
-      <translation type="unfinished">Not compatible</translation>
+      <translation>Ei yhteensopiva</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="95"/>
       <source>Available</source>
-      <translation type="unfinished">Available</translation>
+      <translation>Saatavilla</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="115"/>
       <source>Developer disk image %1 was downloaded successfully.</source>
-      <translation type="unfinished">Developer disk image %1 was downloaded successfully.</translation>
+      <translation>Kehittäjälevykuva %1 ladattiin onnistuneesti.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="117"/>
       <source>Unknown download error.</source>
-      <translation type="unfinished">Unknown download error.</translation>
+      <translation>Tuntematon latausvirhe.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="118"/>
       <source>Could not download developer disk image %1: %2</source>
-      <translation type="unfinished">Could not download developer disk image %1: %2</translation>
+      <translation>Kehittäjälevykuvaa ei voitu ladata %1: %2</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="124"/>
       <source>Download for developer disk image %1 was cancelled.</source>
-      <translation type="unfinished">Download for developer disk image %1 was cancelled.</translation>
+      <translation>Kehittäjälevykuvan %1 lataus peruutettiin.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="132"/>
       <source>Unknown refresh error.</source>
-      <translation type="unfinished">Unknown refresh error.</translation>
+      <translation>Tuntematon päivitysvirhe.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="133"/>
       <source>Could not refresh the developer disk image list: %1</source>
-      <translation type="unfinished">Could not refresh the developer disk image list: %1</translation>
+      <translation>Kehittäjälevyn kuvaluetteloa ei voitu päivittää: %1</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="135"/>
       <source>The developer disk image list was refreshed.</source>
-      <translation type="unfinished">The developer disk image list was refreshed.</translation>
+      <translation>Kehittäjälevyn kuvaluettelo päivitettiin.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="145"/>
       <source>Unknown device error.</source>
-      <translation type="unfinished">Unknown device error.</translation>
+      <translation>Tuntematon laitevirhe.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="146"/>
       <source>Could not check the mounted developer disk image: %1</source>
-      <translation type="unfinished">Could not check the mounted developer disk image: %1</translation>
+      <translation>Asennettua kehityslevykuvaa ei voitu tarkistaa: %1</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="148"/>
       <source>The device is locked. Unlock it and check again.</source>
-      <translation type="unfinished">The device is locked. Unlock it and check again.</translation>
+      <translation>Laite on lukittu. Avaa lukitus ja tarkista uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="150"/>
       <source>A developer disk image is mounted on the selected device.</source>
-      <translation type="unfinished">A developer disk image is mounted on the selected device.</translation>
+      <translation>Kehittäjälevykuva on asennettu valittuun laitteeseen.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="152"/>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="450"/>
       <source>No developer disk image is mounted on the selected device.</source>
-      <translation type="unfinished">No developer disk image is mounted on the selected device.</translation>
+      <translation>Kehittäjälevykuvaa ei ole asennettu valittuun laitteeseen.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="207"/>
       <source>Developer Disk Images</source>
-      <translation type="unfinished">Developer Disk Images</translation>
+      <translation>Kehittäjän levykuvat</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="218"/>
       <source>Developer images allow you to use additional services on your iDevice. To mount one, the device must be unlocked.</source>
-      <translation type="unfinished">Developer images allow you to use additional services on your iDevice. To mount one, the device must be unlocked.</translation>
+      <translation>Kehittäjäkuvien avulla voit käyttää iDevice:n lisäpalveluita. Jotta laite voidaan asentaa, sen lukitus on avattava.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="234"/>
       <source>Mount</source>
-      <translation type="unfinished">Mount</translation>
+      <translation>Kiinnitä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="266"/>
       <source>Select a developer disk image first.</source>
-      <translation type="unfinished">Select a developer disk image first.</translation>
+      <translation>Valitse ensin kehittäjälevykuva.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="275"/>
       <source>The required files for developer disk image %1 are missing.</source>
-      <translation type="unfinished">The required files for developer disk image %1 are missing.</translation>
+      <translation>Kehittäjälevykuvan %1 vaaditut tiedostot puuttuvat.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="282"/>
       <source>The paths for developer disk image %1 are invalid.</source>
-      <translation type="unfinished">The paths for developer disk image %1 are invalid.</translation>
+      <translation>Kehittäjälevykuvan %1 polut ovat virheellisiä.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="288"/>
       <source>The selected device is no longer available.</source>
-      <translation type="unfinished">The selected device is no longer available.</translation>
+      <translation>Valittu laite ei ole enää käytettävissä.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="296"/>
       <source>Developer disk image %1 was mounted successfully.</source>
-      <translation type="unfinished">Developer disk image %1 was mounted successfully.</translation>
+      <translation>Kehittäjälevykuva %1 asennettiin onnistuneesti.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="300"/>
       <source>Could not mount developer disk image %1 because the device is locked.</source>
-      <translation type="unfinished">Could not mount developer disk image %1 because the device is locked.</translation>
+      <translation>Kehittäjälevykuvaa %1 ei voitu liittää, koska laite on lukittu.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="302"/>
       <source>Could not mount developer disk image %1.</source>
-      <translation type="unfinished">Could not mount developer disk image %1.</translation>
+      <translation>Kehittäjälevykuvaa %1 ei voitu liittää.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="313"/>
       <source>Check Mounted</source>
-      <translation type="unfinished">Check Mounted</translation>
+      <translation>Tarkista asennettu</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="343"/>
       <source>Refresh</source>
-      <translation type="unfinished">Refresh</translation>
+      <translation>Päivitä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="384"/>
       <source>No device connected</source>
-      <translation type="unfinished">No device connected</translation>
+      <translation>Laitetta ei ole kytketty</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="432"/>
       <source>No device connected. Please connect a device to check for developer disk images.</source>
-      <translation type="unfinished">No device connected. Please connect a device to check for developer disk images.</translation>
+      <translation>Laitetta ei ole kytketty. Yhdistä laite, jotta voit tarkistaa kehittäjälevykuvat.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="445"/>
       <source>Use Check Mounted to inspect the selected device.</source>
-      <translation type="unfinished">Use Check Mounted to inspect the selected device.</translation>
+      <translation>Tarkista valittu laite valitsemalla Check Mounted.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="447"/>
       <source>The selected device is locked.</source>
-      <translation type="unfinished">The selected device is locked.</translation>
+      <translation>Valittu laite on lukittu.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="449"/>
       <source>Selected device already has a developer disk image mounted.</source>
-      <translation type="unfinished">Selected device already has a developer disk image mounted.</translation>
+      <translation>Valittuun laitteeseen on jo asennettu kehittäjälevykuva.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="605"/>
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Peruuta</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="605"/>
       <source>Re-download</source>
-      <translation type="unfinished">Re-download</translation>
+      <translation>Lataa uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="605"/>
       <source>Download</source>
-      <translation type="unfinished">Download</translation>
+      <translation>Lataa</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="636"/>
       <source>Could not cancel the download for developer disk image %1.</source>
-      <translation type="unfinished">Could not cancel the download for developer disk image %1.</translation>
+      <translation>Kehittäjälevykuvan %1 latausta ei voitu peruuttaa.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/DevDiskImages.qml" line="642"/>
       <source>Could not start the download for developer disk image %1.</source>
-      <translation type="unfinished">Could not start the download for developer disk image %1.</translation>
+      <translation>Kehittäjälevykuvan %1 latausta ei voitu aloittaa.</translation>
     </message>
   </context>
   <context>
@@ -1996,106 +1996,106 @@
       <location filename="../src/ui/DevModeHelper.qml" line="28"/>
       <location filename="../src/ui/DevModeHelper.qml" line="55"/>
       <source>Please wait...</source>
-      <translation type="unfinished">Please wait...</translation>
+      <translation>Odota...</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="74"/>
       <source>Checking Developer Mode...</source>
-      <translation type="unfinished">Checking Developer Mode...</translation>
+      <translation>Tarkistetaan kehittäjätilaa...</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="97"/>
       <source>Could not reveal Developer Mode automatically. You can still follow the steps below or try anyway.</source>
-      <translation type="unfinished">Could not reveal Developer Mode automatically. You can still follow the steps below or try anyway.</translation>
+      <translation>Kehittäjätilaa ei voitu paljastaa automaattisesti. Voit silti noudattaa alla olevia ohjeita tai yrittää silti.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="107"/>
       <source>Developer disk image is not available for this iOS version. Please use a device with iOS 6 or above.</source>
-      <translation type="unfinished">Developer disk image is not available for this iOS version. Please use a device with iOS 6 or above.</translation>
+      <translation>Kehittäjälevykuva ei ole saatavilla tälle iOS-versiolle. Käytä laitetta, jossa on iOS 6 tai uudempi.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="117"/>
       <source>The device appears to be locked. Please unlock the device and try again.</source>
-      <translation type="unfinished">The device appears to be locked. Please unlock the device and try again.</translation>
+      <translation>Laite näyttää olevan lukittu. Avaa laitteen lukitus ja yritä uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="121"/>
       <source>Failed to retrieve mounted developer disk image info.</source>
-      <translation type="unfinished">Failed to retrieve mounted developer disk image info.</translation>
+      <translation>Liitetyn kehittäjälevyn kuvan tietojen hakeminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="143"/>
       <source>There is no compatible developer disk image available for this iOS version.</source>
-      <translation type="unfinished">There is no compatible developer disk image available for this iOS version.</translation>
+      <translation>Tälle iOS-versiolle ei ole saatavilla yhteensopivaa kehittäjälevykuvaa.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="152"/>
       <source>Downloading compatible developer disk image...</source>
-      <translation type="unfinished">Downloading compatible developer disk image...</translation>
+      <translation>Ladataan yhteensopivaa kehittäjälevykuvaa...</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="163"/>
       <source>Failed to download compatible developer disk image.</source>
-      <translation type="unfinished">Failed to download compatible developer disk image.</translation>
+      <translation>Yhteensopivan kehittäjälevykuvan lataaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="171"/>
       <source>Failed to start developer disk image download.</source>
-      <translation type="unfinished">Failed to start developer disk image download.</translation>
+      <translation>Kehittäjälevykuvan latauksen aloittaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="177"/>
       <source>Mounting...</source>
-      <translation type="unfinished">Mounting...</translation>
+      <translation>Asennus...</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="181"/>
       <source>The developer disk image is missing. Please download it first.</source>
-      <translation type="unfinished">The developer disk image is missing. Please download it first.</translation>
+      <translation>Kehittäjälevykuva puuttuu. Lataa se ensin.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="188"/>
       <source>Failed to mount developer disk image.
 The device appears to be locked. Please unlock the device and try again.</source>
-      <translation type="unfinished">Failed to mount developer disk image.
-The device appears to be locked. Please unlock the device and try again.</translation>
+      <translation>Kehittäjälevykuvan asentaminen epäonnistui.
+Laite näyttää olevan lukittu. Avaa laitteen lukitus ja yritä uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="192"/>
       <source>Failed to mount developer disk image.
 Please ensure the device is unlocked and using a genuine cable.</source>
-      <translation type="unfinished">Failed to mount developer disk image.
-Please ensure the device is unlocked and using a genuine cable.</translation>
+      <translation>Kehittäjälevykuvan asentaminen epäonnistui.
+Varmista, että laitteen lukitus on avattu ja että siinä käytetään aitoa kaapelia.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="209"/>
       <source>Developer Mode handled.</source>
-      <translation type="unfinished">Developer Mode handled.</translation>
+      <translation>Kehittäjätila hoidettu.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="209"/>
       <source>Developer disk image mounted.</source>
-      <translation type="unfinished">Developer disk image mounted.</translation>
+      <translation>Kehittäjälevykuva asennettu.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="249"/>
       <source>Failed to prepare Developer Mode.</source>
-      <translation type="unfinished">Failed to prepare Developer Mode.</translation>
+      <translation>Kehittäjätilan valmistelu epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="286"/>
       <source>Enable Developer Mode</source>
-      <translation type="unfinished">Enable Developer Mode</translation>
+      <translation>Ota kehittäjätila käyttöön</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="295"/>
       <source>Developer Mode is required before this feature can continue. Enable it in the Settings app on your device, then retry the action.</source>
-      <translation type="unfinished">Developer Mode is required before this feature can continue. Enable it in the Settings app on your device, then retry the action.</translation>
+      <translation>Kehittäjätila tarvitaan ennen kuin tämä ominaisuus voi jatkua. Ota se käyttöön laitteesi Asetukset-sovelluksessa ja yritä sitten toimintoa uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/DevModeHelper.qml" line="333"/>
       <source>Try Anyway</source>
-      <translation type="unfinished">Try Anyway</translation>
+      <translation>Kokeile joka tapauksessa</translation>
     </message>
   </context>
   <context>
@@ -2103,32 +2103,32 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/DeviceContext.qml" line="238"/>
       <source>this device</source>
-      <translation type="unfinished">this device</translation>
+      <translation>tämä laite</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceContext.qml" line="252"/>
       <source>Wi-Fi Connections Enabled</source>
-      <translation type="unfinished">Wi-Fi Connections Enabled</translation>
+      <translation>Wi-Fi Liitännät käytössä</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceContext.qml" line="253"/>
       <source>Wi-Fi connections are now enabled for %1. You can disconnect the cable and use this device wirelessly.</source>
-      <translation type="unfinished">Wi-Fi connections are now enabled for %1. You can disconnect the cable and use this device wirelessly.</translation>
+      <translation>Wi-Fi-liitännät ovat nyt käytössä %1:lle. Voit irrottaa kaapelin ja käyttää tätä laitetta langattomasti.</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceContext.qml" line="258"/>
       <source>Unable to Enable Wi-Fi Connections</source>
-      <translation type="unfinished">Unable to Enable Wi-Fi Connections</translation>
+      <translation>Wi-Fi-yhteyksiä ei voi ottaa käyttöön</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceContext.qml" line="259"/>
       <source>Wi-Fi connections could not be enabled for %1. Keep the device connected, unlocked, and trusted, then try again.</source>
-      <translation type="unfinished">Wi-Fi connections could not be enabled for %1. Keep the device connected, unlocked, and trusted, then try again.</translation>
+      <translation>Wi-Fi-yhteyksiä ei voitu ottaa käyttöön mallissa %1. Pidä laite kytkettynä, lukitsemattomana ja luotettavana ja yritä sitten uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceContext.qml" line="498"/>
       <source>Pairing…</source>
-      <translation type="unfinished">Pairing…</translation>
+      <translation>Muodostetaan laiteparia…</translation>
     </message>
   </context>
   <context>
@@ -2136,63 +2136,63 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/DeviceGallery.qml" line="93"/>
       <source>Album</source>
-      <translation type="unfinished">Album</translation>
+      <translation>Albumi</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceGallery.qml" line="161"/>
       <source>Exporting %1</source>
-      <translation type="unfinished">Exporting %1</translation>
+      <translation>Vientiä %1</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceGallery.qml" line="263"/>
       <source>Import</source>
-      <translation type="unfinished">Import</translation>
+      <translation>Tuo</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceGallery.qml" line="271"/>
       <source>Refreshing gallery</source>
-      <translation type="unfinished">Refreshing gallery</translation>
+      <translation>Virkistävä galleria</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceGallery.qml" line="272"/>
       <source>Refresh</source>
-      <translation type="unfinished">Refresh</translation>
+      <translation>Päivitä</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceGallery.qml" line="279"/>
       <source>Export Selected</source>
-      <translation type="unfinished">Export Selected</translation>
+      <translation>Vie valitut</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceGallery.qml" line="285"/>
       <location filename="../src/ui/DeviceGallery.qml" line="293"/>
       <source>Export All</source>
-      <translation type="unfinished">Export All</translation>
+      <translation>Vie kaikki</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceGallery.qml" line="294"/>
       <source>Are you sure you want to export all %1 items from %2 albums?</source>
-      <translation type="unfinished">Are you sure you want to export all %1 items from %2 albums?</translation>
+      <translation>Haluatko varmasti viedä kaikki %1-kohteet %2-albumeista?</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceGallery.qml" line="309"/>
       <source>Albums</source>
-      <translation type="unfinished">Albums</translation>
+      <translation>Albumit</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceGallery.qml" line="444"/>
       <source>Choose Export Folder</source>
-      <translation type="unfinished">Choose Export Folder</translation>
+      <translation>Valitse Vie kansio</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceGallery.qml" line="450"/>
       <source>Album unavailable</source>
-      <translation type="unfinished">Album unavailable</translation>
+      <translation>Albumi ei ole saatavilla</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceGallery.qml" line="451"/>
       <source>This album is no longer available on the device.</source>
-      <translation type="unfinished">This album is no longer available on the device.</translation>
+      <translation>Tämä albumi ei ole enää saatavilla laitteella.</translation>
     </message>
   </context>
   <context>
@@ -2201,32 +2201,32 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
       <location filename="../src/ui/DeviceInfo.qml" line="131"/>
       <location filename="../src/ui/DeviceInfo.qml" line="179"/>
       <source>Unknown Device</source>
-      <translation type="unfinished">Unknown Device</translation>
+      <translation>Tuntematon laite</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="142"/>
       <source>Shut down device</source>
-      <translation type="unfinished">Shut down device</translation>
+      <translation>Sammuta laite</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="150"/>
       <source>Restart device</source>
-      <translation type="unfinished">Restart device</translation>
+      <translation>Käynnistä laite uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="158"/>
       <source>Enter recovery mode</source>
-      <translation type="unfinished">Enter recovery mode</translation>
+      <translation>Siirry palautustilaan</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="239"/>
       <source>Wireless</source>
-      <translation type="unfinished">Wireless</translation>
+      <translation>Langaton</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="264"/>
       <source>iOS Version:</source>
-      <translation type="unfinished">iOS Version:</translation>
+      <translation>iOS-versio:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="265"/>
@@ -2245,102 +2245,102 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
       <location filename="../src/ui/DeviceInfo.qml" line="334"/>
       <location filename="../src/ui/DeviceInfo.qml" line="352"/>
       <source>Unknown</source>
-      <translation type="unfinished">Unknown</translation>
+      <translation>Tuntematon</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="266"/>
       <source>Hardware Model:</source>
-      <translation type="unfinished">Hardware Model:</translation>
+      <translation>Laitteistomalli:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="270"/>
       <source>Device Name:</source>
-      <translation type="unfinished">Device Name:</translation>
+      <translation>Laitteen nimi:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="272"/>
       <source>Region:</source>
-      <translation type="unfinished">Region:</translation>
+      <translation>Alue:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="276"/>
       <source>Activation State:</source>
-      <translation type="unfinished">Activation State:</translation>
+      <translation>Aktivointitila:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="283"/>
       <source>Hardware Platform:</source>
-      <translation type="unfinished">Hardware Platform:</translation>
+      <translation>Laitteistoalusta:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="287"/>
       <source>Device Class:</source>
-      <translation type="unfinished">Device Class:</translation>
+      <translation>Laiteluokka:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="289"/>
       <source>Firmware Version:</source>
-      <translation type="unfinished">Firmware Version:</translation>
+      <translation>Laiteohjelmiston versio:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="293"/>
       <source>Jailbroken:</source>
-      <translation type="unfinished">Jailbroken:</translation>
+      <translation>Jailbroked:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="294"/>
       <source>Yes</source>
-      <translation type="unfinished">Yes</translation>
+      <translation>Kyllä</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="294"/>
       <source>No</source>
-      <translation type="unfinished">No</translation>
+      <translation>Ei</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="295"/>
       <source>Battery Health:</source>
-      <translation type="unfinished">Battery Health:</translation>
+      <translation>Akun kunto:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="306"/>
       <source>More</source>
-      <translation type="unfinished">More</translation>
+      <translation>Lisää</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="319"/>
       <source>Model Number:</source>
-      <translation type="unfinished">Model Number:</translation>
+      <translation>Mallinumero:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="321"/>
       <source>Production Device:</source>
-      <translation type="unfinished">Production Device:</translation>
+      <translation>Tuotantolaite:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="325"/>
       <source>CPU Architecture:</source>
-      <translation type="unfinished">CPU Architecture:</translation>
+      <translation>CPU-arkkitehtuuri:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="327"/>
       <source>Serial Number:</source>
-      <translation type="unfinished">Serial Number:</translation>
+      <translation>Sarjanumero:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="331"/>
       <source>Build Version:</source>
-      <translation type="unfinished">Build Version:</translation>
+      <translation>Rakennusversio:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="333"/>
       <source>IMEI:</source>
-      <translation type="unfinished">IMEI:</translation>
+      <translation>IMEI:</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceInfo.qml" line="346"/>
       <source>UDID:</source>
-      <translation type="unfinished">UDID:</translation>
+      <translation>UDID:</translation>
     </message>
   </context>
   <context>
@@ -2348,22 +2348,22 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/DeviceSectionTabs.qml" line="24"/>
       <source>Info</source>
-      <translation type="unfinished">Info</translation>
+      <translation>Tietoja</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceSectionTabs.qml" line="29"/>
       <source>Apps</source>
-      <translation type="unfinished">Apps</translation>
+      <translation>Sovellukset</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceSectionTabs.qml" line="34"/>
       <source>Gallery</source>
-      <translation type="unfinished">Gallery</translation>
+      <translation>Galleria</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceSectionTabs.qml" line="39"/>
       <source>Files</source>
-      <translation type="unfinished">Files</translation>
+      <translation>Tiedostot</translation>
     </message>
   </context>
   <context>
@@ -2371,37 +2371,37 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/DeviceSidebarButton.qml" line="21"/>
       <source>Unknown device</source>
-      <translation type="unfinished">Unknown device</translation>
+      <translation>Tuntematon laite</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceSidebarButton.qml" line="34"/>
       <source>Restart</source>
-      <translation type="unfinished">Restart</translation>
+      <translation>Käynnistä uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceSidebarButton.qml" line="40"/>
       <source>Shut Down</source>
-      <translation type="unfinished">Shut Down</translation>
+      <translation>Sammuta</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceSidebarButton.qml" line="46"/>
       <source>Recovery Mode</source>
-      <translation type="unfinished">Recovery Mode</translation>
+      <translation>Palautustila</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceSidebarButton.qml" line="54"/>
       <source>Unpair</source>
-      <translation type="unfinished">Unpair</translation>
+      <translation>Poista pariliitos</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceSidebarButton.qml" line="60"/>
       <source>Unpair and Remove</source>
-      <translation type="unfinished">Unpair and Remove</translation>
+      <translation>Pura laitepari ja poista</translation>
     </message>
     <message>
       <location filename="../src/ui/DeviceSidebarButton.qml" line="68"/>
       <source>Remove</source>
-      <translation type="unfinished">Remove</translation>
+      <translation>Poista</translation>
     </message>
   </context>
   <context>
@@ -2409,7 +2409,7 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/DeviceTab.qml" line="17"/>
       <source>Connected devices will appear here</source>
-      <translation type="unfinished">Connected devices will appear here</translation>
+      <translation>Yhdistetyt laitteet näkyvät tässä</translation>
     </message>
   </context>
   <context>
@@ -2417,69 +2417,69 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/Diagnose.qml" line="30"/>
       <source>Installed</source>
-      <translation type="unfinished">Installed</translation>
+      <translation>Asennettu</translation>
     </message>
     <message>
       <location filename="../src/ui/Diagnose.qml" line="32"/>
       <source>Installed, not running</source>
-      <translation type="unfinished">Installed, not running</translation>
+      <translation>Asennettu, ei käynnissä</translation>
     </message>
     <message>
       <location filename="../src/ui/Diagnose.qml" line="34"/>
       <source>Missing</source>
-      <translation type="unfinished">Missing</translation>
+      <translation>Puuttuu</translation>
     </message>
     <message>
       <location filename="../src/ui/Diagnose.qml" line="35"/>
       <source>Unable to check</source>
-      <translation type="unfinished">Unable to check</translation>
+      <translation>Ei voi tarkistaa</translation>
     </message>
     <message>
       <location filename="../src/ui/Diagnose.qml" line="40"/>
       <location filename="../src/ui/Diagnose.qml" line="42"/>
       <source>View Instructions</source>
-      <translation type="unfinished">View Instructions</translation>
+      <translation>Katso ohjeet</translation>
     </message>
     <message>
       <location filename="../src/ui/Diagnose.qml" line="44"/>
       <source>Start</source>
-      <translation type="unfinished">Start</translation>
+      <translation>Aloita</translation>
     </message>
     <message>
       <location filename="../src/ui/Diagnose.qml" line="45"/>
       <source>Install</source>
-      <translation type="unfinished">Install</translation>
+      <translation>Asenna</translation>
     </message>
     <message>
       <location filename="../src/ui/Diagnose.qml" line="83"/>
       <location filename="../src/ui/Diagnose.qml" line="120"/>
       <source>Dependency Check</source>
-      <translation type="unfinished">Dependency Check</translation>
+      <translation>Riippuvuuden tarkistus</translation>
     </message>
     <message>
       <location filename="../src/ui/Diagnose.qml" line="103"/>
       <source>Diagnostics</source>
-      <translation type="unfinished">Diagnostics</translation>
+      <translation>Diagnostiikka</translation>
     </message>
     <message>
       <location filename="../src/ui/Diagnose.qml" line="115"/>
       <source>Unable to check system dependencies.</source>
-      <translation type="unfinished">Unable to check system dependencies.</translation>
+      <translation>Järjestelmän riippuvuuksia ei voi tarkistaa.</translation>
     </message>
     <message>
       <location filename="../src/ui/Diagnose.qml" line="132"/>
       <source>Checking system dependencies...</source>
-      <translation type="unfinished">Checking system dependencies...</translation>
+      <translation>Tarkistetaan järjestelmäriippuvuuksia...</translation>
     </message>
     <message>
       <location filename="../src/ui/Diagnose.qml" line="139"/>
       <source>Refresh</source>
-      <translation type="unfinished">Refresh</translation>
+      <translation>Päivitä</translation>
     </message>
     <message>
       <location filename="../src/ui/Diagnose.qml" line="186"/>
       <source>Optional</source>
-      <translation type="unfinished">Optional</translation>
+      <translation>Valinnainen</translation>
     </message>
   </context>
   <context>
@@ -2487,77 +2487,77 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="83"/>
       <source>Failed to retrieve disk usage data.</source>
-      <translation type="unfinished">Failed to retrieve disk usage data.</translation>
+      <translation>Levyn käyttötietojen hakeminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="105"/>
       <source>Disk Usage</source>
-      <translation type="unfinished">Disk Usage</translation>
+      <translation>Levyn käyttö</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="123"/>
       <source>No disk information available.</source>
-      <translation type="unfinished">No disk information available.</translation>
+      <translation>Levytietoja ei ole saatavilla.</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="172"/>
       <source>System: %1 (%2%)</source>
-      <translation type="unfinished">System: %1 (%2%)</translation>
+      <translation>Järjestelmä: %1 (%2%)</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="187"/>
       <source>Apps: %1 (%2%)</source>
-      <translation type="unfinished">Apps: %1 (%2%)</translation>
+      <translation>Sovellukset: %1 (%2%)</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="202"/>
       <source>Media: %1 (%2%)</source>
-      <translation type="unfinished">Media: %1 (%2%)</translation>
+      <translation>Media: %1 (%2%)</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="217"/>
       <source>Gallery: %1 (%2%)</source>
-      <translation type="unfinished">Gallery: %1 (%2%)</translation>
+      <translation>Galleria: %1 (%2%)</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="232"/>
       <source>Others: %1 (%2%)</source>
-      <translation type="unfinished">Others: %1 (%2%)</translation>
+      <translation>Muut: %1 (%2%)</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="247"/>
       <source>Free: %1 (%2%)</source>
-      <translation type="unfinished">Free: %1 (%2%)</translation>
+      <translation>Ilmainen: %1 (%2%)</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="262"/>
       <source>System (%1)</source>
-      <translation type="unfinished">System (%1)</translation>
+      <translation>Järjestelmä (%1)</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="272"/>
       <source>Apps (%1)</source>
-      <translation type="unfinished">Apps (%1)</translation>
+      <translation>Sovellukset (%1)</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="282"/>
       <source>Media (%1)</source>
-      <translation type="unfinished">Media (%1)</translation>
+      <translation>Media (%1)</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="292"/>
       <source>Gallery (%1)</source>
-      <translation type="unfinished">Gallery (%1)</translation>
+      <translation>Galleria (%1)</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="302"/>
       <source>Others (%1)</source>
-      <translation type="unfinished">Others (%1)</translation>
+      <translation>Muut (%1)</translation>
     </message>
     <message>
       <location filename="../src/ui/DiskUsage.qml" line="312"/>
       <source>Free (%1)</source>
-      <translation type="unfinished">Free (%1)</translation>
+      <translation>Ilmainen (%1)</translation>
     </message>
   </context>
   <context>
@@ -2565,17 +2565,17 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/Donate.qml" line="48"/>
       <source>Support iDescriptor</source>
-      <translation type="unfinished">Support iDescriptor</translation>
+      <translation>Tuki iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/Donate.qml" line="58"/>
       <source>Your support helps fund ongoing development, testing, and the features the community cares about most.</source>
-      <translation type="unfinished">Your support helps fund ongoing development, testing, and the features the community cares about most.</translation>
+      <translation>Tukesi auttaa rahoittamaan jatkuvaa kehitystä, testausta ja ominaisuuksia, joista yhteisö välittää eniten.</translation>
     </message>
     <message>
       <location filename="../src/ui/Donate.qml" line="74"/>
       <source>Choose how you would like to support the project.</source>
-      <translation type="unfinished">Choose how you would like to support the project.</translation>
+      <translation>Valitse, miten haluat tukea hanketta.</translation>
     </message>
   </context>
   <context>
@@ -2583,12 +2583,12 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/DonateActions.qml" line="28"/>
       <source>Sponsor with GitHub</source>
-      <translation type="unfinished">Sponsor with GitHub</translation>
+      <translation>Sponsoroi GitHubilla</translation>
     </message>
     <message>
       <location filename="../src/ui/DonateActions.qml" line="39"/>
       <source>Support on Open Collective</source>
-      <translation type="unfinished">Support on Open Collective</translation>
+      <translation>Tuki Open Collectivessa</translation>
     </message>
   </context>
   <context>
@@ -2596,68 +2596,68 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/EraseDialog.qml" line="40"/>
       <source>The device could not be erased. Keep it connected and try again.</source>
-      <translation type="unfinished">The device could not be erased. Keep it connected and try again.</translation>
+      <translation>Laitetta ei voitu tyhjentää. Pidä se kytkettynä ja yritä uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/EraseDialog.qml" line="79"/>
       <source>iDescriptor could not erase %1. Keep the device connected and try again.</source>
-      <translation type="unfinished">iDescriptor could not erase %1. Keep the device connected and try again.</translation>
+      <translation>iDescriptor ei voinut poistaa %1:tä. Pidä laite kytkettynä ja yritä uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/EraseDialog.qml" line="96"/>
       <source>Erasing %1</source>
-      <translation type="unfinished">Erasing %1</translation>
+      <translation>Poistaminen %1</translation>
     </message>
     <message>
       <location filename="../src/ui/EraseDialog.qml" line="98"/>
       <source>Erase Command Accepted</source>
-      <translation type="unfinished">Erase Command Accepted</translation>
+      <translation>Poistokomento hyväksytty</translation>
     </message>
     <message>
       <location filename="../src/ui/EraseDialog.qml" line="99"/>
       <source>Erase %1?</source>
-      <translation type="unfinished">Erase %1?</translation>
+      <translation>Poistetaanko %1?</translation>
     </message>
     <message>
       <location filename="../src/ui/EraseDialog.qml" line="115"/>
       <source>Try Again</source>
-      <translation type="unfinished">Try Again</translation>
+      <translation>Yritä uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/EraseDialog.qml" line="129"/>
       <source>This will erase all content and settings from %1. This action cannot be undone. Do you want to continue?</source>
-      <translation type="unfinished">This will erase all content and settings from %1. This action cannot be undone. Do you want to continue?</translation>
+      <translation>Tämä poistaa kaiken sisällön ja asetukset tiedostosta %1. Tätä toimintoa ei voi kumota. Haluatko jatkaa?</translation>
     </message>
     <message>
       <location filename="../src/ui/EraseDialog.qml" line="141"/>
       <location filename="../src/ui/EraseDialog.qml" line="175"/>
       <source>No</source>
-      <translation type="unfinished">No</translation>
+      <translation>Ei</translation>
     </message>
     <message>
       <location filename="../src/ui/EraseDialog.qml" line="146"/>
       <source>Yes</source>
-      <translation type="unfinished">Yes</translation>
+      <translation>Kyllä</translation>
     </message>
     <message>
       <location filename="../src/ui/EraseDialog.qml" line="162"/>
       <source>Are you absolutely sure you want to permanently erase %1?</source>
-      <translation type="unfinished">Are you absolutely sure you want to permanently erase %1?</translation>
+      <translation>Oletko aivan varma, että haluat poistaa %1 pysyvästi?</translation>
     </message>
     <message>
       <location filename="../src/ui/EraseDialog.qml" line="180"/>
       <source>Yes, Erase Device</source>
-      <translation type="unfinished">Yes, Erase Device</translation>
+      <translation>Kyllä, Tyhjennä laite</translation>
     </message>
     <message>
       <location filename="../src/ui/EraseDialog.qml" line="196"/>
       <source>The erase command completed successfully. The device will restart and remove all content and settings.</source>
-      <translation type="unfinished">The erase command completed successfully. The device will restart and remove all content and settings.</translation>
+      <translation>Poistokomento suoritettu onnistuneesti. Laite käynnistyy uudelleen ja poistaa kaiken sisällön ja asetukset.</translation>
     </message>
     <message>
       <location filename="../src/ui/EraseDialog.qml" line="204"/>
       <source>Close</source>
-      <translation type="unfinished">Close</translation>
+      <translation>Sulje</translation>
     </message>
   </context>
   <context>
@@ -2666,43 +2666,43 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
       <location filename="../src/ui/FileExplorer.qml" line="61"/>
       <location filename="../src/ui/FileExplorer.qml" line="539"/>
       <source>AFC client is not available.</source>
-      <translation type="unfinished">AFC client is not available.</translation>
+      <translation>AFC-asiakas ei ole saatavilla.</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="187"/>
       <source>Failed to open preview.</source>
-      <translation type="unfinished">Failed to open preview.</translation>
+      <translation>Esikatselun avaaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="199"/>
       <location filename="../src/ui/FileExplorer.qml" line="783"/>
       <source>Open Externally</source>
-      <translation type="unfinished">Open Externally</translation>
+      <translation>Avaa ulkoisesti</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="200"/>
       <source>Export %1 to a temporary folder and open it with the default application?</source>
-      <translation type="unfinished">Export %1 to a temporary folder and open it with the default application?</translation>
+      <translation>Viedäänkö %1 väliaikaiseen kansioon ja avataanko se oletussovelluksella?</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="200"/>
       <source>This file type cannot be previewed would like to export to a temporary folder and open it with the default application?</source>
-      <translation type="unfinished">This file type cannot be previewed would like to export to a temporary folder and open it with the default application?</translation>
+      <translation>Tätä tiedostotyyppiä ei voi esikatsella. Haluatko viedä väliaikaiseen kansioon ja avata sen oletussovelluksella?</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="218"/>
       <source>The system temporary folder could not be located.</source>
-      <translation type="unfinished">The system temporary folder could not be located.</translation>
+      <translation>Järjestelmän väliaikaista kansiota ei löytynyt.</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="240"/>
       <source>Exporting for External Open from %1</source>
-      <translation type="unfinished">Exporting for External Open from %1</translation>
+      <translation>Vienti ulkoiseen avoimeen %1:stä</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="240"/>
       <source>Exporting for External Open</source>
-      <translation type="unfinished">Exporting for External Open</translation>
+      <translation>Vienti ulkoiseen avoimeen</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="241"/>
@@ -2710,160 +2710,160 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
       <location filename="../src/ui/FileExplorer.qml" line="619"/>
       <location filename="../src/ui/FileExplorer.qml" line="790"/>
       <source>Export</source>
-      <translation type="unfinished">Export</translation>
+      <translation>Vie</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="346"/>
       <source>Exporting File(s) from %1</source>
-      <translation type="unfinished">Exporting File(s) from %1</translation>
+      <translation>Viedään tiedostoja %1:stä</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="346"/>
       <source>Exporting File(s)</source>
-      <translation type="unfinished">Exporting File(s)</translation>
+      <translation>Viedään tiedostoja</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="372"/>
       <source>Importing Files to %1</source>
-      <translation type="unfinished">Importing Files to %1</translation>
+      <translation>Tiedostojen tuominen kohteeseen %1</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="372"/>
       <source>Importing Files</source>
-      <translation type="unfinished">Importing Files</translation>
+      <translation>Tiedostojen tuominen</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="373"/>
       <location filename="../src/ui/FileExplorer.qml" line="611"/>
       <source>Import</source>
-      <translation type="unfinished">Import</translation>
+      <translation>Tuo</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="402"/>
       <source>%1 could not be exported.</source>
-      <translation type="unfinished">%1 could not be exported.</translation>
+      <translation>%1:tä ei voitu viedä.</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="411"/>
       <source>%1 was exported, but no application could open it.</source>
-      <translation type="unfinished">%1 was exported, but no application could open it.</translation>
+      <translation>%1 vietiin, mutta mikään sovellus ei voinut avata sitä.</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="427"/>
       <source>Opening %1 was cancelled or could not be started.</source>
-      <translation type="unfinished">Opening %1 was cancelled or could not be started.</translation>
+      <translation>%1:n avaaminen peruutettiin tai sitä ei voitu käynnistää.</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="428"/>
       <source>%1 could not be exported for opening.</source>
-      <translation type="unfinished">%1 could not be exported for opening.</translation>
+      <translation>%1:tä ei voitu viedä avaamista varten.</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="458"/>
       <source>Failed to load directory.</source>
-      <translation type="unfinished">Failed to load directory.</translation>
+      <translation>Hakemiston lataaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="509"/>
       <source>%1 item(s) were deleted successfully.</source>
-      <translation type="unfinished">%1 item(s) were deleted successfully.</translation>
+      <translation>%1 kohteen poistaminen onnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="512"/>
       <source>%1 item(s) were deleted. %2 item(s) could not be deleted.</source>
-      <translation type="unfinished">%1 item(s) were deleted. %2 item(s) could not be deleted.</translation>
+      <translation>%1-kohde(et) poistettiin. %2-kohteita ei voitu poistaa.</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="518"/>
       <source>The selected items could not be deleted.</source>
-      <translation type="unfinished">The selected items could not be deleted.</translation>
+      <translation>Valittuja kohteita ei voitu poistaa.</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="562"/>
       <source>Go Back</source>
-      <translation type="unfinished">Go Back</translation>
+      <translation>Mene takaisin</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="570"/>
       <source>Go Forward</source>
-      <translation type="unfinished">Go Forward</translation>
+      <translation>Mene eteenpäin</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="577"/>
       <source>Go Home</source>
-      <translation type="unfinished">Go Home</translation>
+      <translation>Mene kotiin</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="585"/>
       <source>Go Up</source>
-      <translation type="unfinished">Go Up</translation>
+      <translation>Mene ylös</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="591"/>
       <source>Refresh</source>
-      <translation type="unfinished">Refresh</translation>
+      <translation>Päivitä</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="601"/>
       <source>Enter path...</source>
-      <translation type="unfinished">Enter path...</translation>
+      <translation>Anna polku...</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="627"/>
       <location filename="../src/ui/FileExplorer.qml" line="811"/>
       <source>Delete</source>
-      <translation type="unfinished">Delete</translation>
+      <translation>Poista</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="636"/>
       <location filename="../src/ui/FileExplorer.qml" line="822"/>
       <source>Add to Favorites</source>
-      <translation type="unfinished">Add to Favorites</translation>
+      <translation>Lisää suosikkeihin</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="643"/>
       <source>Navigate to path</source>
-      <translation type="unfinished">Navigate to path</translation>
+      <translation>Navigoi polulle</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="759"/>
       <source>This folder is empty</source>
-      <translation type="unfinished">This folder is empty</translation>
+      <translation>Tämä kansio on tyhjä</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="772"/>
       <source>Open</source>
-      <translation type="unfinished">Open</translation>
+      <translation>Avaa</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="799"/>
       <source>Get Info</source>
-      <translation type="unfinished">Get Info</translation>
+      <translation>Hanki tietoa</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="829"/>
       <source>Enter alias for this location:</source>
-      <translation type="unfinished">Enter alias for this location:</translation>
+      <translation>Anna tälle sijainnille alias:</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="830"/>
       <source>Alias here</source>
-      <translation type="unfinished">Alias here</translation>
+      <translation>Alias täällä</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="831"/>
       <source>Path: </source>
-      <translation type="unfinished">Path: </translation>
+      <translation>Polku: </translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="845"/>
       <source>Choose Export Folder</source>
-      <translation type="unfinished">Choose Export Folder</translation>
+      <translation>Valitse Vie kansio</translation>
     </message>
     <message>
       <location filename="../src/ui/FileExplorer.qml" line="851"/>
       <source>Choose Files to Import</source>
-      <translation type="unfinished">Choose Files to Import</translation>
+      <translation>Valitse Tuotavat tiedostot</translation>
     </message>
   </context>
   <context>
@@ -2871,103 +2871,103 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="23"/>
       <source>File Information</source>
-      <translation type="unfinished">File Information</translation>
+      <translation>Tiedoston tiedot</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="30"/>
       <source>Regular File (%1)</source>
-      <translation type="unfinished">Regular File (%1)</translation>
+      <translation>Tavallinen tiedosto (%1)</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="32"/>
       <source>Directory (%1)</source>
-      <translation type="unfinished">Directory (%1)</translation>
+      <translation>Hakemisto (%1)</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="34"/>
       <source>Symbolic Link (%1)</source>
-      <translation type="unfinished">Symbolic Link (%1)</translation>
+      <translation>Symbolinen linkki (%1)</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="36"/>
       <source>Block Device (%1)</source>
-      <translation type="unfinished">Block Device (%1)</translation>
+      <translation>Estä laite (%1)</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="38"/>
       <source>Character Device (%1)</source>
-      <translation type="unfinished">Character Device (%1)</translation>
+      <translation>Hahmolaite (%1)</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="40"/>
       <source>FIFO (%1)</source>
-      <translation type="unfinished">FIFO (%1)</translation>
+      <translation>FIFO (%1)</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="42"/>
       <source>Socket (%1)</source>
-      <translation type="unfinished">Socket (%1)</translation>
+      <translation>Pistorasia (%1)</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="44"/>
       <source>Unknown</source>
-      <translation type="unfinished">Unknown</translation>
+      <translation>Tuntematon</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="57"/>
       <location filename="../src/ui/FileInfoDialog.qml" line="99"/>
       <source>Could not retrieve file information.</source>
-      <translation type="unfinished">Could not retrieve file information.</translation>
+      <translation>Tiedoston tietoja ei voitu hakea.</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="64"/>
       <source>Name</source>
-      <translation type="unfinished">Name</translation>
+      <translation>Nimi</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="65"/>
       <source>Path</source>
-      <translation type="unfinished">Path</translation>
+      <translation>Polku</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="66"/>
       <source>Type</source>
-      <translation type="unfinished">Type</translation>
+      <translation>Kirjoita</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="68"/>
       <source>Size</source>
-      <translation type="unfinished">Size</translation>
+      <translation>Koko</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="69"/>
       <source>%1 (%2 bytes)</source>
-      <translation type="unfinished">%1 (%2 bytes)</translation>
+      <translation>%1 (%2 tavua)</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="71"/>
       <source>Allocated Blocks</source>
-      <translation type="unfinished">Allocated Blocks</translation>
+      <translation>Varatut lohkot</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="72"/>
       <source>Created</source>
-      <translation type="unfinished">Created</translation>
+      <translation>Luotu</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="73"/>
       <source>Modified</source>
-      <translation type="unfinished">Modified</translation>
+      <translation>Muokattu</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="74"/>
       <source>Hard Links</source>
-      <translation type="unfinished">Hard Links</translation>
+      <translation>Kovia linkkejä</translation>
     </message>
     <message>
       <location filename="../src/ui/FileInfoDialog.qml" line="76"/>
       <source>Link Target</source>
-      <translation type="unfinished">Link Target</translation>
+      <translation>Linkki kohde</translation>
     </message>
   </context>
   <context>
@@ -2975,77 +2975,77 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="60"/>
       <source>No device selected.</source>
-      <translation type="unfinished">No device selected.</translation>
+      <translation>Laitetta ei ole valittu.</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="68"/>
       <source>The default file service is unavailable.</source>
-      <translation type="unfinished">The default file service is unavailable.</translation>
+      <translation>Oletustiedostopalvelu ei ole käytettävissä.</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="159"/>
       <source>The file explorer could not be loaded.</source>
-      <translation type="unfinished">The file explorer could not be loaded.</translation>
+      <translation>Tiedostonhallintaa ei voitu ladata.</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="186"/>
       <source>Explorer</source>
-      <translation type="unfinished">Explorer</translation>
+      <translation>Tutkimusmatkailija</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="190"/>
       <source>Default</source>
-      <translation type="unfinished">Default</translation>
+      <translation>Oletus</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="197"/>
       <source>Jailbroken (AFC2)</source>
-      <translation type="unfinished">Jailbroken (AFC2)</translation>
+      <translation>Jailbroken (AFC2)</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="198"/>
       <source>Full filesystem</source>
-      <translation type="unfinished">Full filesystem</translation>
+      <translation>Täysi tiedostojärjestelmä</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="198"/>
       <source>Unavailable</source>
-      <translation type="unfinished">Unavailable</translation>
+      <translation>Ei saatavilla</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="207"/>
       <source>Common Places</source>
-      <translation type="unfinished">Common Places</translation>
+      <translation>Yleisiä paikkoja</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="211"/>
       <source>Pictures</source>
-      <translation type="unfinished">Pictures</translation>
+      <translation>Kuvia</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="212"/>
       <source>/DCIM</source>
-      <translation type="unfinished">/DCIM</translation>
+      <translation>/DCIM</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="220"/>
       <source>Favorite Places</source>
-      <translation type="unfinished">Favorite Places</translation>
+      <translation>Suosikkipaikat</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="229"/>
       <source>No favorite locations yet</source>
-      <translation type="unfinished">No favorite locations yet</translation>
+      <translation>Ei vielä suosikkipaikkoja</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="245"/>
       <source>AFC2 · %1</source>
-      <translation type="unfinished">AFC2 · %1</translation>
+      <translation>AFC2 · %1</translation>
     </message>
     <message>
       <location filename="../src/ui/FilesSection.qml" line="307"/>
       <source>Remove from Favorites</source>
-      <translation type="unfinished">Remove from Favorites</translation>
+      <translation>Poista suosikeista</translation>
     </message>
   </context>
   <context>
@@ -3054,72 +3054,72 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="27"/>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="214"/>
       <source>Get IPA</source>
-      <translation type="unfinished">Get IPA</translation>
+      <translation>Hanki IPA</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="61"/>
       <source>Preparing download...</source>
-      <translation type="unfinished">Preparing download...</translation>
+      <translation>Valmistellaan latausta...</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="66"/>
       <source>The App Store service is not initialized.</source>
-      <translation type="unfinished">The App Store service is not initialized.</translation>
+      <translation>App Store -palvelua ei ole alustettu.</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="94"/>
       <source>Choose download folder</source>
-      <translation type="unfinished">Choose download folder</translation>
+      <translation>Valitse latauskansio</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="100"/>
       <source>Cancel download?</source>
-      <translation type="unfinished">Cancel download?</translation>
+      <translation>Perutaanko lataus?</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="101"/>
       <source>The IPA download is still in progress. Do you want to cancel it and close this dialog?</source>
-      <translation type="unfinished">The IPA download is still in progress. Do you want to cancel it and close this dialog?</translation>
+      <translation>IPA lataus on edelleen käynnissä. Haluatko peruuttaa sen ja sulkea tämän valintaikkunan?</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="124"/>
       <source>Downloading IPA...</source>
-      <translation type="unfinished">Downloading IPA...</translation>
+      <translation>Ladataan IPA...</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="135"/>
       <source>Download failed.</source>
-      <translation type="unfinished">Download failed.</translation>
+      <translation>Lataus epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="136"/>
       <source>Saved IPA</source>
-      <translation type="unfinished">Saved IPA</translation>
+      <translation>Tallennettu IPA</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="170"/>
       <source>Choose</source>
-      <translation type="unfinished">Choose</translation>
+      <translation>Valitse</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="188"/>
       <source>Saved to %1</source>
-      <translation type="unfinished">Saved to %1</translation>
+      <translation>Tallennettu kohteeseen %1</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="198"/>
       <source>Open Folder</source>
-      <translation type="unfinished">Open Folder</translation>
+      <translation>Avaa kansio</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="209"/>
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Peruuta</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/GetIpaPopup.qml" line="209"/>
       <source>Close</source>
-      <translation type="unfinished">Close</translation>
+      <translation>Sulje</translation>
     </message>
   </context>
   <context>
@@ -3127,37 +3127,37 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/Helpers.qml" line="30"/>
       <source>Missing bundle ID.</source>
-      <translation type="unfinished">Missing bundle ID.</translation>
+      <translation>Puuttuva paketin tunnus.</translation>
     </message>
     <message>
       <location filename="../src/ui/Helpers.qml" line="40"/>
       <source>Failed to fetch app details.</source>
-      <translation type="unfinished">Failed to fetch app details.</translation>
+      <translation>Sovelluksen tietojen nouto epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/Helpers.qml" line="48"/>
       <source>No App Store details found for this bundle ID.</source>
-      <translation type="unfinished">No App Store details found for this bundle ID.</translation>
+      <translation>Tälle pakettitunnukselle ei löytynyt App Store -tietoja.</translation>
     </message>
     <message>
       <location filename="../src/ui/Helpers.qml" line="53"/>
       <source>Failed to parse App Store details.</source>
-      <translation type="unfinished">Failed to parse App Store details.</translation>
+      <translation>App Storen tietojen jäsentäminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/Helpers.qml" line="191"/>
       <source>Error</source>
-      <translation type="unfinished">Error</translation>
+      <translation>Virhe</translation>
     </message>
     <message>
       <location filename="../src/ui/Helpers.qml" line="195"/>
       <source>Warning</source>
-      <translation type="unfinished">Warning</translation>
+      <translation>Varoitus</translation>
     </message>
     <message>
       <location filename="../src/ui/Helpers.qml" line="199"/>
       <source>Information</source>
-      <translation type="unfinished">Information</translation>
+      <translation>Tietoja</translation>
     </message>
   </context>
   <context>
@@ -3165,72 +3165,72 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="33"/>
       <source>You can now unplug the device. iDescriptor will connect to it automatically if Bonjour is enabled and running. (requires iOS 14 or later)</source>
-      <translation type="unfinished">You can now unplug the device. iDescriptor will connect to it automatically if Bonjour is enabled and running. (requires iOS 14 or later)</translation>
+      <translation>Nyt voit irrottaa laitteen. iDescriptor muodostaa yhteyden siihen automaattisesti, jos Bonjour on käytössä ja käynnissä. (vaatii iOS 14:n tai uudemman)</translation>
     </message>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="35"/>
       <source>You can now unplug the device. iDescriptor will connect to it automatically if Avahi is enabled and running. (requires iOS 14 or later)</source>
-      <translation type="unfinished">You can now unplug the device. iDescriptor will connect to it automatically if Avahi is enabled and running. (requires iOS 14 or later)</translation>
+      <translation>Nyt voit irrottaa laitteen. iDescriptor muodostaa yhteyden siihen automaattisesti, jos Avahi on käytössä ja käynnissä. (vaatii iOS 14:n tai uudemman)</translation>
     </message>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="36"/>
       <source>You can now unplug the device. iDescriptor will connect to it automatically. (requires iOS 14 or later)</source>
-      <translation type="unfinished">You can now unplug the device. iDescriptor will connect to it automatically. (requires iOS 14 or later)</translation>
+      <translation>Nyt voit irrottaa laitteen. iDescriptor muodostaa yhteyden siihen automaattisesti. (vaatii iOS 14:n tai uudemman)</translation>
     </message>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="94"/>
       <source>Auto Setup</source>
-      <translation type="unfinished">Auto Setup</translation>
+      <translation>Automaattinen asetus</translation>
     </message>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="94"/>
       <source>Custom</source>
-      <translation type="unfinished">Custom</translation>
+      <translation>Mukautettu</translation>
     </message>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="177"/>
       <source>Connect your device</source>
-      <translation type="unfinished">Connect your device</translation>
+      <translation>Yhdistä laitteesi</translation>
     </message>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="187"/>
       <source>Plug the device into this computer with a cable so iDescriptor can prepare wireless pairing.</source>
-      <translation type="unfinished">Plug the device into this computer with a cable so iDescriptor can prepare wireless pairing.</translation>
+      <translation>Liitä laite tähän tietokoneeseen kaapelilla, jotta iDescriptor voi valmistella langattoman pariliitoksen.</translation>
     </message>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="228"/>
       <source>Accept the pairing dialog</source>
-      <translation type="unfinished">Accept the pairing dialog</translation>
+      <translation>Hyväksy pariliitosvalintaikkuna</translation>
     </message>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="238"/>
       <source>Keep the device unlocked and tap Trust when iOS asks whether this computer is trusted.</source>
-      <translation type="unfinished">Keep the device unlocked and tap Trust when iOS asks whether this computer is trusted.</translation>
+      <translation>Pidä laite avattuna ja napauta Luota, kun iOS kysyy, onko tämä tietokone luotettava.</translation>
     </message>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="279"/>
       <source>Finish over Wi-Fi</source>
-      <translation type="unfinished">Finish over Wi-Fi</translation>
+      <translation>Viimeistely yli Wi-Fi</translation>
     </message>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="441"/>
       <source>Use a saved pairing file</source>
-      <translation type="unfinished">Use a saved pairing file</translation>
+      <translation>Käytä tallennettua pariliitostiedostoa</translation>
     </message>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="451"/>
       <source>You can use the &apos;Connect with pairing file&apos; button to connect to a device. You have to have a valid pairing file and know the device IP address.</source>
-      <translation type="unfinished">You can use the &apos;Connect with pairing file&apos; button to connect to a device. You have to have a valid pairing file and know the device IP address.</translation>
+      <translation>Voit käyttää 'Yhdistä pariliitostiedostolla' -painiketta muodostaaksesi yhteyden laitteeseen. Sinulla on oltava kelvollinen pariliitostiedosto ja laitteen IP-osoite.</translation>
     </message>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="462"/>
       <source>Pairing files are usually stored here:</source>
-      <translation type="unfinished">Pairing files are usually stored here:</translation>
+      <translation>Pariliitostiedostot tallennetaan yleensä tähän:</translation>
     </message>
     <message>
       <location filename="../src/ui/HowToConnect.qml" line="499"/>
       <source>You can run `sudo ls /var/db/lockdown` to see the pairing files you have on your Mac.</source>
-      <translation type="unfinished">You can run `sudo ls /var/db/lockdown` to see the pairing files you have on your Mac.</translation>
+      <translation>Voit suorittaa `sudo ls /var/db/lockdown' nähdäksesi Macissasi olevat pariliitostiedostot.</translation>
     </message>
   </context>
   <context>
@@ -3238,58 +3238,58 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/tools/IFuse.qml" line="17"/>
       <source>iFuse Mount - iDescriptor</source>
-      <translation type="unfinished">iFuse Mount - iDescriptor</translation>
+      <translation>iFuse-teline - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/IFuse.qml" line="42"/>
       <source>Unknown Device</source>
-      <translation type="unfinished">Unknown Device</translation>
+      <translation>Tuntematon laite</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/IFuse.qml" line="77"/>
       <location filename="../src/ui/tools/IFuse.qml" line="100"/>
       <source>Select Mount Directory</source>
-      <translation type="unfinished">Select Mount Directory</translation>
+      <translation>Valitse Mount Directory</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/IFuse.qml" line="92"/>
       <source>This folder cannot be used by the Flatpak build. Choose a subfolder inside %1.</source>
-      <translation type="unfinished">This folder cannot be used by the Flatpak build. Choose a subfolder inside %1.</translation>
+      <translation>Flatpak-koontiversio ei voi käyttää tätä kansiota. Valitse %1:n sisällä oleva alikansio.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/IFuse.qml" line="118"/>
       <source>Mount %1&apos;s media as a drive on your PC.</source>
-      <translation type="unfinished">Mount %1&apos;s media as a drive on your PC.</translation>
+      <translation>Kiinnitä %1:n media asemaksi tietokoneeseesi.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/IFuse.qml" line="158"/>
       <source>Mount directory will be shown here</source>
-      <translation type="unfinished">Mount directory will be shown here</translation>
+      <translation>Kiinnityshakemisto näytetään tässä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/IFuse.qml" line="172"/>
       <source>Browse...</source>
-      <translation type="unfinished">Browse...</translation>
+      <translation>Selaa...</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/IFuse.qml" line="188"/>
       <source>Unmounting...</source>
-      <translation type="unfinished">Unmounting...</translation>
+      <translation>Irrotetaan...</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/IFuse.qml" line="188"/>
       <source>Mounting...</source>
-      <translation type="unfinished">Mounting...</translation>
+      <translation>Asennus...</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/IFuse.qml" line="189"/>
       <source>Unmount Device</source>
-      <translation type="unfinished">Unmount Device</translation>
+      <translation>Irrota laite</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/IFuse.qml" line="189"/>
       <source>Mount Device</source>
-      <translation type="unfinished">Mount Device</translation>
+      <translation>Kiinnitä laite</translation>
     </message>
   </context>
   <context>
@@ -3297,7 +3297,7 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/platform/windows/Index.qml" line="12"/>
       <source>iDescriptor</source>
-      <translation type="unfinished">iDescriptor</translation>
+      <translation>iDescriptor</translation>
     </message>
   </context>
   <context>
@@ -3305,72 +3305,72 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="27"/>
       <source>Install IPA</source>
-      <translation type="unfinished">Install IPA</translation>
+      <translation>Asenna IPA</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="84"/>
       <source>Preparing IPA download...</source>
-      <translation type="unfinished">Preparing IPA download...</translation>
+      <translation>Valmistellaan IPA-latausta...</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="89"/>
       <source>The App Store service is not initialized.</source>
-      <translation type="unfinished">The App Store service is not initialized.</translation>
+      <translation>App Store -palvelua ei ole alustettu.</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="120"/>
       <source>Cancel installation?</source>
-      <translation type="unfinished">Cancel installation?</translation>
+      <translation>Perutaanko asennus?</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="121"/>
       <source>The IPA download or installation is still in progress. Do you want to cancel it and close this dialog?</source>
-      <translation type="unfinished">The IPA download or installation is still in progress. Do you want to cancel it and close this dialog?</translation>
+      <translation>IPA:n lataus tai asennus on edelleen käynnissä. Haluatko peruuttaa sen ja sulkea tämän valintaikkunan?</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="146"/>
       <source>Installing IPA on device...</source>
-      <translation type="unfinished">Installing IPA on device...</translation>
+      <translation>Asennetaan IPA laitteeseen...</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="147"/>
       <source>Downloading IPA...</source>
-      <translation type="unfinished">Downloading IPA...</translation>
+      <translation>Ladataan IPA...</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="157"/>
       <source>Installation failed.</source>
-      <translation type="unfinished">Installation failed.</translation>
+      <translation>Asennus epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="158"/>
       <source>Installation finished</source>
-      <translation type="unfinished">Installation finished</translation>
+      <translation>Asennus valmis</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="189"/>
       <source>Select a connected device</source>
-      <translation type="unfinished">Select a connected device</translation>
+      <translation>Valitse yhdistetty laite</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="218"/>
       <source>No device connected.</source>
-      <translation type="unfinished">No device connected.</translation>
+      <translation>Laitetta ei ole kytketty.</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="245"/>
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Peruuta</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="245"/>
       <source>Close</source>
-      <translation type="unfinished">Close</translation>
+      <translation>Sulje</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/InstallAppPopup.qml" line="250"/>
       <source>Install</source>
-      <translation type="unfinished">Install</translation>
+      <translation>Asenna</translation>
     </message>
   </context>
   <context>
@@ -3379,37 +3379,37 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
       <location filename="../src/ui/installed-apps/InstalledApps.qml" line="49"/>
       <location filename="../src/ui/installed-apps/InstalledApps.qml" line="193"/>
       <source>Failed to retrieve installed apps.</source>
-      <translation type="unfinished">Failed to retrieve installed apps.</translation>
+      <translation>Asennettujen sovellusten noutaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/installed-apps/InstalledApps.qml" line="72"/>
       <source> (System)</source>
-      <translation type="unfinished"> (System)</translation>
+      <translation> (Järjestelmä)</translation>
     </message>
     <message>
       <location filename="../src/ui/installed-apps/InstalledApps.qml" line="177"/>
       <source>Failed to open the document container for %1.</source>
-      <translation type="unfinished">Failed to open the document container for %1.</translation>
+      <translation>%1:n asiakirjasäiliön avaaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/installed-apps/InstalledApps.qml" line="201"/>
       <source>No apps found or failed to retrieve apps.</source>
-      <translation type="unfinished">No apps found or failed to retrieve apps.</translation>
+      <translation>Sovelluksia ei löytynyt tai sovellusten noutaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/installed-apps/InstalledApps.qml" line="267"/>
       <source>Search apps...</source>
-      <translation type="unfinished">Search apps...</translation>
+      <translation>Hae sovelluksia...</translation>
     </message>
     <message>
       <location filename="../src/ui/installed-apps/InstalledApps.qml" line="279"/>
       <source>File Sharing</source>
-      <translation type="unfinished">File Sharing</translation>
+      <translation>Tiedostojen jakaminen</translation>
     </message>
     <message>
       <location filename="../src/ui/installed-apps/InstalledApps.qml" line="365"/>
       <source>Select an app to browse its documents.</source>
-      <translation type="unfinished">Select an app to browse its documents.</translation>
+      <translation>Valitse sovellus selataksesi sen asiakirjoja.</translation>
     </message>
   </context>
   <context>
@@ -3417,22 +3417,22 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/Jailbroken.qml" line="52"/>
       <source>SSH Terminal</source>
-      <translation type="unfinished">SSH Terminal</translation>
+      <translation>SSH-liitin</translation>
     </message>
     <message>
       <location filename="../src/ui/Jailbroken.qml" line="53"/>
       <source>Connect to your device via SSH</source>
-      <translation type="unfinished">Connect to your device via SSH</translation>
+      <translation>Yhdistä laitteeseesi SSH:n kautta</translation>
     </message>
     <message>
       <location filename="../src/ui/Jailbroken.qml" line="59"/>
       <source>More Tools Coming</source>
-      <translation type="unfinished">More Tools Coming</translation>
+      <translation>Lisää työkaluja tulossa</translation>
     </message>
     <message>
       <location filename="../src/ui/Jailbroken.qml" line="60"/>
       <source>New features will be added soon</source>
-      <translation type="unfinished">New features will be added soon</translation>
+      <translation>Uusia ominaisuuksia lisätään pian</translation>
     </message>
   </context>
   <context>
@@ -3440,32 +3440,32 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/KeychainDialog.qml" line="66"/>
       <source>Allow Keychain Access</source>
-      <translation type="unfinished">Allow Keychain Access</translation>
+      <translation>Salli avainnipun käyttö</translation>
     </message>
     <message>
       <location filename="../src/ui/KeychainDialog.qml" line="76"/>
       <source>iDescriptor uses macOS Keychain to securely store and retrieve your Apple ID credentials. When macOS asks for access, choose &quot;Always Allow&quot; to avoid repeated prompts.</source>
-      <translation type="unfinished">iDescriptor uses macOS Keychain to securely store and retrieve your Apple ID credentials. When macOS asks for access, choose &quot;Always Allow&quot; to avoid repeated prompts.</translation>
+      <translation>iDescriptor käyttää macOS-avainnippua Apple ID -tunnistetietojen turvalliseen tallentamiseen ja hakemiseen. Kun macOS pyytää käyttöoikeutta, valitse "Salli aina" välttääksesi toistuvia kehotteita.</translation>
     </message>
     <message>
       <location filename="../src/ui/KeychainDialog.qml" line="108"/>
       <source>Your credentials remain protected by macOS and are only used for App Store sign-in.</source>
-      <translation type="unfinished">Your credentials remain protected by macOS and are only used for App Store sign-in.</translation>
+      <translation>macOS suojaa kirjautumistietosi, ja niitä käytetään vain App Storeen kirjautumiseen.</translation>
     </message>
     <message>
       <location filename="../src/ui/KeychainDialog.qml" line="127"/>
       <source>Do not show this message again</source>
-      <translation type="unfinished">Do not show this message again</translation>
+      <translation>Älä näytä tätä viestiä uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/KeychainDialog.qml" line="133"/>
       <source>Skip for Now</source>
-      <translation type="unfinished">Skip for Now</translation>
+      <translation>Ohita nyt</translation>
     </message>
     <message>
       <location filename="../src/ui/KeychainDialog.qml" line="139"/>
       <source>Continue</source>
-      <translation type="unfinished">Continue</translation>
+      <translation>Jatka</translation>
     </message>
   </context>
   <context>
@@ -3473,63 +3473,63 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/tools/LiveScreen.qml" line="17"/>
       <source>Live Screen - iDescriptor</source>
-      <translation type="unfinished">Live Screen - iDescriptor</translation>
+      <translation>Live-näyttö - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/LiveScreen.qml" line="22"/>
       <location filename="../src/ui/tools/LiveScreen.qml" line="25"/>
       <source>Connecting to screenshot service...</source>
-      <translation type="unfinished">Connecting to screenshot service...</translation>
+      <translation>Yhdistetään kuvakaappauspalveluun...</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/LiveScreen.qml" line="41"/>
       <source>Failed to initialize screenshot capture. Mount a compatible developer disk image, then retry.</source>
-      <translation type="unfinished">Failed to initialize screenshot capture. Mount a compatible developer disk image, then retry.</translation>
+      <translation>Kuvakaappauksen alustaminen epäonnistui. Asenna yhteensopiva kehittäjälevykuva ja yritä sitten uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/LiveScreen.qml" line="43"/>
       <source>Failed to initialize screenshot capture. Please ensure the device has developer mode enabled.</source>
-      <translation type="unfinished">Failed to initialize screenshot capture. Please ensure the device has developer mode enabled.</translation>
+      <translation>Kuvakaappauksen alustaminen epäonnistui. Varmista, että laitteessa on kehittäjätila käytössä.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/LiveScreen.qml" line="45"/>
       <source>Failed to initialize screenshot capture. Reason: %1</source>
-      <translation type="unfinished">Failed to initialize screenshot capture. Reason: %1</translation>
+      <translation>Kuvakaappauksen alustaminen epäonnistui. Syy: %1</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/LiveScreen.qml" line="64"/>
       <source>Developer Mode was not handled.</source>
-      <translation type="unfinished">Developer Mode was not handled.</translation>
+      <translation>Kehittäjätilaa ei käsitelty.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/LiveScreen.qml" line="65"/>
       <source>Developer disk image was not mounted.</source>
-      <translation type="unfinished">Developer disk image was not mounted.</translation>
+      <translation>Kehittäjälevykuvaa ei asennettu.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/LiveScreen.qml" line="80"/>
       <source>Capturing</source>
-      <translation type="unfinished">Capturing</translation>
+      <translation>Sieppaus</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/LiveScreen.qml" line="151"/>
       <source>Rotate CW</source>
-      <translation type="unfinished">Rotate CW</translation>
+      <translation>Kierrä CW</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/LiveScreen.qml" line="156"/>
       <source>Rotate CCW</source>
-      <translation type="unfinished">Rotate CCW</translation>
+      <translation>Kierrä CCW</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/LiveScreen.qml" line="161"/>
       <source>Unmirror</source>
-      <translation type="unfinished">Unmirror</translation>
+      <translation>Peilitön</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/LiveScreen.qml" line="161"/>
       <source>Mirror</source>
-      <translation type="unfinished">Mirror</translation>
+      <translation>Peili</translation>
     </message>
   </context>
   <context>
@@ -3537,17 +3537,17 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/LocalNetworkPermissionDialog.qml" line="32"/>
       <source>Allow for Local Network Discovery</source>
-      <translation type="unfinished">Allow for Local Network Discovery</translation>
+      <translation>Salli paikallisverkon etsiminen</translation>
     </message>
     <message>
       <location filename="../src/ui/LocalNetworkPermissionDialog.qml" line="42"/>
       <source>macOS will ask for permission next. Choose Allow so iDescriptor can find and connect to Apple devices over Wi-Fi.</source>
-      <translation type="unfinished">macOS will ask for permission next. Choose Allow so iDescriptor can find and connect to Apple devices over Wi-Fi.</translation>
+      <translation>macOS pyytää lupaa seuraavaksi. Valitse Salli, jotta iDescriptor voi löytää Apple-laitteita ja muodostaa yhteyden niihin Wi-Fi:n kautta.</translation>
     </message>
     <message>
       <location filename="../src/ui/LocalNetworkPermissionDialog.qml" line="64"/>
       <source>Continue</source>
-      <translation type="unfinished">Continue</translation>
+      <translation>Jatka</translation>
     </message>
   </context>
   <context>
@@ -3555,12 +3555,12 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/base/LocationSelector.qml" line="12"/>
       <source>Location</source>
-      <translation type="unfinished">Location</translation>
+      <translation>Sijainti</translation>
     </message>
     <message>
       <location filename="../src/ui/base/LocationSelector.qml" line="64"/>
       <source>Change…</source>
-      <translation type="unfinished">Change…</translation>
+      <translation>Muuta…</translation>
     </message>
   </context>
   <context>
@@ -3568,62 +3568,62 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/LoginDialog.qml" line="216"/>
       <source>Sign in failed.</source>
-      <translation type="unfinished">Sign in failed.</translation>
+      <translation>Kirjautuminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/LoginDialog.qml" line="265"/>
       <source>Sign in with your Apple Account</source>
-      <translation type="unfinished">Sign in with your Apple Account</translation>
+      <translation>Kirjaudu sisään Apple-tililläsi</translation>
     </message>
     <message>
       <location filename="../src/ui/LoginDialog.qml" line="275"/>
       <source>Use your account to search and install App Store apps.</source>
-      <translation type="unfinished">Use your account to search and install App Store apps.</translation>
+      <translation>Käytä tiliäsi App Store -sovellusten etsimiseen ja asentamiseen.</translation>
     </message>
     <message>
       <location filename="../src/ui/LoginDialog.qml" line="292"/>
       <source>Apple Account</source>
-      <translation type="unfinished">Apple Account</translation>
+      <translation>Apple-tili</translation>
     </message>
     <message>
       <location filename="../src/ui/LoginDialog.qml" line="348"/>
       <source>Password</source>
-      <translation type="unfinished">Password</translation>
+      <translation>Salasana</translation>
     </message>
     <message>
       <location filename="../src/ui/LoginDialog.qml" line="429"/>
       <source>Credentials are passed to Apple&apos;s sign-in service and stored by the local ipatool keyring.</source>
-      <translation type="unfinished">Credentials are passed to Apple&apos;s sign-in service and stored by the local ipatool keyring.</translation>
+      <translation>Tunnukset välitetään Applen kirjautumispalveluun ja tallennetaan paikalliseen ipatool-avainrenkaaseen.</translation>
     </message>
     <message>
       <location filename="../src/ui/LoginDialog.qml" line="444"/>
       <source>Continue</source>
-      <translation type="unfinished">Continue</translation>
+      <translation>Jatka</translation>
     </message>
     <message>
       <location filename="../src/ui/LoginDialog.qml" line="472"/>
       <source>Forgot password?</source>
-      <translation type="unfinished">Forgot password?</translation>
+      <translation>Unohditko salasanan?</translation>
     </message>
     <message>
       <location filename="../src/ui/LoginDialog.qml" line="538"/>
       <source>Enter the code from your other device</source>
-      <translation type="unfinished">Enter the code from your other device</translation>
+      <translation>Syötä koodi toisesta laitteesta</translation>
     </message>
     <message>
       <location filename="../src/ui/LoginDialog.qml" line="548"/>
       <source>A verification code was requested for %1.</source>
-      <translation type="unfinished">A verification code was requested for %1.</translation>
+      <translation>Vahvistuskoodia pyydettiin kohteelle %1.</translation>
     </message>
     <message>
       <location filename="../src/ui/LoginDialog.qml" line="645"/>
       <source>Resend code</source>
-      <translation type="unfinished">Resend code</translation>
+      <translation>Lähetä koodi uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/LoginDialog.qml" line="658"/>
       <source>Verify</source>
-      <translation type="unfinished">Verify</translation>
+      <translation>Vahvista</translation>
     </message>
   </context>
   <context>
@@ -3632,7 +3632,7 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
       <location filename="../src/ui/Main.qml" line="10"/>
       <location filename="../src/ui/platform/macos/Main.qml" line="10"/>
       <source>iDescriptor</source>
-      <translation type="unfinished">iDescriptor</translation>
+      <translation>iDescriptor</translation>
     </message>
   </context>
   <context>
@@ -3640,47 +3640,47 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/MainWorkspace.qml" line="54"/>
       <source>Welcome</source>
-      <translation type="unfinished">Welcome</translation>
+      <translation>Tervetuloa</translation>
     </message>
     <message>
       <location filename="../src/ui/MainWorkspace.qml" line="56"/>
       <source>Apps</source>
-      <translation type="unfinished">Apps</translation>
+      <translation>Sovellukset</translation>
     </message>
     <message>
       <location filename="../src/ui/MainWorkspace.qml" line="58"/>
       <source>Toolbox</source>
-      <translation type="unfinished">Toolbox</translation>
+      <translation>Työkalulaatikko</translation>
     </message>
     <message>
       <location filename="../src/ui/MainWorkspace.qml" line="60"/>
       <source>Jailbroken</source>
-      <translation type="unfinished">Jailbroken</translation>
+      <translation>Jailbroked</translation>
     </message>
     <message>
       <location filename="../src/ui/MainWorkspace.qml" line="62"/>
       <source>Community</source>
-      <translation type="unfinished">Community</translation>
+      <translation>yhteisössä</translation>
     </message>
     <message>
       <location filename="../src/ui/MainWorkspace.qml" line="64"/>
       <source>Donate</source>
-      <translation type="unfinished">Donate</translation>
+      <translation>Lahjoita</translation>
     </message>
     <message>
       <location filename="../src/ui/MainWorkspace.qml" line="66"/>
       <source>Connecting…</source>
-      <translation type="unfinished">Connecting…</translation>
+      <translation>Yhdistetään…</translation>
     </message>
     <message>
       <location filename="../src/ui/MainWorkspace.qml" line="68"/>
       <source>Recovery Device</source>
-      <translation type="unfinished">Recovery Device</translation>
+      <translation>Palautuslaite</translation>
     </message>
     <message>
       <location filename="../src/ui/MainWorkspace.qml" line="71"/>
       <source>Device</source>
-      <translation type="unfinished">Device</translation>
+      <translation>Laite</translation>
     </message>
   </context>
   <context>
@@ -3688,42 +3688,42 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/tools/NetworkDevices.qml" line="18"/>
       <source>Network Devices - iDescriptor</source>
-      <translation type="unfinished">Network Devices - iDescriptor</translation>
+      <translation>Verkkolaitteet - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/NetworkDevices.qml" line="25"/>
       <source>Scanning for network devices...</source>
-      <translation type="unfinished">Scanning for network devices...</translation>
+      <translation>Etsitään verkkolaitteita...</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/NetworkDevices.qml" line="30"/>
       <source>Unknown device</source>
-      <translation type="unfinished">Unknown device</translation>
+      <translation>Tuntematon laite</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/NetworkDevices.qml" line="55"/>
       <source>No network devices found</source>
-      <translation type="unfinished">No network devices found</translation>
+      <translation>Verkkolaitteita ei löytynyt</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/NetworkDevices.qml" line="57"/>
       <source>Found %1 network device(s)</source>
-      <translation type="unfinished">Found %1 network device(s)</translation>
+      <translation>Löytyi %1-verkkolaitteita</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/NetworkDevices.qml" line="127"/>
       <source>Network Devices</source>
-      <translation type="unfinished">Network Devices</translation>
+      <translation>Verkkolaitteet</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/NetworkDevices.qml" line="171"/>
       <source>IP: %1</source>
-      <translation type="unfinished">IP: %1</translation>
+      <translation>IP: %1</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/NetworkDevices.qml" line="178"/>
       <source>Port: %1</source>
-      <translation type="unfinished">Port: %1</translation>
+      <translation>Portti: %1</translation>
     </message>
   </context>
   <context>
@@ -3731,83 +3731,83 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="22"/>
       <source>Network device provider is loading</source>
-      <translation type="unfinished">Network device provider is loading</translation>
+      <translation>Verkkolaitetoimittaja latautuu</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="24"/>
       <source>Network device provider failed to start</source>
-      <translation type="unfinished">Network device provider failed to start</translation>
+      <translation>Verkkolaitteen toimittaja ei käynnistynyt</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="26"/>
       <source>No network devices found</source>
-      <translation type="unfinished">No network devices found</translation>
+      <translation>Verkkolaitteita ei löytynyt</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="26"/>
       <source>Found %1 network device(s)</source>
-      <translation type="unfinished">Found %1 network device(s)</translation>
+      <translation>Löytyi %1-verkkolaitteita</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="32"/>
       <source>Unknown device</source>
-      <translation type="unfinished">Unknown device</translation>
+      <translation>Tuntematon laite</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="40"/>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="86"/>
       <source>Connect</source>
-      <translation type="unfinished">Connect</translation>
+      <translation>Yhdistä</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="66"/>
       <source>Failed to connect</source>
-      <translation type="unfinished">Failed to connect</translation>
+      <translation>Yhteyden muodostaminen epäonnistui</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="70"/>
       <source>No pairing file</source>
-      <translation type="unfinished">No pairing file</translation>
+      <translation>Ei pariliitostiedostoa</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="74"/>
       <source>Connecting...</source>
-      <translation type="unfinished">Connecting...</translation>
+      <translation>Yhdistetään...</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="78"/>
       <source>Connected</source>
-      <translation type="unfinished">Connected</translation>
+      <translation>Yhdistetty</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="82"/>
       <source>Already connected</source>
-      <translation type="unfinished">Already connected</translation>
+      <translation>Jo yhdistetty</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="247"/>
       <source>Retry</source>
-      <translation type="unfinished">Retry</translation>
+      <translation>Yritä uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="265"/>
       <source>Network Devices</source>
-      <translation type="unfinished">Network Devices</translation>
+      <translation>Verkkolaitteet</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="346"/>
       <source>Connect via custom pairing file</source>
-      <translation type="unfinished">Connect via custom pairing file</translation>
+      <translation>Yhdistä mukautetun pariliitostiedoston kautta</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="360"/>
       <source>IP: %1</source>
-      <translation type="unfinished">IP: %1</translation>
+      <translation>IP: %1</translation>
     </message>
     <message>
       <location filename="../src/ui/NetworkDevicesToConnect.qml" line="387"/>
       <source>Choose pairing file</source>
-      <translation type="unfinished">Choose pairing file</translation>
+      <translation>Valitse pariliitostiedosto</translation>
     </message>
   </context>
   <context>
@@ -3815,12 +3815,12 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/PendingDevice.qml" line="29"/>
       <source>Trust This Computer</source>
-      <translation type="unfinished">Trust This Computer</translation>
+      <translation>Luota tähän tietokoneeseen</translation>
     </message>
     <message>
       <location filename="../src/ui/PendingDevice.qml" line="41"/>
       <source>Unlock your device and tap Trust when the prompt appears.</source>
-      <translation type="unfinished">Unlock your device and tap Trust when the prompt appears.</translation>
+      <translation>Avaa laitteesi lukitus ja napauta Trust, kun kehote tulee näkyviin.</translation>
     </message>
   </context>
   <context>
@@ -3828,7 +3828,7 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/PendingDeviceSidebar.qml" line="70"/>
       <source>Pairing…</source>
-      <translation type="unfinished">Pairing…</translation>
+      <translation>Muodostetaan laiteparia…</translation>
     </message>
   </context>
   <context>
@@ -3836,107 +3836,107 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="56"/>
       <source>%1 — iDescriptor</source>
-      <translation type="unfinished">%1 — iDescriptor</translation>
+      <translation>%1 — iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="83"/>
       <source>AFC client is not available.</source>
-      <translation type="unfinished">AFC client is not available.</translation>
+      <translation>AFC-asiakas ei ole saatavilla.</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="89"/>
       <source>Failed to start the video stream.</source>
-      <translation type="unfinished">Failed to start the video stream.</translation>
+      <translation>Videostriimin käynnistäminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="213"/>
       <source>Failed to load the image preview.</source>
-      <translation type="unfinished">Failed to load the image preview.</translation>
+      <translation>Kuvan esikatselun lataaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="228"/>
       <source>Failed to play the video.</source>
-      <translation type="unfinished">Failed to play the video.</translation>
+      <translation>Videon toistaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="274"/>
       <source>The image could not be displayed.</source>
-      <translation type="unfinished">The image could not be displayed.</translation>
+      <translation>Kuvaa ei voitu näyttää.</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="340"/>
       <source>Preview unavailable</source>
-      <translation type="unfinished">Preview unavailable</translation>
+      <translation>Esikatselu ei ole käytettävissä</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="358"/>
       <source>Try Again</source>
-      <translation type="unfinished">Try Again</translation>
+      <translation>Yritä uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="372"/>
       <source>Previous</source>
-      <translation type="unfinished">Previous</translation>
+      <translation>Edellinen</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="383"/>
       <source>Next</source>
-      <translation type="unfinished">Next</translation>
+      <translation>Seuraavaksi</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="416"/>
       <source>VIDEO</source>
-      <translation type="unfinished">VIDEO</translation>
+      <translation>VIDEO</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="416"/>
       <source>IMAGE</source>
-      <translation type="unfinished">IMAGE</translation>
+      <translation>KUVA</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="447"/>
       <source>Close Preview</source>
-      <translation type="unfinished">Close Preview</translation>
+      <translation>Sulje esikatselu</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="472"/>
       <source>Zoom Out</source>
-      <translation type="unfinished">Zoom Out</translation>
+      <translation>Loitonna</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="479"/>
       <source>%1%</source>
-      <translation type="unfinished">%1%</translation>
+      <translation>%1%</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="487"/>
       <source>Zoom In</source>
-      <translation type="unfinished">Zoom In</translation>
+      <translation>Lähennä</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="500"/>
       <source>Fit</source>
-      <translation type="unfinished">Fit</translation>
+      <translation>Sopiva</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="528"/>
       <source>Pause</source>
-      <translation type="unfinished">Pause</translation>
+      <translation>Tauko</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="528"/>
       <source>Play</source>
-      <translation type="unfinished">Play</translation>
+      <translation>Pelaa</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="580"/>
       <source>Unmute</source>
-      <translation type="unfinished">Unmute</translation>
+      <translation>Poista mykistys</translation>
     </message>
     <message>
       <location filename="../src/ui/PreviewWindow.qml" line="580"/>
       <source>Mute</source>
-      <translation type="unfinished">Mute</translation>
+      <translation>Mykistä</translation>
     </message>
   </context>
   <context>
@@ -3944,12 +3944,12 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/base/PrivateText.qml" line="23"/>
       <source>Unknown</source>
-      <translation type="unfinished">Unknown</translation>
+      <translation>Tuntematon</translation>
     </message>
     <message>
       <location filename="../src/ui/base/PrivateText.qml" line="60"/>
       <source>Copied!</source>
-      <translation type="unfinished">Copied!</translation>
+      <translation>Kopioitu!</translation>
     </message>
   </context>
   <context>
@@ -3957,54 +3957,54 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/tools/QueryMobileGestalt.qml" line="14"/>
       <source>Query MobileGestalt - iDescriptor</source>
-      <translation type="unfinished">Query MobileGestalt - iDescriptor</translation>
+      <translation>Kysely MobileGestalt - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/QueryMobileGestalt.qml" line="51"/>
       <source>This tool lets you query MobileGestalt keys, which provide various device information.</source>
-      <translation type="unfinished">This tool lets you query MobileGestalt keys, which provide various device information.</translation>
+      <translation>Tämän työkalun avulla voit kysyä MobileGestalt-avaimia, jotka tarjoavat erilaisia laitetietoja.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/QueryMobileGestalt.qml" line="57"/>
       <source>Select MobileGestalt Keys</source>
-      <translation type="unfinished">Select MobileGestalt Keys</translation>
+      <translation>Valitse MobileGestalt Keys</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/QueryMobileGestalt.qml" line="69"/>
       <source>Select All</source>
-      <translation type="unfinished">Select All</translation>
+      <translation>Valitse Kaikki</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/QueryMobileGestalt.qml" line="77"/>
       <source>Clear All</source>
-      <translation type="unfinished">Clear All</translation>
+      <translation>Tyhjennä kaikki</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/QueryMobileGestalt.qml" line="108"/>
       <source>Query MobileGestalt</source>
-      <translation type="unfinished">Query MobileGestalt</translation>
+      <translation>Kysely MobileGestalt</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/QueryMobileGestalt.qml" line="125"/>
       <source>Select keys and click Query to begin</source>
-      <translation type="unfinished">Select keys and click Query to begin</translation>
+      <translation>Valitse avaimet ja aloita napsauttamalla Kysely</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/QueryMobileGestalt.qml" line="132"/>
       <source>Query Results</source>
-      <translation type="unfinished">Query Results</translation>
+      <translation>Kyselyn tulokset</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/QueryMobileGestalt.qml" line="146"/>
       <source>results will appear here...</source>
-      <translation type="unfinished">results will appear here...</translation>
+      <translation>tulokset näkyvät täällä...</translation>
     </message>
     <message numerus="yes">
       <location filename="../src/ui/tools/QueryMobileGestalt.qml" line="160"/>
       <source>Query completed. Found %n result(s).</source>
-      <translation type="unfinished">
-        <numerusform>Query completed. Found %n result(s).</numerusform>
-        <numerusform>Query completed. Found %n result(s).</numerusform>
+      <translation>
+        <numerusform>Kysely suoritettu. Löytyi %n tulos(t).</numerusform>
+        <numerusform>Kysely suoritettu. Löytyi %n tulos(t).</numerusform>
       </translation>
     </message>
   </context>
@@ -4013,37 +4013,37 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="48"/>
       <source>Recovery Device</source>
-      <translation type="unfinished">Recovery Device</translation>
+      <translation>Palautuslaite</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="57"/>
       <source>%1 mode</source>
-      <translation type="unfinished">%1 mode</translation>
+      <translation>%1-tila</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="57"/>
       <source>Recovery</source>
-      <translation type="unfinished">Recovery</translation>
+      <translation>Toipuminen</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="64"/>
       <source>Exit Recovery Mode</source>
-      <translation type="unfinished">Exit Recovery Mode</translation>
+      <translation>Poistu palautustilasta</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="72"/>
       <source>The command to exit recovery mode was sent successfully. The device should restart shortly.</source>
-      <translation type="unfinished">The command to exit recovery mode was sent successfully. The device should restart shortly.</translation>
+      <translation>Palautustilasta poistumiskomento lähetettiin onnistuneesti. Laitteen pitäisi käynnistyä uudelleen pian.</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="76"/>
       <source>Failed to exit recovery mode. This could be due to USB permissions.</source>
-      <translation type="unfinished">Failed to exit recovery mode. This could be due to USB permissions.</translation>
+      <translation>Palautustilasta poistuminen epäonnistui. Tämä voi johtua USB-oikeuksista.</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="93"/>
       <source>Model:</source>
-      <translation type="unfinished">Model:</translation>
+      <translation>Malli:</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="94"/>
@@ -4055,57 +4055,57 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="109"/>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="111"/>
       <source>Unknown</source>
-      <translation type="unfinished">Unknown</translation>
+      <translation>Tuntematon</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="95"/>
       <source>Board:</source>
-      <translation type="unfinished">Board:</translation>
+      <translation>Hallitus:</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="98"/>
       <source>Marketing Name:</source>
-      <translation type="unfinished">Marketing Name:</translation>
+      <translation>Markkinointinimi:</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="100"/>
       <source>Mode:</source>
-      <translation type="unfinished">Mode:</translation>
+      <translation>Tila:</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="103"/>
       <source>ECID:</source>
-      <translation type="unfinished">ECID:</translation>
+      <translation>ECID:</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="105"/>
       <source>Serial Number:</source>
-      <translation type="unfinished">Serial Number:</translation>
+      <translation>Sarjanumero:</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="108"/>
       <source>CPID:</source>
-      <translation type="unfinished">CPID:</translation>
+      <translation>CPID:</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="110"/>
       <source>BDID:</source>
-      <translation type="unfinished">BDID:</translation>
+      <translation>BDID:</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="113"/>
       <source>Vendor ID:</source>
-      <translation type="unfinished">Vendor ID:</translation>
+      <translation>Toimittajan tunnus:</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="115"/>
       <source>Product ID:</source>
-      <translation type="unfinished">Product ID:</translation>
+      <translation>Tuotetunnus:</translation>
     </message>
     <message>
       <location filename="../src/ui/RecoveryDeviceInfo.qml" line="130"/>
       <source>Recovery Descriptor</source>
-      <translation type="unfinished">Recovery Descriptor</translation>
+      <translation>Palautuskuvaus</translation>
     </message>
   </context>
   <context>
@@ -4113,7 +4113,7 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/RecoveryDeviceSidebar.qml" line="19"/>
       <source>Recovery Device</source>
-      <translation type="unfinished">Recovery Device</translation>
+      <translation>Palautuslaite</translation>
     </message>
   </context>
   <context>
@@ -4121,138 +4121,138 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="49"/>
       <source>The restore operation could not be completed.</source>
-      <translation type="unfinished">The restore operation could not be completed.</translation>
+      <translation>Palautustoimintoa ei voitu suorittaa loppuun.</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="63"/>
       <source>Enter the backup password before restoring this encrypted backup.</source>
-      <translation type="unfinished">Enter the backup password before restoring this encrypted backup.</translation>
+      <translation>Anna varmuuskopion salasana ennen tämän salatun varmuuskopion palauttamista.</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="70"/>
       <source>Confirm Restore</source>
-      <translation type="unfinished">Confirm Restore</translation>
+      <translation>Vahvista palautus</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="71"/>
       <source>Restore “%1” to its matching device? Existing device data may be replaced.</source>
-      <translation type="unfinished">Restore “%1” to its matching device? Existing device data may be replaced.</translation>
+      <translation>Palautetaanko "%1" vastaavaan laitteeseen? Olemassa olevat laitetiedot voidaan korvata.</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="125"/>
       <source>“%1” was restored successfully.</source>
-      <translation type="unfinished">“%1” was restored successfully.</translation>
+      <translation>"%1" palautettiin onnistuneesti.</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="129"/>
       <source>Find My iPhone must be turned off before this backup can be restored. On the device, open Settings, tap your name, then choose Find My → Find My iPhone and turn it off.</source>
-      <translation type="unfinished">Find My iPhone must be turned off before this backup can be restored. On the device, open Settings, tap your name, then choose Find My → Find My iPhone and turn it off.</translation>
+      <translation>Etsi iPhoneni on sammutettava, ennen kuin tämä varmuuskopio voidaan palauttaa. Avaa laitteessa Asetukset, napauta nimeäsi, valitse sitten Find My → Find My iPhone ja sammuta se.</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="132"/>
       <source>Turn Off Find My iPhone</source>
-      <translation type="unfinished">Turn Off Find My iPhone</translation>
+      <translation>Poista Find My iPhone käytöstä</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="135"/>
       <source>iDescriptor could not restore “%1”. Keep the device connected and try again.</source>
-      <translation type="unfinished">iDescriptor could not restore “%1”. Keep the device connected and try again.</translation>
+      <translation>iDescriptor ei voinut palauttaa "%1". Pidä laite kytkettynä ja yritä uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="153"/>
       <source>Restoring %1</source>
-      <translation type="unfinished">Restoring %1</translation>
+      <translation>Palautetaan %1</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="155"/>
       <source>Restore Complete</source>
-      <translation type="unfinished">Restore Complete</translation>
+      <translation>Palauta valmis</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="156"/>
       <source>Restore Backup</source>
-      <translation type="unfinished">Restore Backup</translation>
+      <translation>Palauta varmuuskopio</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="171"/>
       <source>Try Again</source>
-      <translation type="unfinished">Try Again</translation>
+      <translation>Yritä uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="172"/>
       <location filename="../src/ui/RestoreDialog.qml" line="309"/>
       <source>Close</source>
-      <translation type="unfinished">Close</translation>
+      <translation>Sulje</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="190"/>
       <source>Restore “%1” to its matching device.</source>
-      <translation type="unfinished">Restore “%1” to its matching device.</translation>
+      <translation>Palauta "%1" vastaavaan laitteeseen.</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="207"/>
       <source>Before restoring, turn off Find My iPhone on the device in Settings → [your name] → Find My → Find My iPhone.</source>
-      <translation type="unfinished">Before restoring, turn off Find My iPhone on the device in Settings → [your name] → Find My → Find My iPhone.</translation>
+      <translation>Ennen palautusta poista Find My iPhone käytöstä laitteesta kohdassa Asetukset → [nimesi] → Find My → Find My iPhone.</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="215"/>
       <source>Restore Settings</source>
-      <translation type="unfinished">Restore Settings</translation>
+      <translation>Palauta asetukset</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="223"/>
       <source>Restart device after restore</source>
-      <translation type="unfinished">Restart device after restore</translation>
+      <translation>Käynnistä laite uudelleen palautuksen jälkeen</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="230"/>
       <source>Create a safety copy before restoring</source>
-      <translation type="unfinished">Create a safety copy before restoring</translation>
+      <translation>Luo turvakopio ennen palauttamista</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="237"/>
       <source>Restore device settings from backup</source>
-      <translation type="unfinished">Restore device settings from backup</translation>
+      <translation>Palauta laitteen asetukset varmuuskopiosta</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="244"/>
       <source>Restore system files</source>
-      <translation type="unfinished">Restore system files</translation>
+      <translation>Palauta järjestelmätiedostot</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="251"/>
       <source>Remove items not restored</source>
-      <translation type="unfinished">Remove items not restored</translation>
+      <translation>Poista palauttamattomat kohteet</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="258"/>
       <source>Encrypted backup</source>
-      <translation type="unfinished">Encrypted backup</translation>
+      <translation>Salattu varmuuskopio</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="268"/>
       <source>Backup password</source>
-      <translation type="unfinished">Backup password</translation>
+      <translation>Varasalasana</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="280"/>
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Peruuta</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="285"/>
       <source>Restore</source>
-      <translation type="unfinished">Restore</translation>
+      <translation>Palauta</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="301"/>
       <source>The backup was restored successfully. The device may restart to finish applying the restored data.</source>
-      <translation type="unfinished">The backup was restored successfully. The device may restart to finish applying the restored data.</translation>
+      <translation>Varmuuskopion palautus onnistui. Laite voi käynnistyä uudelleen lopettaakseen palautettujen tietojen käytön.</translation>
     </message>
     <message>
       <location filename="../src/ui/RestoreDialog.qml" line="329"/>
       <source>Keep the device connected until the restore finishes.</source>
-      <translation type="unfinished">Keep the device connected until the restore finishes.</translation>
+      <translation>Pidä laite kytkettynä, kunnes palautus on valmis.</translation>
     </message>
   </context>
   <context>
@@ -4260,42 +4260,42 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/tools/SSHProcessWindow.qml" line="16"/>
       <source>SSH Terminal / %1 - iDescriptor</source>
-      <translation type="unfinished">SSH Terminal / %1 - iDescriptor</translation>
+      <translation>SSH Liitin / %1 - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHProcessWindow.qml" line="32"/>
       <source>Setting up SSH tunnel...</source>
-      <translation type="unfinished">Setting up SSH tunnel...</translation>
+      <translation>Asetetaan SSH tunnelia...</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHProcessWindow.qml" line="33"/>
       <source>Connecting to network device...</source>
-      <translation type="unfinished">Connecting to network device...</translation>
+      <translation>Yhdistetään verkkolaitteeseen...</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHProcessWindow.qml" line="529"/>
       <source>Copy</source>
-      <translation type="unfinished">Copy</translation>
+      <translation>Kopioi</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHProcessWindow.qml" line="535"/>
       <source>Copy All</source>
-      <translation type="unfinished">Copy All</translation>
+      <translation>Kopioi kaikki</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHProcessWindow.qml" line="547"/>
       <source>Clear</source>
-      <translation type="unfinished">Clear</translation>
+      <translation>Selkeä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHProcessWindow.qml" line="591"/>
       <source>Send</source>
-      <translation type="unfinished">Send</translation>
+      <translation>Lähetä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHProcessWindow.qml" line="601"/>
       <source>Ctrl-C</source>
-      <translation type="unfinished">Ctrl-C</translation>
+      <translation>Ctrl-C</translation>
     </message>
   </context>
   <context>
@@ -4303,13 +4303,13 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="18"/>
       <source>SSH Terminal - iDescriptor</source>
-      <translation type="unfinished">SSH Terminal - iDescriptor</translation>
+      <translation>SSH-liitin - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="28"/>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="152"/>
       <source>Select a device to connect</source>
-      <translation type="unfinished">Select a device to connect</translation>
+      <translation>Valitse yhdistettävä laite</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="36"/>
@@ -4317,84 +4317,84 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="439"/>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="577"/>
       <source>Unknown Device</source>
-      <translation type="unfinished">Unknown Device</translation>
+      <translation>Tuntematon laite</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="71"/>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="72"/>
       <source>Unknown device</source>
-      <translation type="unfinished">Unknown device</translation>
+      <translation>Tuntematon laite</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="103"/>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="685"/>
       <source>Ready to connect</source>
-      <translation type="unfinished">Ready to connect</translation>
+      <translation>Valmis yhdistämään</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="120"/>
       <source>Unknown</source>
-      <translation type="unfinished">Unknown</translation>
+      <translation>Tuntematon</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="122"/>
       <source>USB</source>
-      <translation type="unfinished">USB</translation>
+      <translation>USB</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="123"/>
       <source>Network</source>
-      <translation type="unfinished">Network</translation>
+      <translation>Verkko</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="136"/>
       <source>Jailbreak status unknown</source>
-      <translation type="unfinished">Jailbreak status unknown</translation>
+      <translation>Jailbreakin tila tuntematon</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="137"/>
       <source>Jailbroken</source>
-      <translation type="unfinished">Jailbroken</translation>
+      <translation>Jailbroked</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="137"/>
       <source>Not detected as jailbroken</source>
-      <translation type="unfinished">Not detected as jailbroken</translation>
+      <translation>Ei havaittu jailbrokeiksi</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="159"/>
       <source>Please select a device first</source>
-      <translation type="unfinished">Please select a device first</translation>
+      <translation>Valitse ensin laite</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="165"/>
       <source>Selected network device is missing IP address. Please try again.</source>
-      <translation type="unfinished">Selected network device is missing IP address. Please try again.</translation>
+      <translation>Valitusta verkkolaitteesta puuttuu IP-osoite. Yritä uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="256"/>
       <source>No Device Selected</source>
-      <translation type="unfinished">No Device Selected</translation>
+      <translation>Laitetta ei ole valittu</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="257"/>
       <source>Please select a device before trying to connect.</source>
-      <translation type="unfinished">Please select a device before trying to connect.</translation>
+      <translation>Valitse laite ennen yhteyden muodostamista.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="262"/>
       <source>Missing IP Address</source>
-      <translation type="unfinished">Missing IP Address</translation>
+      <translation>IP-osoite puuttuu</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="263"/>
       <source>The selected network device is missing an IP address. Please try again.</source>
-      <translation type="unfinished">The selected network device is missing an IP address. Please try again.</translation>
+      <translation>Valitusta verkkolaitteesta puuttuu IP-osoite. Yritä uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="268"/>
       <source>Device Not Jailbroken</source>
-      <translation type="unfinished">Device Not Jailbroken</translation>
+      <translation>Laite ei ole Jailbroken</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="269"/>
@@ -4402,124 +4402,121 @@ Please ensure the device is unlocked and using a genuine cable.</translation>
 SSH access may not be available.
 
 Do you want to continue anyway?</source>
-      <translation type="unfinished">The selected device is not detected as jailbroken.
-SSH access may not be available.
+      <translation>Valittua laitetta ei havaita jailbrokeiksi.
+SSH-yhteys ei ehkä ole käytettävissä.
 
-Do you want to continue anyway?</translation>
+Haluatko silti jatkaa?</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="275"/>
       <source>Connection cancelled (device not jailbroken)</source>
-      <translation type="unfinished">Connection cancelled (device not jailbroken)</translation>
+      <translation>Yhteys peruutettu (laite ei ole rikki)</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="283"/>
       <source>SSH Root Password</source>
-      <translation type="unfinished">SSH Root Password</translation>
+      <translation>SSH Pääsalasana</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="297"/>
       <source>Enter the root password. Leave it empty to use the default password.</source>
-      <translation type="unfinished">Enter the root password. Leave it empty to use the default password.</translation>
+      <translation>Anna root-salasana. Jätä se tyhjäksi, jos haluat käyttää oletussalasanaa.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="305"/>
       <source>Default password</source>
-      <translation type="unfinished">Default password</translation>
+      <translation>Oletussalasana</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="322"/>
       <source>Choose an SSH target</source>
-      <translation type="unfinished">Choose an SSH target</translation>
+      <translation>Valitse SSH-kohde</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="331"/>
       <source>Select a jailbroken device, or connect directly by IP address.</source>
-      <translation type="unfinished">Select a jailbroken device, or connect directly by IP address.</translation>
+      <translation>Valitse jailbroken laite tai yhdistä suoraan IP-osoitteen avulla.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="366"/>
       <source>Connected Devices</source>
-      <translation type="unfinished">Connected Devices</translation>
+      <translation>Yhdistetyt laitteet</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="373"/>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="511"/>
       <source>%1</source>
-      <translation type="unfinished">%1</translation>
+      <translation>%1</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="477"/>
       <source>No connected devices</source>
-      <translation type="unfinished">No connected devices</translation>
+      <translation>Ei yhdistettyjä laitteita</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="504"/>
       <source>Network Devices</source>
-      <translation type="unfinished">Network Devices</translation>
+      <translation>Verkkolaitteet</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="615"/>
       <source>No network devices</source>
-      <translation type="unfinished">No network devices</translation>
+      <translation>Ei verkkolaitteita</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="642"/>
       <source>Manual IP Connection</source>
-      <translation type="unfinished">Manual IP Connection</translation>
+      <translation>Manuaalinen IP-yhteys</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="650"/>
       <source>Use this when the device is reachable but not listed above.</source>
-      <translation type="unfinished">Use this when the device is reachable but not listed above.</translation>
+      <translation>Käytä tätä, kun laite on tavoitettavissa, mutta sitä ei ole lueteltu yllä.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="662"/>
       <source>192.168.1.10</source>
-      <translation type="unfinished">192.168.1.10</translation>
+      <translation>192.168.1.10</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="666"/>
       <source>Connect by IP</source>
-      <translation type="unfinished">Connect by IP</translation>
+      <translation>Yhdistä IP:n kautta</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="671"/>
       <source>Please enter an IP address</source>
-      <translation type="unfinished">Please enter an IP address</translation>
+      <translation>Anna IP-osoite</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="703"/>
       <source>%1 selected</source>
-      <translation type="unfinished">%1 selected</translation>
+      <translation>%1 valittu</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="710"/>
       <source>Connect</source>
-      <translation type="unfinished">Connect</translation>
+      <translation>Yhdistä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SSHTerminalTool.qml" line="710"/>
       <source>Choose a device</source>
-      <translation type="unfinished">Choose a device</translation>
+      <translation>Valitse laite</translation>
     </message>
   </context>
   <context>
     <name>ScreenMirroring</name>
     <message>
-      <location filename="../src/ui/tools/ScreenMirroring.qml" line="17"/>
       <source>Screen Mirroring - iDescriptor</source>
-      <translation type="unfinished">Screen Mirroring - iDescriptor</translation>
+      <translation type="obsolete">Screen Mirroring - iDescriptor</translation>
     </message>
     <message>
-      <location filename="../src/ui/tools/ScreenMirroring.qml" line="81"/>
       <source>Mirroring</source>
-      <translation type="unfinished">Mirroring</translation>
+      <translation type="obsolete">Mirroring</translation>
     </message>
     <message>
-      <location filename="../src/ui/tools/ScreenMirroring.qml" line="86"/>
       <source>%1 packets</source>
-      <translation type="unfinished">%1 packets</translation>
+      <translation type="obsolete">%1 packets</translation>
     </message>
   </context>
   <context>
@@ -4527,319 +4524,444 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/Settings.qml" line="20"/>
       <source>Settings - iDescriptor</source>
-      <translation type="unfinished">Settings - iDescriptor</translation>
+      <translation>Asetukset - iDescriptor</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="175"/>
+      <location filename="../src/ui/Settings.qml" line="190"/>
       <source>Settings applied. Please restart the application for changes to take effect.</source>
-      <translation type="unfinished">Settings applied. Please restart the application for changes to take effect.</translation>
+      <translation>Asetukset käytössä. Käynnistä sovellus uudelleen, jotta muutokset tulevat voimaan.</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="176"/>
+      <location filename="../src/ui/Settings.qml" line="191"/>
       <source>Settings applied.</source>
-      <translation type="unfinished">Settings applied.</translation>
+      <translation>Asetukset käytössä.</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="200"/>
+      <location filename="../src/ui/Settings.qml" line="215"/>
       <source>Select Download Directory</source>
-      <translation type="unfinished">Select Download Directory</translation>
+      <translation>Valitse Lataa hakemisto</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="209"/>
+      <location filename="../src/ui/Settings.qml" line="224"/>
       <source>Select Backup Directory</source>
-      <translation type="unfinished">Select Backup Directory</translation>
-    </message>
-    <message>
-      <location filename="../src/ui/Settings.qml" line="218"/>
-      <source>Select IPA Download Directory</source>
-      <translation type="unfinished">Select IPA Download Directory</translation>
-    </message>
-    <message>
-      <location filename="../src/ui/Settings.qml" line="227"/>
-      <source>Settings</source>
-      <translation type="unfinished">Settings</translation>
-    </message>
-    <message>
-      <location filename="../src/ui/Settings.qml" line="232"/>
-      <location filename="../src/ui/Settings.qml" line="732"/>
-      <source>Reset Settings</source>
-      <translation type="unfinished">Reset Settings</translation>
+      <translation>Valitse Varmuuskopiointihakemisto</translation>
     </message>
     <message>
       <location filename="../src/ui/Settings.qml" line="233"/>
+      <source>Select IPA Download Directory</source>
+      <translation>Valitse IPA lataushakemisto</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="242"/>
+      <source>Settings</source>
+      <translation>Asetukset</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="247"/>
+      <location filename="../src/ui/Settings.qml" line="773"/>
+      <source>Reset Settings</source>
+      <translation>Palauta asetukset</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="248"/>
       <source>Are you sure you want to reset all settings to their default values?</source>
-      <translation type="unfinished">Are you sure you want to reset all settings to their default values?</translation>
+      <translation>Haluatko varmasti palauttaa kaikki asetukset oletusarvoihinsa?</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="261"/>
+      <location filename="../src/ui/Settings.qml" line="276"/>
       <source>General</source>
-      <translation type="unfinished">General</translation>
+      <translation>Kenraali</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="268"/>
+      <location filename="../src/ui/Settings.qml" line="283"/>
       <source>Developer Disk Image Path</source>
-      <translation type="unfinished">Developer Disk Image Path</translation>
+      <translation>Kehittäjälevyn kuvan polku</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="280"/>
-      <location filename="../src/ui/Settings.qml" line="302"/>
-      <location filename="../src/ui/Settings.qml" line="324"/>
+      <location filename="../src/ui/Settings.qml" line="295"/>
+      <location filename="../src/ui/Settings.qml" line="317"/>
+      <location filename="../src/ui/Settings.qml" line="339"/>
       <source>Browse</source>
-      <translation type="unfinished">Browse</translation>
+      <translation>Selaa</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="290"/>
+      <location filename="../src/ui/Settings.qml" line="305"/>
       <source>IPA Download Path</source>
-      <translation type="unfinished">IPA Download Path</translation>
+      <translation>IPA Latauspolku</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="312"/>
+      <location filename="../src/ui/Settings.qml" line="327"/>
       <source>Backup Path</source>
-      <translation type="unfinished">Backup Path</translation>
+      <translation>Varapolku</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="334"/>
+      <location filename="../src/ui/Settings.qml" line="349"/>
       <source>Wireless File Server Port</source>
-      <translation type="unfinished">Wireless File Server Port</translation>
+      <translation>Langattoman tiedostopalvelimen portti</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="348"/>
+      <location filename="../src/ui/Settings.qml" line="363"/>
       <source>The starting port for the wireless file server. If this port is unavailable, it will try the next 10 ports.</source>
-      <translation type="unfinished">The starting port for the wireless file server. If this port is unavailable, it will try the next 10 ports.</translation>
+      <translation>Langattoman tiedostopalvelimen aloitusportti. Jos tämä portti ei ole käytettävissä, se yrittää seuraavaa 10 porttia.</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="368"/>
+      <location filename="../src/ui/Settings.qml" line="383"/>
       <source>Unmount iFuse drives on exit</source>
-      <translation type="unfinished">Unmount iFuse drives on exit</translation>
+      <translation>Irrota iFuse-asemat poistuessasi</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="378"/>
+      <location filename="../src/ui/Settings.qml" line="393"/>
       <source>Automatically check for updates</source>
-      <translation type="unfinished">Automatically check for updates</translation>
+      <translation>Tarkista päivitykset automaattisesti</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="391"/>
+      <location filename="../src/ui/Settings.qml" line="406"/>
       <source>Gallery backend</source>
-      <translation type="unfinished">Gallery backend</translation>
+      <translation>Gallerian taustaohjelma</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="398"/>
+      <location filename="../src/ui/Settings.qml" line="413"/>
       <source>Filesystem (AFC)</source>
-      <translation type="unfinished">Filesystem (AFC)</translation>
+      <translation>Tiedostojärjestelmä (AFC)</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="399"/>
+      <location filename="../src/ui/Settings.qml" line="414"/>
       <source>SQLite</source>
-      <translation type="unfinished">SQLite</translation>
+      <translation>SQLite</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="400"/>
+      <location filename="../src/ui/Settings.qml" line="415"/>
       <source>SQLite through VFS</source>
-      <translation type="unfinished">SQLite through VFS</translation>
+      <translation>SQLite VFS:n kautta</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="404"/>
+      <location filename="../src/ui/Settings.qml" line="419"/>
       <source>Choose how gallery albums are loaded from the device.</source>
-      <translation type="unfinished">Choose how gallery albums are loaded from the device.</translation>
+      <translation>Valitse, miten galleria-albumit ladataan laitteesta.</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="417"/>
+      <location filename="../src/ui/Settings.qml" line="432"/>
       <source>Language</source>
-      <translation type="unfinished">Language</translation>
+      <translation>Kieli</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="425"/>
+      <location filename="../src/ui/Settings.qml" line="440"/>
       <source>English</source>
-      <translation type="unfinished">English</translation>
+      <translation>englanti</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="426"/>
+      <location filename="../src/ui/Settings.qml" line="451"/>
       <source>German</source>
-      <translation type="unfinished">German</translation>
+      <translation>saksaksi</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="427"/>
+      <location filename="../src/ui/Settings.qml" line="444"/>
       <source>Chinese (Simplified)</source>
-      <translation type="unfinished">Chinese (Simplified)</translation>
-    </message>
-    <message>
-      <location filename="../src/ui/Settings.qml" line="435"/>
-      <source>Chinese (Traditional)</source>
-      <translation type="unfinished">Chinese (Traditional)</translation>
+      <translation>kiina (yksinkertaistettu)</translation>
     </message>
     <message>
       <location filename="../src/ui/Settings.qml" line="441"/>
-      <source>Appearance</source>
-      <translation type="unfinished">Appearance</translation>
+      <source>Afrikaans</source>
+      <translation>afrikaans</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="442"/>
+      <source>Arabic</source>
+      <translation>arabia</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="443"/>
+      <source>Catalan</source>
+      <translation>katalaani</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="445"/>
+      <source>Chinese (Traditional)</source>
+      <translation>kiina (perinteinen)</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="446"/>
+      <source>Czech</source>
+      <translation>Tšekki</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="447"/>
+      <source>Danish</source>
+      <translation>tanskalainen</translation>
     </message>
     <message>
       <location filename="../src/ui/Settings.qml" line="448"/>
-      <source>Theme</source>
-      <translation type="unfinished">Theme</translation>
+      <source>Dutch</source>
+      <translation>hollantilainen</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="449"/>
+      <source>Finnish</source>
+      <translation>suomalainen</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="450"/>
+      <source>French</source>
+      <translation>ranskalainen</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="452"/>
+      <source>Greek</source>
+      <translation>kreikkalainen</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="453"/>
+      <source>Hebrew</source>
+      <translation>heprea</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="454"/>
+      <source>Hungarian</source>
+      <translation>Unkari</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="455"/>
+      <source>Italian</source>
+      <translation>italialainen</translation>
     </message>
     <message>
       <location filename="../src/ui/Settings.qml" line="456"/>
-      <source>System Default</source>
-      <translation type="unfinished">System Default</translation>
+      <source>Japanese</source>
+      <translation>japanilainen</translation>
     </message>
     <message>
       <location filename="../src/ui/Settings.qml" line="457"/>
-      <source>Light</source>
-      <translation type="unfinished">Light</translation>
+      <source>Korean</source>
+      <translation>korealainen</translation>
     </message>
     <message>
       <location filename="../src/ui/Settings.qml" line="458"/>
-      <source>Dark</source>
-      <translation type="unfinished">Dark</translation>
+      <source>Norwegian</source>
+      <translation>norjalainen</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="473"/>
-      <source>Use custom window frame</source>
-      <translation type="unfinished">Use custom window frame</translation>
+      <location filename="../src/ui/Settings.qml" line="459"/>
+      <source>Polish</source>
+      <translation>puolalainen</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="476"/>
-      <source>Use a custom Linux window frame instead of default.</source>
-      <translation type="unfinished">Use a custom Linux window frame instead of default.</translation>
+      <location filename="../src/ui/Settings.qml" line="460"/>
+      <source>Portuguese (Brazil)</source>
+      <translation>portugali (Brasilia)</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="461"/>
+      <source>Romanian</source>
+      <translation>romanialainen</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="462"/>
+      <source>Russian</source>
+      <translation>venäjäksi</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="463"/>
+      <source>Serbian</source>
+      <translation>serbia</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="464"/>
+      <source>Spanish</source>
+      <translation>espanja</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="465"/>
+      <source>Swedish</source>
+      <translation>ruotsinkielinen</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="466"/>
+      <source>Turkish</source>
+      <translation>turkkilainen</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="467"/>
+      <source>Ukrainian</source>
+      <translation>ukrainalainen</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="468"/>
+      <source>Vietnamese</source>
+      <translation>vietnamilainen</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="482"/>
+      <source>Appearance</source>
+      <translation>Ulkonäkö</translation>
     </message>
     <message>
       <location filename="../src/ui/Settings.qml" line="489"/>
-      <source>Window Effect</source>
-      <translation type="unfinished">Window Effect</translation>
+      <source>Theme</source>
+      <translation>Teema</translation>
     </message>
     <message>
       <location filename="../src/ui/Settings.qml" line="497"/>
-      <source>Normal</source>
-      <translation type="unfinished">Normal</translation>
+      <source>System Default</source>
+      <translation>Järjestelmän oletusarvo</translation>
     </message>
     <message>
       <location filename="../src/ui/Settings.qml" line="498"/>
-      <source>Acrylic</source>
-      <translation type="unfinished">Acrylic</translation>
+      <source>Light</source>
+      <translation>Kevyt</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="513"/>
-      <source>Device Connection</source>
-      <translation type="unfinished">Device Connection</translation>
+      <location filename="../src/ui/Settings.qml" line="499"/>
+      <source>Dark</source>
+      <translation>Tumma</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="514"/>
+      <source>Use custom window frame</source>
+      <translation>Käytä mukautettua ikkunakehystä</translation>
     </message>
     <message>
       <location filename="../src/ui/Settings.qml" line="517"/>
+      <source>Use a custom Linux window frame instead of default.</source>
+      <translation>Käytä mukautettua Linux-ikkunakehystä oletuksen sijaan.</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="530"/>
+      <source>Window Effect</source>
+      <translation>Ikkunatehoste</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="538"/>
+      <source>Normal</source>
+      <translation>Normaali</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="539"/>
+      <source>Acrylic</source>
+      <translation>Akryyli</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="554"/>
+      <source>Device Connection</source>
+      <translation>Laiteyhteys</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="558"/>
       <source>Auto-raise main window on device connection</source>
-      <translation type="unfinished">Auto-raise main window on device connection</translation>
+      <translation>Nosta automaattisesti pääikkuna laitteen yhteydessä</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="527"/>
+      <location filename="../src/ui/Settings.qml" line="568"/>
       <source>Switch to newly connected device</source>
-      <translation type="unfinished">Switch to newly connected device</translation>
+      <translation>Vaihda äskettäin yhdistettyyn laitteeseen</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="537"/>
+      <location filename="../src/ui/Settings.qml" line="578"/>
       <source>Automatically enable Wi-Fi connections</source>
-      <translation type="unfinished">Automatically enable Wi-Fi connections</translation>
+      <translation>Ota Wi-Fi-liitännät automaattisesti käyttöön</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="547"/>
+      <location filename="../src/ui/Settings.qml" line="588"/>
       <source>Automatically connect to wireless devices</source>
-      <translation type="unfinished">Automatically connect to wireless devices</translation>
+      <translation>Yhdistä automaattisesti langattomiin laitteisiin</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="557"/>
+      <location filename="../src/ui/Settings.qml" line="598"/>
       <source>Upgrade to wireless on disconnect</source>
-      <translation type="unfinished">Upgrade to wireless on disconnect</translation>
+      <translation>Päivitä langattomaksi yhteyden katketessa</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="560"/>
+      <location filename="../src/ui/Settings.qml" line="601"/>
       <source>When a USB-connected device disconnects, reconnect to it over Wi-Fi when it is available.</source>
-      <translation type="unfinished">When a USB-connected device disconnects, reconnect to it over Wi-Fi when it is available.</translation>
+      <translation>Kun USB-liitetyn laitteen yhteys katkeaa, yhdistä se uudelleen Wi-Fi:n kautta, kun se on saatavilla.</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="572"/>
+      <location filename="../src/ui/Settings.qml" line="613"/>
       <source>Connection Timeout</source>
-      <translation type="unfinished">Connection Timeout</translation>
-    </message>
-    <message>
-      <location filename="../src/ui/Settings.qml" line="580"/>
-      <source> seconds</source>
-      <translation type="unfinished"> seconds</translation>
-    </message>
-    <message>
-      <location filename="../src/ui/Settings.qml" line="593"/>
-      <source>Jailbroken</source>
-      <translation type="unfinished">Jailbroken</translation>
-    </message>
-    <message>
-      <location filename="../src/ui/Settings.qml" line="600"/>
-      <source>Default Root Password</source>
-      <translation type="unfinished">Default Root Password</translation>
-    </message>
-    <message>
-      <location filename="../src/ui/Settings.qml" line="609"/>
-      <source>Default password used for SSH root authentication on jailbroken devices. Default is &apos;alpine&apos;.</source>
-      <translation type="unfinished">Default password used for SSH root authentication on jailbroken devices. Default is &apos;alpine&apos;.</translation>
+      <translation>Yhteyden aikakatkaisu</translation>
     </message>
     <message>
       <location filename="../src/ui/Settings.qml" line="621"/>
-      <source>AirPlay</source>
-      <translation type="unfinished">AirPlay</translation>
+      <source> seconds</source>
+      <translation> sekuntia</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="628"/>
-      <source>Fps</source>
-      <translation type="unfinished">Fps</translation>
+      <location filename="../src/ui/Settings.qml" line="634"/>
+      <source>Jailbroken</source>
+      <translation>Jailbroked</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="636"/>
-      <source>Set the fps for AirPlay. Go with 30 fps if you have an older device.</source>
-      <translation type="unfinished">Set the fps for AirPlay. Go with 30 fps if you have an older device.</translation>
+      <location filename="../src/ui/Settings.qml" line="641"/>
+      <source>Default Root Password</source>
+      <translation>Oletusjuurisalasana</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="648"/>
-      <source>Allow New Connections to Take Over</source>
-      <translation type="unfinished">Allow New Connections to Take Over</translation>
-    </message>
-    <message>
-      <location filename="../src/ui/Settings.qml" line="659"/>
-      <source>Use legacy ports</source>
-      <translation type="unfinished">Use legacy ports</translation>
+      <location filename="../src/ui/Settings.qml" line="650"/>
+      <source>Default password used for SSH root authentication on jailbroken devices. Default is &apos;alpine&apos;.</source>
+      <translation>Oletussalasana, jota käytetään SSH-pääkäyttäjän todennukseen jailbreak-tuneissa laitteissa. Oletus on "alppi".</translation>
     </message>
     <message>
       <location filename="../src/ui/Settings.qml" line="662"/>
+      <source>AirPlay</source>
+      <translation>AirPlay</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="669"/>
+      <source>Fps</source>
+      <translation>Fps</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="677"/>
+      <source>Set the fps for AirPlay. Go with 30 fps if you have an older device.</source>
+      <translation>Aseta fps:lle AirPlay. Valitse 30 fps, jos sinulla on vanhempi laite.</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="689"/>
+      <source>Allow New Connections to Take Over</source>
+      <translation>Anna uusien yhteyksien ottaa haltuunsa</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="700"/>
+      <source>Use legacy ports</source>
+      <translation>Käytä vanhoja portteja</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/Settings.qml" line="703"/>
       <source>Use legacy ports, refer to AIRPLAY.md for more information.</source>
-      <translation type="unfinished">Use legacy ports, refer to AIRPLAY.md for more information.</translation>
+      <translation>Käytä vanhoja portteja, katso lisätietoja osoitteesta AIRPLAY.md.</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="672"/>
+      <location filename="../src/ui/Settings.qml" line="713"/>
       <source>Show V4L2 Button on AirPlay Widget</source>
-      <translation type="unfinished">Show V4L2 Button on AirPlay Widget</translation>
+      <translation>Näytä V4L2-painike AirPlay-widgetissä</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="688"/>
+      <location filename="../src/ui/Settings.qml" line="729"/>
       <source>iDescriptor</source>
-      <translation type="unfinished">iDescriptor</translation>
+      <translation>iDescriptor</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="695"/>
+      <location filename="../src/ui/Settings.qml" line="736"/>
       <source>Version %1 · %2</source>
-      <translation type="unfinished">Version %1 · %2</translation>
+      <translation>Versio %1 · %2</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="706"/>
+      <location filename="../src/ui/Settings.qml" line="747"/>
       <source>A free, open-source, cross-platform iDevice management tool.
 
 © 2026 Uncore &lt;https://github.com/uncor3&gt; and iDescriptor contributors</source>
-      <translation type="unfinished">A free, open-source, cross-platform iDevice management tool.
+      <translation>Ilmainen avoimen lähdekoodin monikäyttöinen iDevice-hallintatyökalu.
 
-© 2026 Uncore &lt;https://github.com/uncor3&gt; and iDescriptor contributors</translation>
+© 2026 Uncore &lt;https://github.com/uncor3&gt; ja iDescriptor avustajat</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="727"/>
+      <location filename="../src/ui/Settings.qml" line="768"/>
       <source>Check for Updates</source>
-      <translation type="unfinished">Check for Updates</translation>
+      <translation>Tarkista päivitykset</translation>
     </message>
     <message>
-      <location filename="../src/ui/Settings.qml" line="739"/>
+      <location filename="../src/ui/Settings.qml" line="780"/>
       <source>Apply</source>
-      <translation type="unfinished">Apply</translation>
+      <translation>Käytä</translation>
     </message>
   </context>
   <context>
@@ -4847,42 +4969,42 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/SidebarFooter.qml" line="53"/>
       <source>v%1</source>
-      <translation type="unfinished">v%1</translation>
+      <translation>v%1</translation>
     </message>
     <message>
       <location filename="../src/ui/SidebarFooter.qml" line="86"/>
       <source>Unmount Failed</source>
-      <translation type="unfinished">Unmount Failed</translation>
+      <translation>Irrottaminen epäonnistui</translation>
     </message>
     <message>
       <location filename="../src/ui/SidebarFooter.qml" line="87"/>
       <source>Failed to unmount iFuse at %1. Please try again. %2</source>
-      <translation type="unfinished">Failed to unmount iFuse at %1. Please try again. %2</translation>
+      <translation>iFuse:n irrotus epäonnistui kohdassa %1. Yritä uudelleen. %2</translation>
     </message>
     <message>
       <location filename="../src/ui/SidebarFooter.qml" line="106"/>
       <source>Unmounting iFuse at %1…</source>
-      <translation type="unfinished">Unmounting iFuse at %1…</translation>
+      <translation>iFuse:n irrottaminen paikassa %1…</translation>
     </message>
     <message>
       <location filename="../src/ui/SidebarFooter.qml" line="107"/>
       <source>Unmount iFuse at %1</source>
-      <translation type="unfinished">Unmount iFuse at %1</translation>
+      <translation>Irrota iFuse kohdassa %1</translation>
     </message>
     <message>
       <location filename="../src/ui/SidebarFooter.qml" line="122"/>
       <source>Activity</source>
-      <translation type="unfinished">Activity</translation>
+      <translation>Toiminta</translation>
     </message>
     <message>
       <location filename="../src/ui/SidebarFooter.qml" line="135"/>
       <source>Open project on GitHub</source>
-      <translation type="unfinished">Open project on GitHub</translation>
+      <translation>Avaa projekti GitHubissa</translation>
     </message>
     <message>
       <location filename="../src/ui/SidebarFooter.qml" line="144"/>
       <source>Settings</source>
-      <translation type="unfinished">Settings</translation>
+      <translation>Asetukset</translation>
     </message>
   </context>
   <context>
@@ -4890,7 +5012,7 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/SidebarToggleButton.qml" line="21"/>
       <source>Toggle sidebar</source>
-      <translation type="unfinished">Toggle sidebar</translation>
+      <translation>Vaihda sivupalkki</translation>
     </message>
   </context>
   <context>
@@ -4898,128 +5020,128 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="18"/>
       <source>Simulate Location - iDescriptor</source>
-      <translation type="unfinished">Simulate Location - iDescriptor</translation>
+      <translation>Simulointisijainti - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="37"/>
       <source>Developer Mode preparation did not complete. Location simulation was not changed.</source>
-      <translation type="unfinished">Developer Mode preparation did not complete. Location simulation was not changed.</translation>
+      <translation>Kehittäjätilan valmistelu ei ole valmis. Sijaintisimulaatiota ei muutettu.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="73"/>
       <source>Please enter a latitude between −90 and 90 and a longitude between −180 and 180.</source>
-      <translation type="unfinished">Please enter a latitude between −90 and 90 and a longitude between −180 and 180.</translation>
+      <translation>Anna leveysaste välillä −90 ja 90 ja pituusaste välillä −180 ja 180.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="106"/>
       <source>Reset Simulated Location?</source>
-      <translation type="unfinished">Reset Simulated Location?</translation>
+      <translation>Nollataanko simuloitu sijainti?</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="107"/>
       <source>This will clear the simulated location and return the device to the location it determines normally. Do you want to continue?</source>
-      <translation type="unfinished">This will clear the simulated location and return the device to the location it determines normally. Do you want to continue?</translation>
+      <translation>Tämä tyhjentää simuloidun sijainnin ja palauttaa laitteen normaalisti määrittelemäänsä sijaintiin. Haluatko jatkaa?</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="147"/>
       <source>The simulated location was applied successfully.</source>
-      <translation type="unfinished">The simulated location was applied successfully.</translation>
+      <translation>Simuloitu sijainti otettiin käyttöön onnistuneesti.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="149"/>
       <source>Location simulation was reset successfully.</source>
-      <translation type="unfinished">Location simulation was reset successfully.</translation>
+      <translation>Sijaintisimulaatio nollattiin onnistuneesti.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="156"/>
       <source>Developer Mode is still not available. Error code: %1</source>
-      <translation type="unfinished">Developer Mode is still not available. Error code: %1</translation>
+      <translation>Kehittäjätila ei ole vieläkään käytettävissä. Virhekoodi: %1</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="167"/>
       <source>The location request timed out. Please verify the device connection and try again.</source>
-      <translation type="unfinished">The location request timed out. Please verify the device connection and try again.</translation>
+      <translation>Sijaintipyyntö aikakatkaistiin. Tarkista laitteen yhteys ja yritä uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="171"/>
       <source>Failed to update location simulation. Error code: %1</source>
-      <translation type="unfinished">Failed to update location simulation. Error code: %1</translation>
+      <translation>Sijaintisimuloinnin päivittäminen epäonnistui. Virhekoodi: %1</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="320"/>
       <source>The map could not be loaded: %1</source>
-      <translation type="unfinished">The map could not be loaded: %1</translation>
+      <translation>Karttaa ei voitu ladata: %1</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="360"/>
       <source>Simulated Location</source>
-      <translation type="unfinished">Simulated Location</translation>
+      <translation>Simuloitu sijainti</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="369"/>
       <source>Choose a point on the map or enter precise coordinates.</source>
-      <translation type="unfinished">Choose a point on the map or enter precise coordinates.</translation>
+      <translation>Valitse piste kartalta tai anna tarkat koordinaatit.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="376"/>
       <source>Coordinates</source>
-      <translation type="unfinished">Coordinates</translation>
+      <translation>Koordinaatit</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="395"/>
       <source>Latitude</source>
-      <translation type="unfinished">Latitude</translation>
+      <translation>Leveysaste</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="424"/>
       <source>Longitude</source>
-      <translation type="unfinished">Longitude</translation>
+      <translation>Pituusaste</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="462"/>
       <source>Applying…</source>
-      <translation type="unfinished">Applying…</translation>
+      <translation>Haetaan…</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="462"/>
       <source>Apply</source>
-      <translation type="unfinished">Apply</translation>
+      <translation>Käytä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="487"/>
       <source>Resetting…</source>
-      <translation type="unfinished">Resetting…</translation>
+      <translation>Nollataan…</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="487"/>
       <source>Reset</source>
-      <translation type="unfinished">Reset</translation>
+      <translation>Nollaa</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="493"/>
       <source>Clear the simulated location and return the device to its original location.</source>
-      <translation type="unfinished">Clear the simulated location and return the device to its original location.</translation>
+      <translation>Tyhjennä simuloitu sijainti ja palauta laite alkuperäiseen sijaintiinsa.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="534"/>
       <source>Recent Locations</source>
-      <translation type="unfinished">Recent Locations</translation>
+      <translation>Viimeaikaiset paikat</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="564"/>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="655"/>
       <source>›</source>
-      <translation type="unfinished">›</translation>
+      <translation>›</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="618"/>
       <source>Locations you use will appear here.</source>
-      <translation type="unfinished">Locations you use will appear here.</translation>
+      <translation>Käyttämäsi sijainnit näkyvät tässä.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/SimulateLocation.qml" line="634"/>
       <source>%1, %2</source>
-      <translation type="unfinished">%1, %2</translation>
+      <translation>%1, %2</translation>
     </message>
   </context>
   <context>
@@ -5027,12 +5149,12 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/app-store/SponsorItem.qml" line="105"/>
       <source>Install App</source>
-      <translation type="unfinished">Install App</translation>
+      <translation>Asenna sovellus</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/SponsorItem.qml" line="113"/>
       <source>Visit website →</source>
-      <translation type="unfinished">Visit website →</translation>
+      <translation>Vieraile verkkosivulla →</translation>
     </message>
   </context>
   <context>
@@ -5040,17 +5162,17 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/app-store/SponsorUs.qml" line="31"/>
       <source>Sponsor Us!</source>
-      <translation type="unfinished">Sponsor Us!</translation>
+      <translation>Sponsoroi meitä!</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/SponsorUs.qml" line="40"/>
       <source>Support development and feature requests while becoming our first featured sponsor.</source>
-      <translation type="unfinished">Support development and feature requests while becoming our first featured sponsor.</translation>
+      <translation>Tue kehitystä ja ominaisuuspyyntöjä samalla kun sinusta tulee ensimmäinen sponsori.</translation>
     </message>
     <message>
       <location filename="../src/ui/app-store/SponsorUs.qml" line="52"/>
       <source>Sponsor us</source>
-      <translation type="unfinished">Sponsor us</translation>
+      <translation>Sponsoroi meitä</translation>
     </message>
   </context>
   <context>
@@ -5058,17 +5180,17 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/SponsorUsDialog.qml" line="52"/>
       <source>Sponsor iDescriptor</source>
-      <translation type="unfinished">Sponsor iDescriptor</translation>
+      <translation>Sponsori iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/SponsorUsDialog.qml" line="61"/>
       <source>Your support helps fund ongoing development, testing, and the features the community cares about most.</source>
-      <translation type="unfinished">Your support helps fund ongoing development, testing, and the features the community cares about most.</translation>
+      <translation>Tukesi auttaa rahoittamaan jatkuvaa kehitystä, testausta ja ominaisuuksia, joista yhteisö välittää eniten.</translation>
     </message>
     <message>
       <location filename="../src/ui/SponsorUsDialog.qml" line="81"/>
       <source>Maybe later</source>
-      <translation type="unfinished">Maybe later</translation>
+      <translation>Ehkä myöhemmin</translation>
     </message>
   </context>
   <context>
@@ -5076,17 +5198,17 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/base/StateView.qml" line="20"/>
       <source>Something went wrong.</source>
-      <translation type="unfinished">Something went wrong.</translation>
+      <translation>Jotain meni pieleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/base/StateView.qml" line="23"/>
       <source>Retry</source>
-      <translation type="unfinished">Retry</translation>
+      <translation>Yritä uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/base/StateView.qml" line="24"/>
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Peruuta</translation>
     </message>
   </context>
   <context>
@@ -5094,7 +5216,7 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/StatusWindow.qml" line="134"/>
       <source>Export &amp; Import processes will appear here</source>
-      <translation type="unfinished">Export &amp; Import processes will appear here</translation>
+      <translation>Vienti- ja tuontiprosessit näkyvät täällä</translation>
     </message>
   </context>
   <context>
@@ -5102,52 +5224,52 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/StatusWindowProcess.qml" line="96"/>
       <source>Starting...</source>
-      <translation type="unfinished">Starting...</translation>
+      <translation>Aloitetaan...</translation>
     </message>
     <message>
       <location filename="../src/ui/StatusWindowProcess.qml" line="96"/>
       <source>Running</source>
-      <translation type="unfinished">Running</translation>
+      <translation>Juoksemassa</translation>
     </message>
     <message>
       <location filename="../src/ui/StatusWindowProcess.qml" line="97"/>
       <source>Completed successfully</source>
-      <translation type="unfinished">Completed successfully</translation>
+      <translation>Suoritettu onnistuneesti</translation>
     </message>
     <message>
       <location filename="../src/ui/StatusWindowProcess.qml" line="98"/>
       <source>Failed</source>
-      <translation type="unfinished">Failed</translation>
+      <translation>Epäonnistui</translation>
     </message>
     <message>
       <location filename="../src/ui/StatusWindowProcess.qml" line="99"/>
       <source>Cancelled</source>
-      <translation type="unfinished">Cancelled</translation>
+      <translation>Peruutettu</translation>
     </message>
     <message>
       <location filename="../src/ui/StatusWindowProcess.qml" line="149"/>
       <source>Open Folder</source>
-      <translation type="unfinished">Open Folder</translation>
+      <translation>Avaa kansio</translation>
     </message>
     <message>
       <location filename="../src/ui/StatusWindowProcess.qml" line="179"/>
       <source>Cancelling...</source>
-      <translation type="unfinished">Cancelling...</translation>
+      <translation>Perutaan...</translation>
     </message>
     <message>
       <location filename="../src/ui/StatusWindowProcess.qml" line="180"/>
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Peruuta</translation>
     </message>
     <message>
       <location filename="../src/ui/StatusWindowProcess.qml" line="219"/>
       <source>%1 of %2 items</source>
-      <translation type="unfinished">%1 of %2 items</translation>
+      <translation>%1 %2-tuotteista</translation>
     </message>
     <message>
       <location filename="../src/ui/StatusWindowProcess.qml" line="222"/>
       <source>%1 failed</source>
-      <translation type="unfinished">%1 failed</translation>
+      <translation>%1 epäonnistui</translation>
     </message>
   </context>
   <context>
@@ -5155,377 +5277,377 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="19"/>
       <source>Error</source>
-      <translation type="unfinished">Error</translation>
+      <translation>Virhe</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="25"/>
       <source>Information</source>
-      <translation type="unfinished">Information</translation>
+      <translation>Tietoja</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="66"/>
       <location filename="../src/ui/Toolbox.qml" line="150"/>
       <source>The selected device is no longer connected.</source>
-      <translation type="unfinished">The selected device is no longer connected.</translation>
+      <translation>Valittu laite ei ole enää yhteydessä.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="74"/>
       <source>Restart Device</source>
-      <translation type="unfinished">Restart Device</translation>
+      <translation>Käynnistä laite uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="75"/>
       <source>Are you sure you want to restart this device?</source>
-      <translation type="unfinished">Are you sure you want to restart this device?</translation>
+      <translation>Haluatko varmasti käynnistää tämän laitteen uudelleen?</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="82"/>
       <source>Shut Down Device</source>
-      <translation type="unfinished">Shut Down Device</translation>
+      <translation>Sammuta laite</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="83"/>
       <source>Are you sure you want to shut down this device?</source>
-      <translation type="unfinished">Are you sure you want to shut down this device?</translation>
+      <translation>Haluatko varmasti sammuttaa tämän laitteen?</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="90"/>
       <source>Enter Recovery Mode</source>
-      <translation type="unfinished">Enter Recovery Mode</translation>
+      <translation>Siirry palautustilaan</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="91"/>
       <source>Are you sure you want to put this device into recovery mode?</source>
-      <translation type="unfinished">Are you sure you want to put this device into recovery mode?</translation>
+      <translation>Haluatko varmasti laittaa tämän laitteen palautustilaan?</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="98"/>
       <location filename="../src/ui/Toolbox.qml" line="627"/>
       <source>Unpair iDevice</source>
-      <translation type="unfinished">Unpair iDevice</translation>
+      <translation>Pura pariliitos iDevice</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="99"/>
       <source>Are you sure you want to unpair this device? You will need to trust and pair it again before reconnecting.</source>
-      <translation type="unfinished">Are you sure you want to unpair this device? You will need to trust and pair it again before reconnecting.</translation>
+      <translation>Haluatko varmasti purkaa tämän laitteen pariliitoksen? Sinun on luotettava siihen ja muodostettava laitepari uudelleen ennen yhteyden muodostamista.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="106"/>
       <location filename="../src/ui/Toolbox.qml" line="635"/>
       <source>Unpair and Remove iDevice</source>
-      <translation type="unfinished">Unpair and Remove iDevice</translation>
+      <translation>Pura pariliitos ja poista iDevice</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="107"/>
       <source>Are you sure you want to unpair this device and remove it from iDescriptor? You will need to trust and pair it again before reconnecting.</source>
-      <translation type="unfinished">Are you sure you want to unpair this device and remove it from iDescriptor? You will need to trust and pair it again before reconnecting.</translation>
+      <translation>Haluatko varmasti purkaa tämän laitteen pariliitoksen ja poistaa sen iDescriptor:sta? Sinun on luotettava siihen ja muodostettava laitepari uudelleen ennen yhteyden muodostamista.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="112"/>
       <location filename="../src/ui/Toolbox.qml" line="169"/>
       <source>Unknown device action.</source>
-      <translation type="unfinished">Unknown device action.</translation>
+      <translation>Tuntematon laitetoiminto.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="118"/>
       <source>An unpair operation is already in progress for this device.</source>
-      <translation type="unfinished">An unpair operation is already in progress for this device.</translation>
+      <translation>Tämän laitteen pariliitoksen purkaminen on jo käynnissä.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="129"/>
       <source>Failed to unpair the device: %1</source>
-      <translation type="unfinished">Failed to unpair the device: %1</translation>
+      <translation>Laitteen pariliitoksen purkaminen epäonnistui: %1</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="130"/>
       <source>Failed to unpair the device.</source>
-      <translation type="unfinished">Failed to unpair the device.</translation>
+      <translation>Laitteen pariliitoksen purkaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="134"/>
       <source>The device was unpaired successfully.</source>
-      <translation type="unfinished">The device was unpaired successfully.</translation>
+      <translation>Laitteen pariliitoksen purkaminen onnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="174"/>
       <source>Failed to send the command to the device. Make sure it is connected and unlocked.</source>
-      <translation type="unfinished">Failed to send the command to the device. Make sure it is connected and unlocked.</translation>
+      <translation>Komennon lähettäminen laitteeseen epäonnistui. Varmista, että se on kytketty ja avattu.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="176"/>
       <source>Action &apos;%1&apos; sent successfully.</source>
-      <translation type="unfinished">Action &apos;%1&apos; sent successfully.</translation>
+      <translation>Toiminto '%1' lähetetty onnistuneesti.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="242"/>
       <source>This tool is not available for wireless devices. Please connect your device via USB.</source>
-      <translation type="unfinished">This tool is not available for wireless devices. Please connect your device via USB.</translation>
+      <translation>Tämä työkalu ei ole saatavilla langattomille laitteille. Liitä laitteesi USB:n kautta.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="299"/>
       <source>Failed to load gst gl plugin, make sure you have QT_QPA_PLATFORM=xcb env var set</source>
-      <translation type="unfinished">Failed to load gst gl plugin, make sure you have QT_QPA_PLATFORM=xcb env var set</translation>
+      <translation>gst gl -laajennuksen lataaminen epäonnistui. Varmista, että sinulla on QT_QPA_PLATFORM=xcb env var set</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="302"/>
       <location filename="../src/ui/Toolbox.qml" line="305"/>
       <source>Failed to load gst gl plugin, make sure you can use OpenGL</source>
-      <translation type="unfinished">Failed to load gst gl plugin, make sure you can use OpenGL</translation>
+      <translation>gst gl -laajennuksen lataaminen epäonnistui. Varmista, että voit käyttää OpenGL:ää</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="308"/>
       <source>Failed to load gst gl plugin</source>
-      <translation type="unfinished">Failed to load gst gl plugin</translation>
+      <translation>gst gl -laajennuksen lataus epäonnistui</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="348"/>
       <source>Failed to load Developer Mode helper: %1</source>
-      <translation type="unfinished">Failed to load Developer Mode helper: %1</translation>
+      <translation>Kehittäjätilan apuohjelman lataaminen epäonnistui: %1</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="357"/>
       <source>Failed to create Developer Mode helper: %1</source>
-      <translation type="unfinished">Failed to create Developer Mode helper: %1</translation>
+      <translation>Kehittäjätilan apuohjelman luominen epäonnistui: %1</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="369"/>
       <source>Developer Mode is enabled on the selected device.</source>
-      <translation type="unfinished">Developer Mode is enabled on the selected device.</translation>
+      <translation>Kehittäjätila on käytössä valitussa laitteessa.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="370"/>
       <source>A developer disk image is mounted on the selected device.</source>
-      <translation type="unfinished">A developer disk image is mounted on the selected device.</translation>
+      <translation>Kehittäjälevykuva on asennettu valittuun laitteeseen.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="373"/>
       <source>Developer Mode was not enabled. Complete the steps on the device and try again.</source>
-      <translation type="unfinished">Developer Mode was not enabled. Complete the steps on the device and try again.</translation>
+      <translation>Kehittäjätilaa ei otettu käyttöön. Suorita laitteen vaiheet ja yritä uudelleen.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="374"/>
       <source>A developer disk image could not be mounted.</source>
-      <translation type="unfinished">A developer disk image could not be mounted.</translation>
+      <translation>Kehittäjälevykuvaa ei voitu liittää.</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="385"/>
       <source>Mount Developer Disk Image?</source>
-      <translation type="unfinished">Mount Developer Disk Image?</translation>
+      <translation>Kiinnitä kehittäjän levykuva?</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="386"/>
       <source>Check Developer Mode?</source>
-      <translation type="unfinished">Check Developer Mode?</translation>
+      <translation>Tarkistetaanko kehittäjätila?</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="388"/>
       <source>This tool will mount a developer disk image for you. Developer disk images are required to enable extra features on the device. Do you want to continue?</source>
-      <translation type="unfinished">This tool will mount a developer disk image for you. Developer disk images are required to enable extra features on the device. Do you want to continue?</translation>
+      <translation>Tämä työkalu asentaa kehittäjälevykuvan puolestasi. Kehittäjälevykuvat tarvitaan lisäominaisuuksien mahdollistamiseksi laitteessa. Haluatko jatkaa?</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="389"/>
       <source>This tool will check if Developer Mode is enabled on your device. Developer Mode is required to enable extra features on the device. Do you want to continue?</source>
-      <translation type="unfinished">This tool will check if Developer Mode is enabled on your device. Developer Mode is required to enable extra features on the device. Do you want to continue?</translation>
+      <translation>Tämä työkalu tarkistaa, onko kehittäjätila käytössä laitteessasi. Kehittäjätila tarvitaan lisäominaisuuksien käyttöönottoon laitteessa. Haluatko jatkaa?</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="486"/>
       <source>Airplayer</source>
-      <translation type="unfinished">Airplayer</translation>
+      <translation>Airplayer</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="487"/>
       <source>Cast your device screen</source>
-      <translation type="unfinished">Cast your device screen</translation>
+      <translation>Suoratoista laitteesi näyttö</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="494"/>
       <source>Simulate Location</source>
-      <translation type="unfinished">Simulate Location</translation>
+      <translation>Simuloi sijaintia</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="495"/>
       <source>Simulate GPS location on your device</source>
-      <translation type="unfinished">Simulate GPS location on your device</translation>
+      <translation>Simuloi GPS-sijaintia laitteellasi</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="502"/>
       <source>Live Screen</source>
-      <translation type="unfinished">Live Screen</translation>
+      <translation>Live-näyttö</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="503"/>
       <source>View device screen in real-time</source>
-      <translation type="unfinished">View device screen in real-time</translation>
+      <translation>Tarkastele laitteen näyttöä reaaliajassa</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="510"/>
       <source>Query Mobile Gestalt</source>
-      <translation type="unfinished">Query Mobile Gestalt</translation>
+      <translation>Kysely Mobile Gestalt</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="511"/>
       <source>Query device hardware information</source>
-      <translation type="unfinished">Query device hardware information</translation>
+      <translation>Kysele laitteen laitteistotietoja</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="518"/>
       <source>Dev Disk Images</source>
-      <translation type="unfinished">Dev Disk Images</translation>
+      <translation>Kehittäjälevykuvat</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="519"/>
       <source>Manage developer disk images</source>
-      <translation type="unfinished">Manage developer disk images</translation>
+      <translation>Hallitse kehittäjälevykuvia</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="526"/>
       <source>Wireless Gallery Import</source>
-      <translation type="unfinished">Wireless Gallery Import</translation>
+      <translation>Langattoman gallerian tuonti</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="527"/>
       <source>Import photos wirelessly to your iDevice (requires Shortcuts app)</source>
-      <translation type="unfinished">Import photos wirelessly to your iDevice (requires Shortcuts app)</translation>
+      <translation>Tuo valokuvat langattomasti iDevice-laitteeseen (vaatii Pikakuvakkeet-sovelluksen)</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="534"/>
       <source>iFuse Mount</source>
-      <translation type="unfinished">iFuse Mount</translation>
+      <translation>iFuse Kiinnitys</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="535"/>
       <source>Mount your iDevice&apos;s filesystem on your PC</source>
-      <translation type="unfinished">Mount your iDevice&apos;s filesystem on your PC</translation>
+      <translation>Asenna iDevice:n tiedostojärjestelmä tietokoneellesi</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="543"/>
       <source>Cable Info</source>
-      <translation type="unfinished">Cable Info</translation>
+      <translation>Kaapelin tiedot</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="544"/>
       <source>View detailed cable and connection info</source>
-      <translation type="unfinished">View detailed cable and connection info</translation>
+      <translation>Katso yksityiskohtaiset kaapeli- ja liitäntätiedot</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="551"/>
       <source>Detailed Battery Info</source>
-      <translation type="unfinished">Detailed Battery Info</translation>
+      <translation>Yksityiskohtaiset tiedot akusta</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="552"/>
       <source>View detailed battery health and capacity information</source>
-      <translation type="unfinished">View detailed battery health and capacity information</translation>
+      <translation>Tarkastele yksityiskohtaisia akun kunto- ja kapasiteettitietoja</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="559"/>
       <source>Network Devices</source>
-      <translation type="unfinished">Network Devices</translation>
+      <translation>Verkkolaitteet</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="560"/>
       <source>Discover and monitor devices on your network</source>
-      <translation type="unfinished">Discover and monitor devices on your network</translation>
+      <translation>Etsi ja valvo verkossasi olevia laitteita</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="567"/>
       <source>Backups</source>
-      <translation type="unfinished">Backups</translation>
+      <translation>Varmuuskopiot</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="568"/>
       <source>Back up and restore this device</source>
-      <translation type="unfinished">Back up and restore this device</translation>
+      <translation>Varmuuskopioi ja palauta tämä laite</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="575"/>
       <source>Transfer Speed Test</source>
-      <translation type="unfinished">Transfer Speed Test</translation>
+      <translation>Siirtonopeustesti</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="576"/>
       <source>Measure upload and download speed to this device</source>
-      <translation type="unfinished">Measure upload and download speed to this device</translation>
+      <translation>Mittaa tämän laitteen lataus- ja latausnopeus</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="586"/>
       <source>Enable Dev Mode</source>
-      <translation type="unfinished">Enable Dev Mode</translation>
+      <translation>Ota kehittäjätila käyttöön</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="587"/>
       <source>Check or enable Developer Mode on this device</source>
-      <translation type="unfinished">Check or enable Developer Mode on this device</translation>
+      <translation>Tarkista tai ota kehittäjätila käyttöön tässä laitteessa</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="594"/>
       <source>Restart</source>
-      <translation type="unfinished">Restart</translation>
+      <translation>Käynnistä uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="595"/>
       <source>Restart device services</source>
-      <translation type="unfinished">Restart device services</translation>
+      <translation>Käynnistä laitepalvelut uudelleen</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="602"/>
       <source>Shutdown</source>
-      <translation type="unfinished">Shutdown</translation>
+      <translation>Sammutus</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="603"/>
       <source>Shut down the device</source>
-      <translation type="unfinished">Shut down the device</translation>
+      <translation>Sammuta laite</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="610"/>
       <source>Recovery Mode</source>
-      <translation type="unfinished">Recovery Mode</translation>
+      <translation>Palautustila</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="611"/>
       <source>Enter device recovery mode</source>
-      <translation type="unfinished">Enter device recovery mode</translation>
+      <translation>Siirry laitteen palautustilaan</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="618"/>
       <source>Enable Wi-Fi Connections</source>
-      <translation type="unfinished">Enable Wi-Fi Connections</translation>
+      <translation>Ota Wi-Fi-yhteydet käyttöön</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="619"/>
       <source>Make device connectable via Wi-Fi</source>
-      <translation type="unfinished">Make device connectable via Wi-Fi</translation>
+      <translation>Tee laite yhdistettäväksi Wi-Fi:n kautta</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="628"/>
       <source>Remove this computer&apos;s trust relationship with the device</source>
-      <translation type="unfinished">Remove this computer&apos;s trust relationship with the device</translation>
+      <translation>Poista tämän tietokoneen luottamussuhde laitteeseen</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="636"/>
       <source>Unpair the device and remove it from iDescriptor</source>
-      <translation type="unfinished">Unpair the device and remove it from iDescriptor</translation>
+      <translation>Pura laitepari ja irrota se iDescriptor:sta</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="654"/>
       <source>Device:</source>
-      <translation type="unfinished">Device:</translation>
+      <translation>Laite:</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="664"/>
       <source>No device connected</source>
-      <translation type="unfinished">No device connected</translation>
+      <translation>Laitetta ei ole kytketty</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="696"/>
       <source>Tools</source>
-      <translation type="unfinished">Tools</translation>
+      <translation>Työkalut</translation>
     </message>
     <message>
       <location filename="../src/ui/Toolbox.qml" line="733"/>
       <source>More Tools</source>
-      <translation type="unfinished">More Tools</translation>
+      <translation>Lisää työkaluja</translation>
     </message>
   </context>
   <context>
@@ -5533,116 +5655,116 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="18"/>
       <source>Transfer Speed Test - iDescriptor</source>
-      <translation type="unfinished">Transfer Speed Test - iDescriptor</translation>
+      <translation>Siirtonopeustesti - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="42"/>
       <source>%1 MiB</source>
-      <translation type="unfinished">%1 MiB</translation>
+      <translation>%1 MiB</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="46"/>
       <source>%1 / %2</source>
-      <translation type="unfinished">%1 / %2</translation>
+      <translation>%1 / %2</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="56"/>
       <source>%1 Mbit/s</source>
-      <translation type="unfinished">%1 Mbit/s</translation>
+      <translation>%1 Mbit/s</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="62"/>
       <source>Select a supported payload size.</source>
-      <translation type="unfinished">Select a supported payload size.</translation>
+      <translation>Valitse tuettu hyötykuorman koko.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="64"/>
       <source>The device does not have enough free storage for this test.</source>
-      <translation type="unfinished">The device does not have enough free storage for this test.</translation>
+      <translation>Laitteessa ei ole tarpeeksi vapaata tallennustilaa tätä testiä varten.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="66"/>
       <source>The test finished, but its temporary file could not be removed.</source>
-      <translation type="unfinished">The test finished, but its temporary file could not be removed.</translation>
+      <translation>Testi on valmis, mutta sen väliaikaista tiedostoa ei voitu poistaa.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="68"/>
       <source>The transfer failed. Make sure the device is connected and unlocked.</source>
-      <translation type="unfinished">The transfer failed. Make sure the device is connected and unlocked.</translation>
+      <translation>Siirto epäonnistui. Varmista, että laite on yhdistetty ja avattu.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="70"/>
       <source>The transfer service is unavailable for this device.</source>
-      <translation type="unfinished">The transfer service is unavailable for this device.</translation>
+      <translation>Siirtopalvelu ei ole saatavilla tälle laitteelle.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="100"/>
       <source>Device Transfer Speed</source>
-      <translation type="unfinished">Device Transfer Speed</translation>
+      <translation>Laitteen siirtonopeus</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="109"/>
       <source>Measure upload and download speed over the current device connection.</source>
-      <translation type="unfinished">Measure upload and download speed over the current device connection.</translation>
+      <translation>Mittaa lataus- ja latausnopeus nykyisen laiteyhteyden kautta.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="117"/>
       <source>Payload size</source>
-      <translation type="unfinished">Payload size</translation>
+      <translation>Hyötykuorman koko</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="161"/>
       <source>32 MiB</source>
-      <translation type="unfinished">32 MiB</translation>
+      <translation>32 MiB</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="161"/>
       <source>128 MiB</source>
-      <translation type="unfinished">128 MiB</translation>
+      <translation>128 MiB</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="161"/>
       <source>512 MiB</source>
-      <translation type="unfinished">512 MiB</translation>
+      <translation>512 MiB</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="231"/>
       <source>Uploading…</source>
-      <translation type="unfinished">Uploading…</translation>
+      <translation>Ladataan…</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="232"/>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="355"/>
       <source>Upload</source>
-      <translation type="unfinished">Upload</translation>
+      <translation>Lataa</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="265"/>
       <source>Downloading…</source>
-      <translation type="unfinished">Downloading…</translation>
+      <translation>Ladataan…</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="266"/>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="394"/>
       <source>Download</source>
-      <translation type="unfinished">Download</translation>
+      <translation>Lataa</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="329"/>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="374"/>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="413"/>
       <source>MiB/s</source>
-      <translation type="unfinished">MiB/s</translation>
+      <translation>MiB/s</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="432"/>
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Peruuta</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/TransferSpeedTest.qml" line="432"/>
       <source>Start</source>
-      <translation type="unfinished">Start</translation>
+      <translation>Aloita</translation>
     </message>
   </context>
   <context>
@@ -5650,102 +5772,102 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/Updater.qml" line="20"/>
       <source>Updater - iDescriptor</source>
-      <translation type="unfinished">Updater - iDescriptor</translation>
+      <translation>Päivitys - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="122"/>
       <source>The update check failed.</source>
-      <translation type="unfinished">The update check failed.</translation>
+      <translation>Päivitysten tarkistus epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="155"/>
       <source>Unknown size</source>
-      <translation type="unfinished">Unknown size</translation>
+      <translation>Tuntematon koko</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="157"/>
       <source>%1 B</source>
-      <translation type="unfinished">%1 B</translation>
+      <translation>%1 B</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="166"/>
       <source>%1 %2</source>
-      <translation type="unfinished">%1 %2</translation>
+      <translation>%1 %2</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="170"/>
       <source>Update downloaded.</source>
-      <translation type="unfinished">Update downloaded.</translation>
+      <translation>Päivitys ladattu.</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="179"/>
       <source>Please use your package manager to update iDescriptor.</source>
-      <translation type="unfinished">Please use your package manager to update iDescriptor.</translation>
+      <translation>Käytä paketinhallintaasi iDescriptor:n päivittämiseen.</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="185"/>
       <source>A newer version is available. Update iDescriptor through Flatpak or your software center.</source>
-      <translation type="unfinished">A newer version is available. Update iDescriptor through Flatpak or your software center.</translation>
+      <translation>Uudempi versio on saatavilla. Päivitä iDescriptor Flatpakin tai ohjelmistokeskuksesi kautta.</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="187"/>
       <source>A newer version is available. Update iDescriptor through Microsoft Store.</source>
-      <translation type="unfinished">A newer version is available. Update iDescriptor through Microsoft Store.</translation>
+      <translation>Uudempi versio on saatavilla. Päivitä iDescriptor Microsoft Storen kautta.</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="191"/>
       <source>A newer version is available, but this build has no configured direct-update package.</source>
-      <translation type="unfinished">A newer version is available, but this build has no configured direct-update package.</translation>
+      <translation>Uudempi versio on saatavilla, mutta tässä koontiversiossa ei ole määritettyä suorapäivityspakettia.</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="195"/>
       <source>A newer version is available, but no matching download was found for this system.</source>
-      <translation type="unfinished">A newer version is available, but no matching download was found for this system.</translation>
+      <translation>Uudempi versio on saatavilla, mutta tälle järjestelmälle ei löytynyt vastaavaa latausta.</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="196"/>
       <source>Download and install when you are ready. Your current settings and connected devices will not be changed.</source>
-      <translation type="unfinished">Download and install when you are ready. Your current settings and connected devices will not be changed.</translation>
+      <translation>Lataa ja asenna, kun olet valmis. Nykyisiä asetuksiasi ja yhdistettyjä laitteitasi ei muuteta.</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="202"/>
       <source>Open Flatpak Page</source>
-      <translation type="unfinished">Open Flatpak Page</translation>
+      <translation>Avaa Flatpak-sivu</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="204"/>
       <source>Open Microsoft Store</source>
-      <translation type="unfinished">Open Microsoft Store</translation>
+      <translation>Avaa Microsoft Store</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="256"/>
       <source>Updates</source>
-      <translation type="unfinished">Updates</translation>
+      <translation>Päivitykset</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="257"/>
       <source>You are using the latest version of iDescriptor.</source>
-      <translation type="unfinished">You are using the latest version of iDescriptor.</translation>
+      <translation>Käytät iDescriptor:n uusinta versiota.</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="387"/>
       <source>A new version is available</source>
-      <translation type="unfinished">A new version is available</translation>
+      <translation>Uusi versio on saatavilla</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="396"/>
       <source>Version %1</source>
-      <translation type="unfinished">Version %1</translation>
+      <translation>Versio %1</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="448"/>
       <source>What’s new</source>
-      <translation type="unfinished">What’s new</translation>
+      <translation>Mitä uutta</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="462"/>
       <source>No change log was provided for this release.</source>
-      <translation type="unfinished">No change log was provided for this release.</translation>
+      <translation>Tälle julkaisulle ei toimitettu muutoslokia.</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="480"/>
@@ -5753,72 +5875,72 @@ Do you want to continue anyway?</translation>
       <location filename="../src/ui/Updater.qml" line="706"/>
       <location filename="../src/ui/Updater.qml" line="752"/>
       <source>Close</source>
-      <translation type="unfinished">Close</translation>
+      <translation>Sulje</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="480"/>
       <source>Not now</source>
-      <translation type="unfinished">Not now</translation>
+      <translation>Ei nyt</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="487"/>
       <source>Download Update</source>
-      <translation type="unfinished">Download Update</translation>
+      <translation>Lataa päivitys</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="522"/>
       <source>Checking for updates</source>
-      <translation type="unfinished">Checking for updates</translation>
+      <translation>Tarkistetaan päivityksiä</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="531"/>
       <source>Looking for a newer release of iDescriptor…</source>
-      <translation type="unfinished">Looking for a newer release of iDescriptor…</translation>
+      <translation>Etsitkö uudempaa iDescriptor-julkaisua…</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="560"/>
       <source>Downloading update</source>
-      <translation type="unfinished">Downloading update</translation>
+      <translation>Ladataan päivitystä</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="569"/>
       <source>Please keep iDescriptor open while the update downloads.</source>
-      <translation type="unfinished">Please keep iDescriptor open while the update downloads.</translation>
+      <translation>Pidä iDescriptor auki, kun päivitys latautuu.</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="601"/>
       <source>%1% downloaded</source>
-      <translation type="unfinished">%1% downloaded</translation>
+      <translation>%1% ladattu</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="636"/>
       <source>Update downloaded</source>
-      <translation type="unfinished">Update downloaded</translation>
+      <translation>Päivitys ladattu</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="644"/>
       <source>Version %1 is ready.</source>
-      <translation type="unfinished">Version %1 is ready.</translation>
+      <translation>Versio %1 on valmis.</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="676"/>
       <source>Downloaded to %1</source>
-      <translation type="unfinished">Downloaded to %1</translation>
+      <translation>Ladattu tiedostoon %1</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="693"/>
       <source>Reveal Download</source>
-      <translation type="unfinished">Reveal Download</translation>
+      <translation>Paljasta lataus</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="706"/>
       <source>Open Update</source>
-      <translation type="unfinished">Open Update</translation>
+      <translation>Avaa Päivitys</translation>
     </message>
     <message>
       <location filename="../src/ui/Updater.qml" line="733"/>
       <source>Update check failed</source>
-      <translation type="unfinished">Update check failed</translation>
+      <translation>Päivitystarkistus epäonnistui</translation>
     </message>
   </context>
   <context>
@@ -5826,43 +5948,43 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/Welcome.qml" line="33"/>
       <source>Welcome to iDescriptor</source>
-      <translation type="unfinished">Welcome to iDescriptor</translation>
+      <translation>Tervetuloa iDescriptor:ään</translation>
     </message>
     <message>
       <location filename="../src/ui/Welcome.qml" line="48"/>
       <source>Open-Source &amp; Free</source>
-      <translation type="unfinished">Open-Source &amp; Free</translation>
+      <translation>Avoin lähdekoodi ja ilmainen</translation>
     </message>
     <message>
       <location filename="../src/ui/Welcome.qml" line="106"/>
       <source>Connect with pairing file</source>
-      <translation type="unfinished">Connect with pairing file</translation>
+      <translation>Yhdistä pariliitostiedostolla</translation>
     </message>
     <message>
       <location filename="../src/ui/Welcome.qml" line="126"/>
       <source>How to connect a wireless device?</source>
-      <translation type="unfinished">How to connect a wireless device?</translation>
+      <translation>Kuinka yhdistää langaton laite?</translation>
     </message>
     <message>
       <location filename="../src/ui/Welcome.qml" line="159"/>
       <source>Connect an iDevice to get started</source>
-      <translation type="unfinished">Connect an iDevice to get started</translation>
+      <translation>Liitä iDevice aloittaaksesi</translation>
     </message>
     <message>
       <location filename="../src/ui/Welcome.qml" line="183"/>
       <source>Found an issue? Report it on GitHub</source>
-      <translation type="unfinished">Found an issue? Report it on GitHub</translation>
+      <translation>Löysitkö ongelman? Ilmoita siitä GitHubissa</translation>
     </message>
     <message>
       <location filename="../src/ui/Welcome.qml" line="207"/>
       <location filename="../src/ui/Welcome.qml" line="208"/>
       <source>Checking required dependencies...</source>
-      <translation type="unfinished">Checking required dependencies...</translation>
+      <translation>Tarkistetaan vaadittuja riippuvuuksia...</translation>
     </message>
     <message>
       <location filename="../src/ui/Welcome.qml" line="220"/>
       <source>View Diagnostics</source>
-      <translation type="unfinished">View Diagnostics</translation>
+      <translation>Näytä Diagnostiikka</translation>
     </message>
   </context>
   <context>
@@ -5870,27 +5992,27 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/WhatsNew.qml" line="54"/>
       <source>Failed to load release notes.</source>
-      <translation type="unfinished">Failed to load release notes.</translation>
+      <translation>Julkaisutietojen lataaminen epäonnistui.</translation>
     </message>
     <message>
       <location filename="../src/ui/WhatsNew.qml" line="77"/>
       <source>iDescriptor has been updated to v%1</source>
-      <translation type="unfinished">iDescriptor has been updated to v%1</translation>
+      <translation>iDescriptor on päivitetty muotoon v%1</translation>
     </message>
     <message>
       <location filename="../src/ui/WhatsNew.qml" line="113"/>
       <source>No release notes were provided for this version.</source>
-      <translation type="unfinished">No release notes were provided for this version.</translation>
+      <translation>Tälle versiolle ei toimitettu julkaisutietoja.</translation>
     </message>
     <message>
       <location filename="../src/ui/WhatsNew.qml" line="131"/>
       <source>Ok, Thanks!</source>
-      <translation type="unfinished">Ok, Thanks!</translation>
+      <translation>Ok, kiitos!</translation>
     </message>
     <message>
       <location filename="../src/ui/WhatsNew.qml" line="138"/>
       <source>Donate</source>
-      <translation type="unfinished">Donate</translation>
+      <translation>Lahjoita</translation>
     </message>
   </context>
   <context>
@@ -5898,42 +6020,42 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/platform/windows/WindowEffectPanel.qml" line="57"/>
       <source>Personalize iDescriptor</source>
-      <translation type="unfinished">Personalize iDescriptor</translation>
+      <translation>Mukauta iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/platform/windows/WindowEffectPanel.qml" line="65"/>
       <source>Choose a window material. Your selection is applied immediately so you can preview it.</source>
-      <translation type="unfinished">Choose a window material. Your selection is applied immediately so you can preview it.</translation>
+      <translation>Valitse ikkunamateriaali. Valintasi otetaan käyttöön välittömästi, jotta voit esikatsella sitä.</translation>
     </message>
     <message>
       <location filename="../src/ui/platform/windows/WindowEffectPanel.qml" line="80"/>
       <source>Acrylic</source>
-      <translation type="unfinished">Acrylic</translation>
+      <translation>Akryyli</translation>
     </message>
     <message>
       <location filename="../src/ui/platform/windows/WindowEffectPanel.qml" line="81"/>
       <source>Translucent and layered</source>
-      <translation type="unfinished">Translucent and layered</translation>
+      <translation>Läpinäkyvä ja kerroksellinen</translation>
     </message>
     <message>
       <location filename="../src/ui/platform/windows/WindowEffectPanel.qml" line="85"/>
       <source>Normal</source>
-      <translation type="unfinished">Normal</translation>
+      <translation>Normaali</translation>
     </message>
     <message>
       <location filename="../src/ui/platform/windows/WindowEffectPanel.qml" line="86"/>
       <source>Solid window background</source>
-      <translation type="unfinished">Solid window background</translation>
+      <translation>Kiinteä ikkunan tausta</translation>
     </message>
     <message>
       <location filename="../src/ui/platform/windows/WindowEffectPanel.qml" line="258"/>
       <source>You can change this later in Settings.</source>
-      <translation type="unfinished">You can change this later in Settings.</translation>
+      <translation>Voit muuttaa tätä myöhemmin asetuksissa.</translation>
     </message>
     <message>
       <location filename="../src/ui/platform/windows/WindowEffectPanel.qml" line="265"/>
       <source>OK</source>
-      <translation type="unfinished">OK</translation>
+      <translation>OK</translation>
     </message>
   </context>
   <context>
@@ -5941,172 +6063,172 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="20"/>
       <source>Wireless Gallery Import - iDescriptor</source>
-      <translation type="unfinished">Wireless Gallery Import - iDescriptor</translation>
+      <translation>Langattoman gallerian tuonti - iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="139"/>
       <source>Select Photos and Videos</source>
-      <translation type="unfinished">Select Photos and Videos</translation>
+      <translation>Valitse Valokuvat ja videot</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="142"/>
       <source>Media Files (*.jpg *.jpeg *.png *.gif *.bmp *.tiff *.tif *.webp *.heic *.heif *.mp4 *.mov *.avi *.mkv *.m4v *.3gp *.webm)</source>
-      <translation type="unfinished">Media Files (*.jpg *.jpeg *.png *.gif *.bmp *.tiff *.tif *.webp *.heic *.heif *.mp4 *.mov *.avi *.mkv *.m4v *.3gp *.webm)</translation>
+      <translation>Mediatiedostot (*.jpg *.jpeg *.png *.gif *.bmp *.tiff *.tif *.webp *.heic *.heif *.mp4 *.mov *.avi *.mkv *.m4v *.3gp *.webm)</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="143"/>
       <source>All Files (*)</source>
-      <translation type="unfinished">All Files (*)</translation>
+      <translation>Kaikki tiedostot (*)</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="155"/>
       <source>Import to Photos</source>
-      <translation type="unfinished">Import to Photos</translation>
+      <translation>Tuo Kuviin</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="160"/>
       <source>Download progress will appear here</source>
-      <translation type="unfinished">Download progress will appear here</translation>
+      <translation>Latauksen edistyminen näkyy täällä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="163"/>
       <source>Scan the QR code with your iPhone or iPad.</source>
-      <translation type="unfinished">Scan the QR code with your iPhone or iPad.</translation>
+      <translation>Skannaa QR-koodi iPhonella tai iPadilla.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="164"/>
       <source>On the web page, tap Copy Server Address.</source>
-      <translation type="unfinished">On the web page, tap Copy Server Address.</translation>
+      <translation>Napauta verkkosivulla Kopioi palvelimen osoite.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="165"/>
       <source>Install the shortcut once, then tap Run Shortcut.</source>
-      <translation type="unfinished">Install the shortcut once, then tap Run Shortcut.</translation>
+      <translation>Asenna pikakuvake kerran ja napauta sitten Suorita pikakuvake.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="166"/>
       <source>Allow the shortcut to save the selected items to Photos.</source>
-      <translation type="unfinished">Allow the shortcut to save the selected items to Photos.</translation>
+      <translation>Salli pikanäppäimen tallentaa valitut kohteet Valokuviin.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="202"/>
       <source>Ready to share %1 item(s)</source>
-      <translation type="unfinished">Ready to share %1 item(s)</translation>
+      <translation>Valmiina jakamaan %1 tuotteet</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="210"/>
       <source>Keep this window open while the shortcut downloads your files.</source>
-      <translation type="unfinished">Keep this window open while the shortcut downloads your files.</translation>
+      <translation>Pidä tämä ikkuna auki, kun pikakuvake lataa tiedostosi.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="262"/>
       <source>Unable to create QR code</source>
-      <translation type="unfinished">Unable to create QR code</translation>
+      <translation>QR-koodin luominen epäonnistui</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="263"/>
       <source>Preparing QR code…</source>
-      <translation type="unfinished">Preparing QR code…</translation>
+      <translation>Valmistellaan QR-koodia…</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="276"/>
       <source>Server: %1</source>
-      <translation type="unfinished">Server: %1</translation>
+      <translation>Palvelin: %1</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="277"/>
       <source>Starting local server…</source>
-      <translation type="unfinished">Starting local server…</translation>
+      <translation>Käynnistetään paikallista palvelinta…</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="299"/>
       <source>Video Guide</source>
-      <translation type="unfinished">Video Guide</translation>
+      <translation>Videoopas</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="299"/>
       <source>On your device</source>
-      <translation type="unfinished">On your device</translation>
+      <translation>laitteellasi</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="306"/>
       <source>Show Steps</source>
-      <translation type="unfinished">Show Steps</translation>
+      <translation>Näytä vaiheet</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="306"/>
       <source>Watch Video</source>
-      <translation type="unfinished">Watch Video</translation>
+      <translation>Katso video</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="424"/>
       <source>Downloaded: %1 (%2 KB of %3 KB)</source>
-      <translation type="unfinished">Downloaded: %1 (%2 KB of %3 KB)</translation>
+      <translation>Ladattu: %1 (%2 kt / %3 kt)</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="461"/>
       <source>Import to Photos wirelessly</source>
-      <translation type="unfinished">Import to Photos wirelessly</translation>
+      <translation>Tuo Kuviin langattomasti</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="469"/>
       <source>Choose media, then scan a QR code to transfer it with the iDescriptor shortcut.</source>
-      <translation type="unfinished">Choose media, then scan a QR code to transfer it with the iDescriptor shortcut.</translation>
+      <translation>Valitse media ja skannaa QR-koodi siirtääksesi sen iDescriptor-pikakuvakkeen avulla.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="476"/>
       <source>Choose Files…</source>
-      <translation type="unfinished">Choose Files…</translation>
+      <translation>Valitse tiedostot…</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="503"/>
       <source>Selected Media</source>
-      <translation type="unfinished">Selected Media</translation>
+      <translation>Valittu media</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="532"/>
       <source>Clear</source>
-      <translation type="unfinished">Clear</translation>
+      <translation>Selkeä</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="586"/>
       <source>Drop to add these files</source>
-      <translation type="unfinished">Drop to add these files</translation>
+      <translation>Pudota lisätäksesi nämä tiedostot</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="587"/>
       <source>Drop photos and videos here</source>
-      <translation type="unfinished">Drop photos and videos here</translation>
+      <translation>Pudota kuvia ja videoita tähän</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="596"/>
       <source>JPEG, HEIC, PNG, MOV, MP4, and other common media formats</source>
-      <translation type="unfinished">JPEG, HEIC, PNG, MOV, MP4, and other common media formats</translation>
+      <translation>JPEG, HEIC, PNG, MOV, MP4 ja muut yleiset mediamuodot</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="683"/>
       <source>Remove</source>
-      <translation type="unfinished">Remove</translation>
+      <translation>Poista</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="727"/>
       <source>Add at least one photo or video to continue.</source>
-      <translation type="unfinished">Add at least one photo or video to continue.</translation>
+      <translation>Lisää vähintään yksi kuva tai video jatkaaksesi.</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="728"/>
       <source>%1 item(s) ready to share</source>
-      <translation type="unfinished">%1 item(s) ready to share</translation>
+      <translation>%1 tuotteet valmiina jaettavaksi</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="734"/>
       <source>Continue</source>
-      <translation type="unfinished">Continue</translation>
+      <translation>Jatka</translation>
     </message>
     <message>
       <location filename="../src/ui/tools/WirelessGalleryImport.qml" line="738"/>
       <source>Waiting for downloads…</source>
-      <translation type="unfinished">Waiting for downloads…</translation>
+      <translation>Odotetaan latauksia…</translation>
     </message>
   </context>
   <context>
@@ -6114,13 +6236,13 @@ Do you want to continue anyway?</translation>
     <message>
       <location filename="../src/ui/ZLinuxWindow.qml" line="12"/>
       <source>iDescriptor</source>
-      <translation type="unfinished">iDescriptor</translation>
+      <translation>iDescriptor</translation>
     </message>
     <message>
       <location filename="../src/ui/ZLinuxWindow.qml" line="76"/>
       <location filename="../src/ui/ZLinuxWindow.qml" line="78"/>
       <source>Close</source>
-      <translation type="unfinished">Close</translation>
+      <translation>Sulje</translation>
     </message>
   </context>
 </TS>
