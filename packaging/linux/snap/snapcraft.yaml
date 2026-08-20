@@ -2,7 +2,7 @@
 # have not been finalized. Do not publish this snap until USB events work.
 name: idescriptor
 base: core24
-version: "0.6.0"
+version: "0.6.2"
 summary: Manage and interact with Apple mobile devices
 title: iDescriptor
 license: AGPL-3.0-or-later
@@ -25,7 +25,7 @@ platforms:
 
 apps:
   idescriptor:
-    command: usr/bin/iDescriptor
+    command: usr/bin/idescriptor
     desktop: usr/share/applications/io.github.idescriptor.iDescriptor.desktop
     common-id: io.github.idescriptor.iDescriptor
     extensions:
@@ -125,7 +125,7 @@ parts:
 
       install -Dm0755 \
         target/release/idescriptor \
-        "$CRAFT_PART_INSTALL/usr/bin/iDescriptor"
+        "$CRAFT_PART_INSTALL/usr/bin/idescriptor"
       install -Dm0644 \
         io.github.idescriptor.iDescriptor.desktop \
         "$CRAFT_PART_INSTALL/usr/share/applications/io.github.idescriptor.iDescriptor.desktop"
