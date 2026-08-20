@@ -15,6 +15,9 @@
   <a href="https://github.com/iDescriptor/iDescriptor/actions/workflows/build.yml" rel="nofollow">
     <img src="https://img.shields.io/github/actions/workflow/status/iDescriptor/iDescriptor/build-linux.yml?branch=main&logo=Github" alt="Build" />
   </a>
+  <a href="https://crowdin.com/project/idescriptor">
+    <img src="https://badges.crowdin.net/idescriptor/localized.svg" alt="Crowdin">
+  </a>
   <a href="https://github.com/iDescriptor/iDescriptor/tags" rel="nofollow">
     <img alt="GitHub tag (latest SemVer pre-release)" src="https://img.shields.io/github/v/tag/iDescriptor/iDescriptor?include_prereleases&label=version"/>
   </a>
@@ -404,9 +407,9 @@ This codebase is currently undergoing a major refactor and rewrite in `qml` and 
 - Virtual Location Support for iOS 17 and above `DONE` ✅
 - Migrate to UCRT for better performance and stability `Windows`
 - New UI/UX improvements `Windows` ✅
-- Read gallery from Photos.sqlite (under development)
-- Translations (currently scaffolding the base, contributions will be welcome once it’s ready) 
-- Device Backup
+- Read gallery from Photos.sqlite `DONE` ✅
+- Translations -> [contribute to translations](https://crowdin.com/project/idescriptor) 
+- Device Backup `DONE` ✅ (EXPERIMENTAL)  
 - Download any version of any app from app store (under development)
 - Implement sideloading
 - Import music
