@@ -193,7 +193,7 @@ impl Core {
                                                         .await;
                                                     }
                                                     Err(e) => {
-                                                        eprintln!("Pairing failed for device {}: {e:?}", udid);
+                                                        error!("Pairing failed for device {}: {e:?}", udid);
                                                         emit_pairing_failed(qt_thread.clone(), udid, "Failed to pair device");
                                                     }
                                                 }
@@ -231,13 +231,13 @@ impl Core {
                                             }
                                         }
                                         Err(e) => {
-                                            eprintln!("usbmuxd listen error: {e:?}");
+                                            error!("usbmuxd listen error: {e:?}");
                                             break;
                                         }
                                     }
                                 }
                             }
-                            Err(e) => eprintln!("Failed to start usbmuxd listen: {e:?}"),
+                            Err(e) => error!("Failed to start usbmuxd listen: {e:?}"),
                         },
                         Err(_) => {}
                     }
@@ -252,7 +252,7 @@ impl Core {
             let mut events = match irecovery::watch_recovery_devices_with_metadata(&resolver).await {
                 Ok(events) => Box::pin(events),
                 Err(err) => {
-                    eprintln!("failed to watch recovery devices: {err}");
+                    error!("failed to watch recovery devices: {err}");
                     return;
                 }
             };
@@ -285,7 +285,7 @@ impl Core {
                         });
                     }
                     Err(err) => {
-                        eprintln!("recovery device watch error: {err}");
+                        error!("recovery device watch error: {err}");
                     }
                 }
             }
@@ -508,7 +508,7 @@ fn collect_recovery_device_info(device: &irecovery::RecoveryDevice) -> QVariantM
     qvariantmap_insert!(info, "mode", recovery_mode_name(device.mode));
     qvariantmap_insert!(info, "vendor_id", u32::from(device.vendor_id));
     qvariantmap_insert!(info, "product_id", u32::from(device.product_id));
-    println!("ecid_xxx: {:?}", device.ecid);
+    debug!("Recovery device ECID: {:?}", device.ecid);
     qvariantmap_insert!(
         info,
         "ecid",
@@ -651,7 +651,7 @@ async fn handle_pairing(qt_thread: QtThread<Core>, udid: String) -> Result<(), I
 
     let host_id = uuid::Uuid::new_v4().to_string().to_uppercase();
 
-    println!(
+    info!(
         "Pairing with device {}, host_id: {}, buid: {}",
         udid, host_id, buid
     );
@@ -685,13 +685,13 @@ async fn handle_pairing(qt_thread: QtThread<Core>, udid: String) -> Result<(), I
             }
         }
     };
-    println!("Paired with device {}, pairing file obtained", udid);
+    info!("Paired with device {}, pairing file obtained", udid);
     pf.udid = Some(udid.clone());
 
     let bytes = pf.serialize()?;
     uc2.save_pair_record(&udid, bytes).await?;
 
-    println!("Pairing record saved to usbmuxd for device {}.", udid);
+    info!("Pairing record saved to usbmuxd for device {}.", udid);
     Ok(())
 }
 
@@ -1018,11 +1018,11 @@ async fn init_idescriptor_device<
     let mut def_vals = match lc.get_value(None, None).await {
         Ok(v) => v,
         Err(e) => {
-            eprintln!("get_value(None, None) failed : {e:?}");
+            error!("get_value(None, None) failed: {e:?}");
             return Err(e);
         }
     };
-    eprintln!("init_idescriptor_device: Default values obtained.");
+    debug!("init_idescriptor_device: Default values obtained.");
 
     // FIXME: we may need our own error types here
     // but InternalError should be fine for now
@@ -1050,38 +1050,38 @@ async fn init_idescriptor_device<
         .to_string();
 
     if udid.is_empty() {
-        eprintln!("init_idescriptor_device: UDID is empty.");
+        error!("init_idescriptor_device: UDID is empty.");
         return Err(IdeviceError::InvalidHostID);
     }
 
     let mut hb = None;
 
     if is_wireless {
-        eprintln!("init_idescriptor_device: Attempting to connect to HeartbeatClient.");
+        debug!("init_idescriptor_device: Attempting to connect to HeartbeatClient.");
         hb = match heartbeat::HeartbeatClient::connect(&provider).await {
             Ok(h) => Some(h),
             Err(e) => {
-                eprintln!("heartbeat: connect failed: {e:?}");
+                error!("heartbeat: connect failed: {e:?}");
                 return Err(e);
             }
         };
-        eprintln!("init_idescriptor_device: Connected to HeartbeatClient.");
+        debug!("init_idescriptor_device: Connected to HeartbeatClient.");
     }
 
-    eprintln!("init_idescriptor_device: Attempting to connect to AFC client.");
+    debug!("init_idescriptor_device: Attempting to connect to AFC client.");
     let mut afc_client = AfcClient::connect(&provider).await?;
 
-    eprintln!("init_idescriptor_device: Connected to AfcClient.");
+    debug!("init_idescriptor_device: Connected to AfcClient.");
 
-    eprintln!("init_idescriptor_device: Attempting to connect to DiagnosticsRelayClient.");
+    debug!("init_idescriptor_device: Attempting to connect to DiagnosticsRelayClient.");
     let mut diag_relay = DiagnosticsRelayClient::connect(&provider).await?;
 
-    eprintln!("init_idescriptor_device: Connected to DiagnosticsRelayClient.");
+    debug!("init_idescriptor_device: Connected to DiagnosticsRelayClient.");
 
     let afc2 = match AfcClient::new_afc2(&provider).await {
         Ok(c) => Some(Arc::new(Mutex::new(c))),
         Err(e) => {
-            eprintln!("AfcClient::new_afc2 failed: {e:?}");
+            warn!("AfcClient::new_afc2 failed: {e:?}");
             None
         }
     };
@@ -1095,16 +1095,16 @@ async fn init_idescriptor_device<
     )
     .await?;
 
-    eprintln!("init_idescriptor_device: Storing device services.");
+    debug!("init_idescriptor_device: Storing device services.");
     let (heartbeat_task, heartbeat_start) = if is_wireless {
         let Some(hb_client) = hb else {
-            eprintln!(
+            error!(
                 "init_idescriptor_device: Heartbeat client is None, cannot spawn heartbeat task."
             );
             return Err(IdeviceError::Heartbeat(idevice::HeartbeatError::Unknown));
         };
 
-        eprintln!("init_idescriptor_device: Spawning paused heartbeat task.");
+        debug!("init_idescriptor_device: Spawning paused heartbeat task.");
         let (start_tx, start_rx) = oneshot::channel();
         let task = spawn_heartbeat_task(
             hb_client,
@@ -1156,7 +1156,7 @@ async fn init_idescriptor_device<
         "connection_id",
         QString::from(connection_id.to_string())
     );
-    eprintln!("init_idescriptor_device: Device has been initialized.");
+    info!("init_idescriptor_device: Device has been initialized.");
 
     Ok(InitializedDevice {
         udid,
@@ -1174,7 +1174,7 @@ async fn collect_info(
 ) -> Result<QVariantMap, IdeviceError> {
     let mut info = QVariantMap::default();
 
-    eprintln!("init_idescriptor_device: Attempting to get default values from Lockdown.");
+    debug!("init_idescriptor_device: Attempting to get default values from Lockdown.");
 
     let disk_vals = lc.get_value(None, Some("com.apple.disk_usage")).await?;
 
@@ -1185,15 +1185,15 @@ async fn collect_info(
         )
     })?;
 
-    eprintln!("init_idescriptor_device: Attempting to get AFC device info.");
+    debug!("init_idescriptor_device: Attempting to get AFC device info.");
     let afc_info = match afc.get_device_info().await {
         Ok(i) => i,
         Err(e) => {
-            eprintln!("get_device_info failed: {e:?}");
+            error!("get_device_info failed: {e:?}");
             return Err(e);
         }
     };
-    eprintln!("init_idescriptor_device: AFC device info obtained.");
+    debug!("init_idescriptor_device: AFC device info obtained.");
 
     let keys_to_insert_string = [
         "DeviceName",
@@ -1483,7 +1483,7 @@ async fn spawn_heartbeat_task(
             debug!("heartbeat: start cancelled for {udid_for_hb} connection {connection_id}");
             return;
         }
-        eprintln!("heartbeat: starting heartbeat task ");
+        info!("heartbeat: starting heartbeat task");
         let mut interval = 15u64;
         let mut fails = 0;
         loop {
@@ -1498,7 +1498,7 @@ async fn spawn_heartbeat_task(
 
                     match e {
                         IdeviceError::Heartbeat(idevice::HeartbeatError::SleepyTime) => {
-                            println!("heartbeat: Sleepy time");
+                            info!("heartbeat: SleepyTime detected");
                             qt_thread.queue(move |core_qobj| {
                                 core_qobj.sleepyTimeDetected();
                             });
@@ -1507,7 +1507,7 @@ async fn spawn_heartbeat_task(
                     };
 
                     if fails >= 3 {
-                        eprintln!("heartbeat: too many failures for  giving up");
+                        error!("heartbeat: too many failures, giving up");
                         if clean_device_from_app_state_if_current(
                             &udid_for_hb,
                             connection_id,
@@ -1534,10 +1534,10 @@ async fn spawn_heartbeat_task(
             trace!("heartbeat:  Sending polo.");
             if let Err(e) = hb_client.send_polo().await {
                 fails += 1;
-                eprintln!("heartbeat:  send_polo failed (fail count: {fails}): {e:?}");
+                warn!("heartbeat: send_polo failed (fail count: {fails}): {e:?}");
                 match e {
                     IdeviceError::Heartbeat(idevice::HeartbeatError::SleepyTime) => {
-                        println!("heartbeat: Sleepy time");
+                        info!("heartbeat: SleepyTime detected");
                         qt_thread.queue(move |core_qobj| {
                             core_qobj.sleepyTimeDetected();
                         });
@@ -1545,7 +1545,7 @@ async fn spawn_heartbeat_task(
                     _ => {}
                 };
                 if fails >= 3 {
-                    eprintln!("heartbeat: too many failures for , giving up");
+                    error!("heartbeat: too many failures, giving up");
                     if clean_device_from_app_state_if_current(&udid_for_hb, connection_id, false)
                         .await
                     {
@@ -1567,6 +1567,6 @@ async fn spawn_heartbeat_task(
             interval += 5;
         }
 
-        eprintln!("heartbeat: heartbeat task ended.");
+        info!("heartbeat: heartbeat task ended.");
     })))
 }
