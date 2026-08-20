@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=iDescriptor
 Comment=Manage and interact with Apple mobile devices
-Exec=iDescriptor
+Exec=idescriptor
 Icon=io.github.idescriptor.iDescriptor
 Type=Application
 Categories=Utility;FileTools;

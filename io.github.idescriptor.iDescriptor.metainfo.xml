@@ -12,7 +12,7 @@
   <description>
     <p>
       iDescriptor is a cross-platform tool for managing iDevices (iPhone, iPad, iPod...)
-      from a desktop computer over USB or Wi-Fi.
+      from a PC over USB or Wi-Fi.
     </p>
     <p>Use iDescriptor to:</p>
     <ul>
@@ -69,7 +69,13 @@
     <control>pointing</control>
   </supports>
   <releases>
-    <release version="0.6.0" date="2026-08-04">
+    <release version="0.6.2" date="2026-08-20">
+      <url type="details">https://github.com/iDescriptor/iDescriptor/releases/tag/v0.6.2</url>
+    </release>
+    <release version="0.6.1" date="2026-08-10">
+      <url type="details">https://github.com/iDescriptor/iDescriptor/releases/tag/v0.6.1</url>
+    </release>
+    <release version="0.6.0" date="2026-08-07">
       <url type="details">https://github.com/iDescriptor/iDescriptor/releases/tag/v0.6.0</url>
     </release>
   </releases>
