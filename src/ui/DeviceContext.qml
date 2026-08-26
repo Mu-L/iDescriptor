@@ -398,14 +398,22 @@ QtObject {
                     if (currentDevice && currentDevice.connectionId === addedConnectionId)
                         break
 
+                    let skipWirelessReplacement = false
                     for (let i = 0; i < devices.count; ++i) {
                         const existingDevice = devices.get(i)
                         if (existingDevice.udid === udid) {
+                            if (!existingDevice.info.is_wireless && info.is_wireless) {
+                                console.log("Device is already connected via USB. Ignoring wireless connection event for:", udid)
+                                skipWirelessReplacement = true
+                                break
+                            }
                             devices.remove(i)
                             root.scheduleGc()
                             break
                         }
                     }
+                    if (skipWirelessReplacement)
+                        break
 
                     const pendingDeviceWasVisible =
                         root.currentDestination === "pendingDevice"
