@@ -412,8 +412,10 @@ QtObject {
                             break
                         }
                     }
-                    if (skipWirelessReplacement)
+                    if (skipWirelessReplacement) {
+                        root.selectConnectedDevice(udid)
                         break
+                    }
 
                     const pendingDeviceWasVisible =
                         root.currentDestination === "pendingDevice"
