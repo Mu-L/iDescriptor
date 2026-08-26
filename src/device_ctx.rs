@@ -67,6 +67,7 @@ impl iOSVersion {
 #[derive(Clone)]
 pub struct DeviceServices {
     pub connection_id: u64,
+    pub is_wireless: bool,
     pub afc: Arc<Mutex<AfcClient>>,
     pub afc2: Option<Arc<Mutex<AfcClient>>>,
     pub diag: Arc<Mutex<DiagnosticsRelayClient>>,
@@ -175,11 +176,17 @@ pub async fn insert_device(
 ) -> InsertDeviceResult {
     let udid = udid.into();
     let mut state = APP_DEVICE_STATE.lock().await;
-    if state
-        .get(&udid)
-        .is_some_and(|current| current.connection_id > services.connection_id)
-    {
-        return InsertDeviceResult::Rejected;
+    if let Some(current) = state.get(&udid) {
+        if current.connection_id > services.connection_id {
+            return InsertDeviceResult::Rejected;
+        }
+        if !current.is_wireless && services.is_wireless {
+            log::info!(
+                "Rejecting wireless connection {} for udid {} because USB connection {} is active",
+                services.connection_id, udid, current.connection_id
+            );
+            return InsertDeviceResult::Rejected;
+        }
     }
 
     if let Some(mut old) = state.insert(udid.clone(), services) {

@@ -386,7 +386,7 @@ Item {
                                     id: pairingFileDialog
                                     title: qsTr("Choose pairing file")
                                     fileMode: FileDialog.OpenFile
-                                    nameFilters: ["*.plist"]
+                                    nameFilters: [qsTr("Property List files (*.plist)")]
                                     onAccepted: {
                                         var path = QmlUtils.url_to_path(selectedFile)
                                         if (!path || !address) return
