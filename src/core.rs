@@ -1122,6 +1122,7 @@ async fn init_idescriptor_device<
 
     let device_services = DeviceServices {
         connection_id,
+        is_wireless,
         afc: Arc::new(Mutex::new(afc_client)),
         afc2,
         diag: Arc::new(Mutex::new(diag_relay)),
