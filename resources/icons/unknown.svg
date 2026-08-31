@@ -1,0 +1,8 @@
+<svg width="100%" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Unknown Apple device</title>
+  <desc>A bezel-less tablet outline containing a question mark.</desc>
+  <rect x="20" y="20" width="160" height="220" rx="16" fill="none" stroke="rgb(137, 135, 129)" stroke-width="6"/>
+  <path d="M72 96 C72 75 84 62 102 62 C121 62 133 75 133 92 C133 106 126 114 114 122 C103 129 99 136 99 149" fill="none" stroke="rgb(137, 135, 129)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="99" cy="174" r="5" fill="rgb(137, 135, 129)"/>
+  <rect x="68" y="228" width="64" height="5" rx="2.5" fill="rgb(137, 135, 129)"/>
+</svg>
