@@ -1,8 +1,11 @@
 // SPDX-FileCopyrightText: 2025-2026 Uncore <https://github.com/uncor3>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-use crate::qt_threading::{QtThread, QtThreading};
-use log::debug;
+use crate::{
+    RUNTIME,
+    qt_threading::{QtThread, QtThreading},
+};
+use log::{debug, error};
 use macros::QtThreading;
 use qmetaobject::prelude::*;
 use qttypes::QStringList;
@@ -90,11 +93,58 @@ pub struct Airplay {
     load_gst_gl: qt_method!(fn(&self) -> bool),
     set_master_volume: qt_method!(fn(&self, volume: f64)),
     launch_arguments: qt_method!(fn(&self) -> QStringList),
+    check_requirements: qt_method!(fn(&self)),
     connection_change: qt_signal!(connected: bool),
     connectionDetailsChanged: qt_signal!(name: QString, model: QString, parsed_model: QString, device_id: QString),
+    requirementsChecked: qt_signal!(ready: bool, dependency_id: QString, reason: QString, detail: QString),
+    backendFailed: qt_signal!(code: i32, detail: QString),
 }
 
 impl Airplay {
+    fn check_requirements(&self) {
+        let q_thread = self.qt_thread();
+        RUNTIME.spawn(async move {
+            #[cfg(not(target_os = "macos"))]
+            let result = crate::diagnose::check_airplay_requirement().await;
+
+            q_thread.queue(move |t| {
+                #[cfg(target_os = "macos")]
+                t.requirementsChecked(
+                    true,
+                    QString::default(),
+                    QString::default(),
+                    QString::default(),
+                );
+
+                #[cfg(not(target_os = "macos"))]
+                match result {
+                    crate::diagnose::AirPlayRequirement::Ready => t.requirementsChecked(
+                        true,
+                        QString::default(),
+                        QString::default(),
+                        QString::default(),
+                    ),
+                    crate::diagnose::AirPlayRequirement::NeedsAction {
+                        dependency_id,
+                        reason,
+                    } => t.requirementsChecked(
+                        false,
+                        QString::from(dependency_id),
+                        QString::from(reason),
+                        QString::default(),
+                    ),
+                    crate::diagnose::AirPlayRequirement::UnableToCheck { detail } => t
+                        .requirementsChecked(
+                            false,
+                            QString::default(),
+                            QString::from("unable_to_check"),
+                            QString::from(detail),
+                        ),
+                }
+            });
+        });
+    }
+
     fn load_gst_gl(&self) -> bool {
         crate::utils::force_load_gst_gl()
     }
@@ -127,8 +177,19 @@ impl Airplay {
                 .collect();
             c_args.push(std::ptr::null_mut());
 
-            unsafe {
-                init_uxplay((c_args.len() - 1) as i32, c_args.as_mut_ptr());
+            let result = unsafe { init_uxplay((c_args.len() - 1) as i32, c_args.as_mut_ptr()) };
+            if result != 0 {
+                error!("uxplay failed with exit code {result}");
+                if let Some(q_thread) = AIRPLAY_QT_THREAD.get() {
+                    q_thread.queue(move |t| {
+                        t.backendFailed(
+                            result,
+                            QString::from(format!(
+                                "The AirPlay backend exited with code {result}."
+                            )),
+                        );
+                    });
+                }
             }
         });
         true

@@ -31,6 +31,8 @@ ToolWindow {
     property string clientModel: ""
     property string clientDeviceId: ""
     property string parsedModel: ""
+    property string pendingDependencyId: ""
+    property string pendingDiagnosticsMessage: ""
     readonly property real minimumDisplayScale: 0.5
     readonly property real maximumDisplayScale: 3.0
 
@@ -66,6 +68,12 @@ ToolWindow {
     }
 
     function startAirPlay() {
+        root.serverRunning = false
+        stateView.viewState = StateView.State.Loading
+        AirplayImp.check_requirements()
+    }
+
+    function startBackend() {
         const started = AirplayImp.init(video)
         if (!started) {
             stateView.errorText = qsTr("Failed to start AirPlay.")
@@ -76,6 +84,15 @@ ToolWindow {
         root.serverRunning = true
         stateView.viewState = StateView.State.Content
         tutorialLoadTimer.start()
+    }
+
+    function openDependencyDiagnostics(dependencyId, message) {
+        if (diagnosticsLoader.status === Loader.Ready) {
+            diagnosticsLoader.item.openDiagnosticsFor(dependencyId, message)
+        } else {
+            root.pendingDependencyId = dependencyId
+            root.pendingDiagnosticsMessage = message
+        }
     }
 
     Component.onCompleted: {
@@ -112,6 +129,55 @@ ToolWindow {
             root.clientModel = model
             root.parsedModel = parsed_model
             root.clientDeviceId = device_id
+        }
+
+        function onRequirementsChecked(ready, dependency_id, reason, detail) {
+            if (ready) {
+                root.startBackend()
+                return
+            }
+
+            root.serverRunning = false
+            let requirementMessage
+            if (reason === "not_running") {
+                requirementMessage = dependency_id === "bonjour"
+                        ? qsTr("Bonjour must be running before AirPlay can start.")
+                        : qsTr("Avahi must be running before AirPlay can start.")
+            } else if (reason === "missing") {
+                requirementMessage = dependency_id === "bonjour"
+                        ? qsTr("Bonjour must be installed before AirPlay can start.")
+                        : qsTr("Avahi must be installed before AirPlay can start.")
+            } else {
+                requirementMessage = qsTr("Unable to check AirPlay requirements: %1").arg(detail)
+            }
+            stateView.errorText = requirementMessage
+            stateView.viewState = StateView.State.Error
+
+            if (dependency_id.length > 0)
+                root.openDependencyDiagnostics(dependency_id, requirementMessage)
+        }
+
+        function onBackendFailed(code, detail) {
+            root.serverRunning = false
+            stateView.errorText = qsTr("Failed to start the AirPlay backend: %1").arg(detail)
+            stateView.viewState = StateView.State.Error
+        }
+    }
+
+    Loader {
+        id: diagnosticsLoader
+        width: 0
+        height: 0
+        sourceComponent: App.Diagnose {
+            autoCheck: false
+        }
+        onLoaded: {
+            if (root.pendingDependencyId.length > 0) {
+                item.openDiagnosticsFor(root.pendingDependencyId,
+                                        root.pendingDiagnosticsMessage)
+                root.pendingDependencyId = ""
+                root.pendingDiagnosticsMessage = ""
+            }
         }
     }
 

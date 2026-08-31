@@ -10,9 +10,32 @@ Item {
     id: root
 
     property var diagnoseState: DiagnoseImpl.state
+    property bool autoCheck: true
+    property string focusedDependencyId: ""
+    property string message: ""
 
     function openDiagnostics() {
         diagnosticsDialog.open()
+    }
+
+    function openDiagnosticsFor(dependencyId, message) {
+        root.focusedDependencyId = dependencyId
+        root.message = message || ""
+        diagnosticsDialog.open()
+        root.scheduleCheck()
+    }
+
+    function focusSelectedDependency() {
+        if (root.focusedDependencyId.length === 0 || !root.diagnoseState.items)
+            return
+
+        for (let index = 0; index < root.diagnoseState.items.length; ++index) {
+            if (root.diagnoseState.items[index].id === root.focusedDependencyId) {
+                dependencyList.currentIndex = index
+                dependencyList.positionViewAtIndex(index, ListView.Center)
+                return
+            }
+        }
     }
 
     function colorForKind(kind) {
@@ -64,9 +87,15 @@ Item {
 
         if (diagnoseState.notice && diagnoseState.notice.length > 0)
             noticeDialog.open()
+
+        if (!diagnoseState.checking)
+            Qt.callLater(root.focusSelectedDependency)
     }
 
-    Component.onCompleted: scheduleCheck()
+    Component.onCompleted: {
+        if (root.autoCheck)
+            scheduleCheck()
+    }
 
     Timer {
         id: delayedCheckTimer
@@ -104,7 +133,10 @@ Item {
         width: 620
         height: 500
         standardButtons: Dialog.Close
-        onOpened: root.updateStateView()
+        onOpened: {
+            root.updateStateView()
+            Qt.callLater(root.focusSelectedDependency)
+        }
 
         contentItem: StateView {
             id: diagnosticsState
@@ -143,6 +175,7 @@ Item {
                     }
 
                     ListView {
+                        id: dependencyList
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         clip: true
@@ -155,8 +188,10 @@ Item {
                             height: 78
                             radius: 7
                             color: "transparent"
-                            border.color: "transparent"
-                            border.width: 1
+                            border.color: modelData.id === root.focusedDependencyId
+                                          ? diagnosticsDialog.palette.highlight
+                                          : "transparent"
+                            border.width: modelData.id === root.focusedDependencyId ? 2 : 1
 
                             RowLayout {
                                 anchors.fill: parent
@@ -226,6 +261,15 @@ Item {
                                 }
                             }
                         }
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+                        visible: root.message.length > 0
+                        text: root.message
+                        color: "#dc2626"
+                        font.weight: Font.DemiBold
+                        wrapMode: Text.WordWrap
                     }
                 }
             }

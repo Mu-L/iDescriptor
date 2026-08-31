@@ -72,6 +72,17 @@ enum Availability {
     UnableToCheck,
 }
 
+pub(crate) enum AirPlayRequirement {
+    Ready,
+    NeedsAction {
+        dependency_id: &'static str,
+        reason: &'static str,
+    },
+    UnableToCheck {
+        detail: String,
+    },
+}
+
 #[derive(Clone, Debug)]
 struct DependencyStatus {
     id: &'static str,
@@ -329,6 +340,30 @@ async fn check_dependencies() -> Result<Vec<DependencyStatus>> {
     Ok(Vec::new())
 }
 
+pub(crate) async fn check_airplay_requirement() -> AirPlayRequirement {
+    #[cfg(target_os = "linux")]
+    let (dependency_id, availability) = ("avahi", check_avahi_status().await);
+
+    #[cfg(target_os = "windows")]
+    let (dependency_id, availability) =
+        ("bonjour", windows_service_status("Bonjour Service").await);
+
+    match availability {
+        Availability::Available => AirPlayRequirement::Ready,
+        Availability::AvailableButNotRunning => AirPlayRequirement::NeedsAction {
+            dependency_id,
+            reason: "not_running",
+        },
+        Availability::Unavailable => AirPlayRequirement::NeedsAction {
+            dependency_id,
+            reason: "missing",
+        },
+        Availability::UnableToCheck => AirPlayRequirement::UnableToCheck {
+            detail: format!("Unable to check the {dependency_id} dependency."),
+        },
+    }
+}
+
 async fn install_dependency(dependency_id: &str) -> Result<String> {
     #[cfg(all(target_os = "windows", not(feature = "windows_store")))]
     {
@@ -354,29 +389,7 @@ async fn install_dependency(dependency_id: &str) -> Result<String> {
 
 #[cfg(target_os = "linux")]
 async fn check_linux_dependencies() -> Result<Vec<DependencyStatus>> {
-    #[cfg(feature = "flatpak")]
-    let avahi = match tokio::task::spawn_blocking(|| {
-        cpp!(unsafe [] -> bool as "bool" {
-            return idescriptor_is_avahi_available();
-        })
-    })
-    .await
-    {
-        Ok(true) => Availability::Available,
-        Ok(false) => Availability::AvailableButNotRunning,
-        Err(err) => {
-            warn!("failed to check Avahi over D-Bus: {err}");
-            Availability::UnableToCheck
-        }
-    };
-
-    #[cfg(not(feature = "flatpak"))]
-    let avahi = linux_service_status("avahi-daemon.service", &["avahi-browse", "avahi-daemon"])
-        .await
-        .unwrap_or_else(|err| {
-            warn!("failed to check avahi: {err:#}");
-            Availability::UnableToCheck
-        });
+    let avahi = check_avahi_status().await;
 
     #[cfg(not(feature = "flatpak"))]
     let udev_rules = check_udev_rules_installed().await.unwrap_or_else(|err| {
@@ -388,8 +401,8 @@ async fn check_linux_dependencies() -> Result<Vec<DependencyStatus>> {
     let mut dependencies = vec![DependencyStatus {
         id: "avahi",
         name: "Avahi Daemon",
-        description: "Required for AirPlay and wireless device discovery.",
-        optional: false,
+        description: "Required for AirPlay, optional backend for wireless device discovery.",
+        optional: true,
         availability: avahi,
         action_text: if avahi == Availability::AvailableButNotRunning {
             "Start"
@@ -413,6 +426,33 @@ async fn check_linux_dependencies() -> Result<Vec<DependencyStatus>> {
     });
 
     Ok(dependencies)
+}
+
+#[cfg(target_os = "linux")]
+async fn check_avahi_status() -> Availability {
+    #[cfg(feature = "flatpak")]
+    return match tokio::task::spawn_blocking(|| {
+        cpp!(unsafe [] -> bool as "bool" {
+            return idescriptor_is_avahi_available();
+        })
+    })
+    .await
+    {
+        Ok(true) => Availability::Available,
+        Ok(false) => Availability::AvailableButNotRunning,
+        Err(err) => {
+            warn!("failed to check Avahi over D-Bus: {err}");
+            Availability::UnableToCheck
+        }
+    };
+
+    #[cfg(not(feature = "flatpak"))]
+    return linux_service_status("avahi-daemon.service", &["avahi-browse", "avahi-daemon"])
+        .await
+        .unwrap_or_else(|err| {
+            warn!("failed to check avahi: {err:#}");
+            Availability::UnableToCheck
+        });
 }
 
 #[cfg(all(target_os = "linux", not(feature = "flatpak")))]
@@ -520,16 +560,6 @@ async fn check_windows_dependencies() -> Result<Vec<DependencyStatus>> {
 
     Ok(vec![
         DependencyStatus {
-            id: "bonjour",
-            name: "Bonjour Service",
-            description: "Required for AirPlay, wireless devices and network service discovery.",
-            optional: false,
-            availability: bonjour,
-            action_text: bonjour_action.0,
-            action_mode: bonjour_action.1,
-            documentation_url: bonjour_action.2,
-        },
-        DependencyStatus {
             id: "apple_mobile_device_support",
             name: "Apple Mobile Device Support",
             description: "Required for iOS device communication.",
@@ -538,6 +568,16 @@ async fn check_windows_dependencies() -> Result<Vec<DependencyStatus>> {
             action_text: apple_action.0,
             action_mode: apple_action.1,
             documentation_url: apple_action.2,
+        },
+        DependencyStatus {
+            id: "bonjour",
+            name: "Bonjour Service",
+            description: "Required for AirPlay, optional backend for wireless device discovery.",
+            optional: true,
+            availability: bonjour,
+            action_text: bonjour_action.0,
+            action_mode: bonjour_action.1,
+            documentation_url: bonjour_action.2,
         },
         DependencyStatus {
             id: "winfsp",
