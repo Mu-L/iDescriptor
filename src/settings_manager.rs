@@ -209,6 +209,8 @@ pub struct SettingsManager {
     set_unmount_ifuse_on_exit: qt_method!(fn(&self, enabled: bool)),
     gallery_backend: qt_method!(fn(&self) -> i32),
     set_gallery_backend: qt_method!(fn(&self, backend: i32)),
+    network_discovery_backend: qt_method!(fn(&self) -> QString),
+    set_network_discovery_backend: qt_method!(fn(&self, backend: QString)),
     theme: qt_method!(fn(&self) -> QString),
     set_theme: qt_method!(fn(&self, theme: QString)),
     window_effect: qt_method!(fn(&self) -> QString),
@@ -579,6 +581,22 @@ impl SettingsManager {
         write_i32("galleryBackend", backend.clamp(0, 2));
     }
 
+    pub fn network_discovery_backend(&self) -> QString {
+        normalize_network_discovery_backend(read_string("networkDiscoveryBackend", "auto"))
+        // normalize_network_discovery_backend(read_string("networkDiscoveryBackend", "pure_rust"))
+    }
+
+    fn set_network_discovery_backend(&self, backend: QString) {
+        Self::set_network_discovery_backend_value(backend);
+    }
+
+    pub(crate) fn set_network_discovery_backend_value(backend: QString) {
+        write_string(
+            "networkDiscoveryBackend",
+            normalize_network_discovery_backend(backend),
+        );
+    }
+
     fn theme(&self) -> QString {
         read_string("theme", "system")
     }
@@ -674,6 +692,7 @@ impl SettingsManager {
         self.set_upgrade_to_wireless_on_disconnect(true);
         self.set_unmount_ifuse_on_exit(false);
         self.set_gallery_backend(1);
+        self.set_network_discovery_backend(QString::from("auto"));
         self.set_theme(QString::from("system"));
         self.set_window_effect(QString::from("normal"));
         self.set_language(default_language());
@@ -926,6 +945,19 @@ fn read_string(key: &str, default_value: &str) -> QString {
     cpp!(unsafe [key as "QString", default_value as "QString"] -> QString as "QString" {
         return settings_manager_settings().value(key, default_value).toString();
     })
+}
+
+fn normalize_network_discovery_backend(backend: QString) -> QString {
+    let backend = backend.to_string();
+    let supported = matches!(backend.as_str(), "auto" | "pure_rust")
+        || cfg!(target_os = "linux") && backend == "avahi"
+        || cfg!(any(target_os = "windows", target_os = "macos")) && backend == "bonjour";
+    if supported {
+        QString::from(backend)
+    } else {
+        log::warn!("unsupported saved network discovery backend '{backend}', using auto");
+        QString::from("auto")
+    }
 }
 
 fn normalize_window_effect(effect: QString) -> QString {

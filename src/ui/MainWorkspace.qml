@@ -17,8 +17,7 @@ Item {
         root.selectedDevice ? root.selectedDevice.currentSection : 0
 
     function continueStartup() {
-        if (Qt.platform.os === "osx")
-            NetworkDeviceProvider.startBrowsing()
+        NetworkDeviceProvider.startBrowsing()
 
         Qt.callLater(whatsNewDialog.showIfNeeded)
     }

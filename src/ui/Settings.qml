@@ -47,6 +47,7 @@ DefaultWindow {
     property bool upgrade_to_wireless_on_disconnect: true
     property int connection_timeout: 30
     property int gallery_backend: 1
+    property string network_discovery_backend: "auto"
     property string window_effect: "normal"
     property string default_jailbroken_root_password: "alpine"
     property int airplay_fps: 60
@@ -147,6 +148,7 @@ DefaultWindow {
         upgrade_to_wireless_on_disconnect = backendValue("upgrade_to_wireless_on_disconnect", true)
         connection_timeout = backendValue("connection_timeout", 30)
         gallery_backend = normalizeGalleryBackend(backendValue("gallery_backend", 1))
+        network_discovery_backend = backendValue("network_discovery_backend", "auto")
         window_effect = backendValue("window_effect", "normal")
         default_jailbroken_root_password = backendValue("default_jailbroken_root_password", "alpine")
         airplay_fps = backendValue("airplay_fps", 60)
@@ -178,6 +180,7 @@ DefaultWindow {
         callBackend("set_upgrade_to_wireless_on_disconnect", upgrade_to_wireless_on_disconnect)
         callBackend("set_connection_timeout", connection_timeout)
         callBackend("set_gallery_backend", gallery_backend)
+        NetworkDeviceProvider.set_backend(network_discovery_backend)
         callBackend("set_window_effect", window_effect)
         callBackend("set_default_jailbroken_root_password", default_jailbroken_root_password)
         callBackend("set_airplay_fps", airplay_fps)
@@ -294,6 +297,41 @@ DefaultWindow {
                         Button {
                             text: qsTr("Browse")
                             onClicked: downloadPathDialog.open()
+                        }
+                    }
+
+                    RowLayout {
+                        Layout.fillWidth: true
+                        spacing: 10
+
+                        Label {
+                            text: qsTr("Network discovery")
+                            Layout.preferredWidth: 175
+                        }
+
+                        ComboBox {
+                            Layout.fillWidth: true
+                            textRole: "label"
+                            valueRole: "value"
+                            model: {
+                                const labels = {
+                                    "auto": qsTr("Automatic"),
+                                    "pure_rust": qsTr("Built-in"),
+                                    "avahi": qsTr("Avahi"),
+                                    "bonjour": qsTr("Bonjour")
+                                }
+                                const choices = []
+                                for (const value of NetworkDeviceProvider.available_backends)
+                                    choices.push({ value: value, label: labels[value] })
+                                return choices
+                            }
+                            currentIndex: Math.max(0, indexOfValue(root.network_discovery_backend))
+                            ToolTip.visible: hovered
+                            ToolTip.text: qsTr("Choose how devices are discovered on the local network.")
+                            onActivated: {
+                                root.network_discovery_backend = currentValue
+                                root.markDirty(false)
+                            }
                         }
                     }
 

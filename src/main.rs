@@ -41,6 +41,7 @@ pub mod jailbroken;
 pub mod list_model;
 pub mod media_streamer;
 pub mod native;
+pub mod network_device_provider;
 pub mod platform;
 pub mod qml_image;
 pub mod qml_utils;
@@ -234,6 +235,7 @@ fn main() {
 
     let settings_manager_impl = settings_manager::SettingsManager::default();
     let initial_language = settings_manager_impl.language();
+    let network_discovery_backend = settings_manager_impl.network_discovery_backend();
     let z_linux_window_enabled =
         cfg!(target_os = "linux") && settings_manager_impl.z_linux_window();
     qml_utils::QmlUtils::apply_language_to_engine(engine_ptr, initial_language);
@@ -292,6 +294,14 @@ fn main() {
     engine.set_object_property(
         "StatusWindowController".into(),
         status_window_controller.pinned(),
+    );
+
+    let network_device_provider = QObjectBox::new(
+        network_device_provider::NetworkDeviceProvider::new(network_discovery_backend),
+    );
+    engine.set_object_property(
+        "NetworkDeviceProvider".into(),
+        network_device_provider.pinned(),
     );
 
     native::initialize_engine(&mut engine);

@@ -59,21 +59,6 @@ pkg_check_modules(PLIST   REQUIRED IMPORTED_TARGET libplist-2.0)
 # ---------------------------------------------------------------------------
 # Platform-specific service discovery
 # ---------------------------------------------------------------------------
-if(APPLE)
-    find_library(CORE_SERVICES_FRAMEWORK CoreServices REQUIRED)
-elseif(WIN32)
-    if(DEFINED ENV{BONJOUR_SDK})
-        set(BONJOUR_SDK_DIR "$ENV{BONJOUR_SDK}")
-    else()
-        set(BONJOUR_SDK_DIR "C:/Program Files/Bonjour SDK")
-    endif()
-    if(NOT EXISTS "${BONJOUR_SDK_DIR}/Include/dns_sd.h")
-        message(FATAL_ERROR "Bonjour SDK not found at ${BONJOUR_SDK_DIR}. Set BONJOUR_SDK env var.")
-    endif()
-else()
-    pkg_check_modules(AVAHI        REQUIRED IMPORTED_TARGET avahi-client)
-    pkg_check_modules(AVAHI_COMPAT REQUIRED IMPORTED_TARGET avahi-compat-libdns_sd)
-endif()
 
 # ---------------------------------------------------------------------------
 # uxplay
@@ -86,24 +71,10 @@ endif()
 # ---------------------------------------------------------------------------
 # Sources — per-platform
 # ---------------------------------------------------------------------------
-if(APPLE OR WIN32)
-    set(SERVICE_SOURCES
-        ${CMAKE_CURRENT_SOURCE_DIR}/services/dnssd/dnssd_service.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/services/dnssd/dnssd_service.h
-    )
-else()
-    set(SERVICE_SOURCES
-        ${CMAKE_CURRENT_SOURCE_DIR}/services/avahi/avahi_service.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/services/avahi/avahi_service.h
-    )
-endif()
-
 set(BRIDGE_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/bridge.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/networkdeviceprovider.h
     ${CMAKE_CURRENT_SOURCE_DIR}/systemappearance.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/systemappearance.h
-    ${SERVICE_SOURCES}
 )
 
 #if(APPLE)
@@ -145,15 +116,6 @@ target_link_libraries(cpp_bridge PUBLIC
     playfair
 )
 
-if(APPLE)
-    target_link_libraries(cpp_bridge PUBLIC ${CORE_SERVICES_FRAMEWORK})
-elseif(WIN32)
-    target_include_directories(cpp_bridge PRIVATE "${BONJOUR_SDK_DIR}/Include")
-    target_link_libraries(cpp_bridge PUBLIC "${BONJOUR_SDK_DIR}/Lib/x64/dnssd.lib")
-else()
-    target_link_libraries(cpp_bridge PUBLIC
-        Qt6::DBus
-        PkgConfig::AVAHI
-        PkgConfig::AVAHI_COMPAT
-    )
+if(UNIX AND NOT APPLE)
+    target_link_libraries(cpp_bridge PUBLIC Qt6::DBus)
 endif()

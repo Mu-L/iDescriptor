@@ -27,9 +27,22 @@ Item {
         }
     }
     function normalizeDevice(mac, dev) {
+        const productType = dev.productType ? dev.productType : ""
+        const productVersion = dev.productVersion ? dev.productVersion : ""
+        const isIPhone = productType.startsWith("iPhone")
+        const isIPad = productType.startsWith("iPad")
+        const hasKnownFamily = isIPhone || isIPad
+        const parsedProductType = hasKnownFamily ? QmlUtils.get_device_name(productType) : ""
+
         return {
             mac: mac || dev.macAddress || "",
-            name: dev.name || dev.deviceName || qsTr("Unknown device"),
+            name: dev.name || qsTr("Unknown device"),
+            productType,
+            parsedProductType,
+            productVersion,
+            iconSource: hasKnownFamily
+                        ? QmlUtils.get_device_icon_path(productType)
+                        : "qrc:/resources/icons/unknown.svg",
             address: dev.address || dev.ip || "",
             port: dev.port || "",
             raw: dev,
@@ -319,12 +332,49 @@ Item {
                                             Layout.fillWidth: true
                                             spacing: 4
 
-                                            Label {
+                                            Image {
+                                                id: deviceIcon
+                                                Layout.preferredWidth: 30
+                                                Layout.preferredHeight: 40
+                                                source: iconSource
+                                                fillMode: Image.PreserveAspectFit
+                                                smooth: true
+                                                mipmap: true
+                                            }
+
+
+                                            RowLayout {
                                                 Layout.fillWidth: true
                                                 Layout.minimumWidth: 0
-                                                text: name
-                                                wrapMode: Text.NoWrap
-                                                elide: Text.ElideRight
+
+                                                Label {
+                                                    text: name
+                                                    wrapMode: Text.NoWrap
+                                                    elide: Text.ElideRight
+                                                }
+
+                                                Rectangle {
+                                                    visible: !!parsedProductType
+                                                    implicitWidth: productTypeLabel.implicitWidth + 16
+                                                    implicitHeight: productTypeLabel.implicitHeight + 8
+                                                    radius: implicitHeight / 2
+                                                    color: productVersion ? App.Theme.selectionSoft : App.Theme.softBg
+                                                    border.color: productVersion ? App.Theme.selectionStroke : App.Theme.separator
+                                                    border.width: 1
+
+                                                    Label {
+                                                        id: productTypeLabel
+                                                        anchors.centerIn: parent
+                                                        text: parsedProductType
+                                                        color: parsedProductType ? App.Theme.accent : App.Theme.textMuted
+                                                        font.pointSize: 9
+                                                        font.weight: Font.Medium
+                                                    }
+                                                }
+
+                                                Item {
+                                                    Layout.fillWidth: true
+                                                }
                                             }
 
                                             ToolButton {
@@ -355,11 +405,19 @@ Item {
                                             spacing: 12
 
                                             Label {
+                                                text: productVersion ? `iOS: ${productVersion}`
+                                                                        : qsTr("iOS unavailable")
+                                                font.pointSize: 9
+                                                font.weight: Font.Medium
+                                            }
+
+                                            Label {
                                                 Layout.fillWidth: true
                                                 Layout.minimumWidth: 0
                                                 text: qsTr("IP: %1").arg(address || "-")
                                                 elide: Text.ElideRight
-                                                opacity: 0.8
+                                                font.pointSize: 9
+                                                font.weight: Font.Medium
                                             }
 
                                             Button {
@@ -380,7 +438,6 @@ Item {
                                         }
                                     }
                                 }
-
 
                                 FileDialog {
                                     id: pairingFileDialog

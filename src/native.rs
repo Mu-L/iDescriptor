@@ -23,7 +23,6 @@ cpp! {{
     #include <QMessageBox>
 
     #include "src/live_reload.cpp"
-    #include "src/native/networkdeviceprovider.h"
     #include "src/native/systemappearance.h"
 }}
 
@@ -80,6 +79,17 @@ pub fn show_settings_reset_message() {
     });
 }
 
+pub fn local_network_privacy_required() -> bool {
+    cpp!(unsafe [] -> bool as "bool" {
+        #ifdef Q_OS_MACOS
+            return QOperatingSystemVersion::current()
+                >= QOperatingSystemVersion(QOperatingSystemVersion::MacOS, 15);
+        #else
+            return false;
+        #endif
+    })
+}
+
 #[cfg(target_os = "windows")]
 pub fn set_default_font() {
     cpp!(unsafe [] {
@@ -118,10 +128,6 @@ pub fn initialize_engine(engine: &mut QmlEngine) {
             s_fileSelector = new QQmlFileSelector(engine_ptr, engine_ptr);
         }
 
-
-        qmlRegisterSingletonInstance(
-            "iDescriptor", 1, 0, "NetworkDeviceProvider",
-            NetworkDeviceProvider::sharedInstance());
 
         static SystemAppearance* s_systemAppearance = nullptr;
         if (!s_systemAppearance) {

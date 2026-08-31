@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2025-2026 Uncore <https://github.com/uncor3>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-use crate::device_db;
+use crate::{device_db, utils};
 use anyhow::{Result, anyhow};
 use cpp::cpp;
 use log::{debug, info, warn};
@@ -36,6 +36,7 @@ pub struct QmlUtils {
     setup_tool_window: qt_method!(fn(&self, win: QJSValue)),
     setup_main_window: qt_method!(fn(&self, win: QJSValue)),
     get_device_name: qt_method!(fn(&self, product_type: QString) -> QString),
+    get_device_icon_path: qt_method!(fn(&self, product_type: QString) -> QString),
 }
 
 impl QmlUtils {
@@ -220,6 +221,10 @@ impl QmlUtils {
                 .unwrap_or(&device_db::UNKNOWN_DEVICE)
                 .marketing_name,
         )
+    }
+
+    fn get_device_icon_path(&self, product_type: QString) -> QString {
+        QString::from(utils::device_icon_path(&product_type.to_string()))
     }
 }
 

@@ -29,10 +29,6 @@ AnimatedDialog {
     }
 
     function platformDoneText() {
-        if (Qt.platform.os === "windows")
-            return qsTr("You can now unplug the device. iDescriptor will connect to it automatically if Bonjour is enabled and running. (requires iOS 14 or later)")
-        if (Qt.platform.os === "linux")
-            return qsTr("You can now unplug the device. iDescriptor will connect to it automatically if Avahi is enabled and running. (requires iOS 14 or later)")
         return qsTr("You can now unplug the device. iDescriptor will connect to it automatically. (requires iOS 14 or later)")
     }
 

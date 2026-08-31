@@ -18,27 +18,23 @@ fn main() {
     println!("cargo:rerun-if-changed=lib/uxplay/uxplay.cpp");
     println!("cargo:rerun-if-changed=src/native/bridge.cpp");
     println!("cargo:rerun-if-changed=src/native/include/bridge.h");
-    println!("cargo:rerun-if-changed=src/native/networkdeviceprovider.h");
     println!("cargo:rerun-if-changed=src/native/systemappearance.cpp");
     println!("cargo:rerun-if-changed=src/native/systemappearance.h");
     println!("cargo:rerun-if-changed=src/native/CMakeLists.txt");
     println!("cargo:rerun-if-changed=packaging/shared/resources/app-icon/icon.ico");
+    println!("cargo:rerun-if-changed=packaging/shared/resources/app-icon/icon.png");
     println!("cargo:rerun-if-changed=packaging/windows/idescriptor.rc");
 
     if target_os == "macos" {
         println!("cargo:rerun-if-changed=src/native/platform/macos/macos.h");
         println!("cargo:rerun-if-changed=src/native/platform/macos/macos.mm");
     }
-    if target_os == "macos" || target_os == "windows" {
-        println!("cargo:rerun-if-changed=src/native/services/dnssd/dnssd_service.h");
-        println!("cargo:rerun-if-changed=src/native/services/dnssd/dnssd_service.cpp");
-    } else {
-        println!("cargo:rerun-if-changed=src/native/services/avahi/avahi_service.h");
-        println!("cargo:rerun-if-changed=src/native/services/avahi/avahi_service.cpp");
-    }
 
     let qt_include_path = env::var("DEP_QT_INCLUDE_PATH").unwrap();
     let qt_library_path = env::var("DEP_QT_LIBRARY_PATH").unwrap();
+    let qt_prefix_path = Path::new(&qt_library_path)
+        .parent()
+        .unwrap_or_else(|| Path::new(&qt_library_path));
     let qt_version = env::var("DEP_QT_VERSION").unwrap();
     let flatpak_build = env::var_os("CARGO_FEATURE_FLATPAK").is_some();
     let appimage_build = target_os == "linux" && env::var_os("CARGO_FEATURE_APPIMAGE").is_some();
@@ -62,7 +58,7 @@ fn main() {
     cmake_config
         .build_target("cpp_bridge")
         .define("CMAKE_BUILD_TYPE", "Debug")
-        .define("CMAKE_PREFIX_PATH", &qt_library_path)
+        .define("CMAKE_PREFIX_PATH", qt_prefix_path)
         .define(
             "IDESCRIPTOR_APPIMAGE_BUILD",
             if appimage_build { "ON" } else { "OFF" },
@@ -196,12 +192,6 @@ fn main() {
         embed_resource::compile("packaging/windows/idescriptor.rc", embed_resource::NONE)
             .manifest_optional()
             .expect("failed to compile Windows executable resources");
-
-        // need to include Bonjour SDK headers for dnssd.h
-        let bonjour_sdk = env::var("BONJOUR_SDK")
-            .map(PathBuf::from)
-            .unwrap_or_else(|_| PathBuf::from("C:/Program Files/Bonjour SDK"));
-        config.include(bonjour_sdk.join("Include"));
     }
 
     config.include(&qt_include_path).build("src/main.rs");
@@ -222,10 +212,6 @@ fn main() {
     pkg_config::Config::new().probe("gobject-2.0").unwrap();
 
     if target_os == "linux" {
-        pkg_config::Config::new().probe("avahi-client").unwrap();
-        pkg_config::Config::new()
-            .probe("avahi-compat-libdns_sd")
-            .unwrap();
         pkg_config::Config::new().probe("Qt6DBus").unwrap();
     }
 
@@ -260,17 +246,6 @@ fn main() {
         }
     } else {
         // pkg_config::Config::new().probe("Qt6Core").unwrap();
-    }
-
-    // Windows: Bonjour
-    if target_os == "windows" {
-        let bonjour_sdk = env::var("BONJOUR_SDK")
-            .map(PathBuf::from)
-            .unwrap_or_else(|_| PathBuf::from("C:/Program Files/Bonjour SDK"));
-        println!(
-            "cargo:rustc-link-arg={}",
-            bonjour_sdk.join("Lib/x64/dnssd.lib").display()
-        );
     }
 }
 
