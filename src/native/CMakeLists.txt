@@ -3,7 +3,7 @@ project(cpp_bridge CXX C)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-option(IDESCRIPTOR_APPIMAGE_BUILD "Build iDescriptor for AppImage" OFF)
+
 
 # ---------------------------------------------------------------------------
 # Package manager hints
@@ -15,9 +15,7 @@ elseif(APPLE)
     set(ENV{PKG_CONFIG_PATH} "/usr/local/lib/pkgconfig:$ENV{PKG_CONFIG_PATH}")
 else()
     set(ENV{PKG_CONFIG_PATH} "$ENV{PKG_CONFIG_PATH}:/usr/local/lib/pkgconfig")
-    # no need for x11 deps on Linux/Unix
-    # this var is respected by uxplay
-    set(NO_X11_DEPS ON)
+
 endif()
 
 find_package(PkgConfig REQUIRED)
@@ -49,24 +47,15 @@ pkg_check_modules(GST_VIDEO REQUIRED IMPORTED_TARGET gstreamer-video-1.0)
 pkg_check_modules(GST_AUDIO REQUIRED IMPORTED_TARGET gstreamer-audio-1.0)
 
 # ---------------------------------------------------------------------------
-# glib / gobject / openssl / plist
+# glib / gobject
 # ---------------------------------------------------------------------------
 pkg_check_modules(GLIB    REQUIRED IMPORTED_TARGET glib-2.0)
 pkg_check_modules(GOBJECT REQUIRED IMPORTED_TARGET gobject-2.0)
-pkg_check_modules(OPENSSL REQUIRED IMPORTED_TARGET openssl)
-pkg_check_modules(PLIST   REQUIRED IMPORTED_TARGET libplist-2.0)
 
 # ---------------------------------------------------------------------------
 # Platform-specific service discovery
 # ---------------------------------------------------------------------------
 
-# ---------------------------------------------------------------------------
-# uxplay
-# ---------------------------------------------------------------------------
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../lib/uxplay uxplay_build)
-if(IDESCRIPTOR_APPIMAGE_BUILD)
-    target_compile_definitions(uxplay PRIVATE IDESCRIPTOR_APPIMAGE_BUILD=1)
-endif()
 
 # ---------------------------------------------------------------------------
 # Sources — per-platform
@@ -107,13 +96,6 @@ target_link_libraries(cpp_bridge PUBLIC
     PkgConfig::GST_AUDIO
     PkgConfig::GLIB
     PkgConfig::GOBJECT
-    PkgConfig::OPENSSL
-    PkgConfig::PLIST
-    uxplay
-    renderers
-    airplay
-    llhttp
-    playfair
 )
 
 if(UNIX AND NOT APPLE)

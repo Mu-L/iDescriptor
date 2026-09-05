@@ -31,8 +31,7 @@ ToolWindow {
     property string clientModel: ""
     property string clientDeviceId: ""
     property string parsedModel: ""
-    property string pendingDependencyId: ""
-    property string pendingDiagnosticsMessage: ""
+    property int receiverPort: 0
     readonly property real minimumDisplayScale: 0.5
     readonly property real maximumDisplayScale: 3.0
 
@@ -70,7 +69,7 @@ ToolWindow {
     function startAirPlay() {
         root.serverRunning = false
         stateView.viewState = StateView.State.Loading
-        AirplayImp.check_requirements()
+        root.startBackend()
     }
 
     function startBackend() {
@@ -81,19 +80,9 @@ ToolWindow {
             return
         }
 
-        root.serverRunning = true
-        stateView.viewState = StateView.State.Content
-        tutorialLoadTimer.start()
+        root.serverRunning = false
     }
 
-    function openDependencyDiagnostics(dependencyId, message) {
-        if (diagnosticsLoader.status === Loader.Ready) {
-            diagnosticsLoader.item.openDiagnosticsFor(dependencyId, message)
-        } else {
-            root.pendingDependencyId = dependencyId
-            root.pendingDiagnosticsMessage = message
-        }
-    }
 
     Component.onCompleted: {
         App.Settings.loadSettings()
@@ -108,7 +97,7 @@ ToolWindow {
     Connections {
         target: AirplayImp
 
-        function onConnection_change(connected) {
+        function onConnectionChange(connected) {
             console.log("AirPlay connection change:", connected)
             root.clientConnected = connected
             if (connected) {
@@ -131,30 +120,11 @@ ToolWindow {
             root.clientDeviceId = device_id
         }
 
-        function onRequirementsChecked(ready, dependency_id, reason, detail) {
-            if (ready) {
-                root.startBackend()
-                return
-            }
-
-            root.serverRunning = false
-            let requirementMessage
-            if (reason === "not_running") {
-                requirementMessage = dependency_id === "bonjour"
-                        ? qsTr("Bonjour must be running before AirPlay can start.")
-                        : qsTr("Avahi must be running before AirPlay can start.")
-            } else if (reason === "missing") {
-                requirementMessage = dependency_id === "bonjour"
-                        ? qsTr("Bonjour must be installed before AirPlay can start.")
-                        : qsTr("Avahi must be installed before AirPlay can start.")
-            } else {
-                requirementMessage = qsTr("Unable to check AirPlay requirements: %1").arg(detail)
-            }
-            stateView.errorText = requirementMessage
-            stateView.viewState = StateView.State.Error
-
-            if (dependency_id.length > 0)
-                root.openDependencyDiagnostics(dependency_id, requirementMessage)
+        function onServerReady(port) {
+            root.receiverPort = port
+            root.serverRunning = true
+            stateView.viewState = StateView.State.Content
+            tutorialLoadTimer.start()
         }
 
         function onBackendFailed(code, detail) {
@@ -164,22 +134,6 @@ ToolWindow {
         }
     }
 
-    Loader {
-        id: diagnosticsLoader
-        width: 0
-        height: 0
-        sourceComponent: App.Diagnose {
-            autoCheck: false
-        }
-        onLoaded: {
-            if (root.pendingDependencyId.length > 0) {
-                item.openDiagnosticsFor(root.pendingDependencyId,
-                                        root.pendingDiagnosticsMessage)
-                root.pendingDependencyId = ""
-                root.pendingDiagnosticsMessage = ""
-            }
-        }
-    }
 
     Timer {
         id: initTimer
@@ -301,7 +255,7 @@ ToolWindow {
 
                     Label {
                         Layout.fillWidth: true
-                        text: qsTr("Open Control Center on your device, choose Screen Mirroring, then select iDescriptor@UxPlay.")
+                        text: qsTr("Open Control Center on your device, choose Screen Mirroring, then select iDescriptor.")
                         wrapMode: Text.WordWrap
                         horizontalAlignment: Text.AlignHCenter
                         color: palette.text
@@ -528,8 +482,8 @@ ToolWindow {
             Repeater {
                 model: [
                     {
-                        "label": qsTr("Launch arguments"),
-                        "value": AirplayImp.launch_arguments().join(" ")
+                        "label": qsTr("Receiver port"),
+                        "value": root.receiverPort > 0 ? root.receiverPort.toString() : qsTr("Starting…")
                     },
                     {
                         "label": qsTr("Device name"),

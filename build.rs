@@ -14,8 +14,7 @@ fn main() {
     println!("cargo:rerun-if-env-changed=IDESCRIPTOR_PACKAGE_MANAGER_MESSAGE");
 
     println!("cargo:rerun-if-changed=src/live_reload.cpp");
-    println!("cargo:rerun-if-changed=lib/uxplay/uxplay.h");
-    println!("cargo:rerun-if-changed=lib/uxplay/uxplay.cpp");
+
     println!("cargo:rerun-if-changed=src/native/bridge.cpp");
     println!("cargo:rerun-if-changed=src/native/include/bridge.h");
     println!("cargo:rerun-if-changed=src/native/systemappearance.cpp");
@@ -32,9 +31,7 @@ fn main() {
 
     let qt_include_path = env::var("DEP_QT_INCLUDE_PATH").unwrap();
     let qt_library_path = env::var("DEP_QT_LIBRARY_PATH").unwrap();
-    let qt_prefix_path = Path::new(&qt_library_path)
-        .parent()
-        .unwrap_or_else(|| Path::new(&qt_library_path));
+
     let qt_version = env::var("DEP_QT_VERSION").unwrap();
     let flatpak_build = env::var_os("CARGO_FEATURE_FLATPAK").is_some();
     let appimage_build = target_os == "linux" && env::var_os("CARGO_FEATURE_APPIMAGE").is_some();
@@ -57,8 +54,7 @@ fn main() {
     let mut cmake_config = cmake::Config::new("src/native");
     cmake_config
         .build_target("cpp_bridge")
-        .define("CMAKE_BUILD_TYPE", "Debug")
-        .define("CMAKE_PREFIX_PATH", qt_prefix_path)
+        .define("CMAKE_PREFIX_PATH", &qt_library_path)
         .define(
             "IDESCRIPTOR_APPIMAGE_BUILD",
             if appimage_build { "ON" } else { "OFF" },
@@ -70,20 +66,6 @@ fn main() {
     // cpp_bridge
     println!("cargo:rustc-link-search=native={}", build_dir.display());
 
-    // uxplay sub-libs built inside the cmake tree
-    for sub in &[
-        "uxplay_build",
-        "uxplay_build/lib",
-        "uxplay_build/renderers",
-        "uxplay_build/lib/llhttp",
-        "uxplay_build/lib/playfair",
-    ] {
-        println!(
-            "cargo:rustc-link-search=native={}/{}",
-            build_dir.display(),
-            sub
-        );
-    }
     // ------------------------------------------------------------------
     // cpp_build — scans the crate root and compiles its cpp! macro modules
     // ------------------------------------------------------------------
@@ -196,17 +178,8 @@ fn main() {
 
     config.include(&qt_include_path).build("src/main.rs");
 
-    // Static libraries must be emitted after cpp_build's generated archive and
-    // in dependency order: cpp_bridge references uxplay/renderers/airplay.
     println!("cargo:rustc-link-lib=static=cpp_bridge");
-    for lib in &["uxplay", "renderers", "airplay", "llhttp", "playfair"] {
-        println!("cargo:rustc-link-lib=static={}", lib);
-    }
 
-    // These are deps of the static libs (uxplay/airplay/cpp_bridge) that the
-    // Rust linker must resolve explicitly since static libs don't embed deps.
-    pkg_config::Config::new().probe("openssl").unwrap();
-    pkg_config::Config::new().probe("libplist-2.0").unwrap();
     pkg_config::Config::new().probe("libheif").unwrap();
     pkg_config::Config::new().probe("glib-2.0").unwrap();
     pkg_config::Config::new().probe("gobject-2.0").unwrap();

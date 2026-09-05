@@ -21,6 +21,7 @@ cpp! {{
     #include <QQmlFileSelector>
     #include <QIcon>
     #include <QMessageBox>
+    #include <QOperatingSystemVersion>
 
     #include "src/live_reload.cpp"
     #include "src/native/systemappearance.h"
@@ -47,7 +48,7 @@ pub fn configure_application(application_version: QString) {
             #endif
         #endif
         #ifndef Q_OS_LINUX
-            // uxplay now uses qml6glsink so we have to use opengl
+            // rsplay uses qml6glsink so we have to use opengl
             // Linux is fine with QT_QPA_PLATFORM=xcb
             QQuickWindow::setGraphicsApi(QSGRendererInterface::OpenGL);
         #endif

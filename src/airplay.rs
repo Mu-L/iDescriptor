@@ -5,84 +5,18 @@ use crate::{
     RUNTIME,
     qt_threading::{QtThread, QtThreading},
 };
-use log::{debug, error};
+use log::{debug, error, info};
 use macros::QtThreading;
 use qmetaobject::prelude::*;
-use qttypes::QStringList;
+use std::sync::{
+    Arc, Mutex,
+    atomic::{AtomicU64, Ordering},
+};
+use tokio::sync::mpsc;
+use tokio_util::sync::CancellationToken;
 
-use once_cell::sync::OnceCell;
-use std::ffi::{CStr, CString};
-use std::os::raw::c_void;
-use std::os::raw::{c_char, c_int};
-use std::sync::atomic::AtomicUsize;
-use std::sync::atomic::Ordering;
-
-static VIDEO_ITEM_PTR: AtomicUsize = AtomicUsize::new(0);
-static AIRPLAY_QT_THREAD: OnceCell<QtThread<Airplay>> = OnceCell::new();
-
-unsafe extern "C" {
-    fn init_uxplay(argc: c_int, argv: *mut *mut c_char) -> c_int;
-    fn uxplay_cleanup();
-    fn uxplay_set_audio_volume(volume: f64);
-
-    fn set_uxplay_gl_callbacks(
-        connection_cb: extern "C" fn(bool),
-        get_video_item_cb: extern "C" fn() -> *mut c_void,
-        connection_details_cb: extern "C" fn(*const c_char, *const c_char, *const c_char),
-    );
-}
-
-extern "C" fn rust_uxplay_get_video_item() -> *mut c_void {
-    VIDEO_ITEM_PTR.load(Ordering::Acquire) as *mut c_void
-}
-
-extern "C" fn rust_uxplay_connection_cb(connected: bool) {
-    debug!("AirPlay connection changed: {}", connected);
-    if let Some(q_thread) = AIRPLAY_QT_THREAD.get() {
-        q_thread.queue(move |t| {
-            t.connection_change(connected);
-        });
-    }
-}
-
-extern "C" fn rust_uxplay_connection_details_cb(
-    device_id: *const c_char,
-    model: *const c_char,
-    name: *const c_char,
-) {
-    let copy_string = |value: *const c_char| {
-        if value.is_null() {
-            String::new()
-        } else {
-            unsafe { CStr::from_ptr(value) }
-                .to_string_lossy()
-                .into_owned()
-        }
-    };
-    let device_id = copy_string(device_id);
-    let model = copy_string(model);
-    let parsed_model = crate::device_db::find_by_identifier(&model);
-    let name = copy_string(name);
-
-    debug!(
-        "AirPlay client details received: name={:?}, model={:?}, device_id={:?}",
-        name, model, device_id
-    );
-    if let Some(q_thread) = AIRPLAY_QT_THREAD.get() {
-        q_thread.queue(move |t| {
-            t.connectionDetailsChanged(
-                QString::from(name),
-                QString::from(model),
-                QString::from(
-                    parsed_model
-                        .unwrap_or(&crate::device_db::UNKNOWN_DEVICE)
-                        .display_name,
-                ),
-                QString::from(device_id),
-            );
-        });
-    }
-}
+static AIRPLAY_QT_THREAD: once_cell::sync::OnceCell<QtThread<Airplay>> =
+    once_cell::sync::OnceCell::new();
 
 #[allow(non_snake_case)]
 #[derive(QObject, Default, QtThreading)]
@@ -92,102 +26,95 @@ pub struct Airplay {
     cleanup: qt_method!(fn(&self)),
     load_gst_gl: qt_method!(fn(&self) -> bool),
     set_master_volume: qt_method!(fn(&self, volume: f64)),
-    launch_arguments: qt_method!(fn(&self) -> QStringList),
-    check_requirements: qt_method!(fn(&self)),
-    connection_change: qt_signal!(connected: bool),
+    connectionChange: qt_signal!(connected: bool),
     connectionDetailsChanged: qt_signal!(name: QString, model: QString, parsed_model: QString, device_id: QString),
-    requirementsChecked: qt_signal!(ready: bool, dependency_id: QString, reason: QString, detail: QString),
+    serverReady: qt_signal!(port: i32),
     backendFailed: qt_signal!(code: i32, detail: QString),
+    cancellation: Mutex<Option<CancellationToken>>,
+    playback: Mutex<Option<Arc<rsplay::GstreamerPlayback>>>,
+    generation: Arc<AtomicU64>,
 }
 
 impl Airplay {
-    fn check_requirements(&self) {
-        let q_thread = self.qt_thread();
-        RUNTIME.spawn(async move {
-            #[cfg(not(target_os = "macos"))]
-            let result = crate::diagnose::check_airplay_requirement().await;
-
-            q_thread.queue(move |t| {
-                #[cfg(target_os = "macos")]
-                t.requirementsChecked(
-                    true,
-                    QString::default(),
-                    QString::default(),
-                    QString::default(),
-                );
-
-                #[cfg(not(target_os = "macos"))]
-                match result {
-                    crate::diagnose::AirPlayRequirement::Ready => t.requirementsChecked(
-                        true,
-                        QString::default(),
-                        QString::default(),
-                        QString::default(),
-                    ),
-                    crate::diagnose::AirPlayRequirement::NeedsAction {
-                        dependency_id,
-                        reason,
-                    } => t.requirementsChecked(
-                        false,
-                        QString::from(dependency_id),
-                        QString::from(reason),
-                        QString::default(),
-                    ),
-                    crate::diagnose::AirPlayRequirement::UnableToCheck { detail } => t
-                        .requirementsChecked(
-                            false,
-                            QString::default(),
-                            QString::from("unable_to_check"),
-                            QString::from(detail),
-                        ),
-                }
-            });
-        });
-    }
-
     fn load_gst_gl(&self) -> bool {
-        crate::utils::force_load_gst_gl()
+        rsplay::GstreamerPlayback::qml_sink_available()
     }
 
     fn init(&self, video_item: QVariant) -> bool {
         AIRPLAY_QT_THREAD.get_or_init(|| self.qt_thread());
+        self.cleanup();
 
-        let ptr = crate::utils::qvariant_to_ptr(video_item);
+        let video_item = crate::utils::qvariant_to_ptr(video_item);
+        let (events, event_receiver) = mpsc::unbounded_channel();
+        //clone avoible?
+        let playback = match rsplay::GstreamerPlayback::new(video_item, events.clone()) {
+            Ok(playback) => playback,
+            Err(err) => {
+                error!("Failed to initialize rsplay playback: {err:#}");
+                self.backendFailed(-1, QString::from(err.to_string()));
+                return false;
+            }
+        };
+        let pairing_store = match rsplay::PersistentPairingStore::open_default() {
+            Ok(store) => Arc::new(store),
+            Err(err) => {
+                error!("Failed to open the rsplay pairing store: {err:#}");
+                self.backendFailed(-1, QString::from(err.to_string()));
+                return false;
+            }
+        };
+        let receiver = match rsplay::Receiver::new(
+            rsplay::ReceiverConfig {
+                name: "iDescriptor".to_owned(),
+                device_id: pairing_store.device_id(),
+                port: 0,
+                max_clients: 1,
+            },
+            playback.clone(),
+            pairing_store,
+            events,
+        ) {
+            Ok(receiver) => receiver,
+            Err(err) => {
+                error!("Failed to configure rsplay: {err:#}");
+                self.backendFailed(-1, QString::from(err.to_string()));
+                return false;
+            }
+        };
 
-        VIDEO_ITEM_PTR.store(ptr as usize, Ordering::Release);
-        unsafe {
-            set_uxplay_gl_callbacks(
-                rust_uxplay_connection_cb,
-                rust_uxplay_get_video_item,
-                rust_uxplay_connection_details_cb,
-            );
-        }
+        let cancellation = CancellationToken::new();
+        let generation = self.generation.fetch_add(1, Ordering::AcqRel) + 1;
+        *self
+            .cancellation
+            .lock()
+            .expect("AirPlay cancellation lock poisoned") = Some(cancellation.clone());
+        *self
+            .playback
+            .lock()
+            .expect("AirPlay playback lock poisoned") = Some(playback);
 
-        std::thread::spawn(|| {
-            let args = crate::settings_manager::airplay_uxplay_args();
-            debug!("Starting uxplay with args: {:?}", args);
+        let q_thread = AIRPLAY_QT_THREAD
+            .get()
+            .expect("AirPlay Qt thread must be initialized")
+            .clone();
+        let event_generation = self.generation.clone();
+        RUNTIME.spawn(forward_events(
+            event_receiver,
+            q_thread.clone(),
+            event_generation,
+            generation,
+        ));
 
-            let c_strings: Vec<CString> = args
-                .into_iter()
-                .filter_map(|arg| CString::new(arg).ok())
-                .collect();
-            let mut c_args: Vec<*mut c_char> = c_strings
-                .iter()
-                .map(|arg| arg.as_ptr() as *mut c_char)
-                .collect();
-            c_args.push(std::ptr::null_mut());
-
-            let result = unsafe { init_uxplay((c_args.len() - 1) as i32, c_args.as_mut_ptr()) };
-            if result != 0 {
-                error!("uxplay failed with exit code {result}");
-                if let Some(q_thread) = AIRPLAY_QT_THREAD.get() {
+        let run_generation = self.generation.clone();
+        RUNTIME.spawn(async move {
+            info!("Starting rsplay AirPlay receiver");
+            if let Err(err) = receiver.run(cancellation).await {
+                error!("rsplay receiver stopped with an error: {err:#}");
+                if run_generation.load(Ordering::Acquire) == generation {
                     q_thread.queue(move |t| {
-                        t.backendFailed(
-                            result,
-                            QString::from(format!(
-                                "The AirPlay backend exited with code {result}."
-                            )),
-                        );
+                        if run_generation.load(Ordering::Acquire) == generation {
+                            t.backendFailed(-1, QString::from(err.to_string()));
+                        }
                     });
                 }
             }
@@ -196,24 +123,109 @@ impl Airplay {
     }
 
     fn cleanup(&self) {
-        unsafe {
-            uxplay_cleanup();
+        self.generation.fetch_add(1, Ordering::AcqRel);
+        if let Some(cancellation) = self
+            .cancellation
+            .lock()
+            .expect("AirPlay cancellation lock poisoned")
+            .take()
+        {
+            debug!("Stopping rsplay AirPlay receiver");
+            cancellation.cancel();
         }
+        self.playback
+            .lock()
+            .expect("AirPlay playback lock poisoned")
+            .take();
+        self.connectionChange(false);
     }
 
     fn set_master_volume(&self, volume: f64) {
-        let volume = volume.clamp(0.0, 1.0);
-        debug!("Setting AirPlay master volume to {:.0}%", volume * 100.0);
-        unsafe {
-            uxplay_set_audio_volume(volume);
+        let volume = volume.clamp(0.0, 1.0) as f32;
+        debug!("Setting rsplay master volume to {:.0}%", volume * 100.0);
+        if let Some(playback) = self
+            .playback
+            .lock()
+            .expect("AirPlay playback lock poisoned")
+            .as_ref()
+        {
+            playback.set_volume(volume);
         }
     }
+}
 
-    fn launch_arguments(&self) -> QStringList {
-        let mut arguments = QStringList::default();
-        for argument in crate::settings_manager::airplay_uxplay_args() {
-            arguments.push(QString::from(argument));
+async fn forward_events(
+    mut events: mpsc::UnboundedReceiver<rsplay::ReceiverEvent>,
+    q_thread: QtThread<Airplay>,
+    active_generation: Arc<AtomicU64>,
+    generation: u64,
+) {
+    while let Some(event) = events.recv().await {
+        if active_generation.load(Ordering::Acquire) != generation {
+            return;
         }
-        arguments
+
+        match event {
+            rsplay::ReceiverEvent::Ready { port } => q_thread.queue({
+                let active_generation = active_generation.clone();
+                move |t| {
+                    if active_generation.load(Ordering::Acquire) == generation {
+                        t.serverReady(port as i32);
+                    }
+                }
+            }),
+            rsplay::ReceiverEvent::ClientConnected { address } => {
+                debug!("rsplay AirPlay client connected from {address}");
+                q_thread.queue({
+                    let active_generation = active_generation.clone();
+                    move |t| {
+                        if active_generation.load(Ordering::Acquire) == generation {
+                            t.connectionChange(true);
+                        }
+                    }
+                });
+            }
+            rsplay::ReceiverEvent::ClientDetails {
+                device_id,
+                model,
+                name,
+            } => {
+                let parsed_model = crate::device_db::find_by_identifier(&model);
+                q_thread.queue({
+                    let active_generation = active_generation.clone();
+                    move |t| {
+                        if active_generation.load(Ordering::Acquire) == generation {
+                            t.connectionDetailsChanged(
+                                QString::from(name),
+                                QString::from(model),
+                                QString::from(
+                                    parsed_model
+                                        .unwrap_or(&crate::device_db::UNKNOWN_DEVICE)
+                                        .display_name,
+                                ),
+                                QString::from(device_id),
+                            );
+                        }
+                    }
+                });
+            }
+            rsplay::ReceiverEvent::ClientDisconnected => q_thread.queue({
+                let active_generation = active_generation.clone();
+                move |t| {
+                    if active_generation.load(Ordering::Acquire) == generation {
+                        t.connectionChange(false);
+                    }
+                }
+            }),
+            rsplay::ReceiverEvent::Error(detail) => q_thread.queue({
+                let active_generation = active_generation.clone();
+                move |t| {
+                    if active_generation.load(Ordering::Acquire) == generation {
+                        t.backendFailed(-1, QString::from(detail));
+                    }
+                }
+            }),
+            rsplay::ReceiverEvent::Stopped => debug!("rsplay AirPlay receiver stopped"),
+        }
     }
 }
