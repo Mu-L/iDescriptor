@@ -30,6 +30,7 @@ Item {
     property var airplayInstance: null
     property var devDiskImagesInstance: null
     property var wirelessGalleryImportInstance: null
+    property var wiredGalleryImportInstance: null
     property var ifuseInstance: null
     property var networkDevicesInstance: null
     property var backupManagerInstance: null
@@ -228,7 +229,8 @@ Item {
     // 0 Airplayer, 1 SimulateLocation, 2 LiveScreen, 3 QueryMobileGestalt, 4 DeveloperDiskImages,
     // 5 WirelessGalleryImport, 6 iFuse, 7 CableInfo, 8 NetworkDevices, 9 EnableDevMode,
     // 10 Restart, 11 Shutdown, 12 RecoveryMode, 13 EnableWifiConnections, 14 BackupManager,
-    // 15 TransferSpeedTest, 16 Unpair, 17 UnpairAndRemove, 18 DetailedBatteryInfo
+    // 15 TransferSpeedTest, 16 Unpair, 17 UnpairAndRemove, 18 DetailedBatteryInfo,
+    // 19 WiredGalleryImport
     // signal toolClicked(int toolId, bool requiresDevice)
     function toolClicked(toolId, requiresDevice, wirelessNotAllowed) {
         const device = App.DeviceContext.getDevice(currentDeviceUdid)
@@ -426,6 +428,9 @@ Item {
             case 18:
                 createSingletonComp("./tools/BatteryInfo.qml", "batteryInfoInstance", true, { info: device.info })
                 break;
+            case 19:
+                createSingletonComp("./tools/WiredGalleryImport.qml", "wiredGalleryImportInstance", true)
+                break;
             default:
             console.log(`No tool for id ${toolId}`)
         }
@@ -527,6 +532,15 @@ Item {
             description: qsTr("Import photos wirelessly to your iDevice (requires Shortcuts app)"),
             requiresDevice: false,
             iconSource: "qrc:/resources/icons/material-symbols_android-wifi-3-bar-plus.svg",
+            visible: true
+        },
+        {
+            toolId: 19,
+            title: qsTr("Wired Gallery Import"),
+            description: qsTr("Import photos and videos through iDescriptor Companion"),
+            requiresDevice: true,
+            wirelessNotAllowed: true,
+            iconSource: "qrc:/resources/icons/material-symbols_cable-rounded.svg",
             visible: true
         },
         {

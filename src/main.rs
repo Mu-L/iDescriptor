@@ -17,6 +17,7 @@ pub mod afc_services;
 pub mod airplay;
 pub mod apps;
 pub mod backup_manager;
+pub mod companion_protocol;
 pub mod constants;
 pub mod core;
 pub mod dev_imgs;
@@ -60,6 +61,7 @@ pub mod ui_qrc;
 pub mod updater;
 pub mod utils;
 pub mod web_wireless_gallery_import;
+pub mod wired_gallery_import;
 
 pub const IMAGE_LIST_URL: &str = "https://raw.githubusercontent.com/iDescriptor/iDescriptor/refs/heads/main/DeveloperDiskImages.json";
 pub const POSSIBLE_ROOT: &str = "../../../../";
@@ -269,6 +271,9 @@ fn main() {
     let wireless_import =
         QObjectBox::new(web_wireless_gallery_import::WebWirelessGalleryImport::new_with_state());
     engine.set_object_property("WebWirelessGalleryImport".into(), wireless_import.pinned());
+
+    let wired_import = QObjectBox::new(wired_gallery_import::WiredGalleryImport::new_with_state());
+    engine.set_object_property("wiredGalleryImportBackend".into(), wired_import.pinned());
 
     let backup_manager = QObjectBox::new(backup_manager::BackupManager::new_with_state());
     engine.set_object_property("backupManager".into(), backup_manager.pinned());

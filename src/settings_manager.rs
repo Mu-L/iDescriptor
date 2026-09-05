@@ -914,6 +914,20 @@ pub(crate) fn wireless_file_server_port() -> u16 {
     read_i32("wirelessFileServerPort", 8080).clamp(1, u16::MAX as i32) as u16
 }
 
+pub(crate) fn companion_client_instance_id() -> String {
+    let current = read_string("companionClientInstanceID", "").to_string();
+    if uuid::Uuid::parse_str(&current).is_ok() {
+        return current;
+    }
+
+    let generated = uuid::Uuid::new_v4().to_string();
+    write_string(
+        "companionClientInstanceID",
+        QString::from(generated.clone()),
+    );
+    generated
+}
+
 fn write_bool(key: &str, value: bool) {
     let key = QString::from(key);
     cpp!(unsafe [key as "QString", value as "bool"] {
