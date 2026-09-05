@@ -183,7 +183,9 @@ pub async fn insert_device(
         if !current.is_wireless && services.is_wireless {
             log::info!(
                 "Rejecting wireless connection {} for udid {} because USB connection {} is active",
-                services.connection_id, udid, current.connection_id
+                services.connection_id,
+                udid,
+                current.connection_id
             );
             return InsertDeviceResult::Rejected;
         }

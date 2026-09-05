@@ -3,13 +3,6 @@
 
 use crate::qt_threading::QtThreading;
 use crate::{RUNTIME, qvariantmap_insert};
-use macros::QtThreading;
-use qmetaobject::prelude::*;
-use qttypes::{QStringList, QVariantMap};
-use std::collections::HashMap;
-use std::sync::atomic::{AtomicU64, Ordering};
-use std::sync::{Arc, Mutex};
-use std::time::Duration;
 #[cfg(target_os = "linux")]
 use izeroconf::AvahiMdnsBrowser;
 #[cfg(any(target_os = "windows", target_os = "macos"))]
@@ -19,6 +12,13 @@ use izeroconf::{
     BrowserEvent, DeviceMetadataResolution, DiscoveryBackend, PureRustMdnsBrowser,
     ServiceDiscovery, ServiceType,
 };
+use macros::QtThreading;
+use qmetaobject::prelude::*;
+use qttypes::{QStringList, QVariantMap};
+use std::collections::HashMap;
+use std::sync::atomic::{AtomicU64, Ordering};
+use std::sync::{Arc, Mutex};
+use std::time::Duration;
 
 const STATE_LOADING: i32 = 0;
 const STATE_STARTED: i32 = 1;
@@ -98,7 +98,6 @@ struct NetworkDevice {
 impl NetworkDevice {
     fn from_discovery(discovery: &ServiceDiscovery) -> Option<Self> {
         let metadata = discovery.device_metadata().as_ref();
-        println!("{:?}", metadata);
         let txt = discovery.txt().as_ref();
         let instance_name = discovery.name().clone();
         let fallback_mac = instance_name
