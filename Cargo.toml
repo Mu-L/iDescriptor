@@ -59,7 +59,7 @@ hex = "0.4.3"
 irecovery = { version = "0.2.1", features = ["tokio"] }
 lru = "0.18.0"
 zupdater = { path= "lib/zupdater"}
-izeroconf = { path = "/Users/uncore/Desktop/clones/izeroconf/zeroconf", default-features = false, features = ["pure-rust", "native-backend", "apple-mobile-device-metadata"] }
+izeroconf = { git = "https://github.com/uncor3/izeroconf", default-features = false, features = ["pure-rust", "native-backend", "apple-mobile-device-metadata"] }
 rsplay = { path = "lib/rsplay" }
 
 [target.'cfg(any(target_os = "linux", target_os = "windows"))'.dependencies]

@@ -21,15 +21,15 @@ rand = "0.8"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 sha2 = "0.10"
-shairplay = { path = "/Users/uncore/Desktop/clones/shairplay-rust", features = ["video"] }
+shairplay = { git = "https://github.com/iDescriptor/shairplay-rust", features = ["video"] }
 tokio = { version = "1.50.0", features = ["rt", "sync", "time"] }
 tokio-util = { version = "0.7", features = ["rt"] }
 
 [target.'cfg(target_os = "macos")'.dependencies]
-izeroconf = { path = "/Users/uncore/Desktop/clones/izeroconf/zeroconf", default-features = false, features = ["native-backend"] }
+izeroconf = { git = "https://github.com/uncor3/izeroconf", default-features = false, features = ["native-backend"] }
 
 [target.'cfg(not(target_os = "macos"))'.dependencies]
-izeroconf = { path = "/Users/uncore/Desktop/clones/izeroconf/zeroconf", default-features = false, features = ["pure-rust"] }
+izeroconf = { git = "https://github.com/uncor3/izeroconf", default-features = false, features = ["pure-rust"] }
 
 [dev-dependencies]
 tokio = { version = "1.50.0", features = ["macros", "rt-multi-thread", "time"] }
