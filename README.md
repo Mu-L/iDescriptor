@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-    Cross-platform, open-source and free idevice management tool written in Rust <img src="https://rustacean.net/assets/rustacean-orig-noshadow.svg" width="25"> and Qt
+    Privacy-first, open-source and free iDevice management tool written in Rust <img src="https://rustacean.net/assets/rustacean-orig-noshadow.svg" width="25"> and Qt
   <br/>
   <br/>
   <a href="https://github.com/iDescriptor/iDescriptor/blob/main/LICENSE">
@@ -28,7 +28,7 @@
   <a href="https://github.com/iDescriptor/iDescriptor/releases">
     <img src="https://img.shields.io/badge/AppImage-available-brightgreen" alt="AppImage"/>
   </a>
-  <a href="https://aur.archlinux.org/packages/idescriptor-git">
+  <a href="https://aur.archlinux.org/packages/idescriptor">
     <img src="https://img.shields.io/badge/Arch_AUR-available-brightgreen" alt="AppImage"/>
   </a>
   <br/>
@@ -41,14 +41,6 @@
 <br/>
 <br/>
 
-<div align="center">Sponsored by
-  <br/>
-  <a href="https://www.cape.co/"><img width="250" src="./resources/repo/cape.svg"></a>
-  <br/>
-  first-of-its kind private and secure consumer cellular service in the US
-</div>
-</p>
-
 <br/>
 <br/>
 
@@ -60,7 +52,7 @@
   <a href="https://flathub.org/apps/io.github.idescriptor.iDescriptor">
     <img width="150" alt="Get it on Flathub" src="https://flathub.org/api/badge?svg&locale=en"/>
   </a>&nbsp;&nbsp;
-  <a href="https://aur.archlinux.org/packages/idescriptor-git">
+  <a href="https://aur.archlinux.org/packages/idescriptor">
     <img width="180" src="https://img.shields.io/badge/Arch_AUR-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white" alt="Install from AUR"/>
   </a>&nbsp;&nbsp;
   <a href="https://search.nixos.org/packages?channel=unstable&query=idescriptor#show=idescriptor">
@@ -126,8 +118,15 @@ xattr -c ~/Applications/iDescriptor.app
   chmod +x iDescriptor*.AppImage
 ```
 
+- **Arch Linux**: 
 
-- **Arch Linux**: Install from AUR:
+  - Stable release (recommended)
+
+```bash
+  yay -S idescriptor
+```
+
+  - Latest commit (can fail to build):
 
 ```bash
   yay -S idescriptor-git
@@ -320,8 +319,15 @@ Useful if your device does not support AirPlay
     <img src="./resources/repo/tools.png"><br/>
 </p>
 
+## Privacy?
 
-## **Authentication Required** ?
+iDescriptor **does not** collect, store, transmit, or sell any personal data or telemetry. 
+
+That's the whole reason why this app exists.
+
+Read more [here](./PRIVACY.md)
+
+## **Authentication Required**?
 
 You might get this pop-up on any platform this is because this app uses secure backends to retrieve and store your Apple credentials. You can disable this in settings but it is not recommended and not safe for your Apple account. Also if you leave this enabled and sign in you can use the same credentials in ipatool without signing in again.
 
@@ -329,7 +335,7 @@ You might get this pop-up on any platform this is because this app uses secure b
     <img src="./resources/repo/authentication-required.png"><br/>
 </p>
 
-## Sponsors
+## Past Sponsors
 
 ## Cape (Platinum)
 
@@ -337,8 +343,6 @@ You might get this pop-up on any platform this is because this app uses secure b
   <a href="https://www.cape.co/"><img width="405" src="./resources/repo/cape.svg"></a>
   <br/>
   Cape is the first-of-its kind private and secure consumer cellular service in the US,
-
-<a href="https://www.cape.co/get-cape/enroll">Try Cape risk-free for just $30 for your first month.</a> Use code `trycape30` at checkout to apply.
 
 ## Become a Sponsor
 
