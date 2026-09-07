@@ -242,7 +242,7 @@ fn spawn_registrations(
             anyhow!(err.to_string())
         })?;
 
-        services[1].register_with(&event_loop).map_err(|err| {
+        let second_event_loop = services[1].register().map_err(|err| {
             let message = format!("failed to register {}: {err}", advertisements[1].name);
             let _ = events.send(DiscoveryEvent::RegistrationFailed {
                 kind: advertisements[1].kind,
@@ -262,8 +262,18 @@ fn spawn_registrations(
                 cancellation.cancel();
                 return Err(anyhow!(message));
             }
+            if let Err(err) = second_event_loop.poll(POLL_INTERVAL) {
+                let message = format!("mDNS polling failed: {err}");
+                let _ = events.send(DiscoveryEvent::RegistrationFailed {
+                    kind: advertisements[1].kind,
+                    message: message.clone(),
+                });
+                cancellation.cancel();
+                return Err(anyhow!(message));
+            }
         }
 
+        drop(second_event_loop);
         drop(event_loop);
         drop(services);
         for advertisement in &advertisements {
