@@ -122,15 +122,15 @@ xattr -c ~/Applications/iDescriptor.app
 
   - Stable release (recommended)
 
-```bash
-  yay -S idescriptor
-```
+    ```bash
+    yay -S idescriptor
+    ```
 
   - Latest commit (can fail to build)
 
-```bash
-  yay -S idescriptor-git
-```
+    ```bash
+    yay -S idescriptor-git
+    ```
 
 <hr/>
 <br/>
