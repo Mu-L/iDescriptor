@@ -126,7 +126,7 @@ xattr -c ~/Applications/iDescriptor.app
   yay -S idescriptor
 ```
 
-  - Latest commit (can fail to build):
+  - Latest commit (can fail to build)
 
 ```bash
   yay -S idescriptor-git
