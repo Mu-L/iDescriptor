@@ -2,16 +2,7 @@
   ">0.0.0": {
     "sponsors": {
       "platinum": {
-        "members": [
-            {
-              "name": "Cape",
-              "logo": "https://www.cape.co/favicon-128x128.png",
-              "website": "https://cape.co",
-              "description" : "first-of-its kind private and secure consumer cellular service in the US",
-              "bundleId": "co.cape.matrix",
-              "useBundleIdForIcon" : false
-            }
-        ]
+        "members": []
       },
       "gold": {
         "members": []
